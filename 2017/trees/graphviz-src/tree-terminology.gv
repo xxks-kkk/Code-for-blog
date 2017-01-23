@@ -1,0 +1,9 @@
+digraph BST {
+    node [fontname="Arial"];
+    A->B->D->G;
+    D->H;
+    B->E->I;
+    E->J->L;
+    J->M;
+    A->C->F->K;
+}
