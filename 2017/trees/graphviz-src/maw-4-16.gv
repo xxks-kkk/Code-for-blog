@@ -1,0 +1,93 @@
+graph ""
+   {
+#   node [fontsize=10,width=".2", height=".2", margin=0];
+#   graph[fontsize=8];
+   label="MAW 4.16 Show the result of inserting 2,1,4,5,9,3,6,7 into an initially empty AVL tree"
+
+   subgraph cluster01
+   {
+   label="After inserting 2,1,4,5,9"
+   n002 [label="2"];
+   n003[label="1"];
+   n004[label="4"];
+   n005[label="5"];
+   n006[label="9"];
+   n002--n003;
+   n002--n004;
+   n004--n005 [style=dotted];
+   n005--n006;
+   }
+
+   subgraph cluster02
+   {
+   label="After single rotation and inserting 3"
+   n021 [label="1"];
+   n022 [label="2"];
+   n023[label="3"];
+   n024[label="4"];
+   n025[label="5"];
+   n029[label="9"];
+   n022--n021;
+   n022--n025[style=dotted];
+   n025--n024[style=dotted];
+   n024--n023;
+   n025--n029;
+   }
+
+   subgraph cluster03
+   {
+   label="After double rotation"
+   n031 [label="1"];
+   n032 [label="2"];
+   n033[label="3"];
+   n034[label="4"];
+   n035[label="5"];
+   n039[label="9"];
+   n032--n031;
+   n032--n034[style=dotted];
+   n034--n035;
+   n034--n033;
+   n035--n039;
+   }
+
+   subgraph cluster04
+   {
+   label="After single rotation and inserting 6"
+   n041 [label="1"];
+   n042 [label="2"];
+   n043[label="3"];
+   n044[label="4"];
+   n045[label="5"];
+   n049[label="9"];
+   n046[label="6"];
+   n044--n042;
+   n042--n041;
+   n042--n043;
+   n044--n045;
+   n045--n049[style=dotted];
+   n049--n046[style=dotted];
+   }
+
+   subgraph cluster05
+   {
+   label="After double rotation and inserting 7"
+   n051 [label="1"];
+   n052 [label="2"];
+   n053[label="3"];
+   n054[label="4"];
+   n055[label="5"];
+   n059[label="9"];
+   n056[label="6"];
+   n057[label="7"];
+   n054--n052;
+   n052--n051;
+   n052--n053;
+   n054--n056;
+   n056--n055;
+   n056--n059;
+   n059--n057;
+   }
+   }
+
+
+
