@@ -1,4 +1,4 @@
 The programming exercises solution to [Coursera ML course](https://www.coursera.org/learn/machine-learning/home/welcome)
 
 - ex1: Linear Regression
-- ex2: logistic Regression & Regularization
+- ex2: Logistic Regression & Regularization
