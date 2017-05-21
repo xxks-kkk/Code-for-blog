@@ -2,3 +2,4 @@ The programming exercises solution to [Coursera ML course](https://www.coursera.
 
 - ex1: Linear Regression
 - ex2: Logistic Regression & Regularization
+- ex3: Neural Network
