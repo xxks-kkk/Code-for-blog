@@ -23,6 +23,7 @@ digraph G {
     // details: http://www.graphviz.org/doc/info/attrs.html
     // ===============================
     rankdir=LR;  
+    edge[style=solid, tailport=e, headport=w];
     
     // ===============================
     // splines=line:  draw straight lines to connect nodes
