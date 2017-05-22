@@ -1,16 +1,45 @@
+// ================================================= //
+// Author: Zeyuan Hu                                 //
+// Web:    zhu45.org                                 //
+// Email:  ferrishu3886 at gmail dot com             //
+// ================================================= //
+//
+// This is an example to create Neural Network
+// using the opensource tool Graphviz.
+//
+// Tested with version:
+//
+//      2.38
+//
+// To generate the graph as a PDF just run:
+//
+//      dot -Tpdf nn.gv -o alexnet.pdf
+//
+
 digraph G {
-    rankdir=LR;
+
+    // ===============================
+    // rankdir: directed graph drawn from left to right 
+    // details: http://www.graphviz.org/doc/info/attrs.html
+    // ===============================
+    rankdir=LR;  
+    
+    // ===============================
+    // splines=line:  draw straight lines to connect nodes
+    // ===============================
     splines=line;
     nodesep=".05";
-    edge [comment="Wildcard node added automatic in EG."];
     node [label=""];
     subgraph cluster_0 {
         color=white;
         label="layer 1 (input layer)";
-        edge [comment="Wildcard node added automatic in EG."];
         node [color=chartreuse, 
               style=filled, 
               shape=circle];
+
+       // ==============================
+       // Below label text format specifies subscript and superscript in graphviz
+       // ==============================
         x0 [color=yellow, 
             fillcolor=yellow, 
             label=<x<sub>0</sub>>];
@@ -25,13 +54,18 @@ digraph G {
     subgraph cluster_1 {
         color=white;
         label="layer 2 (hidden layer)";
-        edge [comment="Wildcard node added automatic in EG."];
         node [color=dodgerblue, 
               style=filled, 
               shape=circle];
         a02 [color=yellow, 
              fillcolor=yellow, 
              label=<a<sub>0</sub><sup>(2)</sup>>];
+       
+       // ==============================
+       // Below label text doesn't match with the node naming (i.e. a12 should have label "a12" instead of "a52")
+       // This is a dirty trick that to keep the nodes in the same layer with label sorted 
+       // (i.e. a12, followed by a22, followed by a32, followed by a42, followed by a52)
+       // ==============================
         a12 [fillcolor=dodgerblue, 
              label=<a<sub>5</sub><sup>(2)</sup>>];
         a22 [fillcolor=dodgerblue, 
@@ -47,7 +81,6 @@ digraph G {
     subgraph cluster_2 {
         color=white;
         label="layer 3 (hidden layer)";
-        edge [comment="Wildcard node added automatic in EG."];
         node [color=dodgerblue, 
               style=filled, 
               shape=circle];
@@ -69,7 +102,6 @@ digraph G {
     subgraph cluster_3 {
         color=white;
         label="layer 4 (output layer)";
-        edge [comment="Wildcard node added automatic in EG."];
         node [color=coral1, 
               style=filled, 
               shape=circle];
@@ -83,8 +115,13 @@ digraph G {
             label=<a<sub>4</sub><sup>(4)</sup>>];
     }
 
-    x0 -> a02  [style=invisible, 
-                dir=none];
+   // ===============================
+   // This is the trick to enforce the bias node stays at the top of 
+   // vertical array of nodes in each layer
+   // style=invisible: makes the edge connection invisible
+   // dir=none: hide the arrow 
+   // ===============================
+    x0 -> a02 [style=invisible, dir=none];
     x0 -> a12;
     x0 -> a22;
     x0 -> a32;
@@ -105,8 +142,7 @@ digraph G {
     x3 -> a32;
     x3 -> a42;
     x3 -> a52;
-    a02 -> a03  [style=invisible, 
-                 dir=none];
+    a02 -> a03 [style=invisible, dir=none];
     a02 -> a13;
     a02 -> a23;
     a02 -> a33;
