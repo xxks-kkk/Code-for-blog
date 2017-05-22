@@ -1,0 +1,164 @@
+digraph G {
+    rankdir=LR;
+    splines=line;
+    nodesep=".05";
+    edge [comment="Wildcard node added automatic in EG."];
+    node [label=""];
+    subgraph cluster_0 {
+        color=white;
+        label="layer 1 (input layer)";
+        edge [comment="Wildcard node added automatic in EG."];
+        node [color=chartreuse, 
+              style=filled, 
+              shape=circle];
+        x0 [color=yellow, 
+            fillcolor=yellow, 
+            label=<x<sub>0</sub>>];
+        x1 [fillcolor=chartreuse, 
+            label=<x<sub>1</sub>>];
+        x2 [fillcolor=chartreuse, 
+            label=<x<sub>2</sub>>];
+        x3 [fillcolor=chartreuse, 
+            label=<x<sub>3</sub>>];
+    }
+
+    subgraph cluster_1 {
+        color=white;
+        label="layer 2 (hidden layer)";
+        edge [comment="Wildcard node added automatic in EG."];
+        node [color=dodgerblue, 
+              style=filled, 
+              shape=circle];
+        a02 [color=yellow, 
+             fillcolor=yellow, 
+             label=<a<sub>0</sub><sup>(2)</sup>>];
+        a12 [fillcolor=dodgerblue, 
+             label=<a<sub>5</sub><sup>(2)</sup>>];
+        a22 [fillcolor=dodgerblue, 
+             label=<a<sub>1</sub><sup>(2)</sup>>];
+        a32 [fillcolor=dodgerblue, 
+             label=<a<sub>2</sub><sup>(2)</sup>>];
+        a42 [fillcolor=dodgerblue, 
+             label=<a<sub>3</sub><sup>(2)</sup>>];
+        a52 [fillcolor=dodgerblue, 
+             label=<a<sub>4</sub><sup>(2)</sup>>];
+    }
+
+    subgraph cluster_2 {
+        color=white;
+        label="layer 3 (hidden layer)";
+        edge [comment="Wildcard node added automatic in EG."];
+        node [color=dodgerblue, 
+              style=filled, 
+              shape=circle];
+        a03 [color=yellow, 
+             fillcolor=yellow, 
+             label=<a<sub>0</sub><sup>(3)</sup>>];
+        a13 [fillcolor=dodgerblue, 
+             label=<a<sub>3</sub><sup>(3)</sup>>];
+        a23 [fillcolor=dodgerblue, 
+             label=<a<sub>4</sub><sup>(3)</sup>>];
+        a33 [fillcolor=dodgerblue, 
+             label=<a<sub>5</sub><sup>(3)</sup>>];
+        a43 [fillcolor=dodgerblue, 
+             label=<a<sub>1</sub><sup>(3)</sup>>];
+        a53 [fillcolor=dodgerblue, 
+             label=<a<sub>2</sub><sup>(3)</sup>>];
+    }
+
+    subgraph cluster_3 {
+        color=white;
+        label="layer 4 (output layer)";
+        edge [comment="Wildcard node added automatic in EG."];
+        node [color=coral1, 
+              style=filled, 
+              shape=circle];
+        O1 [fillcolor=coral1, 
+            label=<a<sub>1</sub><sup>(4)</sup>>];
+        O2 [fillcolor=coral1, 
+            label=<a<sub>2</sub><sup>(4)</sup>>];
+        O3 [fillcolor=coral1, 
+            label=<a<sub>3</sub><sup>(4)</sup>>];
+        O4 [fillcolor=coral1, 
+            label=<a<sub>4</sub><sup>(4)</sup>>];
+    }
+
+    x0 -> a02  [style=invisible, 
+                dir=none];
+    x0 -> a12;
+    x0 -> a22;
+    x0 -> a32;
+    x0 -> a42;
+    x0 -> a52;
+    x1 -> a12;
+    x1 -> a22;
+    x1 -> a32;
+    x1 -> a42;
+    x1 -> a52;
+    x2 -> a12;
+    x2 -> a22;
+    x2 -> a32;
+    x2 -> a42;
+    x2 -> a52;
+    x3 -> a12;
+    x3 -> a22;
+    x3 -> a32;
+    x3 -> a42;
+    x3 -> a52;
+    a02 -> a03  [style=invisible, 
+                 dir=none];
+    a02 -> a13;
+    a02 -> a23;
+    a02 -> a33;
+    a02 -> a43;
+    a02 -> a53;
+    a12 -> a13;
+    a12 -> a23;
+    a12 -> a33;
+    a12 -> a43;
+    a12 -> a53;
+    a22 -> a13;
+    a22 -> a23;
+    a22 -> a33;
+    a22 -> a43;
+    a22 -> a53;
+    a32 -> a13;
+    a32 -> a23;
+    a32 -> a33;
+    a32 -> a43;
+    a32 -> a53;
+    a42 -> a13;
+    a42 -> a23;
+    a42 -> a33;
+    a42 -> a43;
+    a42 -> a53;
+    a52 -> a13;
+    a52 -> a23;
+    a52 -> a33;
+    a52 -> a43;
+    a52 -> a53;
+    a03 -> O1;
+    a13 -> O1;
+    a23 -> O1;
+    a33 -> O1;
+    a43 -> O1;
+    a53 -> O1;
+    a03 -> O2;
+    a13 -> O2;
+    a23 -> O2;
+    a33 -> O2;
+    a43 -> O2;
+    a53 -> O2;
+    a03 -> O3;
+    a13 -> O3;
+    a23 -> O3;
+    a33 -> O3;
+    a43 -> O3;
+    a53 -> O3;
+    a03 -> O4;
+    a13 -> O4;
+    a23 -> O4;
+    a33 -> O4;
+    a43 -> O4;
+    a53 -> O4;
+}
