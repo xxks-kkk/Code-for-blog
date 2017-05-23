@@ -51,6 +51,7 @@ digraph G {
         rank=same;
         O1->O2->O3->O4;
     }
+    a02->a03;  // prevent tilting
     l0 [shape=plaintext, label="layer 1 (input layer)"];
     l0->x0;
     {rank=same; l0;x0};
