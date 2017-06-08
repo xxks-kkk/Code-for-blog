@@ -5,3 +5,4 @@ The programming exercises solution to [Coursera ML course](https://www.coursera.
 - ex3: Multi-class Classification & Neural Networks forward propagation and prediction
 - ex4: Neural Netowkrs Learning
 - ex5: Regularized Linear Regression and Bias v.s. Variance
+- ex6: Support Vector Machine (spam classification)
