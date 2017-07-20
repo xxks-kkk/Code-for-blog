@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{multirow}
+\begin{document}
+\begin{tabular}{ lccc }
+\multicolumn{1}{r}{} 
+ & & \multicolumn{2}{c}{Actual class}\\
+\multicolumn{1}{r}{}
+ & & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{0} \\
+\cline{3-4}
+Predicted & 1 & \multicolumn{1}{|c|}{True positive} & \multicolumn{1}{|c|}{False positive} \\
+\cline{3-4}
+class & 0 & \multicolumn{1}{|c|}{False negative} & \multicolumn{1}{|c|}{True negative} \\
+\cline{3-4}
+\end{tabular}
+\end{document}
