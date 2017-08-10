@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 /* 
  * [Problem]:
@@ -39,7 +40,7 @@ int* knapsack(int maxWeight, int numItems, int** elements, int* resultLength);
 int
 main(void)
 {
-  testCase1();
+  testCase1(); 
   testCase2();
   testCase3();
   return 0;
@@ -127,11 +128,10 @@ printList(int* result, int resultLength)
 {
   int i;
   printf("Company we choose: ");
-  for (i = 0; i < resultLength; i++)
+  for (i = resultLength-1; i >= 0; i--)
   {
-    printf("%c, %s", result[i]+64, (i == resultLength-1) ? ("\n") : (""));
+    printf("%c, %s", result[i]+64, (i == 0) ? ("\n") : (""));
   }
-  printf("\n");
 }
 
 /*
@@ -170,8 +170,14 @@ testCase1()
   int resultLength;
   int* result = knapsack(maxWeight,numItems,elements, &resultLength);
 
+  // Add assertion
+  assert(resultLength == 2);
+  assert(result[0] == 2); // B
+  assert(result[1] == 1); // A
+
   // Printout the solution
   printList(result, resultLength);
+  printf("%s\n\n", "pass");
   
   // Cleanup
   free(result);
@@ -194,6 +200,7 @@ void
 testCase2()
 {
   printf("%s\n", "TEST CASE 2");
+
   // Create test data
   int maxWeight, numItems;
   maxWeight = 30;
@@ -229,8 +236,17 @@ testCase2()
   int resultLength;
   int* result = knapsack(maxWeight,numItems,elements, &resultLength);
 
+  // Add assertion
+  assert(resultLength == 5);
+  assert(result[0] == 10); // B
+  assert(result[1] == 9);  // C
+  assert(result[2] == 6);  // F
+  assert(result[3] == 3);  // I  
+  assert(result[4] == 2);  // J
+  
   // Printout the solution
   printList(result, resultLength);
+  printf("%s\n\n", "pass");
   
   // Cleanup
   free(result);
@@ -240,7 +256,6 @@ testCase2()
   }
   free(elements);
 }
-
 
 /*
  * | Company | A  | B  | C  | D  | E  | F  | G  | H  | I  | J  |
@@ -252,6 +267,7 @@ void
 testCase3()
 {
   printf("%s\n", "TEST CASE 2");
+
   // Create test data
   int maxWeight, numItems;
   maxWeight = 165;
@@ -287,8 +303,17 @@ testCase3()
   int resultLength;
   int* result = knapsack(maxWeight,numItems,elements, &resultLength);
 
+  // Add assertion
+  assert(resultLength == 5);
+  assert(result[0] == 6); // F
+  assert(result[1] == 4); // D
+  assert(result[2] == 3); // C
+  assert(result[3] == 2); // B
+  assert(result[4] == 1); // A
+  
   // Printout the solution
   printList(result, resultLength);
+  printf("%s\n\n", "pass");
   
   // Cleanup
   free(result);
