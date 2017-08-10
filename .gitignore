@@ -10,3 +10,4 @@ token.mat
 *.log
 *.pdf
 *.synctex.gz
+*.dSYM
