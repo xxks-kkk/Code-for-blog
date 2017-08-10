@@ -22,7 +22,7 @@
  *
  * [Reference]: 
  * 1. http://cse.unl.edu/~goddard/Courses/CSCE310J/Lectures/Lecture8-DynamicProgramming.pdf
- *
+ * 2. https://people.sc.fsu.edu/~jburkardt/datasets/knapsack_01/knapsack_01.html (some test cases)
  */
 
 /* Utility function */
@@ -31,6 +31,7 @@ void printList(int*, int);
 /* Test cases */
 void testCase1();
 void testCase2();
+void testCase3();
 
 /* The problem can be treated as 0/1 knapsack problem. */
 int* knapsack(int maxWeight, int numItems, int** elements, int* resultLength);
@@ -40,6 +41,7 @@ main(void)
 {
   testCase1();
   testCase2();
+  testCase3();
   return 0;
 }
 
@@ -104,7 +106,7 @@ knapsack(int maxWeight, int numItems, int** elements, int* resultLength)
       result[counter] = i; // we mark the ith item as in the knapsack
       counter++;
       i--;
-      k -= elements[0][i-1];
+      k -= elements[0][i];
     }
     else
     {
@@ -127,7 +129,7 @@ printList(int* result, int resultLength)
   printf("Company we choose: ");
   for (i = 0; i < resultLength; i++)
   {
-    printf("%c, %s", result[i]+65, (i == resultLength-1) ? ("\n") : (""));
+    printf("%c, %s", result[i]+64, (i == resultLength-1) ? ("\n") : (""));
   }
   printf("\n");
 }
@@ -173,6 +175,11 @@ testCase1()
   
   // Cleanup
   free(result);
+  for(i = 0; i < 2; i++)
+  {
+    free(elements[i]);
+  }
+  free(elements);
 }
 
 /*
@@ -191,7 +198,7 @@ testCase2()
   int maxWeight, numItems;
   maxWeight = 30;
   numItems = 10;
-  int** elements = malloc(sizeof(int) * 2);
+  int** elements = malloc(sizeof(int*) * 2);
   int i, j;
   for(i = 0 ; i < 2; i++)
   {
@@ -227,4 +234,67 @@ testCase2()
   
   // Cleanup
   free(result);
+  for (i = 0; i < 2; i++)
+  {
+    free(elements[i]);
+  }
+  free(elements);
+}
+
+
+/*
+ * | Company | A  | B  | C  | D  | E  | F  | G  | H  | I  | J  |
+ * |---------|----|----|----|----|----|----|----|----|----|----|
+ * | Amount  | 23 | 31 | 29 | 44 | 53 | 38 | 63 | 85 | 89 | 82 |
+ * | Price   | 92 | 57 | 49 | 68 | 60 | 43 | 67 | 84 | 87 | 72 |
+ */
+void
+testCase3()
+{
+  printf("%s\n", "TEST CASE 2");
+  // Create test data
+  int maxWeight, numItems;
+  maxWeight = 165;
+  numItems = 10;
+  int** elements = malloc(sizeof(int*) * 2);
+  int i, j;
+  for(i = 0 ; i < 2; i++)
+  {
+    elements[i] = malloc(sizeof(int) * numItems);
+  }
+  elements[0][0] = 23;
+  elements[0][1] = 31;
+  elements[0][2] = 29;
+  elements[0][3] = 44;
+  elements[0][4] = 53;
+  elements[0][5] = 38;
+  elements[0][6] = 63;
+  elements[0][7] = 85;
+  elements[0][8] = 89;
+  elements[0][9] = 82;
+  elements[1][0] = 92;
+  elements[1][1] = 57;
+  elements[1][2] = 49;
+  elements[1][3] = 68;
+  elements[1][4] = 60;
+  elements[1][5] = 43;
+  elements[1][6] = 67;
+  elements[1][7] = 84;
+  elements[1][8] = 87;
+  elements[1][9] = 72;
+
+  // Get the solution
+  int resultLength;
+  int* result = knapsack(maxWeight,numItems,elements, &resultLength);
+
+  // Printout the solution
+  printList(result, resultLength);
+  
+  // Cleanup
+  free(result);
+  for (i = 0; i < 2; i++)
+  {
+    free(elements[i]);
+  }
+  free(elements);
 }
