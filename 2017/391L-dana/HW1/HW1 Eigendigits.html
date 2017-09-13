@@ -1,0 +1,74 @@
+
+<!-- saved from url=(0044)https://www.cs.utexas.edu/~dana/MLClass/hw1/ -->
+<html class="gr__cs_utexas_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>HW1 Eigendigits</title>
+<meta http-equiv="refresh" content="300">
+</head>
+<body data-gr-c-s-loaded="true">
+<h2>HW1 Eigendigits</h2>
+
+<h3>Due: Friday, January 25, 2013 at 11:59pm</h3>
+
+<p><b>Overview:</b>
+For this homework you will learn about eigenvector decomposition of
+covariance for analysis (also known as <i>principal components analysis</i>
+or <i>PCA</i>).  After projecting images into the reduced eigenspace, you
+will use a simple classification method (k-nearest neighbors) to see what features the projection
+captures.</p>
+
+<p><b>Data:</b>
+Your training and test data is available <a href="https://www.cs.utexas.edu/~dana/MLClass/hw1/digits.mat">here</a>.
+</p><div style="background-color: silver;
+                        border: 1px solid black;
+                        margin: 8px 0px;
+                        padding: 8px 10px;
+                        width: 800px"><tt>
+&gt;&gt; load digits.mat;<br>
+&gt;&gt; whos;
+</tt></div>
+<p></p>
+
+<p>
+The training set contains 60000 examples, and the test set 10000 examples.
+The first 5000 test images are cleaner and easier than the last 5000.
+</p>
+
+<p><b>Assignment:</b>
+</p><ol>
+	<li><b>Load the data.</b>  Download the data and load each image into
+	column vectors in MATLAB.
+	You may find the functions <tt>dir</tt> and <tt>imread</tt> useful.
+
+	</li><li><b>Find eigendigits.</b>  Write a MATLAB function
+	<tt>hw1FindEigendigits</tt> (in <tt>hw1FindEigendigits.m</tt>)
+	that will take an (<b>x</b> by <b>k</b>)
+	matrix <b>A</b> (where <b>x</b> is the total number of pixels in an
+	image and <b>k</b> is the number of training images) and return a vector
+	<b>m</b> of length <b>x</b> containing the mean column vector of
+	<b>A</b> and an (<b>x</b> by <b>k</b>) matrix <b>V</b> that contains 
+	<b>k</b> eigenvectors of the covariance matrix of <b>A</b> (after
+	the mean has been subtracted).  These should be sorted in descending
+	order by eigenvalue (i.e., <tt><b>V(:,1)</b></tt> is the eigenvector
+	with the largest associated eigenvalue) and normalized (i.e.,
+	<tt>norm(<b>V(:,1)</b>) = 1</tt>).  If you're still learning to use
+	MATLAB, I recommend you learn about the following functions:
+	<tt>eig</tt> and <tt>sort</tt>.  You can <tt>reshape</tt> a vector and
+	<tt>imshow</tt> it. Note that this assumes that k &lt; x, and you are using the trick 
+	on page 14 of the lecture <a href="http://www.cs.utexas.edu/~dana/MLClass/NotesEigenfaces.pdf">notes</a> (using the page numbers at the bottom of each page) 
+        so that the covariance matrix will be k by k instead 
+        of x by x.
+
+	</li><li><b>Experiments.</b> Don't use all the training data -- it'll be too slow, but experiment with different amounts and find something that seems to work.
+Display some of the eigenvectors to see what they look like. 
+	 With the mean and matrix of eigenvectors from a training set of digit data, you can project other datapoints into this eigenspace.  
+Simply subtract the 
+	mean vector and multiply by the eigenvector matrix.  This will give you a vector of length <b>k</b>.  Display some reconstructions of the test digits using the projection.
+Even if your algorithm works perfectly, the reconstructed digits will not look exactly like the originals. What happens if you trim the vector down and 
+	only use the top <b>n</b> eigenvectors?  
+	How accurately can you classify using the method on page 21 of the lecture notes using the Euclidean distance metric? Plot figures showing the accuracy as the number of training points increases, and as the number of eigenvectors increases.
+
+	</li><li><b>Write and submit.</b>  Write, review, and submit a brief report containing your plots and detailing what you did and how well it worked. At the beginning of your report include your email address and EID in addition to your name.  Also submit your code.  Submit using <tt>turnin</tt> to <tt>lewfish</tt>.  This is <b>hw1</b>.
+<p></p>
+
+
+</li></ol><iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./HW1 Eigendigits_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:false,&quot;ss&quot;:true}" style="display: none;"></div></body></html>
