@@ -76,16 +76,7 @@ evecs = evecs[:,:nRedDim]
 ## normalize eigenvectors
 evecs = np.divide(evecs, np.linalg.norm(evecs, axis=0))
 
-#x = np.dot(np.transpose(evecs), data)
-x = np.dot(np.transpose(evecs), testImages[:,:,0,0:M].reshape(784,M).astype('float'))
-## Compute the original data
-y = np.dot(evecs,x)+np.tile(mu.reshape(784,1),M)
-
-plt.imshow(y[:,0].reshape(28,28).real) 
-plt.show()
-
-## KNN classification
-knn=neighbors.KNeighborsClassifier()
+## Testing
 num_testImages = testImages.shape[3]
 testImages_use = testImages[:,:,0,0:num_testImages].reshape(784, num_testImages)
 test_mu = np.mean(testImages_use,axis=1)
@@ -96,6 +87,13 @@ num_trainImages = data.shape[1]
 trainImages_es = np.dot(np.transpose(evecs), data)
 trainLabels_arr = np.squeeze(trainLabels)
 
+### Reconstruction the test digits
+testImages_reconstructed = np.dot(evecs, testImages_es) + np.tile(test_mu.reshape(784,1),num_testImages)
+plt.imshow(testImages_reconstructed[:,0].reshape(28,28).real)
+plt.show()
+
+### KNN classification on the test data
+knn=neighbors.KNeighborsClassifier()
 knn.fit(trainImages_es.real.T, trainLabels_arr[:num_trainImages])
 pred = knn.predict(testImages_es.real.T)
 
