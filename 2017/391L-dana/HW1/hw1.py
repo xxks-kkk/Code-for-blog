@@ -33,7 +33,7 @@ nRedDim = 1
 ## Construct our data matrix with dimension 784xM. 784 is calculated by
 ## 784 = 28*28
 data = trainImages[:,:,0,0:M].reshape(784,M).astype('float')
-
+testImages = testImages.astype('float')
 ## We first calculate the "average face"
 mu = np.mean(data,axis=1)
 data -= np.tile(mu.reshape(784,1),M).astype(data.dtype)
@@ -68,37 +68,31 @@ evecs = evecs[:,:nRedDim]
 ## normalize eigenvectors
 evecs = np.divide(evecs, np.linalg.norm(evecs, axis=0))
 
-x = np.dot(np.transpose(evecs), data)
+#x = np.dot(np.transpose(evecs), data)
+x = np.dot(np.transpose(evecs), testImages[:,:,0,0:M].reshape(784,M).astype('float'))
 ## Compute the original data
 y = np.dot(evecs,x)+np.tile(mu.reshape(784,1),M)
 
-plt.imshow(y[:,1].reshape(28,28).real) 
+plt.imshow(y[:,0].reshape(28,28).real) 
 plt.show()
 
-# Project the test data to the eigenspace
-# n_neighbors = 3
-# #num_testImages = testImages.shape[3]
-# num_testImages = 300
-# testImages_use = testImages[:,:,0,0:num_testImages].reshape(784, num_testImages)
-# test_mu = np.mean(testImages_use,axis=1)
-# testImages_normalize = testImages_use -  np.tile(test_mu.reshape(784,1),num_testImages).astype(testImages_use.dtype)
-# testImages_es = np.dot(evecs.T,testImages_normalize)
-# trainImages_es = np.dot(np.transpose(evecs), data)
-# trainLabels_arr = np.squeeze(trainLabels)
-# testLabels_arr = testLabels.squeeze()
-# num_trainImages = data.shape[1]
-# classification_result = np.zeros(testLabels.shape[1])
+## KNN classification
+n_neighbors = 3
+knn=neighbors.KNeighborsClassifier()
+num_testImages = testImages.shape[3]
+num_testImages = 1000
+testImages_use = testImages[:,:,0,0:num_testImages].reshape(784, num_testImages)
+test_mu = np.mean(testImages_use,axis=1)
+testImages_normalize = testImages_use -  np.tile(test_mu.reshape(784,1),num_testImages).astype(testImages_use.dtype)
+testImages_es = np.dot(evecs.T,testImages_normalize)
+trainImages_es = np.dot(np.transpose(evecs), data)
+trainLabels_arr = np.squeeze(trainLabels)
+testLabels_arr = testLabels.squeeze()
+num_trainImages = data.shape[1]
+#knn.fit(trainImages_es.real.T.tolist(), list(np.squeeze(trainLabels))[:M])
+knn.fit(testImages_es.real.T, testLabels_arr[:num_testImages])
+pred = knn.predict(testImages_es.real.T)
+pred = knn.predict(trainImages_es.real.T)
 
-# for x in range(num_testImages):
-#     distance = np.zeros(num_trainImages)
-#     for y in range(num_trainImages):
-#         distance[y] = np.linalg.norm(testImages_es[:,x] - trainImages_es[:,y])
-#     classification_result[x] = spstats.mode(trainLabels_arr[distance.argsort()[-n_neighbors:]])[0].item(0)
-#     print(classification_result[x])
-
-# accuracy = np.sum(classification_result == testLabels_arr) / float(testLabels.shape[1])
-# print(accuracy)
-
-# # M = 400 11.35%
-# # M = 500 11.35%
-# # M = 600 11.35%
+accuracy = np.sum(np.equal(pred,trainLabels_arr[:M])) / float(pred.shape[0])
+print(accuracy)
