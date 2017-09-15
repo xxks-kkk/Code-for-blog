@@ -149,36 +149,23 @@ the test data with our reconstructed test data and see whether they look similar
 (i.e., representing the same digits).
 
 Before ploting the reconstruction of the test digits, we can take a look at what
-some eigenvectors may look like. The figure 1 and 2 show the eigenvectors
-of $5$ and $4$ from training images before mean normalization.
+some eigenvectors may look like. The figure 1 shows the eigenvectors
+calculated from training images before mean normalization.
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{evecs_0.png} 
-\caption{Eigenvector of 5 before normalization}
+\includegraphics[scale=0.6]{evecs.png} 
+\caption{Eigenvectors before normalization}
 \end{figure}
+
+The figure 2 shows the result of reconstruction of the first 10 digits
+in the test data using the constructed eigenspace.
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{evecs_2.png} 
-\caption{Eigenvector of 4 before normalization}
+\includegraphics[scale=0.6]{reconstruction_testDigits.png} 
+\caption{Reconstruction of the first 10 test digits in the test data}
 \end{figure}
-
-The figure 3 and 4 show the result of reconstruction of test digit $7$ and $2$
-respectively using the constructed eigenspace.
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.4]{reconstruction_testDigits_7.png} 
-\caption{Reconstruction of test digit 7}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.4]{reconstruction_testDigits_2.png} 
-\caption{Reconstruction of test digit 2}
-\end{figure}
-
 
 \subsection{Classification accuracy vs. number of training examples}
 
@@ -186,7 +173,7 @@ One thing we want to study about is that how the number of training examples aff
 our classification accuracy on the test data. In this experiment, I keep
 $20$ eigenvectors and use the training examples ranged from $5$ to $420$. 
 $5$ is chosen because our KNN algorithm takes $5$ shortest distances to determine the
-label and $420$ is randomly chosen. Figure 5 shows the result of
+label and $420$ is randomly chosen. Figure 3 shows the result of
 this experiment. The code for this experiment is wrapped in \verb|numTrain2Accuracy|
 function in \verb|hw1_report.py|.
 
@@ -200,7 +187,7 @@ function in \verb|hw1_report.py|.
 
 In this experiment, I study how the number of eigenvectors impacts our final
 classification accuracy in the test data. I use $M = 1000$ training images
-to calculate the eigenvectors and I let $nRedDim$ go from $1$ to $30$. Figure 6
+to calculate the eigenvectors and I let \verb|nRedDim| go from $1$ to $30$. Figure 4
 shows the result of this experiment. The code for this part is listed inside
 \verb|nRedDim2Accuracy| function in \verb|hw1_report.py|.
 

@@ -231,18 +231,18 @@ def reconstruction_testDigits(testImages, testLabels, trainImages, trainLabels):
     evecs = evecs[:,:nRedDim]
 
     ## Display some of the eigenvectors to see what they look like
-    plt.imshow(evecs[:,0].reshape(28,28).real)
-    plt.title('eigenvector before normalization')
-    plt.savefig('evecs_0.png')
+    numRows_evecs_plot = 5
+    fig, axes = plt.subplots(nrows=numRows_evecs_plot, ncols=2, figsize=(6, 6))
+    for i in range(numRows_evecs_plot):
+        axes[i,0].imshow(evecs[:,i].reshape(28,28).real)
+        axes[i,1].imshow(evecs[:,i+1].reshape(28,28).real)
+        axes[i,0].axis('off')
+        axes[i,1].axis('off')        
+    fig.suptitle("Eigenvectors before normalization")
+    plt.savefig('evecs.png')
     plt.show()
     plt.close()
-
-    plt.imshow(evecs[:,2].reshape(28,28).real)
-    plt.title('eigenvector before normalization')
-    plt.savefig('evecs_2.png')
-    plt.show()
-    plt.close()
-
+            
     ## normalize eigenvectors
     evecs = np.divide(evecs, np.linalg.norm(evecs, axis=0))
 
@@ -256,30 +256,24 @@ def reconstruction_testDigits(testImages, testLabels, trainImages, trainLabels):
     trainImages_es = np.dot(np.transpose(evecs), data)
     trainLabels_arr = np.squeeze(trainLabels)
 
-    ### Reconstruction the test digits
+    ## Reconstruction the test digits
     testImages_reconstructed = np.dot(evecs, testImages_es) + np.tile(test_mu.reshape(784,1),num_testImages)
 
-    fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(8, 4))
-    ax0.imshow(testImages[:,:,0,0].reshape(28,28).real)
-    ax0.set_title('original test image')
-    ax1.imshow(testImages_reconstructed[:,0].reshape(28,28).real)
-    ax1.set_title('reconstructed test image')
-    fig.tight_layout()
-    plt.savefig('reconstruction_testDigits_7.png')
+    ## Display some of reconstructed test digits
+    numRows_reconstruction_plot = 10
+    fig, axes = plt.subplots(nrows=numRows_reconstruction_plot, ncols=2)
+    axes[0,0].set_title('original test image')
+    axes[0,1].set_title('reconstructed test image')    
+    for i in range(numRows_reconstruction_plot):
+        axes[i,0].imshow(testImages[:,:,0,i].reshape(28,28).real)
+        axes[i,1].imshow(testImages_reconstructed[:,i].reshape(28,28).real)
+        axes[i,0].axis('off')
+        axes[i,1].axis('off')
+    plt.savefig('reconstruction_testDigits.png')
     plt.show()
     plt.close()
-
-    fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(8, 4))
-    ax0.imshow(testImages[:,:,0,1].reshape(28,28).real)
-    ax0.set_title('original test image')
-    ax1.imshow(testImages_reconstructed[:,1].reshape(28,28).real)
-    ax1.set_title('reconstructed test image')
-    fig.tight_layout()
-    plt.savefig('reconstruction_testDigits_2.png')
-    plt.show()
-    plt.close()
-
-
+    
+    
 def main():
     ## Read in the data file
     mat = spio.loadmat('digits.mat')
