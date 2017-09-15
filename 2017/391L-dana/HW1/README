@@ -1,0 +1,4 @@
+- digits.mat (data file)
+- hw1.py (A complete PCA algorithm on handwritten digits)
+- hw1_report.py (A complete PCA algorithm on handwritten digits and with experiments with 
+                number of eigenvectors & number of training points)
