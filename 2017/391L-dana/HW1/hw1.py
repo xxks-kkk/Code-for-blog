@@ -8,7 +8,11 @@
 ## INSTRUCTIONS
 ## ------------
 ##
-##
+## - Please make sure you have the python package "numpy", "scipy", "matplotlib",
+##   and "sklearn" installed in your environment
+## - Put the data file "digits.mat" under the same directory with this source
+##   code "hw1.py"
+## - Run the code with the command: python3 hw1.py
 
 import numpy as np
 from scipy import linalg as la
@@ -25,7 +29,7 @@ trainImages = mat['trainImages']
 trainLabels = mat['trainLabels']
 
 ## Number of training images we use
-M = 1000
+M = 10000
 
 ## Set nRedDim
 nRedDim = 1
@@ -34,21 +38,25 @@ nRedDim = 1
 ## 784 = 28*28
 data = trainImages[:,:,0,0:M].reshape(784,M).astype('float')
 testImages = testImages.astype('float')
+
 ## We first calculate the "average face"
 mu = np.mean(data,axis=1)
 data -= np.tile(mu.reshape(784,1),M).astype(data.dtype)
-#standard = np.std(data,axis=1)
-#data_normalized = np.divide(data, (standard+0.0001).reshape(784,1))
+
+## Andrew Ng's way for preprocessing data
+# standard = np.std(data,axis=1)
+# data_normalized = np.divide(data, (standard+0.0001).reshape(784,1))
 
 ## Now we calculate the covariance matrix
-#C = np.cov(data)
 C = np.dot(data, data.T)
-#C = np.dot(data_normalized, np.transpose(data_normalized)) * (1/M)
+
+## Andrew Ng's way for calculating the covariance matrix
+# C = np.dot(data_normalized, np.transpose(data_normalized)) * (1/M)
 
 ## Compute the eigenvalues and eigenvectors and sort into descending order
 evals, evecs = np.linalg.eig(C)
-indices = np.argsort(evals) # is in ascending order
-indices = indices[::-1]     # change to descending order
+indices = np.argsort(evals)     # is in ascending order
+indices = indices[::-1]         # change to descending order
 evecs = evecs[:,indices]
 evals = evals[indices]
 
@@ -77,22 +85,19 @@ plt.imshow(y[:,0].reshape(28,28).real)
 plt.show()
 
 ## KNN classification
-n_neighbors = 3
 knn=neighbors.KNeighborsClassifier()
 num_testImages = testImages.shape[3]
-num_testImages = 1000
 testImages_use = testImages[:,:,0,0:num_testImages].reshape(784, num_testImages)
 test_mu = np.mean(testImages_use,axis=1)
 testImages_normalize = testImages_use -  np.tile(test_mu.reshape(784,1),num_testImages).astype(testImages_use.dtype)
 testImages_es = np.dot(evecs.T,testImages_normalize)
-trainImages_es = np.dot(np.transpose(evecs), data)
-trainLabels_arr = np.squeeze(trainLabels)
 testLabels_arr = testLabels.squeeze()
 num_trainImages = data.shape[1]
-#knn.fit(trainImages_es.real.T.tolist(), list(np.squeeze(trainLabels))[:M])
-knn.fit(testImages_es.real.T, testLabels_arr[:num_testImages])
-pred = knn.predict(testImages_es.real.T)
-pred = knn.predict(trainImages_es.real.T)
+trainImages_es = np.dot(np.transpose(evecs), data)
+trainLabels_arr = np.squeeze(trainLabels)
 
-accuracy = np.sum(np.equal(pred,trainLabels_arr[:M])) / float(pred.shape[0])
+knn.fit(trainImages_es.real.T, trainLabels_arr[:num_trainImages])
+pred = knn.predict(testImages_es.real.T)
+
+accuracy = np.sum(np.equal(pred,testLabels_arr[:num_testImages])) / float(pred.shape[0])
 print(accuracy)
