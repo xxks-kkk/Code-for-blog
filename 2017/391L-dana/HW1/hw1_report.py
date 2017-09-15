@@ -110,7 +110,7 @@ def nRedDim2Accuracy(testImages, testLabels, trainImages, trainLabels):
     plt.savefig('nRedDim2Accuracy.png')
     plt.show()
     plt.close()
-
+    
     
 def numTrain2Accuracy(testImages, testLabels, trainImages, trainLabels):
     """ Experiment 1: Examine the relationship between the accuracy of classification
@@ -178,7 +178,101 @@ def numTrain2Accuracy(testImages, testLabels, trainImages, trainLabels):
     plt.show()
     plt.close()
 
+def reconstruction_testDigits(testImages, testLabels, trainImages, trainLabels):
+    """ Reconstruction of the test digits
+
+    - The arguments to this function should come from the exact corresponding
+      argument name in our main() function
+    """
     
+    ## Number of training images we use
+    M = 1000
+
+    ## Set nRedDim
+    nRedDim = 1
+
+    ## Construct our data matrix with dimension 784xM. 784 is calculated by
+    ## 784 = 28*28
+    data = trainImages[:,:,0,0:M].reshape(784,M).astype('float')
+    testImages = testImages.astype('float')
+
+    ## We first calculate the "average face"
+    mu = np.mean(data,axis=1)
+    data -= np.tile(mu.reshape(784,1),M).astype(data.dtype)
+
+    ## Andrew Ng's way for preprocessing data
+    # standard = np.std(data,axis=1)
+    # data_normalized = np.divide(data, (standard+0.0001).reshape(784,1))
+
+    ## Now we calculate the covariance matrix
+    C = np.dot(data, data.T)
+
+    ## Andrew Ng's way for calculating the covariance matrix
+    # C = np.dot(data_normalized, np.transpose(data_normalized)) * (1/M)
+
+    ## Compute the eigenvalues and eigenvectors and sort into descending order
+    evals, evecs = np.linalg.eig(C)
+    indices = np.argsort(evals)     # is in ascending order
+    indices = indices[::-1]         # change to descending order
+    evecs = evecs[:,indices]
+    evals = evals[indices]
+
+    ## Try to determine the number of principal component nRedDim
+    U,S,V = np.linalg.svd(C)
+    print('X  Rate')
+    for x in range(1,M):
+        rate = S[:x].sum()/S.sum()
+        print('{0:2d} {1:3f}'.format(x,rate))
+        if rate >= 0.99:
+            nRedDim = x
+            break
+
+    ## select the top nRedDim eigenvectors
+    evecs = evecs[:,:nRedDim]
+
+    ## Display some of the eigenvectors to see what they look like
+    plt.imshow(evecs[:,0].reshape(28,28).real)
+    plt.title('eigenvector before normalization')
+    plt.savefig('evecs_0.png')
+    plt.show()
+    plt.close()
+
+    plt.imshow(evecs[:,2].reshape(28,28).real)
+    plt.title('eigenvector before normalization')
+    plt.savefig('evecs_2.png')
+    plt.show()
+    plt.close()
+
+    ## normalize eigenvectors
+    evecs = np.divide(evecs, np.linalg.norm(evecs, axis=0))
+    
+    ## Map the test data into the eigenspace
+    x = np.dot(np.transpose(evecs), testImages[:,:,0,0:M].reshape(784,M).astype('float'))
+
+    ## Reconstruct the test digits
+    y = np.dot(evecs,x)+np.tile(mu.reshape(784,1),M)
+
+    fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(8, 4))
+    ax0.imshow(testImages[:,:,0,0].reshape(28,28).real)
+    ax0.set_title('original test image')
+    ax1.imshow(y[:,0].reshape(28,28).real)
+    ax1.set_title('reconstructed test image')
+    fig.tight_layout()
+    plt.savefig('reconstruction_testDigits_7.png')
+    plt.show()
+    plt.close()
+
+    fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(8, 4))
+    ax0.imshow(testImages[:,:,0,1].reshape(28,28).real)
+    ax0.set_title('original test image')
+    ax1.imshow(y[:,1].reshape(28,28).real)
+    ax1.set_title('reconstructed test image')
+    fig.tight_layout()
+    plt.savefig('reconstruction_testDigits_2.png')
+    plt.show()
+    plt.close()
+
+
 def main():
     ## Read in the data file
     mat = spio.loadmat('digits.mat')
@@ -186,15 +280,7 @@ def main():
     testImages = mat['testImages']
     trainImages = mat['trainImages']
     trainLabels = mat['trainLabels']
-
-    # #x = np.dot(np.transpose(evecs), data)R
-    # x = np.dot(np.transpose(evecs), testImages[:,:,0,0:M].reshape(784,M).astype('float'))
-    # ## Compute the original data
-    # y = np.dot(evecs,x)+np.tile(mu.reshape(784,1),M)
-
-    # plt.imshow(y[:,0].reshape(28,28).real) 
-    # plt.show()
-
+    
     ## Experiment 1: Examine the relationship between the accuracy of classification
     ## and the number of training points
     numTrain2Accuracy(testImages, testLabels, trainImages, trainLabels)    
@@ -203,6 +289,10 @@ def main():
     ## and the number of eigenvectors we keep (i.e. nRedDim)    
     nRedDim2Accuracy(testImages, testLabels, trainImages, trainLabels)
 
+    ## Display some reconstructions of the test digits using the projection
+    ## Display some of the eigenvectors to see what they look like
+    reconstruction_testDigits(testImages, testLabels, trainImages, trainLabels)
+    
 if __name__ == "__main__":
     main()
 
