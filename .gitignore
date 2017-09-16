@@ -8,6 +8,6 @@
 token.mat
 *.aux
 *.log
-*.pdf
 *.synctex.gz
 *.dSYM
+2017/tex-drawings/img/*.pdf
