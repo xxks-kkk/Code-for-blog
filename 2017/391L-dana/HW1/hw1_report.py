@@ -11,8 +11,8 @@
 ## - Please make sure you have the python package "numpy", "scipy", "matplotlib",
 ##   and "sklearn" installed in your environment
 ## - Put the data file "digits.mat" under the same directory with this source
-##   code "hw1.py"
-## - Run the code with the command: python3 hw1.py
+##   code "hw1_report.py"
+## - Run the code with the command: python3 hw1_report.py
 
 import numpy as np
 from scipy import linalg as la
