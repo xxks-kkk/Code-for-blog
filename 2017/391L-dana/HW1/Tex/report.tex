@@ -80,7 +80,7 @@ components anaysis, which identifies the eigenvalues of the covaraince matrix of
 
 This writeup is organized in the following way: In the following section, I will 
 describe the steps to finish the task. Next, I will talk about the experimentation result. 
-Lastly, I will give a breif summary of the whole task.
+Lastly, I will give a breif summary of the whole work.
 
 \section{Method}
 
@@ -110,7 +110,7 @@ $$
 Once we get our "average face", we can perform mean normalization by subtracting the "average face"
 value of each pixel from the corresponding pixel in the \verb|data| matrix. Now, we are done with
 preprocessing of the data. The next thing we do is to calculate the eigenvectors of our covariance
-matrix. Covaraince matrix \verb|C| is calculated from $data^Tdata$ and we use \verb|numpy.linalg.eig|
+matrix. Covaraince matrix \verb|C| is calculated from $\text{data}^T\times\text{data}$ and we use \verb|numpy.linalg.eig|
 function to calculate the eigenvectors of \verb|C|. Once we have the eigenvalues and the corresponding
 eigenvectors, we want to sort those two set of values in the descending order. The reason we do this
 is that we want to use the eigenvectors with the largest variations as the principal components. We
@@ -141,7 +141,7 @@ the number of eigenvectors we keep.
 
 \subsection{Reconstruction test digits}
 
-Once we have constructed the eigenspace, the very first thing we want to do is
+\paragraph{}Once we have constructed the eigenspace, the very first thing we want to do is
 to check whether the eigenvectors we have calculated are correct or not. This
 can be done by projecting the preprocessed test data into our eigenspace and 
 then reconstruct them back to its original dimension. We, then, compare the original
@@ -169,7 +169,7 @@ in the test data using the constructed eigenspace.
 
 \subsection{Classification accuracy vs. number of training examples}
 
-One thing we want to study about is that how the number of training examples affects
+\paragraph{}One thing we want to study about is that how the number of training examples affects
 our classification accuracy on the test data. In this experiment, I keep
 $20$ eigenvectors and use the training examples ranged from $5$ to $420$. 
 $5$ is chosen because our KNN algorithm takes $5$ shortest distances to determine the
@@ -185,7 +185,7 @@ function in \verb|hw1_report.py|.
 
 \subsection{Classification accuracy vs. the number of eigenvectors we keep}
 
-In this experiment, I study how the number of eigenvectors impacts our final
+\paragraph{}In this experiment, I study how the number of eigenvectors impacts our final
 classification accuracy in the test data. I use $M = 1000$ training images
 to calculate the eigenvectors and I let \verb|nRedDim| go from $1$ to $30$. Figure 4
 shows the result of this experiment. The code for this part is listed inside
@@ -216,7 +216,7 @@ similar classification performance by keeping at least $30$ eigenvectors.
 
 \section{How to run the code}
 
-To run my code, unzip the \verb|hw1_report.py.zip| and put the data file \verb|digits.mat| under the same directory with \verb|hw1_report.py|. Then, you
+\paragraph{}To run my code, unzip the \verb|hw1.zip| and put the data file \verb|digits.mat| under the same directory with \verb|hw1_report.py|. Then, you
 can run the code with the command \verb|python3 hw1_report.py|. It will output accuracy with different number of training images and different number of eigenvectors. My code is heavily commented and please take a look if there are any type of questions.
 
 \end{appendices}
