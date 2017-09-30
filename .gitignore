@@ -11,3 +11,5 @@ token.mat
 *.synctex.gz
 *.dSYM
 2017/tex-drawings/img/*.pdf
+*.pyc
+log*
