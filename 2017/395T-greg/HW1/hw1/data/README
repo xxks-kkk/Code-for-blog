@@ -1,0 +1,4 @@
+- "eng.train" is the training set,
+- "eng.testa" is the standard NER development set,
+- "eng.testb.blind" is a blind test set you will submit results on.
+- The deu* files are German data that you can experiment with in your extension, but you’re not required to do anything with these.

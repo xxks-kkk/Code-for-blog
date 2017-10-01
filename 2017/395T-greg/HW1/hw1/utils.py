@@ -90,8 +90,8 @@ class Counter(object):
 
 
 # Beam data structure. Maintains a list of scored elements like a Counter, but only keeps the top n
-# elements after every insertion operation. Insertion can sometimes be slow (list is maintained in
-# sorted order), access is O(1)
+# elements after every insertion operation. Insertion is O(n) (list is maintained in
+# sorted order), access is O(1). Still fast enough for practical purposes for small beams.
 class Beam(object):
     def __init__(self, size):
         self.size = size
@@ -110,11 +110,19 @@ class Beam(object):
         if len(self.elts) == self.size and score < self.scores[-1]:
             # Do nothing because this element is the worst
             return
+        # If the list contains the item with a lower score, remove it
+        i = 0
+        while i < len(self.elts):
+            if self.elts[i] == elt and score > self.scores[i]:
+                del self.elts[i]
+                del self.scores[i]
+            i += 1
+
         # If the list is empty, just insert the item
         if len(self.elts) == 0:
             self.elts.insert(0, elt)
             self.scores.insert(0, score)
-        # Otherwise, find the insertion point with binary search
+        # Find the insertion point with binary search
         else:
             lb = 0
             ub = len(self.scores) - 1
@@ -200,6 +208,8 @@ def test_beam():
     beam.add("e", 8)
     beam.add("f", 6.5)
     print "Should contain e, b, f: " + repr(beam)
+    beam.add("f", 9.5)
+    print "Should contain f, e, b: " + repr(beam)
 
     beam = Beam(5)
     beam.add("a", 5)
