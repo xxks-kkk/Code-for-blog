@@ -152,7 +152,7 @@ but after around $15$ epoches, the F1 score becomes stable and stays above $85$.
 is using the beam search instead of the Viterbi algorithm for the inference.
 As shown in figure 1, the beam search has the same performance as the Viterbi algorithm
 in terms of the F1 score. However, the beam search runs faster than the Viterbi algorithm.
-A profiling of the system shows that 
+Profiling of the system shows that 
 the beam search with \verb|beam_size = 2| on average takes $2.18$ nanoseconds 
 while the Viterbi algorithm takes $8.21$ nanoseconds for the same set of labels 
 and sentences. 
