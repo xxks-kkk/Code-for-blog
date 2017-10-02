@@ -45,7 +45,7 @@
 \maketitle
 
 \begin{abstract}
-In this project, I implement the Hidden Markove Model (HMM) and Conditional Random Field (CRF)
+In this project, I implement the Hidden Markove Model (HMM) and the Conditional Random Field (CRF)
 to solve the Parts-of-Speech tagging (POS) and the Named Entity Recognition (NER) problems
 respectively. I extend the NER system with the beam search and the transition potential constraints.
 A series of experiments show that the implementation of the system and the two extensions can have
@@ -108,7 +108,7 @@ in \verb|backpointer| matrix.
 For the CRF, I implement the forward-backward
 algorithm to train the model and the Viterbi algorithm for inference of the labels.
 The Forward-backward algorithm allows us to compute $P(y_i = s|\boldsymbol{x})$,
-which will be used in the Stochastic gradient descent (SGD) to update the weights of the model.
+which will be used in the stochastic gradient descent (SGD) to update the weights of the model.
 I use three matrices \verb|feature_matrix|, \verb|forward|, and \verb|backward| with dimensions
 of $N$ by $T$ in my implementation. \verb|feature_matrix| is used to hold the calculation result
 of $\phi_e(y_i,i,\boldsymbol{x})$. \verb|forward| and \verb|backward|
@@ -123,7 +123,7 @@ will be described in details in the next section.
 \subsection{Extensions}
 
 My extension to the project is centered around the speed and the accuracy. 
-For the speed, I implement the beam search for both HMM and CRF. 
+For the speed, I implement the beam search for both the HMM and the CRF. 
 For the accuracy, I encode hard constraints in the viterbi algorithm of the CRF
 so that certain labels sequence will not get picked.
 For the beam search, I maintain a list of \verb|beam|, which is a priority queue
