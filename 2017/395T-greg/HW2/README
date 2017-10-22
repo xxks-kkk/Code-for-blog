@@ -1,0 +1,4 @@
+- "hw2-release.tgz" contains the basic framework for shift-reduce parser
+- "hw2-release" directory contains the fully implemented shift-reduce parser with
+  both a greedy model and a global beam-search model
+- "hw2-arc-eager.zip" contains the arc eager transition system code. It is NOT fully debugged.
