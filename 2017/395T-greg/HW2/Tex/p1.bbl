@@ -1,0 +1,22 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Jones et~al.(2001--)Jones, Oliphant, Peterson et~al.}]{scipy}
+Eric Jones, Travis Oliphant, Pearu Peterson, et~al. 2001--.
+\newblock \href{http://www.scipy.org/}{{SciPy}: Open source scientific tools
+  for {Python}}.
+\newblock [Online; accessed <today>].
+\newblock \href{http://www.scipy.org/}{http://www.scipy.org/}.
+
+\bibitem[{Jurafsky and H.Martin(2017)}]{Jurafsky:2017}
+Dan Jurafsky and James H.Martin. 2017.
+\newblock Speech and language processing.
+\newblock Preprint on webpage at
+  \url{https://web.stanford.edu/~jurafsky/slp3/}.
+
+\bibitem[{Marsland(2014)}]{Marsland:2014}
+Stephen Marsland. 2014.
+\newblock {\em Machine Learning: An Algorithmic Perspective, Second Edition\/}.
+\newblock Chapman \& Hall/CRC, 2nd edition.
+
+\end{thebibliography}

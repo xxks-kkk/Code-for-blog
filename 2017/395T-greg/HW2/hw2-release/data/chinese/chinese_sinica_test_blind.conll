@@ -1,0 +1,5879 @@
+1	走起路	_	V	VA11[+ASP]	_
+2	來	_	T	Ta	_
+3	一	_	D	Dd	_
+4	拐	_	V	VC2	_
+5	一	_	D	Dd	_
+6	拐	_	V	VC2	_
+7	的	_	DE	DE	_
+
+1	他	_	N	Nhaa	_
+2	穿	_	V	VC2	_
+3	著	_	DE	Di	_
+4	破舊	_	V	VH11	_
+5	的	_	DE	DE	_
+6	上衣	_	N	Nab	_
+
+1	褲子	_	N	Nab	_
+2	上	_	N	Ncda	_
+3	沒有	_	V	VJ3	_
+4	鬆緊帶	_	N	Nab	_
+
+1	只好	_	D	Dbb	_
+2	用	_	P	P39	_
+3	草繩	_	N	Nab	_
+4	綁住	_	V	VC2	_
+
+1	草繩	_	N	Nab	_
+2	很	_	D	Dfa	_
+3	容易	_	V	VH15	_
+4	斷	_	V	VH16	_
+
+1	寬大	_	V	VH11	_
+2	的	_	DE	DE	_
+3	褲子	_	N	Nab	_
+4	總是	_	D	Dd	_
+5	會	_	D	Dbaa	_
+6	往	_	P	P30	_
+7	下	_	N	Ncda	_
+8	溜	_	V	VA11	_
+
+1	所以	_	C	Cbca	_
+
+1	他	_	N	Nhaa	_
+2	必須	_	D	Dbab	_
+3	常常	_	D	Dd	_
+4	用	_	P	P39	_
+5	手	_	N	Nab	_
+6	去	_	D	Dbab	_
+7	提	_	V	VC2	_
+8	他	_	N	Nhaa	_
+9	的	_	DE	DE	_
+10	褲子	_	N	Nab	_
+
+1	他	_	N	Nhaa	_
+2	吹	_	V	VC2	_
+3	橡皮筋	_	N	Nab	_
+4	的	_	DE	DE	_
+5	技術	_	N	Nac	_
+6	非常	_	D	Dfa	_
+7	好	_	V	VH11	_
+
+1	一個	_	DM	DM	_
+2	學期	_	N	Nac	_
+3	下來	_	Ng	Ng	_
+
+1	他	_	N	Nhaa	_
+2	贏得	_	V	VJ3	_
+3	的	_	DE	DE	_
+4	橡皮筋	_	N	Nab	_
+
+1	已經	_	D	Dd	_
+2	由	_	P	P06	_
+3	手腕	_	N	Nab	_
+4	套	_	V	VC2	_
+5	到了	_	P	P61	_
+6	手臂	_	N	Nab	_
+7	上	_	N	Ncda	_
+
+1	同學	_	N	Nab	_
+2	們	_	N	Naea	_
+3	都	_	D	Dab	_
+4	稱	_	V	VG1	_
+5	他	_	N	Nhaa	_
+6	橡皮筋王	_	N	Nab	_
+
+1	為	_	P	P03	_
+2	自己	_	N	Nhab	_
+3	串	_	V	VC2	_
+4	了	_	DE	Di	_
+5	一條	_	DM	DM	_
+6	腰帶	_	N	Nab	_
+
+1	一條	_	DM	DM	_
+2	很	_	D	Dfa	_
+3	牢	_	V	VH11	_
+4	而且	_	C	Cbcb	_
+5	有	_	V	V_2	_
+6	彈性	_	N	Nad	_
+7	的	_	DE	DE	_
+8	腰帶	_	N	Nab	_
+
+1	緊緊	_	V	VH11	_
+2	的	_	DE	DE	_
+3	繫住	_	V	VC2	_
+4	了	_	DE	Di	_
+5	他	_	N	Nhaa	_
+6	的	_	DE	DE	_
+7	褲子	_	N	Nab	_
+8	和	_	C	Caa	_
+9	自尊	_	N	Nad	_
+
+1	橡皮筋王	_	N	Nab	_
+2	的	_	DE	DE	_
+3	臉	_	N	Nab	_
+4	上	_	N	Ncda	_
+
+1	雖然	_	C	Cbaa	_
+2	有	_	V	V_2	_
+3	了	_	DE	Di	_
+4	笑容	_	N	Nad	_
+
+1	可是	_	C	Cbca	_
+2	人們	_	N	Naeb	_
+3	看到	_	V	VE2	_
+4	他	_	N	Nhaa	_
+5	一	_	D	Dd	_
+6	跛	_	V	VH17	_
+7	一	_	D	Dd	_
+8	跛	_	V	VH17	_
+9	的	_	DE	DE	_
+10	動作	_	N	Nac	_
+
+1	不禁	_	V	VL1	_
+2	為	_	P	P03	_
+3	他	_	N	Nhaa	_
+4	感到	_	V	VK1	_
+5	難過	_	V	VK1	_
+
+1	留給	_	V	VD1	_
+2	他	_	N	Nhaa	_
+3	的	_	DE	DE	_
+4	是	_	V	V_11	_
+5	永遠	_	V	VH11	_
+6	的	_	DE	DE	_
+7	遺憾	_	N	Nac	_
+
+1	由	_	P	P06	_
+2	臺中縣	_	N	Nca	_
+3	的	_	DE	DE	_
+4	東勢鎮	_	N	Nca	_
+5	入	_	V	VC1	_
+6	山	_	N	Nab	_
+
+1	溯	_	V	VC1	_
+2	大甲溪	_	N	Nca	_
+3	上行	_	V	VA11	_
+
+1	經	_	P	P26	_
+2	谷關	_	N	Nca	_
+3	、	_	C	Caa	_
+4	達見	_	N	Nca	_
+5	、	_	C	Caa	_
+6	梨山	_	N	Nca	_
+
+1	越過	_	V	VC1	_
+2	合歡山	_	N	Nca	_
+
+1	再	_	D	Dd	_
+2	循	_	P	P25	_
+3	立霧溪	_	N	Nca	_
+4	下行	_	V	VA4	_
+
+1	經	_	P	P26	_
+2	關原	_	N	Nca	_
+3	、	_	C	Caa	_
+4	天祥	_	N	Nca	_
+5	到	_	V	VC1	_
+6	太魯閣	_	N	Nca	_
+
+1	和	_	P	P35	_
+2	蘇花公路	_	N	Ncb	_
+3	相	_	D	Dh	_
+4	銜接	_	V	VJ1	_
+
+1	加上	_	V	VC2	_
+2	由	_	P	P06	_
+3	梨山	_	N	Nca	_
+4	分岔	_	V	VH11	_
+5	到	_	P	P61	_
+6	宜蘭	_	N	Nca	_
+7	的	_	DE	DE	_
+8	支線	_	N	Nab	_
+
+1	和	_	P	P35	_
+2	另外	_	Ne	Nes	_
+3	一條	_	DM	DM	_
+4	通到	_	V	VJ1	_
+5	霧社	_	N	Nca	_
+6	的	_	DE	DE	_
+7	補給線	_	N	Nac	_
+
+1	全	_	Ne	Neqa	_
+2	長	_	V	VH12	_
+3	三百四十八公里	_	DM	DM	_
+
+1	沿途	_	N	Ncb	_
+2	各	_	Ne	Nes	_
+3	地	_	N	Naa	_
+
+1	森林	_	N	Nab	_
+2	茂盛	_	V	VH11	_
+
+1	水力	_	N	Nad	_
+2	充沛	_	V	VH11	_
+
+1	資源	_	N	Nac	_
+2	豐富	_	V	VH16	_
+
+1	經營	_	V	VC2	_
+2	農耕	_	N	Nv4	_
+3	、	_	C	Caa	_
+4	畜牧	_	N	Nad	_
+5	和	_	C	Caa	_
+6	果園	_	N	Ncb	_
+
+1	都	_	D	Dab	_
+2	是	_	V	V_11	_
+3	很	_	D	Dfa	_
+4	理想	_	V	VH11	_
+5	的	_	DE	DE	_
+6	地方	_	N	Nab	_
+
+1	還	_	D	Dbb	_
+2	有	_	V	V_2	_
+3	很多	_	Ne	Neqa	_
+4	的	_	DE	DE	_
+5	礦產	_	N	Nab	_
+
+1	如	_	P	P47	_
+2	沙金	_	N	Naa	_
+3	、	_	C	Caa	_
+4	水晶	_	N	Nab	_
+5	、	_	C	Caa	_
+6	白雲石	_	N	Nab	_
+7	、	_	C	Caa	_
+8	大理石	_	N	Nab	_
+9	、	_	C	Caa	_
+10	雲母石	_	N	Nab	_
+11	、	_	C	Caa	_
+12	鐵礦	_	N	Naa	_
+13	、	_	C	Caa	_
+14	錳礦	_	N	Naa	_
+15	等	_	C	Cab	_
+
+1	都	_	D	Dab	_
+2	是	_	V	V_11	_
+3	可貴	_	V	VH11	_
+4	的	_	DE	DE	_
+5	寶藏	_	N	Naeb	_
+
+1	橫貫公路	_	N	Nab	_
+2	沿線	_	N	Ncb	_
+
+1	自	_	C	Caa[P1]	_
+2	太魯閣	_	N	Nca	_
+3	到	_	C	Caa[P2]	_
+4	天祥	_	N	Nca	_
+5	一段	_	DM	DM	_
+
+1	是	_	V	V_11	_
+2	有名	_	V	VH11	_
+3	的	_	DE	DE	_
+4	遊覽	_	N	Nv4	_
+5	勝地	_	N	Nab	_
+
+1	如	_	P	P47	_
+2	九曲洞	_	N	Nca	_
+3	的	_	DE	DE	_
+4	曲徑通幽	_	N	Nv4	_
+
+1	燕子口	_	N	Nca	_
+2	的	_	DE	DE	_
+3	兩	_	Ne	Neu	_
+4	崖	_	N	Nab	_
+5	絕壁	_	N	Nab	_
+
+1	長春祠	_	N	Nca	_
+2	的	_	DE	DE	_
+3	白練	_	N	Nab	_
+4	橫飛	_	N	Nv4	_
+
+1	都	_	D	Dab	_
+2	是	_	V	V_11	_
+3	精華	_	N	Nad	_
+4	所在	_	N	Nab	_
+
+1	其他	_	Ne	Neqa	_
+2	如	_	P	P47	_
+3	梨山	_	N	Nca	_
+4	、	_	C	Caa	_
+5	合歡山	_	N	Nca	_
+6	一帶	_	N	Ncdb	_
+
+1	千巖競秀	_	V	VH11	_
+
+1	萬壑爭流	_	V	VH11	_
+
+1	那些	_	Ne	Neqa	_
+2	奇麗	_	V	VH11	_
+3	的	_	DE	DE	_
+4	美景	_	N	Nad	_
+
+1	真是	_	D	Dbb	_
+2	天造地設	_	V	VH11	_
+
+1	如	_	P	P47	_
+2	文天祥	_	N	Nba	_
+3	像	_	N	Nab	_
+4	、	_	C	Caa	_
+5	岳王亭	_	N	Nca	_
+6	、	_	C	Caa	_
+7	孟母亭	_	N	Nca	_
+8	、	_	C	Caa	_
+9	慈母亭	_	N	Nca	_
+10	和	_	C	Caa	_
+11	慈母橋	_	N	Nca	_
+
+1	也	_	D	Dbb	_
+2	於	_	P	P23	_
+3	民國	_	N	Ndaab	_
+4	五十六年	_	N	Ndaad	_
+5	全部	_	Ne	Neqa	_
+6	完竣	_	V	VH11	_
+
+1	更	_	D	Dfa	_
+2	為	_	P	P03	_
+3	名山勝境	_	N	Nac	_
+4	增色	_	V	VH11	_
+5	不少	_	Ne	Neqa	_
+
+1	一個	_	DM	DM	_
+2	原始	_	V	VH11	_
+3	山區	_	N	Ncb	_
+
+1	幾乎	_	D	Daa	_
+2	是	_	V	V_11	_
+3	人煙	_	N	Nad	_
+4	絕跡	_	V	VH11	_
+5	的	_	DE	DE	_
+6	地帶	_	N	Ncb	_
+
+1	現在	_	N	Nddc	_
+2	由於	_	C	Cbba	_
+3	橫貫公路	_	N	Nab	_
+4	的	_	DE	DE	_
+5	開闢	_	N	Nv1	_
+
+1	卻	_	D	Dbb	_
+2	創造	_	V	VC31	_
+3	了	_	DE	Di	_
+4	一個	_	DM	DM	_
+5	新天地	_	N	Naea	_
+
+1	這	_	Ne	Nep	_
+2	都	_	D	Dab	_
+3	是	_	V	V_11	_
+4	可敬	_	V	VH11	_
+5	可佩	_	V	VH11	_
+6	的	_	DE	DE	_
+7	榮民	_	N	Nab	_
+
+1	用	_	P	P39	_
+2	他們	_	N	Nhaa	_
+3	的	_	DE	DE	_
+4	智慧	_	N	Nad	_
+5	和	_	C	Caa	_
+6	血汗	_	N	Naa	_
+
+1	克服	_	V	VJ1	_
+2	無數	_	Ne	Neqa	_
+3	的	_	DE	DE	_
+4	困難	_	N	Nac	_
+
+1	所	_	D	Dab	_
+2	獲得	_	V	VJ3	_
+3	的	_	DE	DE	_
+4	成果	_	N	Nac	_
+
+1	凡是	_	C	Cbba	_
+2	到	_	V	VC1	_
+3	過	_	DE	Di	_
+4	橫貫公路	_	N	Nab	_
+5	的	_	DE	DE	_
+6	中外	_	N	Ncb	_
+7	人士	_	N	Nab	_
+
+1	無不	_	D	Dab	_
+2	一致	_	V	VH11	_
+3	讚美	_	V	VC2	_
+
+1	這	_	Ne	Nep	_
+2	是	_	V	V_11	_
+3	一條	_	DM	DM	_
+4	勝利	_	V	VH11	_
+5	之	_	DE	DE	_
+6	路	_	N	Nab	_
+
+1	也	_	D	Dbb	_
+2	是	_	V	V_11	_
+3	一條	_	DM	DM	_
+4	成功	_	V	VH11	_
+5	之	_	DE	DE	_
+6	路	_	N	Nab	_
+
+1	十七	_	Ne	Neu	_
+
+1	曾文	_	N	Nba	_
+2	水庫	_	N	Nab	_
+
+1	大家	_	N	Nhab	_
+2	都	_	D	Dab	_
+3	聽	_	V	VE2	_
+4	過	_	DE	Di	_
+5	愚公	_	N	Nba	_
+6	移山	_	V	VA4	_
+7	的	_	DE	DE	_
+8	故事	_	N	Nac	_
+9	吧	_	T	Tc	_
+
+1	相傳	_	V	VE2	_
+2	這位	_	DM	DM	_
+3	老人	_	N	Nab	_
+
+1	因為	_	C	Cbaa	_
+2	他	_	N	Nhaa	_
+3	家	_	N	Ncb	_
+4	附近	_	N	Ncb	_
+5	有	_	V	V_2	_
+6	座	_	DM	DM	_
+7	高山	_	N	Nab	_
+
+1	阻礙	_	V	VC2	_
+2	交通	_	N	Nad	_
+
+1	發誓	_	V	VE2	_
+2	要	_	D	Dbab	_
+3	把	_	P	P07	_
+4	山	_	N	Nab	_
+5	移開	_	V	VC31	_
+
+1	他	_	N	Nhaa	_
+2	每天	_	DM	DM	_
+3	帶	_	V	VC32	_
+4	著	_	DE	Di	_
+5	兒孫	_	N	Naeb	_
+
+1	專	_	D	Dh	_
+2	做	_	V	VC31	_
+3	移山	_	V	VA4	_
+4	的	_	DE	DE	_
+5	工作	_	N	Nac	_
+
+1	這種	_	DM	DM	_
+2	堅毅	_	V	VH11	_
+3	的	_	DE	DE	_
+4	精神	_	N	Nad	_
+
+1	是	_	D	Dbaa	_
+2	可佩	_	V	VH11	_
+3	的	_	T	Ta	_
+
+1	古代	_	N	Ndda	_
+2	雖	_	C	Cbba	_
+3	不一定	_	D	Dbaa	_
+4	有	_	V	V_2	_
+5	愚公	_	N	Nba	_
+6	這一個	_	DM	DM	_
+7	人	_	N	Nab	_
+
+1	現代	_	N	Nddc	_
+2	卻	_	D	Dbb	_
+3	有	_	V	V_2	_
+4	很多	_	Ne	Neqa	_
+5	具備	_	V	VJ3	_
+6	愚公	_	N	Nba	_
+7	精神	_	N	Nad	_
+8	的	_	DE	DE	_
+9	人	_	N	Nab	_
+
+1	發揮	_	V	VJ3	_
+2	集體	_	A	A	_
+3	的	_	DE	DE	_
+4	智慧	_	N	Nad	_
+
+1	經過	_	P	P26	_
+2	精密	_	V	VH11	_
+3	的	_	DE	DE	_
+4	測量	_	V	VC2	_
+5	和	_	C	Caa	_
+6	設計	_	V	VC31	_
+
+1	運用	_	V	VC2	_
+2	萬能	_	V	VH11	_
+3	的	_	DE	DE	_
+4	雙手	_	N	Naea	_
+5	和	_	C	Caa	_
+6	最	_	D	Dfa	_
+7	新	_	V	VH11	_
+8	的	_	DE	DE	_
+9	機械	_	N	Naeb	_
+
+1	削平	_	V	VC2	_
+2	曾文溪	_	N	Nca	_
+3	附近	_	N	Ncb	_
+4	的	_	DE	DE	_
+5	一座	_	DM	DM	_
+6	山峰	_	N	Nab	_
+
+1	把	_	P	P07	_
+2	大量	_	Ne	Neqa	_
+3	的	_	DE	DE	_
+4	土石	_	N	Nab	_
+5	移運	_	V	VC1	_
+6	過來	_	V	VA11	_
+
+1	興建	_	V	VC33	_
+2	了	_	DE	Di	_
+3	一座	_	DM	DM	_
+4	遠東	_	N	Nca	_
+5	最	_	D	Dfa	_
+6	大	_	V	VH13	_
+7	的	_	DE	DE	_
+8	曾文	_	N	Nba	_
+9	水庫	_	N	Nab	_
+
+1	這種	_	DM	DM	_
+2	人定勝天	_	V	VH11	_
+3	的	_	DE	DE	_
+4	精神	_	N	Nad	_
+
+1	更	_	D	Dfa	_
+2	是	_	D	Dbaa	_
+3	可貴	_	V	VH11	_
+
+1	這座	_	DM	DM	_
+2	水庫	_	N	Nab	_
+3	的	_	DE	DE	_
+4	位置	_	N	Nac	_
+
+1	在	_	P	P21	_
+2	臺灣	_	N	Nca	_
+3	南部	_	N	Ncdb	_
+4	曾文溪	_	N	Nca	_
+5	上游	_	N	Ncb	_
+
+1	比	_	P	P49	_
+2	石門	_	N	Nca	_
+3	水庫	_	N	Nab	_
+4	還	_	D	Dfa	_
+5	大	_	V	VH13	_
+6	兩	_	Ne	Neu	_
+7	倍	_	N	Nad	_
+8	半	_	Ne	Neqb	_
+
+1	儲水量	_	N	Nad	_
+2	可	_	D	Dbab	_
+3	達	_	V	VJ3	_
+4	七億立方公尺	_	DM	DM	_
+
+1	具有	_	V	VJ3	_
+2	多目標	_	A	A	_
+3	的	_	DE	DE	_
+4	功能	_	N	Nac	_
+
+1	南	_	N	Ncda	_
+2	起	_	V	VC31	_
+3	臺南縣	_	N	Nca	_
+
+1	北	_	N	Ncda	_
+2	到	_	V	VC1	_
+3	嘉義縣	_	N	Nca	_
+4	的	_	DE	DE	_
+5	農田	_	N	Nab	_
+
+1	都	_	D	Dab	_
+2	受到	_	V	VJ3	_
+3	它	_	N	Nhaa	_
+4	灌溉	_	V	VC2	_
+5	的	_	DE	DE	_
+6	利益	_	N	Nad	_
+
+1	每年	_	DM	DM	_
+2	增產	_	V	VC31	_
+3	大量	_	Ne	Neqa	_
+4	的	_	DE	DE	_
+5	稻米	_	N	Nab	_
+
+1	並	_	C	Cbcb	_
+2	可	_	D	Dbab	_
+3	充分	_	V	VH11	_
+4	供應	_	V	VD1	_
+5	附近	_	N	Ncb	_
+6	地區	_	N	Ncb	_
+7	住戶	_	N	Nab	_
+8	的	_	DE	DE	_
+9	用水	_	N	Naa	_
+
+1	除了	_	P	P50	_
+2	灌溉	_	V	VC2	_
+3	的	_	DE	DE	_
+4	功能	_	N	Nac	_
+5	外	_	Ng	Ng	_
+
+1	它	_	N	Nhaa	_
+2	還	_	D	Dbb	_
+3	能	_	D	Dbab	_
+4	防洪	_	V	VH11	_
+5	、	_	C	Caa	_
+6	發電	_	V	VA4	_
+
+1	防洪	_	V	VH11	_
+
+1	是	_	V	V_11	_
+2	因為	_	C	Cbaa	_
+3	它	_	N	Nhaa	_
+4	可以	_	D	Dbab	_
+5	調節	_	V	VC2	_
+6	水量	_	N	Nad	_
+
+1	使	_	V	VL4	_
+2	溪流	_	N	Nab	_
+3	免於	_	V	VK2	_
+4	氾濫	_	V	VH11	_
+
+1	發電	_	V	VA4	_
+
+1	是	_	D	Dbaa	_
+2	利用	_	V	VC2	_
+3	它	_	N	Nhaa	_
+4	的	_	DE	DE	_
+5	水力	_	N	Nad	_
+6	推動	_	N	Nv1	_
+7	發電機	_	N	Nab	_
+8	來	_	D	Dbab	_
+9	產生	_	V	VH16	_
+10	電力	_	N	Nad	_
+
+1	它	_	N	Nhaa	_
+2	不僅	_	C	Cbbb	_
+3	給	_	P	P04	_
+4	國家	_	N	Nac	_
+5	社會	_	N	Nac	_
+6	帶來	_	V	VC2	_
+7	很	_	D	Dfa	_
+8	大	_	V	VH13	_
+9	的	_	DE	DE	_
+10	財富	_	N	Naeb	_
+
+1	而且	_	C	Cbcb	_
+2	使	_	V	VL4	_
+3	居住	_	V	VA12	_
+4	在	_	P	P21	_
+5	臺南	_	N	Nca	_
+6	、	_	C	Caa	_
+7	嘉義	_	N	Nca	_
+8	等	_	C	Cab	_
+9	地	_	N	Naa	_
+10	的	_	DE	DE	_
+11	民眾	_	N	Nab	_
+
+1	都	_	D	Dab	_
+2	享受到	_	V	VJ1	_
+3	它	_	N	Nhaa	_
+4	帶來	_	V	VC2	_
+5	的	_	DE	DE	_
+6	福利	_	N	Nac	_
+
+1	由於	_	C	Cbba	_
+2	曾文溪	_	N	Nca	_
+3	自然	_	N	Nad	_
+4	形勢	_	N	Nac	_
+5	的	_	DE	DE	_
+6	優美	_	N	Nv4	_
+
+1	氣候	_	N	Nad	_
+2	宜人	_	V	VH11	_
+
+1	風光明媚	_	V	VH11	_
+
+1	加上	_	C	Cbcb	_
+2	水庫	_	N	Nab	_
+3	工程	_	N	Nac	_
+4	結構	_	N	Nad	_
+5	的	_	DE	DE	_
+6	雄偉	_	N	Nv4	_
+7	壯麗	_	N	Nv4	_
+
+1	吸引	_	V	VJ1	_
+2	了	_	DE	Di	_
+3	不少	_	Ne	Neqa	_
+4	遊客	_	N	Nab	_
+
+1	很	_	D	Dfa	_
+2	快	_	V	VH13	_
+3	的	_	DE	DE	_
+4	就	_	D	Dd	_
+5	成	_	V	VG2	_
+6	了	_	DE	Di	_
+7	寶島	_	N	Nca	_
+8	的	_	DE	DE	_
+9	觀光	_	N	Nv4	_
+10	勝地	_	N	Nab	_
+
+1	興築	_	V	VC33	_
+2	這座	_	DM	DM	_
+3	曾文	_	N	Nba	_
+4	水庫	_	N	Nab	_
+
+1	無論	_	C	Cbaa	_
+2	設計	_	V	VC31	_
+3	和	_	C	Caa	_
+4	施工	_	V	VA4	_
+
+1	從頭到尾	_	D	Dd	_
+2	都	_	D	Dab	_
+3	是	_	D	Dbaa	_
+4	由	_	P	P06	_
+5	我	_	N	Nhaa	_
+6	國人	_	N	Naea	_
+7	自己	_	N	Nhab	_
+8	用	_	V	VC2	_
+9	腦	_	N	Nab	_
+10	、	_	C	Caa	_
+11	自己	_	N	Nhab	_
+12	動手	_	V	VA4	_
+13	的	_	T	Ta	_
+
+1	他們	_	N	Nhaa	_
+2	兢兢業業	_	V	VH11	_
+
+1	一分	_	DM	DM	_
+2	一秒	_	DM	DM	_
+3	不	_	D	Dc	_
+4	懈怠	_	V	VH11	_
+
+1	一絲一毫	_	Ne	Neqa	_
+2	不	_	D	Dc	_
+3	疏忽	_	V	VJ2	_
+
+1	經過	_	P	P26	_
+2	六年	_	DM	DM	_
+3	的	_	DE	DE	_
+4	通力	_	D	Dh	_
+5	合作	_	N	Nv4	_
+
+1	到	_	P	P61	_
+2	民國	_	N	Ndaab	_
+3	六十二年	_	N	Ndaad	_
+4	五月	_	N	Ndabc	_
+5	完成	_	V	VC31	_
+
+1	足以	_	V	VL2	_
+2	迎頭趕上	_	V	VA11	_
+3	其他	_	Ne	Neqa	_
+4	現代化	_	V	VH16	_
+5	的	_	DE	DE	_
+6	國家	_	N	Nac	_
+
+1	這	_	Ne	Nep	_
+2	是	_	V	V_11	_
+3	一次	_	DM	DM	_
+4	嚴格	_	V	VH11	_
+5	的	_	DE	DE	_
+6	考驗	_	N	Nac	_
+
+1	也	_	D	Dbb	_
+2	是	_	V	V_11	_
+3	一項	_	DM	DM	_
+4	榮譽	_	N	Nad	_
+5	的	_	DE	DE	_
+6	創造	_	N	Nv1	_
+
+1	最	_	D	Dfa	_
+2	主要	_	V	VH11	_
+3	的	_	DE	DE	_
+
+1	更	_	D	Dfa	_
+2	顯示	_	V	VK2	_
+3	了	_	DE	Di	_
+4	我國	_	N	Ncb	_
+5	的	_	DE	DE	_
+6	土木	_	N	Nad	_
+7	工程	_	N	Nac	_
+
+1	已	_	D	Dd	_
+2	提高到	_	V	VC2	_
+3	國際	_	N	Ncc	_
+4	水準	_	N	Nad	_
+
+1	只要	_	C	Cbaa	_
+2	大家	_	N	Nhab	_
+3	堅定	_	V	VH16	_
+4	民族	_	N	Nab	_
+5	的	_	DE	DE	_
+6	自信心	_	N	Nad	_
+
+1	發揮	_	V	VJ3	_
+2	偉大	_	V	VH11	_
+3	的	_	DE	DE	_
+4	創造力	_	N	Nad	_
+
+1	共同	_	A	A	_
+2	為	_	P	P03	_
+3	國	_	N	Ncb	_
+4	爭光	_	V	VB11	_
+
+1	我們	_	N	Nhaa	_
+2	炎黃子孫	_	N	Nab	_
+
+1	一定	_	D	Dbaa	_
+2	可以	_	D	Dbab	_
+3	在	_	P	P21	_
+4	世界	_	N	Ncb	_
+5	上	_	N	Ncda	_
+6	揚眉吐氣	_	V	VH21	_
+
+1	十八	_	Ne	Neu	_
+
+1	臺灣頌	_	N	Nba	_
+
+1	臺灣	_	N	Nca	_
+
+1	美麗	_	V	VH11	_
+2	的	_	DE	DE	_
+3	臺灣	_	N	Nca	_
+
+1	你	_	N	Nhaa	_
+2	是	_	V	V_11	_
+3	個	_	DM	DM	_
+4	可愛	_	V	VH11	_
+5	的	_	DE	DE	_
+6	地方	_	N	Nab	_
+
+1	翠綠	_	V	VH11	_
+2	的	_	DE	DE	_
+3	田野	_	N	Ncb	_
+4	間	_	N	Ncda	_
+
+1	有	_	V	V_2	_
+2	層層	_	Ne	Neqa	_
+3	起伏	_	V	VA11	_
+4	的	_	DE	DE	_
+5	稻浪	_	N	Nad	_
+
+1	如	_	V	VG2	_
+2	畫	_	N	Nab	_
+3	的	_	DE	DE	_
+4	山水	_	N	Nad	_
+5	邊	_	N	Ncda	_
+
+1	有	_	V	V_2	_
+2	樸實	_	V	VH11	_
+3	寧靜	_	V	VH11	_
+4	的	_	DE	DE	_
+5	村莊	_	N	Ncb	_
+
+1	青蔥	_	V	VH11	_
+2	的	_	DE	DE	_
+3	牧場	_	N	Ncb	_
+4	上	_	N	Ncda	_
+
+1	有	_	V	V_2	_
+2	成群	_	V	VH11	_
+3	的	_	DE	DE	_
+4	牛	_	N	Nab	_
+5	羊	_	N	Nab	_
+
+1	寬廣	_	V	VH11	_
+2	的	_	DE	DE	_
+3	道路	_	N	Nab	_
+4	旁	_	N	Ncda	_
+
+1	有	_	V	V_2	_
+2	新	_	V	VH11	_
+3	起	_	V	VC31	_
+4	的	_	DE	DE	_
+5	工廠	_	N	Ncb	_
+
+1	熱鬧	_	V	VH11	_
+2	的	_	DE	DE	_
+3	城市	_	N	Nab	_
+4	裡	_	N	Ncda	_
+
+1	有	_	V	V_2	_
+2	繁榮	_	V	VH16	_
+3	的	_	DE	DE	_
+4	景象	_	N	Nac	_
+
+1	臺灣	_	N	Nca	_
+
+1	美麗	_	V	VH11	_
+2	的	_	DE	DE	_
+3	臺灣	_	N	Nca	_
+
+1	你	_	N	Nhaa	_
+2	是	_	V	V_11	_
+3	個	_	DM	DM	_
+4	進步	_	V	VH11	_
+5	的	_	DE	DE	_
+6	地方	_	N	Nab	_
+
+1	縱貫	_	N	Nv3	_
+2	鐵路	_	N	Nab	_
+3	的	_	DE	DE	_
+4	電氣化	_	N	Nv4	_
+
+1	加速	_	V	VC2	_
+2	了	_	DE	Di	_
+3	南北	_	N	Ncdb	_
+4	交通	_	N	Nad	_
+5	的	_	DE	DE	_
+6	來往	_	N	Nv4	_
+
+1	高速	_	N	Nad	_
+2	公路	_	N	Nab	_
+3	的	_	DE	DE	_
+4	營建	_	N	Nv1	_
+
+1	實現	_	V	VC2	_
+2	了	_	DE	Di	_
+3	貨暢其流	_	V	VH11	_
+4	的	_	DE	DE	_
+5	理想	_	N	Nac	_
+
+1	北迴	_	N	Nab	_
+2	鐵路	_	N	Nab	_
+3	的	_	DE	DE	_
+4	修築	_	N	Nv1	_
+
+1	開拓	_	V	VC31	_
+2	了	_	DE	Di	_
+3	東部	_	N	Ncdb	_
+4	資源	_	N	Nac	_
+5	的	_	DE	DE	_
+6	寶藏	_	N	Naeb	_
+
+1	為了	_	P	P03	_
+2	便利	_	V	VL4	_
+3	海	_	N	Nab	_
+4	上	_	N	Ncda	_
+5	交通	_	N	Nad	_
+
+1	在	_	P	P21	_
+2	蘇澳	_	N	Nca	_
+3	、	_	C	Caa	_
+4	臺中	_	N	Nca	_
+5	新	_	V	VH11	_
+6	闢	_	V	VC31	_
+7	海港	_	N	Ncb	_
+
+1	為了	_	P	P03	_
+2	改善	_	V	VC2	_
+3	空中	_	N	Ncc	_
+4	航運	_	N	Nad	_
+
+1	在	_	P	P21	_
+2	桃園	_	N	Nca	_
+3	建立	_	V	VC31	_
+4	了	_	DE	Di	_
+5	國際	_	N	Ncc	_
+6	機場	_	N	Ncb	_
+
+1	為了	_	P	P03	_
+2	促進	_	V	VK2	_
+3	工業	_	N	Nad	_
+
+1	在	_	P	P21	_
+2	高雄	_	N	Nca	_
+3	造船	_	V	VA4	_
+4	和	_	C	Caa	_
+5	煉鋼	_	V	VA4	_
+
+1	為了	_	P	P03	_
+2	開發	_	V	VC2	_
+3	資源	_	N	Nac	_
+
+1	核能	_	N	Nad	_
+2	、	_	C	Caa	_
+3	石化	_	N	Naa	_
+4	也	_	D	Dbb	_
+5	相繼	_	D	Dh	_
+6	設廠	_	V	VA4	_
+
+1	臺灣	_	N	Nca	_
+
+1	美麗	_	V	VH11	_
+2	的	_	DE	DE	_
+3	臺灣	_	N	Nca	_
+
+1	你	_	N	Nhaa	_
+2	是	_	V	V_11	_
+3	個	_	DM	DM	_
+4	光明	_	V	VH11	_
+5	的	_	DE	DE	_
+6	地方	_	N	Nab	_
+
+1	家家	_	N	Naea	_
+2	豐衣足食	_	V	VH11	_
+
+1	人人	_	N	Naea	_
+2	奮發圖強	_	V	VH11	_
+
+1	十	_	Ne	Neu	_
+2	大	_	V	VH13	_
+3	建設	_	N	Naeb	_
+4	成功	_	V	VH11	_
+
+1	民心	_	N	Nad	_
+2	士氣	_	N	Nad	_
+3	高昂	_	V	VH11	_
+
+1	臺灣	_	N	Nca	_
+
+1	美麗	_	V	VH11	_
+2	的	_	DE	DE	_
+3	臺灣	_	N	Nca	_
+
+1	你	_	N	Nhaa	_
+2	是	_	V	V_11	_
+3	民族	_	N	Nab	_
+4	復興	_	V	VC2	_
+5	的	_	DE	DE	_
+6	基地	_	N	Ncb	_
+
+1	你	_	N	Nhaa	_
+2	是	_	V	V_11	_
+3	自由	_	V	VH11	_
+4	世界	_	N	Ncb	_
+5	的	_	DE	DE	_
+6	屏障	_	N	Nab	_
+
+1	也	_	D	Dbb	_
+2	最	_	D	Dfa	_
+3	喜歡	_	V	VK1	_
+4	炫耀	_	V	VE2	_
+5	的	_	DE	DE	_
+6	人	_	N	Nab	_
+
+1	在	_	P	P21	_
+2	面對	_	V	VC2	_
+3	女人女人	_	N	Nba	_
+4	觀眾	_	N	Nab	_
+5	盤問	_	V	VE11	_
+6	他	_	N	Nhaa	_
+7	究竟	_	D	Dbb	_
+8	有	_	V	V_2	_
+9	多少	_	Ne	Neqa	_
+10	錢	_	N	Naeb	_
+
+1	跟	_	P	P63	_
+2	中國小姐	_	N	Nba	_
+3	又	_	D	Dd	_
+4	有	_	V	V_2	_
+5	何	_	Ne	Nes	_
+6	瓜葛	_	N	Nad	_
+
+1	遺產	_	N	Naeb	_
+2	如何	_	D	Dh	_
+3	分配	_	V	VD1	_
+4	等	_	C	Cab	_
+5	問題	_	N	Nac	_
+
+1	讓	_	V	VL4	_
+2	唐日榮	_	N	Nba	_
+3	頻頻	_	D	Dd	_
+4	擦汗	_	V	VA4	_
+
+1	小心	_	V	VK1	_
+2	回答	_	V	VE12	_
+
+1	我	_	N	Nhaa	_
+2	把	_	P	P07	_
+3	英雄	_	N	Nab	_
+4	變	_	V	VG2	_
+5	美人	_	N	Nab	_
+6	啦	_	T	Tc	_
+
+1	由	_	P	P06	_
+2	徐進良	_	N	Nba	_
+3	製作	_	V	VC31	_
+
+1	林桂瑛	_	N	Nba	_
+2	編劇	_	V	VA4	_
+
+1	陳松勇	_	N	Nba	_
+
+1	藍心湄	_	N	Nba	_
+
+1	林瑞陽	_	N	Nba	_
+
+1	岳翎	_	N	Nba	_
+
+1	宋逸民	_	N	Nba	_
+
+1	宋達民	_	N	Nba	_
+
+1	涂善妮	_	N	Nba	_
+
+1	安迪	_	N	Nba	_
+2	等	_	C	Cab	_
+3	人	_	N	Nab	_
+4	演出	_	V	VC2	_
+
+1	親愛的	_	N	Nhac	_
+
+1	我	_	N	Nhaa	_
+2	把	_	P	P07	_
+3	英雄	_	N	Nab	_
+4	變	_	V	VG2	_
+5	美人	_	N	Nab	_
+6	啦	_	T	Tc	_
+
+1	跳槽	_	V	VA4	_
+2	至	_	P	P61	_
+3	中視	_	N	Nca	_
+4	製作	_	V	VC31	_
+5	的	_	DE	DE	_
+6	第一齣	_	DM	DM	_
+7	喜劇	_	N	Nac	_
+
+1	使得	_	V	VL4	_
+2	親劇	_	N	Nab	_
+3	製作	_	N	Nv1	_
+4	單位	_	N	Nac	_
+5	格外	_	D	Dfa	_
+6	謹慎	_	V	VH11	_
+
+1	特別	_	V	VH11	_
+2	重金	_	N	Naeb	_
+3	禮聘	_	V	VF2	_
+4	金馬獎	_	N	Nba	_
+5	影帝	_	N	Nab	_
+6	陳松勇	_	N	Nba	_
+7	加入	_	V	VC33	_
+8	八點檔	_	N	Nac	_
+9	陣線	_	N	Nac	_
+
+1	女	_	N	Nab	_
+2	主角	_	N	Nab	_
+3	林瑞陽	_	N	Nba	_
+
+1	藍心湄	_	N	Nba	_
+2	亦	_	D	Dbb	_
+3	是	_	V	V_11	_
+4	第一次	_	DM	DM	_
+5	出現	_	V	VH14	_
+6	中視	_	N	Nca	_
+7	連續劇	_	N	Nac	_
+8	演出	_	V	VC2	_
+
+1	親劇	_	N	Nab	_
+2	的	_	DE	DE	_
+3	演員	_	N	Nab	_
+4	組合	_	N	Nv1	_
+5	新鮮	_	V	VH11	_
+
+1	加上	_	V	VC2	_
+2	徐進良	_	N	Nba	_
+3	擅長	_	V	VL2	_
+4	的	_	DE	DE	_
+5	現代	_	N	Nddc	_
+6	喜劇	_	N	Nac	_
+7	題材	_	N	Nac	_
+
+1	巧遇	_	V	VC2	_
+2	陳松勇	_	N	Nba	_
+3	飾演	_	V	VC2	_
+4	的	_	DE	DE	_
+5	劉查某	_	N	Nba	_
+6	一家人	_	N	Naea	_
+
+1	展開	_	V	VC2	_
+2	一連串	_	A	A	_
+3	頗	_	D	Dfa	_
+4	具	_	V	VJ3	_
+5	笑果	_	N	Nad	_
+6	的	_	DE	DE	_
+7	情節	_	N	Nac	_
+
+1	在	_	P	P21	_
+2	面對	_	V	VC2	_
+3	台視	_	N	Nca	_
+4	末代兒女情	_	N	Nba	_
+5	與	_	C	Caa	_
+6	華視	_	N	Nca	_
+7	幾度春風幾度霜	_	N	Nba	_
+8	民初	_	N	Ndabf	_
+9	戲	_	N	Nac	_
+10	的	_	DE	DE	_
+11	恩怨	_	N	Nad	_
+12	糾纏	_	N	Nv1	_
+13	情節	_	N	Nac	_
+
+1	講求	_	V	VK2	_
+2	喜感	_	N	Nad	_
+
+1	三台	_	N	Nab	_
+2	的	_	DE	DE	_
+3	收視率	_	N	Nad	_
+4	即	_	D	Dd	_
+5	可能	_	D	Dbaa	_
+6	再	_	D	Dbb	_
+7	出現	_	V	VH14	_
+8	新	_	V	VH11	_
+9	的	_	DE	DE	_
+10	排列	_	N	Nv1	_
+11	組合	_	N	Nv1	_
+
+1	尤其	_	D	Dbb	_
+2	目前	_	N	Nddc	_
+3	廣告	_	N	Nac	_
+4	市場	_	N	Ncb	_
+5	低迷	_	V	VH11	_
+
+1	以便	_	C	Cbca	_
+2	招攬	_	V	VC2	_
+3	廣告	_	N	Nac	_
+4	客戶	_	N	Nab	_
+
+1	更	_	D	Dfa	_
+2	是	_	D	Dbaa	_
+3	寄予	_	V	VD1	_
+4	厚望	_	N	Nad	_
+
+1	民國	_	N	Ndaab	_
+2	十七年	_	N	Ndaad	_
+
+1	郎靜山	_	N	Nba	_
+2	應聘	_	V	VG2	_
+3	入	_	V	VC1	_
+4	上海時報	_	N	Nba	_
+5	擔任	_	V	VG2	_
+6	攝影	_	N	Nad	_
+7	記者	_	N	Nab	_
+
+1	為	_	V	VG1	_
+2	中國	_	N	Nca	_
+3	攝影	_	N	Nad	_
+4	記者	_	N	Nab	_
+5	的	_	DE	DE	_
+6	第一	_	Ne	Neu	_
+7	人	_	N	Nab	_
+
+1	民國	_	N	Ndaab	_
+2	二十年	_	N	Ndaad	_
+
+1	他	_	N	Nhaa	_
+2	將	_	P	P07	_
+3	中國	_	N	Nca	_
+4	水墨	_	N	Nad	_
+5	畫境	_	N	Nad	_
+6	與	_	C	Caa	_
+7	西洋	_	N	Nca	_
+8	攝影	_	N	Nad	_
+9	藝術	_	N	Nad	_
+10	互	_	D	Dh	_
+11	融為	_	V	VG1	_
+12	一體	_	N	Nad	_
+
+1	演繹出	_	V	VC31	_
+2	純	_	V	VH11	_
+3	自我	_	V	VH11	_
+4	情境	_	N	Nad	_
+5	空間	_	N	Nac	_
+6	的	_	DE	DE	_
+7	集	_	V	VC31	_
+8	景	_	N	Nac	_
+9	攝影	_	N	Nad	_
+10	美學	_	N	Nad	_
+
+1	為	_	P	P03	_
+2	中國	_	N	Nca	_
+3	攝影	_	N	Nad	_
+4	史	_	N	Nab	_
+5	寫下	_	V	VC31	_
+6	璀璨	_	V	VH11	_
+7	的	_	DE	DE	_
+8	一頁	_	DM	DM	_
+
+1	從此	_	D	Dd	_
+
+1	他	_	N	Nhaa	_
+2	未曾	_	D	Dd	_
+3	離開	_	V	VC2	_
+4	過	_	DE	Di	_
+5	攝影	_	N	Nad	_
+6	崗位	_	N	Ncb	_
+
+1	祇要	_	C	Cbaa	_
+2	稍微	_	D	Dh	_
+3	留意	_	V	VK1	_
+4	攝影	_	V	VA4	_
+5	的	_	DE	DE	_
+6	人	_	N	Nab	_
+
+1	很	_	D	Dfa	_
+2	少	_	V	VH13	_
+3	有	_	V	V_2	_
+4	人	_	N	Nab	_
+5	不	_	D	Dc	_
+6	知道	_	V	VK1	_
+7	他	_	N	Nhaa	_
+8	郎靜山	_	N	Nba	_
+
+1	畢竟	_	D	Dbb	_
+
+1	他	_	N	Nhaa	_
+2	取	_	V	VC31	_
+3	景	_	N	Nac	_
+4	框	_	N	Nab	_
+5	的	_	DE	DE	_
+6	時代	_	N	Nac	_
+7	軌路	_	N	Nab	_
+
+1	曾	_	D	Dd	_
+2	關照	_	V	VJ2	_
+3	過	_	DE	Di	_
+4	多少	_	Ne	Neqa	_
+5	人	_	N	Nab	_
+6	的	_	DE	DE	_
+7	成長	_	V	VH13	_
+8	環境	_	N	Nac	_
+
+1	互映出	_	V	VH14	_
+2	時空	_	N	Naea	_
+3	幻化	_	V	VH16	_
+4	的	_	DE	DE	_
+5	變異	_	N	Nad	_
+
+1	但	_	C	Cbca	_
+
+1	這位	_	DM	DM	_
+2	國寶	_	N	Nab	_
+3	的	_	DE	DE	_
+4	攝影	_	N	Nad	_
+5	大師	_	N	Nab	_
+
+1	於	_	P	P23	_
+2	百齡	_	N	Nad	_
+3	攝影	_	N	Nad	_
+4	回顧展	_	N	Nac	_
+5	前夕	_	N	Ndabf	_
+6	的	_	DE	DE	_
+7	記者會	_	N	Nac	_
+8	中	_	Ng	Ng	_
+
+1	曾	_	D	Dd	_
+2	一度	_	D	Dd	_
+3	表示	_	V	VE2	_
+4	因	_	C	Cbaa	_
+5	經濟	_	N	Nad	_
+6	能力	_	N	Nad	_
+7	不	_	D	Dc	_
+8	許可	_	V	VE2	_
+
+1	無法	_	D	Dbab	_
+2	籌建	_	V	VC31	_
+3	攝影	_	N	Nad	_
+4	博物館	_	N	Ncb	_
+
+1	捐贈	_	V	VD1	_
+2	給	_	P	P04	_
+3	歷史	_	N	Nad	_
+4	博物館	_	N	Ncb	_
+5	保存	_	V	VC2	_
+6	典藏	_	V	VC2	_
+
+1	整件	_	DM	DM	_
+2	事情	_	N	Nac	_
+3	的	_	DE	DE	_
+4	背後	_	N	Ncc	_
+
+1	仍	_	D	Dd	_
+2	孜孜不倦	_	V	VH11	_
+3	於	_	P	P23	_
+4	攝影	_	N	Nad	_
+5	創作	_	N	Naeb	_
+6	的	_	DE	DE	_
+7	藝術家	_	N	Nab	_
+
+1	並	_	D	Dbb	_
+2	沒有	_	D	Dc	_
+3	給與	_	V	VD1	_
+4	較	_	D	Dfa	_
+5	週詳	_	V	VH11	_
+6	的	_	DE	DE	_
+7	作品	_	N	Nac	_
+8	維護	_	N	Nv1	_
+
+1	管理	_	V	VC2	_
+
+1	典藏	_	N	Nv1	_
+2	計劃	_	N	Nac	_
+
+1	獎章	_	N	Nab	_
+2	堆滿	_	V	VC33	_
+3	襟	_	N	Nab	_
+
+1	以	_	P	P11	_
+2	個案	_	N	Nac	_
+3	處理	_	V	VC2	_
+4	購藏	_	V	VC33	_
+5	郎靜山	_	N	Nba	_
+6	所有	_	Ne	Neqa	_
+7	作品	_	N	Nac	_
+
+1	想	_	V	VE2	_
+2	親近	_	V	VC2	_
+
+1	想	_	V	VE2	_
+2	瞭解	_	V	VK1	_
+3	他	_	N	Nhaa	_
+4	作品	_	N	Nac	_
+
+1	能	_	D	Dbab	_
+2	有	_	V	V_2	_
+3	一個	_	DM	DM	_
+4	常態	_	N	Nad	_
+5	的	_	DE	DE	_
+6	地方	_	N	Nab	_
+7	可	_	D	Dbab	_
+8	依循	_	V	VJ1	_
+
+1	以	_	P	P11	_
+2	郎靜山	_	N	Nba	_
+3	現有	_	A	A	_
+4	的	_	DE	DE	_
+5	歲數	_	N	Nad	_
+
+1	各式	_	DM	DM	_
+2	獎章	_	N	Nab	_
+3	或	_	C	Caa	_
+4	榮譽	_	N	Nad	_
+
+1	或許	_	D	Dbaa	_
+2	早已	_	D	Dd	_
+3	不	_	D	Dc	_
+4	是	_	V	V_11	_
+5	追逐	_	V	VC2	_
+6	的	_	DE	DE	_
+7	內容	_	N	Nad	_
+
+1	找	_	V	VC2	_
+2	個	_	DM	DM	_
+3	理想	_	V	VH11	_
+4	棲腳處	_	N	Ncb	_
+
+1	兩相	_	D	Dh	_
+2	對映	_	V	VB11	_
+3	下	_	Ng	Ng	_
+
+1	那些	_	Ne	Neqa	_
+2	獎章	_	N	Nab	_
+3	無疑	_	D	Dbaa	_
+4	也	_	D	Dbb	_
+5	成就出	_	V	VC31	_
+6	現階段	_	N	Nddc	_
+7	人情酬	_	N	Nad	_
+8	的	_	DE	DE	_
+9	一種	_	DM	DM	_
+10	諷刺	_	V	VC2	_
+11	之	_	DE	DE	_
+12	舉	_	N	Nab	_
+
+1	既然	_	C	Cbba	_
+2	決策	_	N	Nac	_
+3	單位	_	N	Nac	_
+4	能	_	D	Dbab	_
+5	正視	_	V	VC2	_
+6	藝術家	_	N	Nab	_
+7	的	_	DE	DE	_
+8	貢獻	_	N	Nad	_
+
+1	那麼	_	D	Dk	_
+2	給與	_	V	VD1	_
+3	藝術家	_	N	Nab	_
+4	真正	_	D	Dbb	_
+5	想要	_	V	VE2	_
+6	的	_	DE	DE	_
+
+1	或許	_	D	Dbaa	_
+2	應	_	D	Dbaa	_
+3	來得	_	D	Dfa	_
+4	較	_	D	Dfa	_
+5	確切	_	V	VH11	_
+6	些	_	D	Dfb	_
+7	吧	_	T	Tc	_
+
+1	以	_	P	P11[+part]	_
+2	目前	_	N	Nddc	_
+3	公家	_	N	Ncb	_
+4	展覽	_	N	Nv1	_
+5	單位	_	N	Nac	_
+6	來講	_	P	P11[+part]	_
+
+1	歷史	_	N	Nad	_
+2	博物館	_	N	Ncb	_
+3	的	_	DE	DE	_
+4	捐贈	_	N	Nv1	_
+5	文物	_	N	Naeb	_
+6	室	_	N	Ncb	_
+
+1	即	_	D	Dd	_
+2	長期	_	N	Nad	_
+3	更換	_	V	VC2	_
+4	外界	_	N	Ncdb	_
+5	人士	_	N	Nab	_
+6	所	_	D	Dab	_
+7	贈與	_	V	VD1	_
+8	的	_	DE	DE	_
+9	文物	_	N	Naeb	_
+10	內容	_	N	Nad	_
+
+1	成為	_	V	VG2	_
+2	另一個	_	DM	DM	_
+3	展現	_	V	VC31	_
+4	館藏品	_	N	Nab	_
+5	的	_	DE	DE	_
+6	區域	_	N	Ncb	_
+
+1	台灣	_	N	Nca	_
+2	省立	_	A	A	_
+3	美術館	_	N	Ncb	_
+4	典藏品	_	N	Nab	_
+5	的	_	DE	DE	_
+6	展示	_	N	Nv1	_
+
+1	更	_	D	Dfa	_
+2	是	_	D	Dbaa	_
+3	定期	_	D	Dd	_
+4	讓	_	V	VL4	_
+5	館藏品	_	N	Nab	_
+6	與	_	P	P35	_
+7	大眾	_	N	Nhab	_
+8	見面	_	V	VA4	_
+
+1	且	_	C	Cbcb	_
+2	造成	_	V	VG1	_
+3	相當	_	D	Dfa	_
+4	好	_	V	VH11	_
+5	的	_	DE	DE	_
+6	口碑	_	N	Nad	_
+
+1	台北	_	N	Nca	_
+2	市立	_	A	A	_
+3	美術館	_	N	Ncb	_
+4	則	_	D	Dbb	_
+5	採	_	V	VC2	_
+6	特定	_	A	A	_
+7	時間	_	N	Nad	_
+8	式	_	N	Nad	_
+9	作	_	V	VC31	_
+10	典藏品	_	N	Nab	_
+11	展	_	N	Nad	_
+
+1	雖	_	C	Cbba	_
+2	也	_	D	Dbb	_
+3	反應	_	N	Nac	_
+4	不錯	_	V	VH11	_
+
+1	但	_	C	Cbca	_
+2	終究	_	D	Dbb	_
+3	沒有	_	V	VJ3	_
+4	上述	_	N	Nad	_
+5	兩	_	Ne	Neu	_
+6	單位	_	N	Nac	_
+7	特	_	D	Dh	_
+8	闢	_	V	VC31	_
+9	區域	_	N	Ncb	_
+10	的	_	DE	DE	_
+11	作法	_	N	Nac	_
+
+1	來得	_	D	Dfa	_
+2	較	_	D	Dfa	_
+3	貼和	_	V	VC2	_
+4	人心	_	N	Nad	_
+
+1	從	_	P	P19	_
+2	這些	_	Ne	Neqa	_
+3	例子	_	N	Nac	_
+
+1	格局	_	N	Nad	_
+2	可	_	D	Dbab	_
+3	作	_	V	VC31	_
+4	有	_	V	V_2	_
+5	限度	_	N	Nac	_
+6	更動	_	N	Nv4	_
+7	與	_	C	Caa	_
+8	配合	_	N	Nv1	_
+
+1	但	_	C	Cbca	_
+
+1	問題	_	N	Nac	_
+2	是	_	V	V_11	_
+3	公家	_	N	Ncb	_
+4	單位	_	N	Nac	_
+5	經費	_	N	Naeb	_
+6	著實	_	D	Dbb	_
+7	有限	_	V	VH11	_
+
+1	如果	_	C	Cbaa	_
+2	將	_	P	P07	_
+3	一整年	_	DM	DM	_
+4	典藏	_	N	Nv1	_
+5	預算	_	N	Naeb	_
+6	單	_	D	Daa	_
+7	買	_	V	VC31	_
+8	某	_	Ne	Nes	_
+9	一	_	Ne	Neu	_
+10	藝術家	_	N	Nab	_
+11	作品	_	N	Nac	_
+
+1	誠屬	_	V	VG2	_
+2	惹	_	V	VL4	_
+3	人	_	N	Nab	_
+4	非議	_	V	VC2	_
+
+1	可是	_	C	Cbca	_
+
+1	一旦	_	C	Cbba	_
+2	決策	_	N	Nac	_
+3	當局	_	N	Nad	_
+4	有心	_	V	VL1	_
+
+1	如此	_	D	Dk	_
+2	專案	_	N	Nac	_
+3	預算	_	N	Naeb	_
+4	通過	_	V	VC2	_
+5	的	_	DE	DE	_
+6	可能性	_	N	Nad	_
+7	應	_	D	Dbaa	_
+8	較	_	D	Dfa	_
+9	高	_	V	VH13	_
+10	些	_	D	Dfb	_
+
+1	甚至	_	D	Dbb	_
+
+1	具體	_	V	VH11	_
+2	建立	_	V	VC31	_
+3	各	_	Ne	Nes	_
+4	文化	_	N	Nad	_
+5	中心	_	N	Ncb	_
+6	蒐藏	_	V	VC32	_
+7	藝術品	_	N	Nab	_
+8	的	_	DE	DE	_
+9	單一化	_	N	Nv4	_
+
+1	塑造	_	V	VC31	_
+2	不同	_	V	VH11	_
+3	藝術	_	N	Nad	_
+4	材質	_	N	Nad	_
+5	的	_	DE	DE	_
+6	博物館	_	N	Ncb	_
+7	機能	_	N	Nac	_
+
+1	也	_	D	Dbb	_
+2	未嘗	_	D	Dd	_
+3	不	_	D	Dc	_
+4	是	_	V	V_11	_
+5	可行	_	V	VH11	_
+6	之	_	DE	DE	_
+7	道	_	N	Nad	_
+
+1	我們	_	N	Nhaa	_
+2	的	_	DE	DE	_
+3	文化	_	N	Nad	_
+4	政策	_	N	Nac	_
+
+1	向來	_	D	Dd	_
+2	以	_	P	P11	_
+3	牛步化	_	V	VH16	_
+4	著稱	_	V	VI2	_
+
+1	我們	_	N	Nhaa	_
+2	的	_	DE	DE	_
+3	文化	_	N	Nad	_
+4	決策	_	N	Nv1	_
+5	單位	_	N	Nac	_
+
+1	也	_	D	Dbb	_
+2	始終	_	D	Dd	_
+3	拿捏不住	_	V	VC2[+NEG]	_
+4	因應	_	V	VJ1	_
+5	時宜	_	N	Nad	_
+6	之	_	DE	DE	_
+7	道	_	N	Nad	_
+
+1	對	_	P	P31	_
+2	藝術家	_	N	Nab	_
+3	設置	_	V	VC33	_
+4	私人	_	N	Nhab	_
+5	美術館	_	N	Ncb	_
+
+1	更	_	D	Dfa	_
+2	無法	_	D	Dbab	_
+3	提出	_	V	VC31	_
+4	具體	_	V	VH11	_
+5	輔導	_	N	Nv1	_
+6	政策	_	N	Nac	_
+
+1	多少	_	Ne	Neqa	_
+2	讓	_	V	VL4	_
+3	有心人	_	N	Nab	_
+4	感到	_	V	VK1	_
+5	備受	_	V	VJ1	_
+6	冷淡	_	N	Nv4	_
+
+1	而	_	C	Cbca	_
+2	紛紛	_	D	Dab	_
+3	把	_	P	P07	_
+4	畫作	_	N	Nab	_
+5	遷居	_	V	VC1	_
+6	海外	_	N	Ncc	_
+
+1	長期	_	N	Nad	_
+2	下來	_	Ng	Ng	_
+3	損傷	_	V	VJ3	_
+4	的	_	DE	DE	_
+5	是	_	V	V_11	_
+6	我們	_	N	Nhaa	_
+7	這個	_	DM	DM	_
+8	環境	_	N	Nac	_
+
+1	獲益	_	V	VA4	_
+2	的	_	DE	DE	_
+3	則	_	D	Dbb	_
+4	是	_	V	V_11	_
+5	別人	_	N	Nhaa	_
+
+1	今天	_	N	Ndabd	_
+
+1	郎靜山	_	N	Nba	_
+2	的	_	DE	DE	_
+3	例子	_	N	Nac	_
+
+1	祇	_	D	Daa	_
+2	算是	_	V	VG2	_
+3	大多數	_	Ne	Neqa	_
+4	有	_	V	V_2	_
+5	此	_	Ne	Nep	_
+6	困難	_	N	Nac	_
+7	藝術家	_	N	Nab	_
+8	的	_	DE	DE	_
+9	抽樣	_	N	Nv4	_
+
+1	留待	_	P	P13	_
+2	這個	_	DM	DM	_
+3	文化	_	N	Nad	_
+4	環境	_	N	Nac	_
+5	去	_	D	Dbab	_
+6	解決	_	V	VC2	_
+7	的	_	T	Ta	_
+
+1	恐怕	_	D	Dbaa	_
+2	則	_	D	Dbb	_
+3	不勝枚舉	_	V	VH11	_
+
+1	郎靜山	_	N	Nba	_
+2	百齡	_	N	Nad	_
+3	攝影	_	N	Nad	_
+4	回顧展	_	N	Nac	_
+
+1	即日	_	N	Nddc	_
+2	起	_	Ng	Ng	_
+3	至	_	C	Caa	_
+4	三十日	_	N	Ndabd	_
+
+1	歷史	_	N	Nad	_
+2	博物館	_	N	Ncb	_
+
+1	電影圈	_	N	Ncb	_
+2	的	_	DE	DE	_
+3	公開	_	V	VH16	_
+4	活動	_	N	Nac	_
+
+1	一向	_	D	Dd	_
+2	是	_	V	V_11	_
+3	情侶	_	N	Naeb	_
+4	曝光	_	V	VH11	_
+5	的	_	DE	DE	_
+6	最佳	_	A	A	_
+7	時機	_	N	Nac	_
+
+1	製片	_	N	Nab	_
+2	周忠	_	N	Nba	_
+3	和	_	C	Caa	_
+4	歌星	_	N	Nab	_
+5	甄妮	_	N	Nba	_
+
+1	這一對	_	DM	DM	_
+2	因	_	C	Cbaa	_
+3	工作	_	N	Nac	_
+4	志趣	_	N	Nac	_
+5	相同	_	V	VH11	_
+6	結合	_	V	VH16	_
+7	的	_	DE	DE	_
+8	情侶	_	N	Naeb	_
+
+1	在	_	P	P21	_
+2	亞展	_	N	Nad	_
+3	活動	_	N	Nac	_
+4	期間	_	N	Nad	_
+
+1	更	_	D	Dfa	_
+2	是	_	D	Dbaa	_
+3	無可	_	D	Dbab	_
+4	遁形	_	V	VA4	_
+
+1	尤其	_	D	Dbb	_
+2	甄妮	_	N	Nba	_
+3	在	_	P	P21	_
+4	亞太	_	N	Nba	_
+5	閉幕	_	V	VH11	_
+6	前	_	Ng	Ng	_
+7	說	_	V	VE2	_
+
+1	甄妮	_	N	Nba	_
+2	親熱	_	V	VH11	_
+3	的	_	DE	DE	_
+4	貼	_	V	VC33	_
+5	著	_	DE	Di	_
+6	周忠	_	N	Nba	_
+7	的	_	DE	DE	_
+8	臉頰	_	N	Nab	_
+
+1	就	_	D	Dd	_
+2	嫁給	_	V	VC2	_
+3	他	_	N	Nhaa	_
+
+1	更	_	D	Dfa	_
+2	讓	_	V	VL4	_
+3	新聞界	_	N	Ncb	_
+4	拭目以待	_	V	VA4	_
+
+1	大	_	V	VH13	_
+2	男人	_	N	Nab	_
+3	周忠	_	N	Nba	_
+4	面對	_	V	VC2	_
+5	記者	_	N	Nab	_
+
+1	採	_	V	VC2	_
+2	迴避	_	V	VC2	_
+3	的	_	DE	DE	_
+4	態度	_	N	Nad	_
+
+1	甄妮	_	N	Nba	_
+2	卻	_	D	Dbb	_
+3	坦率	_	V	VH11	_
+4	地	_	DE	DE	_
+5	令	_	V	VL4	_
+6	人	_	N	Nab	_
+7	嘖嘖稱奇	_	V	VA4	_
+
+1	儘量	_	D	Dh	_
+2	不	_	D	Dc	_
+3	答腔	_	V	VA4	_
+
+1	周忠	_	N	Nba	_
+2	吐出	_	V	VC33	_
+3	無奈	_	N	Nv4	_
+
+1	卻	_	D	Dbb	_
+2	語重深長	_	V	VH11	_
+3	的	_	DE	DE	_
+4	話	_	N	Nac	_
+
+1	我們	_	N	Nhaa	_
+2	在一起	_	V	VH11	_
+
+1	是	_	D	Dbaa	_
+2	你們	_	N	Nhaa	_
+3	促成	_	V	VK2	_
+4	的	_	T	Ta	_
+
+1	如果	_	C	Cbaa	_
+2	分手	_	V	VA4	_
+
+1	也	_	D	Dbb	_
+2	是	_	D	Dbaa	_
+3	被	_	P	P02	_
+4	你們	_	N	Nhaa	_
+5	害	_	V	VC2	_
+6	的	_	T	Ta	_
+
+1	採訪	_	V	VC2	_
+2	甄妮	_	N	Nba	_
+3	與	_	C	Caa	_
+4	周忠	_	N	Nba	_
+
+1	兩個	_	DM	DM	_
+2	人	_	N	Nab	_
+3	第一次	_	DM	DM	_
+4	正式	_	V	VH11	_
+5	在	_	P	P21	_
+6	亞展	_	N	Nad	_
+7	的	_	DE	DE	_
+8	聚會	_	N	Nac	_
+9	場合	_	N	Nac	_
+10	出現	_	V	VH14	_
+
+1	初時	_	D	Dd	_
+2	顯得	_	V	VK2	_
+3	不	_	D	Dc	_
+4	太	_	D	Dfa	_
+5	自然	_	V	VH11	_
+
+1	周忠	_	N	Nba	_
+2	初時	_	D	Dd	_
+3	靦腆	_	V	VH11	_
+4	不	_	D	Dc	_
+5	願	_	V	VK1	_
+6	面對	_	V	VC2	_
+7	鏡頭	_	N	Nab	_
+
+1	後來	_	N	Nddb	_
+2	大伙	_	N	Nhab	_
+3	一	_	D	Dd	_
+4	起哄	_	V	VA4	_
+
+1	甄妮	_	N	Nba	_
+2	親熱	_	V	VH11	_
+3	的	_	DE	DE	_
+4	貼	_	V	VC33	_
+5	著	_	DE	Di	_
+6	周忠	_	N	Nba	_
+7	的	_	DE	DE	_
+8	臉頰	_	N	Nab	_
+
+1	兩	_	Ne	Neu	_
+2	人	_	N	Nab	_
+3	喝	_	V	VC31	_
+4	起	_	DE	Di	_
+5	交杯酒	_	N	Naa	_
+
+1	甄	_	N	Nbc	_
+
+1	他	_	N	Nhaa	_
+2	就	_	D	Dd	_
+3	像	_	V	VG2	_
+4	爸爸	_	N	Nab	_
+
+1	他	_	N	Nhaa	_
+2	大	_	V	VH13	_
+3	我	_	N	Nhaa	_
+4	八歲	_	DM	DM	_
+5	呢	_	T	Tc	_
+
+1	第一次	_	DM	DM	_
+2	和	_	P	P35	_
+3	長	_	V	VH13	_
+4	自己	_	N	Nhab	_
+5	八歲	_	DM	DM	_
+6	的	_	DE	DE	_
+7	成熟	_	V	VH11	_
+8	男人	_	N	Nab	_
+9	在一起	_	V	VH11	_
+
+1	感覺	_	N	Nac	_
+2	很好	_	V	VH11	_
+
+1	劉嘉玲	_	N	Nba	_
+2	最	_	D	Dfa	_
+3	滿意	_	V	VK1	_
+4	自己	_	N	Nhab	_
+5	的	_	DE	DE	_
+6	一雙	_	DM	DM	_
+7	腿	_	N	Nab	_
+
+1	她	_	N	Nhaa	_
+2	欣賞	_	V	VJ2	_
+3	女人	_	N	Nab	_
+
+1	也	_	D	Dbb	_
+2	欣賞	_	V	VJ2	_
+3	女人	_	N	Nab	_
+4	的	_	DE	DE	_
+5	美	_	V	VH11	_
+6	腿	_	N	Nab	_
+
+1	最	_	D	Dfa	_
+2	是	_	D	Dbaa	_
+3	性感	_	V	VH11	_
+
+1	以	_	P	P11	_
+2	大陸妺	_	N	Nab	_
+
+1	在	_	P	P21	_
+2	香港	_	N	Nca	_
+3	電視台	_	N	Ncb	_
+4	起家	_	V	VA4	_
+
+1	成名	_	V	VH11	_
+
+1	與	_	P	P35	_
+2	富商	_	N	Nab	_
+3	許晉亨	_	N	Nba	_
+4	訂婚	_	V	VB11	_
+
+1	和	_	P	P35	_
+2	港星	_	N	Nab	_
+3	梁朝偉	_	N	Nba	_
+4	戀愛	_	V	VH21	_
+
+1	劉嘉玲	_	N	Nba	_
+2	的	_	DE	DE	_
+3	主動	_	V	VH11	_
+4	態勢	_	N	Nad	_
+
+1	為	_	P	P03	_
+2	自己	_	N	Nhab	_
+3	追求到	_	V	VC2	_
+4	一片	_	DM	DM	_
+5	自己	_	N	Nhab	_
+6	認可	_	V	VC2	_
+7	的	_	DE	DE	_
+8	天空	_	N	Ncb	_
+
+1	和	_	P	P35	_
+2	利智	_	N	Nba	_
+3	等	_	C	Cab	_
+4	大陸妺	_	N	Nab	_
+5	一樣	_	V	VH11	_
+
+1	劉嘉玲	_	N	Nba	_
+2	有	_	V	V_2	_
+3	一付	_	DM	DM	_
+4	好	_	V	VH11	_
+5	身材	_	N	Nad	_
+
+1	和	_	P	P35	_
+2	豐滿	_	V	VH11	_
+3	的	_	DE	DE	_
+4	上半身	_	N	Naa	_
+
+1	她	_	N	Nhaa	_
+2	在	_	P	P21	_
+3	戲	_	N	Nac	_
+4	中	_	Ng	Ng	_
+5	多數	_	Ne	Neqa	_
+6	穿著	_	V	VC31	_
+7	低胸	_	A	A	_
+8	性感	_	V	VH11	_
+9	衣服	_	N	Nab	_
+
+1	但	_	C	Cbca	_
+2	不同	_	V	VH11	_
+3	的	_	DE	DE	_
+4	是	_	V	V_11	_
+
+1	她	_	N	Nhaa	_
+2	不	_	D	Dc	_
+3	走	_	V	VA11	_
+4	性感	_	V	VH11	_
+5	戲路	_	N	Nad	_
+
+1	劉嘉玲	_	N	Nba	_
+2	初	_	D	Dd	_
+3	出道	_	V	VH11	_
+4	時	_	Ng	Ng	_
+
+1	臉	_	N	Nab	_
+2	上	_	Ng	Ng	_
+3	雖	_	C	Cbba	_
+4	有	_	V	V_2	_
+5	美麗	_	V	VH11	_
+6	的	_	DE	DE	_
+7	線條	_	N	Nac	_
+
+1	一口	_	DM	DM	_
+2	不	_	D	Dc	_
+3	甚	_	D	Dfa	_
+4	正確	_	V	VH11	_
+5	的	_	DE	DE	_
+6	廣東腔	_	N	Nad	_
+
+1	為了	_	P	P03	_
+2	一鳴驚人	_	V	VH11	_
+
+1	她	_	N	Nhaa	_
+2	下決心	_	V	VF1	_
+3	死命	_	D	Dh	_
+4	減肥	_	V	VA4	_
+
+1	並	_	C	Cbcb	_
+2	勤練	_	V	VC2	_
+3	廣東	_	N	Nca	_
+4	國語	_	N	Nac	_
+
+1	便	_	D	Dd	_
+2	使	_	V	VL4	_
+3	自己	_	N	Nhab	_
+4	十分	_	D	Dfa	_
+5	突出	_	V	VH11	_
+
+1	對於	_	P	P32	_
+2	私生活	_	N	Nad	_
+
+1	劉嘉玲	_	N	Nba	_
+2	則	_	D	Dbb	_
+3	十分	_	D	Dfa	_
+4	保密	_	V	VA4	_
+
+1	外界	_	N	Ncdb	_
+2	傳言	_	V	VE2	_
+3	她	_	N	Nhaa	_
+4	和	_	P	P35	_
+5	富豪	_	N	Nab	_
+6	交往	_	V	VA4	_
+
+1	她	_	N	Nhaa	_
+2	始終	_	D	Dd	_
+3	守口如瓶	_	V	VH11	_
+
+1	她	_	N	Nhaa	_
+2	在	_	P	P21	_
+3	電視台	_	N	Ncb	_
+4	工作	_	V	VA4	_
+5	不久	_	N	Nddb	_
+
+1	即	_	D	Dd	_
+2	出入	_	V	VC1	_
+3	名貴	_	V	VH11	_
+4	轎車	_	N	Nab	_
+
+1	穿著	_	N	Nad	_
+2	入時	_	V	VH11	_
+
+1	及至	_	P	P18	_
+2	傳出	_	V	VE2	_
+3	和	_	P	P35	_
+4	富豪	_	N	Nab	_
+5	許晉亨	_	N	Nba	_
+6	即將	_	D	Dd	_
+7	結婚	_	V	VA4	_
+
+1	才	_	D	Daa	_
+2	證實	_	V	VE2	_
+3	她	_	N	Nhaa	_
+4	和	_	P	P35	_
+5	富豪	_	N	Nab	_
+6	交往	_	V	VA4	_
+
+1	無論	_	C	Cbaa	_
+2	工作	_	V	VA4	_
+3	和	_	C	Caa	_
+4	結交	_	V	VC2	_
+5	男友	_	N	Nab	_
+
+1	劉嘉玲	_	N	Nba	_
+2	在	_	V	VC1	_
+3	被	_	P	P02	_
+4	人	_	N	Nab	_
+5	盯上	_	V	VC2	_
+6	後	_	Ng	Ng	_
+
+1	均	_	D	Dab	_
+2	採取	_	V	VC2	_
+3	主動	_	N	Nv4	_
+
+1	和	_	P	P35	_
+2	她	_	N	Nhaa	_
+3	一同	_	D	Dh	_
+4	在	_	P	P21	_
+5	電視台	_	N	Ncb	_
+6	出道	_	V	VH11	_
+7	的	_	DE	DE	_
+8	吳君如	_	N	Nba	_
+
+1	曾華倩	_	N	Nba	_
+
+1	無	_	V	VJ3	_
+2	人	_	N	Nab	_
+3	能	_	D	Dbab	_
+4	出其右	_	V	VH11	_
+
+1	劉嘉玲	_	N	Nba	_
+2	認為	_	V	VE2	_
+
+1	女人	_	N	Nab	_
+2	的	_	DE	DE	_
+3	美	_	N	Nv4	_
+4	是	_	V	V_11	_
+5	崁	_	V	VC2	_
+6	在	_	P	P21	_
+7	自信	_	N	Nad	_
+8	上	_	Ng	Ng	_
+9	散發出來	_	V	VC2	_
+10	的	_	T	Ta	_
+
+1	對於	_	P	P32	_
+2	女人	_	N	Nab	_
+3	愛美	_	V	VH11	_
+4	而	_	C	Cbca	_
+5	整形	_	V	VB12	_
+
+1	她	_	N	Nhaa	_
+2	因為	_	C	Cbaa	_
+3	怕	_	V	VK1	_
+4	痛	_	V	VH11	_
+
+1	不	_	D	Dc	_
+2	敢	_	V	VL1	_
+3	嚐試	_	V	VF1	_
+
+1	採	_	V	VC2	_
+2	不予置評	_	V	VI2	_
+3	的	_	DE	DE	_
+4	態度	_	N	Nad	_
+
+1	國內	_	N	Ncc	_
+2	歌壇	_	N	Ncb	_
+3	的	_	DE	DE	_
+4	港星	_	N	Nab	_
+5	一向	_	D	Dd	_
+6	以	_	P	P11	_
+7	偶像派	_	N	Nac	_
+8	為主	_	V	VI2	_
+
+1	像	_	P	P55	_
+2	這陣子	_	N	Ndabf	_
+3	出	_	V	VC31	_
+4	片	_	N	Nab	_
+5	大	_	V	VH13	_
+6	受	_	V	VJ3	_
+7	歡迎	_	N	Nv3	_
+8	的	_	DE	DE	_
+9	劉德華	_	N	Nba	_
+
+1	郭富城	_	N	Nba	_
+
+1	均	_	D	Dab	_
+2	是	_	D	Dbaa	_
+3	挾持	_	V	VC32	_
+4	在	_	P	P21	_
+5	其	_	Ne	Nep	_
+6	電影	_	N	Nac	_
+7	或	_	C	Caa	_
+8	廣告	_	N	Nac	_
+9	中	_	Ng	Ng	_
+10	的	_	DE	DE	_
+11	魅力	_	N	Nad	_
+
+1	投入	_	V	VC31	_
+2	唱片	_	N	Nab	_
+3	市場	_	N	Ncb	_
+
+1	然而	_	C	Cbca	_
+
+1	最近	_	N	Nddc	_
+2	歌壇	_	N	Ncb	_
+3	的	_	DE	DE	_
+4	新	_	V	VH11	_
+5	面孔	_	N	Nac	_
+6	蔣志光	_	N	Nba	_
+
+1	實力派	_	N	Nac	_
+2	的	_	DE	DE	_
+3	姿態	_	N	Nad	_
+
+1	推出	_	V	VC2	_
+2	夜心	_	N	Nba	_
+3	專輯	_	N	Nab	_
+
+1	在	_	P	P21	_
+2	國語	_	N	Nac	_
+3	歌壇	_	N	Ncb	_
+4	少數	_	Ne	Neqa	_
+5	港星	_	N	Nab	_
+6	中	_	Ng	Ng	_
+7	獨樹一格	_	V	VH11	_
+
+1	蔣志光	_	N	Nba	_
+2	在	_	P	P21	_
+3	香港	_	N	Nca	_
+4	從事	_	V	VJ1	_
+5	幕	_	N	Nab	_
+6	後	_	Ng	Ng	_
+7	創作	_	N	Naeb	_
+8	多年	_	DM	DM	_
+
+1	但	_	C	Cbca	_
+2	由於	_	C	Cbba	_
+3	香港	_	N	Nca	_
+4	的	_	DE	DE	_
+5	幕	_	N	Nab	_
+6	後	_	Ng	Ng	_
+7	創作	_	N	Nv4	_
+8	者	_	N	Nab	_
+9	並	_	D	Dbb	_
+10	不	_	D	Dc	_
+11	受	_	P	P02	_
+12	重視	_	V	VJ1	_
+
+1	他	_	N	Nhaa	_
+2	從	_	P	P19	_
+3	幕	_	N	Nab	_
+4	後	_	Ng	Ng	_
+5	走到	_	V	VC1	_
+6	幕	_	N	Nab	_
+7	前	_	Ng	Ng	_
+8	的	_	DE	DE	_
+9	過程	_	N	Nac	_
+10	相當	_	D	Dfa	_
+11	辛苦	_	V	VH16	_
+
+1	經紀人	_	N	Nab	_
+2	趙潤勤	_	N	Nba	_
+3	看準	_	V	VE2	_
+4	他	_	N	Nhaa	_
+5	在	_	V	VC1	_
+6	音樂	_	N	Nad	_
+7	上	_	Ng	Ng	_
+8	的	_	DE	DE	_
+9	潛力	_	N	Nad	_
+
+1	曾	_	D	Dd	_
+2	向	_	P	P62	_
+3	香港	_	N	Nca	_
+4	各	_	Ne	Nes	_
+5	大	_	V	VH13	_
+6	唱片	_	N	Nab	_
+7	公司	_	N	Ncb	_
+8	推薦	_	V	VC2	_
+9	蔣志光	_	N	Nba	_
+
+1	可是	_	C	Cbca	_
+2	都	_	D	Dab	_
+3	沒	_	D	Dc	_
+4	被	_	P	P02	_
+5	接受	_	V	VC31	_
+
+1	為了	_	P	P03	_
+2	不	_	D	Dc	_
+3	埋沒	_	V	VJ1	_
+4	人才	_	N	Nab	_
+
+1	經紀人	_	N	Nab	_
+2	趙潤勤	_	N	Nba	_
+3	乾脆	_	V	VH11	_
+4	為了	_	P	P03	_
+5	他	_	N	Nhaa	_
+6	開	_	V	VC2	_
+7	一家	_	DM	DM	_
+8	唱片	_	N	Nab	_
+9	公司	_	N	Ncb	_
+
+1	極力	_	D	Dh	_
+2	推動	_	V	VC2	_
+3	蔣志光	_	N	Nba	_
+4	在	_	P	P21	_
+5	歌壇	_	N	Ncb	_
+6	的	_	DE	DE	_
+7	發展	_	N	Nv1	_
+
+1	作	_	V	VC31	_
+2	詞	_	N	Nac	_
+3	曲	_	N	Nac	_
+
+1	編曲	_	N	Nv4	_
+2	一手包辦	_	V	VC2	_
+3	的	_	DE	DE	_
+4	蔣志光	_	N	Nba	_
+
+1	並	_	D	Dbb	_
+2	沒有	_	D	Dc	_
+3	讓	_	V	VL4	_
+4	經紀人	_	N	Nab	_
+5	失望	_	V	VH21	_
+
+1	第一張	_	DM	DM	_
+2	個人	_	N	Nab	_
+3	專輯	_	N	Nab	_
+4	推出	_	V	VC2	_
+5	後	_	Ng	Ng	_
+
+1	即	_	D	Dd	_
+2	在	_	P	P21	_
+3	香港	_	N	Nca	_
+4	走紅	_	V	VH11	_
+
+1	讓	_	V	VL4	_
+2	曾經	_	D	Dd	_
+3	拒絕	_	V	VF1	_
+4	過	_	DE	Di	_
+5	他	_	N	Nhaa	_
+6	的	_	DE	DE	_
+7	唱片	_	N	Nab	_
+8	公司	_	N	Ncb	_
+9	老闆	_	N	Nab	_
+10	跌破	_	V	VC2	_
+11	眼鏡	_	N	Nab	_
+
+1	得失心	_	N	Nad	_
+2	並	_	D	Dbb	_
+3	不	_	D	Dc	_
+4	重	_	V	VH12	_
+
+1	寧可	_	V	VK1	_
+2	腳踏實地	_	V	VH11	_
+3	一步步	_	Ne	Neqa	_
+4	慢慢	_	V	VH11	_
+5	來	_	V	VA11	_
+
+1	所以	_	C	Cbca	_
+2	從	_	P	P19	_
+3	香港	_	N	Nca	_
+4	跨海	_	A	A	_
+5	來	_	V	VA11	_
+6	台	_	N	Nca	_
+7	發展	_	V	VC2	_
+
+1	蔣志光	_	N	Nba	_
+2	也	_	D	Dbb	_
+3	比	_	P	P49	_
+4	一般	_	A	A	_
+5	港星	_	N	Nab	_
+6	顯得	_	V	VK2	_
+7	誠懇	_	V	VH21	_
+
+1	踏實	_	V	VH11	_
+
+1	能	_	D	Dbab	_
+2	和	_	P	P35	_
+3	國內	_	N	Ncc	_
+4	聽眾	_	N	Nab	_
+5	做	_	V	VC31	_
+6	一個	_	DM	DM	_
+7	心靈	_	N	Nad	_
+8	上	_	Ng	Ng	_
+9	的	_	DE	DE	_
+10	交流	_	N	Nv4	_
+
+1	國內	_	N	Ncc	_
+2	歌壇	_	N	Ncb	_
+3	的	_	DE	DE	_
+4	港星	_	N	Nab	_
+5	一向	_	D	Dd	_
+6	以	_	P	P11	_
+7	偶像派	_	N	Nac	_
+8	為主	_	V	VI2	_
+
+1	像	_	P	P55	_
+2	這陣子	_	N	Ndabf	_
+3	出	_	V	VC31	_
+4	片	_	N	Nab	_
+5	大	_	V	VH13	_
+6	受	_	V	VJ3	_
+7	歡迎	_	N	Nv3	_
+8	的	_	DE	DE	_
+9	劉德華	_	N	Nba	_
+
+1	郭富城	_	N	Nba	_
+
+1	均	_	D	Dab	_
+2	是	_	D	Dbaa	_
+3	挾持	_	V	VC32	_
+4	在	_	P	P21	_
+5	其	_	Ne	Nep	_
+6	電影	_	N	Nac	_
+7	或	_	C	Caa	_
+8	廣告	_	N	Nac	_
+9	中	_	Ng	Ng	_
+10	的	_	DE	DE	_
+11	魅力	_	N	Nad	_
+
+1	投入	_	V	VC31	_
+2	唱片	_	N	Nab	_
+3	市場	_	N	Ncb	_
+
+1	然而	_	C	Cbca	_
+
+1	最近	_	N	Nddc	_
+2	歌壇	_	N	Ncb	_
+3	的	_	DE	DE	_
+4	新	_	V	VH11	_
+5	面孔	_	N	Nac	_
+6	蔣志光	_	N	Nba	_
+
+1	實力派	_	N	Nac	_
+2	的	_	DE	DE	_
+3	姿態	_	N	Nad	_
+
+1	推出	_	V	VC2	_
+2	夜心	_	N	Nba	_
+3	專輯	_	N	Nab	_
+
+1	在	_	P	P21	_
+2	國語	_	N	Nac	_
+3	歌壇	_	N	Ncb	_
+4	少數	_	Ne	Neqa	_
+5	港星	_	N	Nab	_
+6	中	_	Ng	Ng	_
+7	獨樹一格	_	V	VH11	_
+
+1	蔣志光	_	N	Nba	_
+2	在	_	P	P21	_
+3	香港	_	N	Nca	_
+4	從事	_	V	VJ1	_
+5	幕	_	N	Nab	_
+6	後	_	Ng	Ng	_
+7	創作	_	N	Naeb	_
+8	多年	_	DM	DM	_
+
+1	但	_	C	Cbca	_
+2	由於	_	C	Cbba	_
+3	香港	_	N	Nca	_
+4	的	_	DE	DE	_
+5	幕	_	N	Nab	_
+6	後	_	Ng	Ng	_
+7	創作	_	N	Nv4	_
+8	者	_	N	Nab	_
+9	並	_	D	Dbb	_
+10	不	_	D	Dc	_
+11	受	_	P	P02	_
+12	重視	_	V	VJ1	_
+
+1	他	_	N	Nhaa	_
+2	從	_	P	P19	_
+3	幕	_	N	Nab	_
+4	後	_	Ng	Ng	_
+5	走到	_	V	VC1	_
+6	幕	_	N	Nab	_
+7	前	_	Ng	Ng	_
+8	的	_	DE	DE	_
+9	過程	_	N	Nac	_
+10	相當	_	D	Dfa	_
+11	辛苦	_	V	VH16	_
+
+1	經紀人	_	N	Nab	_
+2	趙潤勤	_	N	Nba	_
+3	看準	_	V	VE2	_
+4	他	_	N	Nhaa	_
+5	在	_	V	VC1	_
+6	音樂	_	N	Nad	_
+7	上	_	Ng	Ng	_
+8	的	_	DE	DE	_
+9	潛力	_	N	Nad	_
+
+1	曾	_	D	Dd	_
+2	向	_	P	P62	_
+3	香港	_	N	Nca	_
+4	各	_	Ne	Nes	_
+5	大	_	V	VH13	_
+6	唱片	_	N	Nab	_
+7	公司	_	N	Ncb	_
+8	推薦	_	V	VC2	_
+9	蔣志光	_	N	Nba	_
+
+1	可是	_	C	Cbca	_
+2	都	_	D	Dab	_
+3	沒	_	D	Dc	_
+4	被	_	P	P02	_
+5	接受	_	V	VC31	_
+
+1	為了	_	P	P03	_
+2	不	_	D	Dc	_
+3	埋沒	_	V	VJ1	_
+4	人才	_	N	Nab	_
+
+1	經紀人	_	N	Nab	_
+2	趙潤勤	_	N	Nba	_
+3	乾脆	_	V	VH11	_
+4	為了	_	P	P03	_
+5	他	_	N	Nhaa	_
+6	開	_	V	VC2	_
+7	一家	_	DM	DM	_
+8	唱片	_	N	Nab	_
+9	公司	_	N	Ncb	_
+
+1	極力	_	D	Dh	_
+2	推動	_	V	VC2	_
+3	蔣志光	_	N	Nba	_
+4	在	_	P	P21	_
+5	歌壇	_	N	Ncb	_
+6	的	_	DE	DE	_
+7	發展	_	N	Nv1	_
+
+1	作	_	V	VC31	_
+2	詞	_	N	Nac	_
+3	曲	_	N	Nac	_
+
+1	編曲	_	N	Nv4	_
+2	一手包辦	_	V	VC2	_
+3	的	_	DE	DE	_
+4	蔣志光	_	N	Nba	_
+
+1	並	_	D	Dbb	_
+2	沒有	_	D	Dc	_
+3	讓	_	V	VL4	_
+4	經紀人	_	N	Nab	_
+5	失望	_	V	VH21	_
+
+1	第一張	_	DM	DM	_
+2	個人	_	N	Nab	_
+3	專輯	_	N	Nab	_
+4	推出	_	V	VC2	_
+5	後	_	Ng	Ng	_
+
+1	即	_	D	Dd	_
+2	在	_	P	P21	_
+3	香港	_	N	Nca	_
+4	走紅	_	V	VH11	_
+
+1	讓	_	V	VL4	_
+2	曾經	_	D	Dd	_
+3	拒絕	_	V	VF1	_
+4	過	_	DE	Di	_
+5	他	_	N	Nhaa	_
+6	的	_	DE	DE	_
+7	唱片	_	N	Nab	_
+8	公司	_	N	Ncb	_
+9	老闆	_	N	Nab	_
+10	跌破	_	V	VC2	_
+11	眼鏡	_	N	Nab	_
+
+1	得失心	_	N	Nad	_
+2	並	_	D	Dbb	_
+3	不	_	D	Dc	_
+4	重	_	V	VH12	_
+
+1	寧可	_	V	VK1	_
+2	腳踏實地	_	V	VH11	_
+3	一步步	_	Ne	Neqa	_
+4	慢慢	_	V	VH11	_
+5	來	_	V	VA11	_
+
+1	所以	_	C	Cbca	_
+2	從	_	P	P19	_
+3	香港	_	N	Nca	_
+4	跨海	_	A	A	_
+5	來	_	V	VA11	_
+6	台	_	N	Nca	_
+7	發展	_	V	VC2	_
+
+1	蔣志光	_	N	Nba	_
+2	也	_	D	Dbb	_
+3	比	_	P	P49	_
+4	一般	_	A	A	_
+5	港星	_	N	Nab	_
+6	顯得	_	V	VK2	_
+7	誠懇	_	V	VH21	_
+
+1	踏實	_	V	VH11	_
+
+1	能	_	D	Dbab	_
+2	和	_	P	P35	_
+3	國內	_	N	Ncc	_
+4	聽眾	_	N	Nab	_
+5	做	_	V	VC31	_
+6	一個	_	DM	DM	_
+7	心靈	_	N	Nad	_
+8	上	_	Ng	Ng	_
+9	的	_	DE	DE	_
+10	交流	_	N	Nv4	_
+
+1	黃麗津	_	N	Nba	_
+2	一直	_	D	Dd	_
+3	嚐試	_	V	VF1	_
+4	各種	_	DM	DM	_
+5	運動	_	N	Nad	_
+
+1	她	_	N	Nhaa	_
+2	覺得	_	V	VK1	_
+3	飛鏢	_	N	Nab	_
+4	雖然	_	C	Cbaa	_
+5	是	_	V	V_11	_
+6	較	_	D	Dfa	_
+7	靜態	_	N	Nad	_
+8	的	_	DE	DE	_
+9	活動	_	N	Nac	_
+
+1	但	_	C	Cbca	_
+2	它	_	N	Nhaa	_
+3	能	_	D	Dbab	_
+4	訓練	_	V	VC2	_
+5	一個	_	DM	DM	_
+6	人	_	N	Nab	_
+7	的	_	DE	DE	_
+8	定力	_	N	Nad	_
+9	與	_	C	Caa	_
+10	專注	_	N	Nv4	_
+
+1	它	_	N	Nhaa	_
+2	不	_	D	Dc	_
+3	像	_	V	VG2	_
+4	射箭	_	V	VA4	_
+
+1	打靶	_	V	VA4	_
+
+1	有	_	V	V_2	_
+2	固定	_	V	VH16	_
+3	機械	_	N	Naeb	_
+4	發射	_	N	Nv1	_
+5	工具	_	N	Nab	_
+
+1	你	_	N	Nhaa	_
+2	的	_	DE	DE	_
+3	手	_	N	Nab	_
+4	就	_	D	Dd	_
+5	是	_	V	V_11	_
+6	發射器	_	N	Nab	_
+
+1	相對地	_	D	Dk	_
+2	準頭	_	N	Nad	_
+3	變數	_	N	Nac	_
+4	便	_	D	Dd	_
+5	更	_	D	Dfa	_
+6	大	_	V	VH13	_
+
+1	而且	_	C	Cbcb	_
+2	比賽	_	V	VA4	_
+3	時	_	Ng	Ng	_
+4	還	_	D	Dbb	_
+5	不能	_	D	Dbab	_
+6	緊張	_	V	VH21	_
+
+1	否則	_	C	Cbca	_
+2	絕對	_	D	Dbaa	_
+3	會	_	D	Dbaa	_
+4	影響	_	V	VC2	_
+5	成績	_	N	Nac	_
+
+1	郭雨青	_	N	Nba	_
+2	也	_	D	Dbb	_
+3	指出	_	V	VE2	_
+
+1	飛鏢	_	N	Nab	_
+2	不	_	D	Dc	_
+3	需要	_	V	VK2	_
+4	教練	_	N	Nab	_
+
+1	只要	_	C	Cbaa	_
+2	了解	_	V	VK1	_
+3	玩法	_	N	Nad	_
+
+1	勤加	_	D	Dh	_
+2	練習	_	V	VC2	_
+
+1	掌握	_	V	VC2	_
+2	投擲	_	V	VA4	_
+3	時	_	Ng	Ng	_
+4	的	_	DE	DE	_
+5	感覺	_	N	Nac	_
+
+1	必然	_	D	Dbaa	_
+2	有	_	V	V_2	_
+3	一定	_	A	A	_
+4	水準	_	N	Nad	_
+
+1	更	_	D	Dfa	_
+2	有	_	V	V_2	_
+3	許多	_	Ne	Neqa	_
+4	好玩	_	V	VH11	_
+5	的	_	DE	DE	_
+6	同	_	D	Dh	_
+7	樂	_	V	VH21	_
+8	競賽	_	N	Nad	_
+
+1	這些	_	Ne	Neqa	_
+2	遊戲	_	N	Nac	_
+3	種類	_	N	Nad	_
+4	還	_	D	Dbb	_
+5	依	_	P	P42	_
+6	難易	_	N	Nad	_
+7	程度	_	N	Nad	_
+8	以	_	P	P11	_
+9	一顆	_	DM	DM	_
+10	星	_	N	Nab	_
+11	至	_	C	Caa	_
+12	五顆	_	DM	DM	_
+13	星	_	N	Nab	_
+14	標示	_	V	VC2	_
+
+1	愈	_	D	Dbb	_
+2	難	_	V	VH11	_
+3	星星	_	N	Nab	_
+4	愈	_	D	Dbb	_
+5	多	_	V	VH13	_
+
+1	鏢友	_	N	Nab	_
+2	可	_	D	Dbab	_
+3	自行	_	D	Dh	_
+4	選擇	_	V	VC2	_
+
+1	市	_	N	Ncb	_
+2	售	_	V	VD1	_
+3	一副	_	DM	DM	_
+4	鏢具	_	N	Nab	_
+5	約	_	D	Daa	_
+6	一千五百元	_	DM	DM	_
+7	左右	_	Ng	Ng	_
+
+1	尚	_	D	Dd	_
+2	稱	_	V	VE2	_
+3	經濟	_	V	VH11	_
+
+1	娛樂性	_	N	Nad	_
+2	又	_	D	Dd	_
+3	高	_	V	VH13	_
+
+1	很	_	D	Dfa	_
+2	容易	_	V	VH15	_
+3	帶動	_	V	VC2	_
+4	人際	_	N	Nad	_
+5	之間	_	Ng	Ng	_
+6	的	_	DE	DE	_
+7	熱絡	_	N	Nv4	_
+8	氣氛	_	N	Nad	_
+
+1	你	_	N	Nhaa	_
+2	是否	_	D	Dj	_
+3	也	_	D	Dbb	_
+4	想	_	V	VE2	_
+5	試試	_	V	VF1	_
+
+1	以	_	P	P11	_
+2	鏢	_	N	Nab	_
+3	會	_	V	VL2	_
+4	友	_	N	Nab	_
+5	一番	_	DM	DM	_
+
+1	快	_	D	Dd	_
+2	加入	_	V	VC2	_
+3	飛鏢	_	N	Nab	_
+4	行列	_	N	Nad	_
+5	吧	_	T	Tc	_
+
+1	台灣	_	N	Nca	_
+2	樂評	_	N	Nab	_
+3	動輒	_	D	Dd	_
+4	與	_	P	P35	_
+5	國際	_	N	Ncc	_
+6	水準	_	N	Nad	_
+7	相比	_	V	VB12	_
+
+1	只	_	D	Daa	_
+2	枉自	_	D	Dc	_
+3	自	_	D	Dh	_
+4	滅	_	V	VC2	_
+5	威風	_	N	Nad	_
+
+1	否則	_	C	Cbca	_
+2	只好	_	D	Dbb	_
+3	打腫	_	V	VC2	_
+4	臉	_	N	Nab	_
+5	充	_	V	VG2	_
+6	胖子	_	N	Nab	_
+7	的	_	DE	DE	_
+8	自我	_	N	Nhab	_
+9	吹噓	_	V	VE2	_
+10	一番	_	DM	DM	_
+
+1	若	_	C	Cbaa	_
+2	將	_	P	P07	_
+3	本土	_	N	Nce	_
+4	資源	_	N	Nac	_
+5	轉換成	_	V	VG1	_
+6	藝術	_	N	Nad	_
+7	語言	_	N	Nac	_
+8	都	_	D	Dab	_
+9	做不好	_	V	VC31[+NEG]	_
+
+1	在	_	P	P21	_
+2	外來	_	A	A	_
+3	文化	_	N	Nad	_
+4	覆蓋	_	V	VC33	_
+5	下	_	Ng	Ng	_
+6	的	_	DE	DE	_
+7	台灣	_	N	Nca	_
+8	文化	_	N	Nad	_
+
+1	又	_	D	Dd	_
+2	有	_	V	V_2	_
+3	誰	_	N	Nhb	_
+4	會	_	D	Dbaa	_
+5	有	_	V	V_2	_
+6	興趣	_	N	Nac	_
+7	去	_	D	Dbab	_
+8	探究	_	V	VE2	_
+9	呢	_	T	Tc	_
+
+1	要求	_	V	VF2	_
+2	國會	_	N	Nca	_
+3	對	_	P	P31	_
+4	里茲可夫	_	N	Nba	_
+5	總理	_	N	Nab	_
+6	所	_	D	Dab	_
+7	領導	_	V	VC2	_
+8	的	_	DE	DE	_
+9	內閣	_	N	Nac	_
+10	進行	_	V	VC2	_
+11	不	_	D	Dc	_
+12	信任	_	V	VJ2	_
+13	投票	_	N	Nv4	_
+
+1	並	_	C	Cbcb	_
+2	要求	_	V	VF2	_
+3	戈巴契夫	_	N	Nba	_
+4	在	_	P	P21	_
+5	兩	_	Ne	Neu	_
+6	星期	_	N	Nac	_
+7	內	_	Ng	Ng	_
+8	籌組	_	V	VC31	_
+9	相當於	_	V	VG2	_
+10	新	_	V	VH11	_
+11	內閣	_	N	Nac	_
+12	的	_	DE	DE	_
+13	危機	_	N	Nac	_
+14	處理	_	N	Nv1	_
+15	委員會	_	N	Ncb	_
+
+1	這場	_	DM	DM	_
+2	不	_	D	Dc	_
+3	流血	_	V	VA4	_
+4	的	_	DE	DE	_
+5	革命性	_	N	Nad	_
+6	演說	_	N	Nac	_
+
+1	再次	_	D	Dd	_
+2	對	_	P	P31	_
+3	戈巴契夫	_	N	Nba	_
+4	的	_	DE	DE	_
+5	權威	_	N	Nad	_
+6	與	_	C	Caa	_
+7	蘇聯	_	N	Nca	_
+8	前途	_	N	Nad	_
+9	構成	_	V	VG2	_
+10	嚴重	_	V	VH11	_
+11	挑戰	_	N	Nac	_
+
+1	葉爾辛	_	N	Nba	_
+2	數	_	Ne	Neu	_
+3	月	_	N	Ndabc	_
+4	來	_	Ng	Ng	_
+5	即	_	D	Dd	_
+6	一再	_	D	Dd	_
+7	批評	_	V	VC2	_
+8	里茲可夫	_	N	Nba	_
+9	破壞	_	V	VC2	_
+10	經濟	_	N	Nad	_
+11	改革	_	N	Nad	_
+12	的	_	DE	DE	_
+13	所有	_	Ne	Neqa	_
+14	努力	_	N	Nv4	_
+
+1	並	_	C	Cbcb	_
+2	要求	_	V	VF2	_
+3	他	_	N	Nhaa	_
+4	下台	_	V	VA13	_
+
+1	不過	_	C	Cbca	_
+2	這	_	Ne	Nep	_
+3	還是	_	D	Dbb	_
+4	葉爾辛	_	N	Nba	_
+5	首次	_	DM	DM	_
+6	在	_	P	P21	_
+7	國會	_	N	Nca	_
+8	中	_	Ng	Ng	_
+9	向	_	P	P62	_
+10	里茲可夫	_	N	Nba	_
+11	發難	_	V	VA4	_
+
+1	由於	_	C	Cbba	_
+2	葉爾辛	_	N	Nba	_
+3	的	_	DE	DE	_
+4	份量	_	N	Nad	_
+5	頗重	_	V	VH11	_
+
+1	首次	_	DM	DM	_
+2	不	_	D	Dc	_
+3	信任	_	V	VJ2	_
+4	投票	_	N	Nv4	_
+5	極	_	D	Dfa	_
+6	可能	_	V	VH11	_
+7	在	_	P	P21	_
+8	蘇聯	_	N	Nca	_
+9	問世	_	V	VA4	_
+
+1	葉爾辛	_	N	Nba	_
+2	在	_	P	P21	_
+3	十五分鐘	_	DM	DM	_
+4	的	_	DE	DE	_
+5	演說	_	N	Nac	_
+6	中	_	Ng	Ng	_
+7	並	_	D	Dbb	_
+8	將	_	P	P21	_
+9	矛頭	_	N	Nab	_
+10	直	_	D	Dh	_
+11	指	_	V	VC2	_
+12	戈巴契夫	_	N	Nba	_
+
+1	敦促	_	V	VF2	_
+2	其	_	Ne	Nep	_
+3	不要	_	D	Dbab	_
+4	再	_	D	Dbb	_
+5	緊	_	V	VH11	_
+6	守	_	V	VC2	_
+7	著	_	DE	Di	_
+8	聯邦	_	N	Nac	_
+9	政府	_	N	Nac	_
+10	的	_	DE	DE	_
+11	老舊	_	V	VH11	_
+12	制度	_	N	Nac	_
+13	不	_	D	Dc	_
+14	放	_	V	VC33	_
+
+1	要求	_	V	VF2	_
+2	把	_	P	P07	_
+3	中央	_	N	Nad	_
+4	部長	_	N	Nab	_
+5	會議	_	N	Nac	_
+6	的	_	DE	DE	_
+7	權力	_	N	Nad	_
+8	移轉給	_	V	VD1	_
+9	由	_	P	P06	_
+10	十五個	_	DM	DM	_
+11	加盟	_	N	Nv1	_
+12	共和國	_	N	Nac	_
+13	代表	_	N	Nab	_
+14	參與	_	V	VC2	_
+15	的	_	DE	DE	_
+16	危機	_	N	Nac	_
+17	處理	_	N	Nv1	_
+18	委員會	_	N	Ncb	_
+
+1	該	_	Ne	Nes	_
+2	會	_	N	Ncb	_
+3	將	_	D	Dd	_
+4	拒	_	V	VF1	_
+5	審	_	V	VC2	_
+6	八十一年度	_	N	Ndabf	_
+7	預算	_	N	Naeb	_
+
+1	稍早	_	N	Nddb	_
+
+1	戈巴契夫	_	N	Nba	_
+2	曾	_	D	Dd	_
+3	發表	_	V	VC31	_
+4	類似	_	V	VG2	_
+5	國情咨文	_	N	Nac	_
+6	的	_	DE	DE	_
+7	演說	_	N	Nac	_
+
+1	保證	_	V	VE2	_
+2	在	_	P	P21	_
+3	十天	_	DM	DM	_
+4	內	_	Ng	Ng	_
+5	改組	_	V	VB12	_
+6	政府	_	N	Nac	_
+7	及	_	C	Caa	_
+8	軍方	_	N	Naea	_
+9	領導	_	N	Nv1	_
+10	階層	_	N	Nac	_
+11	人事	_	N	Nad	_
+
+1	但	_	C	Cbca	_
+2	並	_	D	Dbb	_
+3	未	_	D	Dc	_
+4	提出	_	V	VC31	_
+5	明確	_	V	VH11	_
+6	的	_	DE	DE	_
+7	權力	_	N	Nad	_
+8	改革	_	V	VC2	_
+9	計畫	_	N	Nac	_
+
+1	戈氏	_	N	Nba	_
+2	演說	_	N	Nac	_
+3	中	_	Ng	Ng	_
+4	透露	_	V	VE2	_
+5	仍	_	D	Dd	_
+6	不	_	D	Dc	_
+7	願	_	V	VK1	_
+8	撤換	_	V	VC31	_
+9	里茲可夫	_	N	Nba	_
+10	的	_	DE	DE	_
+11	訊息	_	N	Nac	_
+
+1	由於	_	C	Cbba	_
+2	戈巴契夫	_	N	Nba	_
+3	未	_	D	Dc	_
+4	能	_	D	Dbab	_
+5	對	_	P	P31	_
+6	當前	_	N	Nddc	_
+7	蘇聯	_	N	Nca	_
+8	政治	_	N	Nad	_
+9	經濟	_	N	Nad	_
+10	危機	_	N	Nac	_
+11	提出	_	V	VC31	_
+12	解決	_	N	Nv1	_
+13	構想	_	N	Nac	_
+
+1	國會	_	N	Nca	_
+2	議員	_	N	Nab	_
+3	普遍	_	V	VH11	_
+4	不滿	_	V	VK1	_
+
+1	北約	_	N	Nba	_
+2	與	_	C	Caa	_
+3	華約	_	N	Nba	_
+4	集團	_	N	Nab	_
+5	領袖	_	N	Nab	_
+6	今天	_	N	Ndabd	_
+7	在	_	P	P21	_
+8	巴黎	_	N	Nca	_
+9	簽署	_	V	VC2	_
+10	歐洲	_	N	Nca	_
+11	傳統	_	V	VH11	_
+12	武器	_	N	Nab	_
+13	條約	_	N	Nac	_
+14	及	_	C	Caa	_
+15	巴黎	_	N	Nca	_
+16	宣言	_	N	Nac	_
+
+1	正式	_	V	VH11	_
+2	將	_	P	P07	_
+3	數以萬計	_	A	A	_
+4	的	_	DE	DE	_
+5	歐洲	_	N	Nca	_
+6	傳統	_	V	VH11	_
+7	武器	_	N	Nab	_
+8	埋入	_	V	VC1	_
+9	歷史	_	N	Nad	_
+10	灰燼	_	N	Naa	_
+11	中	_	Ng	Ng	_
+
+1	歷史	_	N	Nad	_
+2	上	_	Ng	Ng	_
+3	最	_	D	Dfa	_
+4	大	_	V	VH13	_
+5	規模	_	N	Nad	_
+6	的	_	DE	DE	_
+7	武器	_	N	Nab	_
+8	集結	_	N	Nv4	_
+9	態勢	_	N	Nad	_
+10	自此	_	D	Dd	_
+11	逆轉	_	V	VA4	_
+
+1	美國	_	N	Nca	_
+2	總統	_	N	Nab	_
+3	布希	_	N	Nba	_
+
+1	德國	_	N	Nca	_
+2	總理	_	N	Nab	_
+3	柯爾	_	N	Nba	_
+4	與	_	C	Caa	_
+5	其餘	_	Ne	Neqa	_
+6	十九	_	Ne	Neu	_
+7	國	_	N	Ncb	_
+8	元首	_	N	Nab	_
+
+1	參加	_	V	VC2	_
+2	了	_	DE	Di	_
+3	在	_	P	P21	_
+4	法國	_	N	Nca	_
+5	艾麗賽宮	_	N	Nca	_
+6	舉行	_	V	VC31	_
+7	的	_	DE	DE	_
+8	歐洲	_	N	Nca	_
+9	傳統	_	V	VH11	_
+10	武器	_	N	Nab	_
+11	條約	_	N	Nac	_
+12	簽署	_	N	Nv1	_
+13	儀式	_	N	Nac	_
+
+1	第一位	_	DM	DM	_
+2	簽字	_	V	VA4	_
+3	的	_	DE	DE	_
+4	法國	_	N	Nca	_
+5	總統	_	N	Nab	_
+6	密特朗	_	N	Nba	_
+7	在	_	P	P21	_
+8	簡短	_	V	VH11	_
+9	的	_	DE	DE	_
+10	開場白	_	N	Nad	_
+11	中	_	Ng	Ng	_
+12	表示	_	V	VE2	_
+
+1	此項	_	DM	DM	_
+2	儀式	_	N	Nac	_
+3	締造	_	V	VC31	_
+4	了	_	DE	Di	_
+5	歷史性	_	N	Nad	_
+6	的	_	DE	DE	_
+7	日子	_	N	Nac	_
+
+1	以往	_	N	Ndda	_
+2	的	_	DE	DE	_
+3	年代	_	N	Ndaaa	_
+4	已	_	D	Dd	_
+5	譜下	_	V	VC2	_
+6	休止符	_	N	Nac	_
+
+1	在	_	P	P21	_
+2	嶄新	_	A	A	_
+3	的	_	DE	DE	_
+4	歐洲	_	N	Nca	_
+
+1	所有	_	Ne	Neqa	_
+2	國家	_	N	Nac	_
+3	都	_	D	Dab	_
+4	將	_	D	Dd	_
+5	比	_	P	P49	_
+6	兩	_	Ne	Neu	_
+7	大	_	V	VH13	_
+8	集團	_	N	Nab	_
+9	的	_	DE	DE	_
+10	地位	_	N	Nad	_
+11	來得	_	D	Dfa	_
+12	更	_	D	Dfa	_
+13	重要	_	V	VH11	_
+
+1	北約	_	N	Nba	_
+2	十六	_	Ne	Neu	_
+3	國	_	N	Ncb	_
+4	與	_	C	Caa	_
+5	華約	_	N	Nba	_
+6	六	_	Ne	Neu	_
+7	國	_	N	Ncb	_
+8	領袖	_	N	Nab	_
+9	也	_	D	Dd	_
+10	簽署	_	V	VC2	_
+11	了	_	DE	Di	_
+12	放棄	_	V	VC2	_
+13	對	_	P	P31	_
+14	他國	_	N	Nce	_
+15	侵略	_	N	Nv1	_
+16	意圖	_	N	Nad	_
+17	的	_	DE	DE	_
+18	巴黎	_	N	Nca	_
+19	宣言	_	N	Nac	_
+
+1	製造	_	V	VC31	_
+2	東西	_	N	Ncdb	_
+3	對立	_	N	Nv4	_
+4	的	_	DE	DE	_
+5	冷戰	_	N	Nad	_
+6	之	_	DE	DE	_
+7	斧	_	N	Nab	_
+8	予以	_	D	Dh	_
+9	埋葬	_	V	VC33	_
+
+1	而	_	C	Cbca	_
+2	這項	_	DM	DM	_
+3	自	_	P	P59	_
+4	二次大戰	_	N	Nac	_
+5	以來	_	Ng	Ng	_
+6	首次	_	DM	DM	_
+7	針對	_	P	P31	_
+8	傳統	_	V	VH11	_
+9	武器	_	N	Nab	_
+10	進行	_	V	VC2	_
+11	裁減	_	N	Nv1	_
+12	的	_	DE	DE	_
+13	歐洲	_	N	Nca	_
+14	傳統	_	V	VH11	_
+15	武器	_	N	Nab	_
+16	條約	_	N	Nac	_
+17	涵蓋	_	V	VJ1	_
+18	了	_	DE	Di	_
+19	大西洋	_	N	Nca	_
+
+1	烏拉山	_	N	Nca	_
+
+1	北極區	_	N	Nca	_
+
+1	大家	_	N	Nhab	_
+2	知道	_	V	VK1	_
+3	威尼斯	_	N	Nca	_
+4	最	_	D	Dfa	_
+5	重要	_	V	VH11	_
+6	的	_	DE	DE	_
+7	交通	_	N	Nad	_
+8	工具	_	N	Nab	_
+9	是	_	V	V_11	_
+10	船	_	N	Nab	_
+
+1	摩洛哥	_	N	Nca	_
+2	國王	_	N	Nab	_
+3	哈珊	_	N	Nba	_
+4	今天	_	N	Ndabd	_
+5	要求	_	V	VF2	_
+6	舉行	_	V	VC31	_
+7	局部	_	Ne	Neqa	_
+8	阿拉伯	_	N	Nca	_
+9	高峰會	_	N	Nac	_
+
+1	討論	_	V	VE2	_
+2	波斯灣	_	N	Nca	_
+3	危機	_	N	Nac	_
+
+1	僅	_	D	Daa	_
+2	由	_	P	P06	_
+3	敵對國	_	N	Nac	_
+4	和	_	C	Caa	_
+5	直接	_	V	VH11	_
+6	受	_	P	P02	_
+7	此	_	Ne	Nep	_
+8	衝突	_	N	Nac	_
+9	影響	_	V	VC2	_
+10	的	_	DE	DE	_
+11	國家	_	N	Nac	_
+12	參加	_	V	VC2	_
+
+1	在	_	P	P21	_
+2	摩洛哥	_	N	Nca	_
+3	新聞社	_	N	Ncb	_
+4	發出	_	V	VC31	_
+5	的	_	DE	DE	_
+6	報導	_	N	Nac	_
+7	中	_	Ng	Ng	_
+
+1	哈珊	_	N	Nba	_
+2	國王	_	N	Nab	_
+3	說	_	V	VE2	_
+
+1	不	_	D	Dc	_
+2	需要	_	V	VK2	_
+3	阿拉伯	_	N	Nca	_
+4	聯盟	_	N	Nac	_
+5	會員國	_	N	Nac	_
+6	悉數	_	D	Dab	_
+7	集會	_	V	VA4	_
+8	討論	_	V	VE2	_
+9	這	_	Ne	Nep	_
+10	一	_	Ne	Neu	_
+11	危機	_	N	Nac	_
+
+1	哈珊	_	N	Nba	_
+2	國王	_	N	Nab	_
+3	上週	_	DM	DM	_
+4	要求	_	V	VF2	_
+5	召開	_	V	VC31	_
+6	緊急	_	N	Nv4	_
+7	阿拉伯	_	N	Nca	_
+8	高峰會	_	N	Nac	_
+
+1	認為	_	V	VE2	_
+2	那	_	Ne	Nep	_
+3	是	_	V	V_11	_
+4	使	_	V	VL4	_
+5	波斯灣	_	N	Nca	_
+6	免於	_	V	VK2	_
+7	戰爭	_	N	Nac	_
+8	的	_	DE	DE	_
+9	最後	_	N	Nddc	_
+10	機會	_	N	Nac	_
+
+1	但	_	C	Cbca	_
+2	他	_	N	Nhaa	_
+3	的	_	DE	DE	_
+4	建議	_	N	Nac	_
+5	遭	_	P	P60	_
+6	沙烏地阿拉伯	_	N	Nca	_
+7	和	_	C	Caa	_
+8	伊拉克	_	N	Nca	_
+9	反對	_	V	VE2	_
+
+1	摩洛哥	_	N	Nca	_
+2	國王	_	N	Nab	_
+3	沒有	_	D	Dc	_
+4	指明	_	V	VE2	_
+5	他	_	N	Nhaa	_
+6	希望	_	V	VK1	_
+7	那些	_	Ne	Neqa	_
+8	國家	_	N	Nac	_
+9	參加	_	V	VC2	_
+10	局部	_	Ne	Neqa	_
+11	阿拉伯	_	N	Nca	_
+12	高峰會	_	N	Nac	_
+
+1	監理處	_	N	Ncb	_
+2	在	_	V	VC1	_
+3	議會	_	N	Ncb	_
+4	決議	_	N	Nad	_
+5	下	_	Ng	Ng	_
+
+1	自行	_	D	Dh	_
+2	設計	_	V	VC31	_
+3	新款	_	A	A	_
+4	號牌	_	N	Nab	_
+
+1	將	_	D	Dd	_
+2	採	_	V	VC2	_
+3	中文	_	N	Nad	_
+4	和	_	C	Caa	_
+5	阿拉伯	_	N	Nca	_
+6	數字	_	N	Nac	_
+7	組合	_	N	Nv1	_
+8	型式	_	N	Nac	_
+
+1	並	_	C	Cbcb	_
+2	將	_	D	Dd	_
+3	於	_	P	P23	_
+4	本	_	Ne	Nes	_
+5	月	_	N	Ndabc	_
+6	內	_	Ng	Ng	_
+7	定案	_	V	VB12	_
+
+1	送請	_	V	VF2	_
+2	議會	_	N	Ncb	_
+3	定奪	_	V	VC2	_
+
+1	若	_	C	Cbaa	_
+2	獲	_	V	VJ3	_
+3	議會	_	N	Ncb	_
+4	認可	_	N	Nv1	_
+
+1	將	_	D	Dd	_
+2	提報	_	V	VC2	_
+3	交通部	_	N	Nca	_
+
+1	請求	_	V	VF2	_
+2	同意	_	V	VK1	_
+3	台北市	_	N	Nca	_
+4	使用	_	V	VC2	_
+5	自行	_	D	Dh	_
+6	設計	_	V	VC31	_
+7	號牌	_	N	Nab	_
+
+1	多年	_	DM	DM	_
+2	來	_	Ng	Ng	_
+
+1	除	_	P	P50	_
+2	在	_	P	P21	_
+3	國內外	_	N	Ncc	_
+4	報	_	N	Nab	_
+5	上	_	Ng	Ng	_
+6	發表	_	V	VC31	_
+7	作品	_	N	Nac	_
+8	外	_	Ng	Ng	_
+
+1	還	_	D	Dbb	_
+2	多次	_	DM	DM	_
+3	策劃	_	V	VF1	_
+4	大型	_	N	Nad	_
+5	漫畫	_	N	Nab	_
+6	比賽	_	N	Nac	_
+
+1	作品	_	N	Nac	_
+2	曾	_	D	Dd	_
+3	獲選	_	V	VG2	_
+4	國際	_	N	Ncc	_
+5	漫畫	_	N	Nab	_
+6	大賽	_	N	Nac	_
+
+1	並	_	C	Cbcb	_
+2	應邀	_	V	VF1	_
+3	參加	_	V	VC2	_
+4	全	_	Ne	Neqa	_
+5	國	_	N	Ncb	_
+6	美展	_	N	Nad	_
+
+1	八十年代	_	N	Ndaaa	_
+2	的	_	DE	DE	_
+3	雷根	_	N	Nba	_
+4	政府	_	N	Nac	_
+5	背棄	_	V	VC2	_
+6	了	_	DE	Di	_
+7	六十年代	_	N	Ndaaa	_
+
+1	並	_	C	Cbcb	_
+2	意圖	_	V	VF1	_
+3	使	_	V	VL4	_
+4	時光	_	N	Nad	_
+5	倒流	_	V	VA11	_
+
+1	彷彿	_	D	Dbaa	_
+2	美國	_	N	Nca	_
+3	一直	_	D	Dd	_
+4	停留	_	V	VA12	_
+5	在	_	P	P21	_
+6	五十年代	_	N	Ndaaa	_
+7	中	_	Ng	Ng	_
+
+1	清兵	_	N	Nab	_
+2	入主	_	V	VC1	_
+3	中原	_	N	Nca	_
+4	後	_	Ng	Ng	_
+
+1	明朝	_	N	Ndaab	_
+2	遺臣	_	N	Nab	_
+3	鄭成功	_	N	Nba	_
+4	高舉	_	V	VC2	_
+5	反清復明	_	N	Nv4	_
+6	旗幟	_	N	Nab	_
+
+1	征戰	_	V	VA4	_
+2	江南	_	N	Nca	_
+3	閩	_	N	Nca	_
+4	粵	_	N	Nca	_
+
+1	兵	_	N	Nab	_
+2	敗	_	V	VH17	_
+3	無法	_	D	Dbab	_
+4	立足	_	V	VA12	_
+
+1	乃	_	D	Dd	_
+2	退守	_	V	VC1	_
+3	台灣	_	N	Nca	_
+4	生聚教養	_	V	VA4	_
+
+1	企圖	_	V	VF1	_
+2	恢復	_	V	VH16	_
+3	國土	_	N	Nab	_
+
+1	歷經	_	V	VJ2	_
+2	廿二年	_	DM	DM	_
+3	反攻	_	N	Nv1	_
+4	無望	_	V	VH11	_
+
+1	終	_	D	Dd	_
+2	告	_	D	Dbb	_
+3	淪亡	_	V	VH11	_
+
+1	去年	_	N	Ndaba	_
+2	新	_	V	VH11	_
+3	開	_	V	VC31	_
+4	之	_	DE	DE	_
+5	兩門	_	DM	DM	_
+6	課	_	N	Nac	_
+
+1	訊息	_	N	Nac	_
+2	傳遞	_	N	Nv1	_
+3	及	_	C	Caa	_
+4	癌症	_	N	Nad	_
+5	與	_	C	Caa	_
+6	病毒	_	N	Naa	_
+
+1	並	_	C	Cbcb	_
+2	積極	_	V	VH11	_
+3	參與	_	V	VC2	_
+4	教學	_	N	Nv4	_
+
+1	好	_	V	VH11	_
+2	的	_	DE	DE	_
+3	文字	_	N	Nac	_
+4	內容	_	N	Nad	_
+
+1	對	_	P	P31	_
+2	社會	_	N	Nac	_
+3	提供	_	V	VD1	_
+4	有益	_	V	VJ1	_
+5	的	_	DE	DE	_
+6	精神	_	N	Nad	_
+7	食糧	_	N	Naa	_
+
+1	是	_	V	V_11	_
+2	一種	_	DM	DM	_
+3	貢獻	_	N	Nad	_
+
+1	壞	_	V	VH11	_
+2	的	_	DE	DE	_
+3	文字	_	N	Nac	_
+4	內容	_	N	Nad	_
+
+1	對	_	P	P31	_
+2	社會	_	N	Nac	_
+3	散布	_	V	VC33	_
+4	邪惡	_	V	VH11	_
+5	的	_	DE	DE	_
+6	無形	_	V	VH11	_
+7	病菌	_	N	Naa	_
+
+1	是	_	V	V_11	_
+2	一種	_	DM	DM	_
+3	罪惡	_	N	Nac	_
+
+1	台南縣	_	N	Nca	_
+2	學甲鎮	_	N	Nca	_
+3	中洲	_	N	Nca	_
+4	農地	_	N	Nab	_
+5	重劃	_	N	Nv1	_
+6	工程	_	N	Nac	_
+
+1	尚未	_	D	Dd	_
+2	發包	_	V	VD1	_
+3	施工	_	V	VA4	_
+
+1	卻	_	D	Dbb	_
+2	在	_	P	P21	_
+3	工程	_	N	Nac	_
+4	招標	_	V	VA4	_
+5	時	_	Ng	Ng	_
+6	傳	_	V	VE2	_
+7	有	_	V	V_2	_
+8	弊端	_	N	Nac	_
+
+1	台南縣	_	N	Nca	_
+2	議會	_	N	Ncb	_
+3	也	_	D	Dbb	_
+4	開會	_	V	VA4	_
+5	專案	_	N	Nac	_
+6	討論	_	V	VE2	_
+
+1	引起	_	V	VC2	_
+2	學甲鎮	_	N	Nca	_
+3	中洲	_	N	Nca	_
+4	農民	_	N	Nab	_
+5	的	_	DE	DE	_
+6	極度	_	D	Dfa	_
+7	關切	_	N	Nv2	_
+
+1	中洲	_	N	Nca	_
+2	地區	_	N	Ncb	_
+3	農民	_	N	Nab	_
+4	希望	_	V	VK1	_
+5	有關	_	N	Nv3	_
+6	單位	_	N	Nac	_
+7	審慎其事	_	V	VH11	_
+
+1	不要	_	D	Dbab	_
+2	影響	_	V	VC2	_
+3	這項	_	DM	DM	_
+4	工程	_	N	Nac	_
+5	的	_	DE	DE	_
+6	進行	_	N	Nv1	_
+
+1	如	_	C	Cbaa	_
+2	戰爭	_	N	Nac	_
+3	持續	_	V	VL2	_
+4	進行	_	V	VC2	_
+
+1	原油	_	N	Naa	_
+2	供應	_	N	Nv1	_
+3	嚴重	_	V	VH11	_
+4	短缺	_	V	VJ3	_
+
+1	政府	_	N	Nac	_
+2	實施	_	V	VC2	_
+3	油品	_	N	Naa	_
+4	配售	_	N	Nv3	_
+5	時	_	Ng	Ng	_
+
+1	則	_	D	Dbb	_
+2	視	_	V	VC2	_
+3	油料	_	N	Naa	_
+4	配供	_	V	VD1	_
+5	情形	_	N	Nac	_
+
+1	全面	_	D	Dh	_
+2	調整	_	V	VC2	_
+3	各	_	Ne	Nes	_
+4	線	_	N	Nab	_
+5	行車	_	N	Nv4	_
+6	班次	_	N	Nac	_
+
+1	情緒	_	N	Nad	_
+2	有	_	V	V_2	_
+3	對比	_	V	VC2	_
+4	的	_	DE	DE	_
+5	特性	_	N	Nac	_
+
+1	一個	_	DM	DM	_
+2	人	_	N	Nab	_
+3	天天	_	D	Dd	_
+4	都	_	D	Dab	_
+5	很	_	D	Dfa	_
+6	快樂	_	V	VH21	_
+
+1	久而久之	_	D	Dd	_
+2	不覺	_	V	VK1	_
+3	其	_	Ne	Nep	_
+4	樂	_	N	Nv4	_
+
+1	歡樂	_	V	VH21	_
+2	的	_	DE	DE	_
+3	感覺	_	N	Nac	_
+4	不見	_	V	VH11	_
+
+1	被	_	P	P02	_
+2	單調	_	V	VH11	_
+3	無聊	_	V	VH11	_
+4	取而代之	_	V	VB11	_
+
+1	若	_	C	Cbaa	_
+2	天天	_	D	Dd	_
+3	都	_	D	Dab	_
+4	很	_	D	Dfa	_
+5	痛苦	_	V	VH21	_
+
+1	久	_	V	VH11	_
+2	了	_	DE	Di	_
+3	也	_	D	Dbb	_
+4	就	_	D	Dd	_
+5	麻木	_	V	VH11	_
+6	不覺	_	V	VK1	_
+7	其	_	Ne	Nep	_
+8	苦	_	N	Nv4	_
+
+1	一旦	_	C	Cbba	_
+2	情形	_	N	Nac	_
+3	有	_	V	V_2	_
+4	改變	_	N	Nac	_
+5	反而	_	C	Cbcb	_
+6	覺得	_	V	VK1	_
+7	快樂	_	V	VH21	_
+
+1	因此	_	C	Cbca	_
+2	男女	_	N	Naeb	_
+3	最好	_	D	Dbb	_
+4	能	_	D	Dbab	_
+5	有	_	V	V_2	_
+6	適度	_	A	A	_
+7	空間	_	N	Nac	_
+8	距離	_	N	Nad	_
+
+1	相思	_	V	VH11	_
+2	雖	_	C	Cbba	_
+3	苦	_	V	VH11	_
+
+1	期待	_	N	Nv2	_
+2	卻	_	D	Dbb	_
+3	是	_	V	V_11	_
+4	充滿	_	V	VJ3	_
+5	希望	_	N	Nac	_
+
+1	等	_	P	P13	_
+2	見了面	_	V	VA4[+ASP]	_
+3	的確	_	D	Dbb	_
+4	是	_	D	Dbaa	_
+5	甜蜜無比	_	V	VH11	_
+
+1	除了	_	P	P50	_
+2	煙	_	N	Nab	_
+3	、	_	C	Caa	_
+4	酒	_	N	Naa	_
+5	、	_	C	Caa	_
+6	化妝品	_	N	Naa	_
+
+1	絕大部分	_	Ne	Neqa	_
+2	的	_	DE	DE	_
+3	進口	_	N	Nv1	_
+4	物品	_	N	Nab	_
+5	都	_	D	Dab	_
+6	免稅	_	V	VH11	_
+
+1	叫	_	V	VL4	_
+2	人	_	N	Nab	_
+3	不	_	D	Dc	_
+4	動心	_	V	VI1	_
+5	也	_	D	Dbb	_
+6	很	_	D	Dfa	_
+7	難	_	V	VH11	_
+
+1	戰車	_	N	Nab	_
+2	行駛	_	V	VA11	_
+3	於	_	P	P23	_
+4	沙漠	_	N	Nab	_
+5	時	_	Ng	Ng	_
+
+1	揚起	_	V	VA2	_
+2	漫天	_	V	VH11	_
+3	塵沙	_	N	Nab	_
+
+1	雖	_	C	Cbba	_
+2	聽不見	_	V	VE2[+NEG]	_
+3	戰車	_	N	Nab	_
+4	移動	_	V	VA2	_
+5	的	_	DE	DE	_
+6	聲響	_	N	Nac	_
+
+1	但	_	C	Cbca	_
+2	老遠	_	D	Dg	_
+3	就	_	D	Dd	_
+4	知道	_	V	VK1	_
+5	戰車	_	N	Nab	_
+6	駛來	_	V	VA11	_
+
+1	許久	_	N	Nddc	_
+2	之後	_	Ng	Ng	_
+3	才	_	D	Dd	_
+4	聽見	_	V	VE2	_
+5	隆隆	_	V	VH11	_
+6	的	_	DE	DE	_
+7	低音	_	N	Nac	_
+8	聲響	_	N	Nac	_
+
+1	最後	_	N	Nddc	_
+2	才	_	D	Dd	_
+3	出現	_	V	VH14	_
+4	戰車	_	N	Nab	_
+5	的	_	DE	DE	_
+6	身影	_	N	Nac	_
+
+1	讓	_	V	VL4	_
+2	我	_	N	Nhaa	_
+3	告訴	_	V	VE12	_
+4	你	_	N	Nhaa	_
+
+1	那	_	Ne	Nep	_
+2	就	_	D	Dd	_
+3	是	_	V	V_11	_
+4	熱鬧	_	V	VH11	_
+5	萬分	_	D	Dfb	_
+6	的	_	DE	DE	_
+7	夜市	_	N	Ncb	_
+
+1	張	_	N	Nbc	_
+2	叔叔	_	N	Nab	_
+3	有	_	V	V_2	_
+4	位	_	DM	DM	_
+5	好	_	V	VH11	_
+6	爸爸	_	N	Nab	_
+
+1	據說	_	D	Dk	_
+2	張	_	N	Nbc	_
+3	爺爺	_	N	Nab	_
+4	是	_	V	V_11	_
+5	位	_	DM	DM	_
+6	退休	_	V	VH11	_
+7	的	_	DE	DE	_
+8	教師	_	N	Nab	_
+
+1	平日	_	N	Nddc	_
+2	最	_	D	Dfa	_
+3	關心	_	V	VK1	_
+4	張	_	N	Nbc	_
+5	叔叔	_	N	Nab	_
+
+1	一年多	_	DM	DM	_
+2	前	_	Ng	Ng	_
+
+1	偶然	_	V	VH11	_
+2	間	_	Ng	Ng	_
+3	遇到	_	V	VC2	_
+4	一個	_	DM	DM	_
+5	男孩子	_	N	Nab	_
+
+1	許多	_	Ne	Neqa	_
+2	教師	_	N	Nab	_
+3	不	_	D	Dc	_
+4	知道	_	V	VK1	_
+5	什麼	_	Ne	Nep	_
+6	是	_	V	V_11	_
+7	課程	_	N	Nac	_
+
+1	照樣	_	D	Dh	_
+2	可以	_	D	Dbab	_
+3	教學	_	V	VA4	_
+
+1	在	_	P	P21	_
+2	課程	_	N	Nac	_
+3	及	_	C	Caa	_
+4	教材	_	N	Naeb	_
+5	自主	_	V	VH11	_
+6	的	_	DE	DE	_
+7	能力	_	N	Nad	_
+8	上	_	Ng	Ng	_
+
+1	幾乎	_	D	Daa	_
+2	已經	_	D	Dd	_
+3	廢	_	V	VC2	_
+4	了	_	DE	Di	_
+
+1	中山	_	N	Nba	_
+2	國中	_	N	Ncb	_
+3	校長	_	N	Nab	_
+4	周麗玉	_	N	Nba	_
+5	率直	_	V	VH11	_
+6	的	_	DE	DE	_
+7	批評	_	V	VC2	_
+
+1	政大	_	N	Nca	_
+2	教育系	_	N	Ncb	_
+3	教授	_	N	Nab	_
+4	黃炳煌	_	N	Nba	_
+5	也	_	D	Dbb	_
+6	認為	_	V	VE2	_
+
+1	如今	_	N	Nddc	_
+2	中小學	_	N	Ncb	_
+3	教師	_	N	Nab	_
+4	最	_	D	Dfa	_
+5	缺少	_	V	VJ3	_
+6	的	_	DE	DE	_
+7	是	_	V	V_11	_
+8	自主性	_	N	Nad	_
+
+1	統一麵	_	N	Nab	_
+2	吃慣	_	V	VC31	_
+3	了	_	DE	Di	_
+
+1	就	_	D	Dd	_
+2	忘	_	V	VK1	_
+3	了	_	DE	Di	_
+4	如何	_	D	Dh	_
+5	烹飪	_	V	VC2	_
+6	了	_	DE	Di	_
+
+1	當	_	P	P16	_
+2	教科書	_	N	Nab	_
+3	卯上	_	V	VC2	_
+4	升學	_	N	Nv4	_
+5	主義	_	N	Nac	_
+
+1	政大	_	N	Nca	_
+2	實驗	_	N	Nac	_
+3	小學	_	N	Ncb	_
+4	教師	_	N	Nab	_
+5	沈惠芳	_	N	Nba	_
+6	指出	_	V	VE2	_
+
+1	如今	_	N	Nddc	_
+2	的	_	DE	DE	_
+3	國小	_	N	Ncb	_
+4	教師	_	N	Nab	_
+
+1	絕大部份	_	Ne	Neqa	_
+2	畢業	_	V	VH11	_
+3	於	_	P	P23	_
+4	師範	_	A	A	_
+5	院校	_	N	Naeb	_
+
+1	對	_	P	P31	_
+2	教學	_	V	VA4	_
+3	熱情	_	N	Nad	_
+4	都	_	D	Dab	_
+5	很	_	D	Dfa	_
+6	高	_	V	VH13	_
+
+1	為	_	P	P03	_
+2	教師	_	N	Nab	_
+3	們	_	N	Naea	_
+4	考慮	_	V	VE2	_
+5	的	_	DE	DE	_
+6	地方	_	N	Nab	_
+7	還是	_	D	Dbb	_
+8	太少	_	V	VH11	_
+
+1	像	_	P	P55	_
+2	國小	_	N	Ncb	_
+3	老師	_	N	Nab	_
+
+1	除了	_	P	P50	_
+2	教學	_	V	VA4	_
+3	外	_	Ng	Ng	_
+
+1	還要	_	D	Dfa	_
+2	擔任	_	V	VG2	_
+3	路隊	_	N	Nab	_
+4	糾察	_	N	Nab	_
+5	、	_	C	Caa	_
+6	值夜	_	V	VA4	_
+7	、	_	C	Caa	_
+8	選舉	_	N	Nad	_
+9	等	_	C	Cab	_
+10	行政	_	N	Nad	_
+11	事務	_	N	Nac	_
+
+1	而	_	C	Cbca	_
+2	在	_	V	VC1	_
+3	台灣省	_	N	Nca	_
+4	各	_	Ne	Nes	_
+5	校	_	N	Ncb	_
+
+1	每班	_	DM	DM	_
+2	平均	_	V	VH11	_
+3	學生	_	N	Nab	_
+4	人數	_	N	Nad	_
+5	仍然	_	D	Dbb	_
+6	高達	_	V	VJ3	_
+7	三十五	_	Ne	Neu	_
+8	人	_	N	Nab	_
+
+1	種種	_	Ne	Neqa	_
+2	原因	_	N	Nac	_
+3	很	_	D	Dfa	_
+4	難	_	V	VH11	_
+5	說	_	V	VE2	_
+6	不	_	D	Dc	_
+7	影響	_	V	VC2	_
+8	教師	_	N	Nab	_
+9	們	_	N	Naea	_
+10	對	_	P	P31	_
+11	教學	_	V	VA4	_
+12	的	_	DE	DE	_
+13	付出	_	N	Nv1	_
+
+1	攸關	_	V	VK2	_
+2	教材	_	N	Naeb	_
+3	改革	_	V	VC2	_
+4	的	_	DE	DE	_
+5	事項	_	N	Nac	_
+
+1	也	_	D	Dbb	_
+2	因此	_	C	Cbca	_
+3	而	_	C	Cbca	_
+4	打折	_	V	VA4	_
+
+1	但	_	C	Cbca	_
+2	教師	_	N	Nab	_
+3	們	_	N	Naea	_
+4	並	_	D	Dbb	_
+5	不	_	D	Dc	_
+6	氣餒	_	V	VH21	_
+
+1	這幾年	_	DM	DM	_
+
+1	教師	_	N	Nab	_
+2	團體	_	N	Nab	_
+3	的	_	DE	DE	_
+4	種種	_	Ne	Neqa	_
+5	呼聲	_	N	Nad	_
+
+1	如	_	C	Cbaa	_
+2	呼籲	_	V	VE12	_
+3	非教育	_	A	A	_
+4	因素	_	N	Nac	_
+5	退出	_	V	VC1	_
+6	教科書	_	N	Nab	_
+7	選用	_	N	Nv1	_
+
+1	減少	_	V	VH16	_
+2	班級	_	N	Nac	_
+3	學生數	_	N	Nac	_
+4	等	_	C	Cab	_
+
+1	在在	_	D	Dab	_
+2	可	_	D	Dbab	_
+3	見	_	V	VE2	_
+4	他們	_	N	Nhaa	_
+5	的	_	DE	DE	_
+6	努力	_	N	Nv4	_
+
+1	許多	_	Ne	Neqa	_
+2	教育界	_	N	Ncb	_
+3	人士	_	N	Nab	_
+4	認為	_	V	VE2	_
+
+1	教材	_	N	Naeb	_
+2	改革	_	N	Nv1	_
+3	要	_	D	Dbab	_
+4	配合	_	V	VC2	_
+5	教師	_	N	Nab	_
+6	培訓	_	N	Nv1	_
+
+1	不僅	_	C	Cbbb	_
+2	教	_	V	VC2	_
+3	老師	_	N	Nab	_
+4	選	_	V	VC2	_
+5	書	_	N	Nab	_
+
+1	還	_	D	Dbb	_
+2	要	_	D	Dbab	_
+3	還給	_	V	VD1	_
+4	教學	_	N	Nv4	_
+5	自主權	_	N	Nad	_
+
+1	才	_	D	Dd	_
+2	能	_	D	Dbab	_
+3	協助	_	V	VC2	_
+4	這些	_	Ne	Neqa	_
+5	第一線	_	DM	DM	_
+6	教師	_	N	Nab	_
+7	迎接	_	V	VC2	_
+8	新	_	V	VH11	_
+9	挑戰	_	N	Nac	_
+
+1	教科書	_	N	Nab	_
+2	的	_	DE	DE	_
+3	改革	_	N	Nv1	_
+4	不僅	_	C	Cbbb	_
+5	攸關	_	V	VK2	_
+6	老師	_	N	Nab	_
+
+1	揮之不去	_	V	VH11	_
+2	的	_	DE	DE	_
+3	考試	_	N	Nac	_
+4	陰影	_	N	Nac	_
+5	及	_	C	Caa	_
+6	競爭	_	N	Nad	_
+7	壓力	_	N	Nad	_
+
+1	才	_	D	Dd	_
+2	是	_	V	V_11	_
+3	教科書	_	N	Nab	_
+4	改革	_	V	VC2	_
+5	的	_	DE	DE	_
+6	大敵	_	N	Nab	_
+
+1	當	_	P	P16	_
+2	教科書	_	N	Nab	_
+3	在	_	D	Dd	_
+4	決定	_	V	VE2	_
+5	開不開放	_	V	VC2	_
+6	時	_	Ng	Ng	_
+
+1	升學	_	V	VA4	_
+2	就	_	D	Dd	_
+3	是	_	V	V_11	_
+4	很	_	D	Dfa	_
+5	重要	_	V	VH11	_
+6	的	_	DE	DE	_
+7	考慮	_	N	Nv1	_
+8	因素	_	N	Nac	_
+
+1	根據	_	P	P43	_
+2	教育部	_	N	Ncb	_
+3	的	_	DE	DE	_
+4	說法	_	N	Nac	_
+
+1	教科書	_	N	Nab	_
+2	當時	_	N	Ndabe	_
+3	會	_	D	Dbaa	_
+4	採取	_	V	VC2	_
+5	逐步	_	D	Dd	_
+6	開放	_	V	VC2	_
+7	原則	_	N	Nac	_
+
+1	是	_	V	V_11	_
+2	因為	_	C	Cbaa	_
+3	教科書	_	N	Nab	_
+4	開放	_	V	VC2	_
+5	是	_	V	V_11	_
+6	個	_	DM	DM	_
+7	大	_	V	VH13	_
+8	工程	_	N	Nac	_
+
+1	特別	_	V	VH11	_
+2	是	_	V	V_11	_
+3	台灣	_	N	Nca	_
+4	向來	_	D	Dd	_
+5	著重	_	V	VJ1	_
+6	升學	_	N	Nv4	_
+7	主義	_	N	Nac	_
+
+1	而	_	C	Cbca	_
+2	教科書	_	N	Nab	_
+3	一向	_	D	Dd	_
+4	是	_	V	V_11	_
+5	出題	_	V	VA4	_
+6	的	_	DE	DE	_
+7	範圍	_	N	Nac	_
+8	所在	_	N	Nab	_
+
+1	一下子	_	D	Dd	_
+2	沒有	_	V	VJ3	_
+3	了	_	DE	Di	_
+4	統一	_	V	VH16	_
+5	的	_	DE	DE	_
+6	教科書	_	N	Nab	_
+
+1	老師	_	N	Nab	_
+2	們	_	N	Naea	_
+3	會	_	D	Dbaa	_
+4	不	_	D	Dc	_
+5	知	_	V	VK1	_
+6	如何	_	D	Dh	_
+7	出題	_	V	VA4	_
+
+1	多	_	Ne	Neqa	_
+2	版本	_	N	Nac	_
+3	教科書	_	N	Nab	_
+4	也	_	D	Dbb	_
+5	將	_	D	Dd	_
+6	讓	_	V	VL4	_
+7	學生	_	N	Nab	_
+8	負擔	_	N	Nad	_
+9	加重	_	V	VC2	_
+
+1	當時	_	N	Ndabe	_
+2	教育部	_	N	Ncb	_
+3	中教司長	_	N	Nab	_
+4	吳清基	_	N	Nba	_
+5	說	_	V	VE2	_
+
+1	但是	_	C	Cbca	_
+2	很多	_	Ne	Neqa	_
+3	人	_	N	Nab	_
+4	對	_	P	P31	_
+5	此	_	Ne	Nep	_
+6	說法	_	N	Nac	_
+7	不	_	D	Dc	_
+8	表	_	V	VE2	_
+9	同意	_	V	VK1	_
+
+1	政大	_	N	Nca	_
+2	教授	_	N	Nab	_
+3	黃炳煌	_	N	Nba	_
+4	就	_	D	Dd	_
+5	表示	_	V	VE2	_
+
+1	升學	_	N	Nv4	_
+2	主義	_	N	Nac	_
+3	是	_	V	V_11	_
+4	事實	_	N	Nac	_
+
+1	但	_	C	Cbca	_
+2	用	_	P	P39	_
+3	升學	_	V	VA4	_
+4	的	_	DE	DE	_
+5	理由	_	N	Nac	_
+6	來	_	D	Dbab	_
+7	阻擋	_	V	VC2	_
+8	教科書	_	N	Nab	_
+9	開放	_	N	Nv1	_
+10	絕對	_	D	Dbaa	_
+11	是	_	V	V_11	_
+12	藉口	_	N	Nac	_
+
+1	那	_	D	Dk	_
+2	開放	_	V	VC2	_
+3	教科書	_	N	Nab	_
+4	也許	_	D	Dbaa	_
+5	會	_	D	Dbaa	_
+6	如	_	P	P47	_
+7	教育部	_	N	Ncb	_
+8	所	_	D	Dab	_
+9	說	_	V	VE2	_
+10	增加	_	V	VH16	_
+11	學生	_	N	Nab	_
+12	的	_	DE	DE	_
+13	負擔	_	N	Nad	_
+
+1	但	_	C	Cbca	_
+2	如果	_	C	Cbaa	_
+3	考	_	V	VC2	_
+4	的	_	DE	DE	_
+5	是	_	V	V_11	_
+6	學生	_	N	Nab	_
+7	對	_	P	P31	_
+8	教材	_	N	Naeb	_
+9	融會貫通	_	V	VJ1	_
+10	的	_	DE	DE	_
+11	能力	_	N	Nad	_
+
+1	說不定	_	D	Dbaa	_
+2	還	_	D	Dbb	_
+3	能	_	D	Dbab	_
+4	刺激	_	V	VC2	_
+5	教師	_	N	Nab	_
+6	教學	_	N	Nv4	_
+7	自主	_	N	Nv4	_
+
+1	考題	_	N	Nac	_
+2	也	_	D	Dbb	_
+3	會	_	D	Dbaa	_
+4	出	_	V	VC31	_
+5	得	_	DE	DE	_
+6	更	_	D	Dh	_
+7	靈活	_	V	VH11	_
+8	呢	_	T	Tc	_
+
+1	也	_	D	Dbb	_
+2	有些	_	Ne	Neqa	_
+3	教育界	_	N	Ncb	_
+4	人士	_	N	Nab	_
+5	認為	_	V	VE2	_
+
+1	多	_	Ne	Neqa	_
+2	版本	_	N	Nac	_
+3	教科書	_	N	Nab	_
+4	不僅	_	C	Cbbb	_
+5	不會	_	D	Dbaa	_
+6	不利	_	V	VK2	_
+7	考試	_	N	Nac	_
+
+1	還	_	D	Dbb	_
+2	有助於	_	V	VK2	_
+3	學習	_	V	VC2	_
+
+1	台大	_	N	Nca	_
+2	歷史系	_	N	Ncb	_
+3	副教授	_	N	Nab	_
+4	吳密察	_	N	Nba	_
+5	就	_	D	Dd	_
+6	指出	_	V	VE2	_
+
+1	一項	_	DM	DM	_
+2	研究	_	N	Nac	_
+3	顯示	_	V	VK2	_
+
+1	大學	_	N	Ncb	_
+2	聯考	_	N	Nac	_
+3	的	_	DE	DE	_
+4	各科	_	DM	DM	_
+5	成績	_	N	Nac	_
+6	中	_	Ng	Ng	_
+7	只有	_	D	Dbb	_
+8	英文	_	N	Nac	_
+9	考試	_	N	Nac	_
+10	成績	_	N	Nac	_
+11	與	_	C	Caa	_
+12	進	_	V	VC1	_
+13	大學	_	N	Ncb	_
+14	後	_	Ng	Ng	_
+15	該科	_	DM	DM	_
+16	的	_	DE	DE	_
+17	成績	_	N	Nac	_
+18	成	_	V	VG2	_
+19	正比	_	N	Nad	_
+
+1	但是	_	C	Cbca	_
+2	高中	_	N	Ncb	_
+3	英文	_	N	Nac	_
+4	教科書	_	N	Nab	_
+5	向來	_	D	Dd	_
+6	都	_	D	Dab	_
+7	非	_	V	VG2	_
+8	統一	_	V	VH16	_
+9	教本	_	N	Nab	_
+
+1	此種	_	DM	DM	_
+2	現象	_	N	Nac	_
+3	令	_	V	VL4	_
+4	人	_	N	Nab	_
+5	深思	_	V	VE2	_
+
+1	周淑卿	_	N	Nba	_
+2	指出	_	V	VE2	_
+
+1	國小	_	N	Ncb	_
+2	沒有	_	V	VJ3	_
+3	升學	_	N	Nv4	_
+4	問題	_	N	Nac	_
+
+1	但	_	C	Cbca	_
+2	仍	_	D	Dd	_
+3	有	_	V	V_2	_
+4	嚴重	_	V	VH11	_
+5	的	_	DE	DE	_
+6	考試	_	N	Nac	_
+7	壓力	_	N	Nad	_
+
+1	此種	_	DM	DM	_
+2	壓力	_	N	Nad	_
+3	來自	_	V	VJ3	_
+4	家長	_	N	Nab	_
+5	之間	_	Ng	Ng	_
+6	的	_	DE	DE	_
+7	比較	_	N	Nv1	_
+
+1	這些	_	Ne	Neqa	_
+2	因素	_	N	Nac	_
+3	使	_	V	VL4	_
+4	許多	_	Ne	Neqa	_
+5	老師	_	N	Nab	_
+6	害怕	_	V	VK1	_
+7	變動	_	V	VH16	_
+
+1	特別	_	V	VH11	_
+2	是	_	V	V_11	_
+3	許多	_	Ne	Neqa	_
+4	資深	_	V	VH11	_
+5	老師	_	N	Nab	_
+6	會	_	D	Dbaa	_
+7	說	_	V	VE2	_
+
+1	我	_	N	Nhaa	_
+2	教	_	V	VC2	_
+3	那麼	_	D	Dh	_
+4	久	_	V	VH11	_
+
+1	舊	_	V	VH11	_
+2	版本	_	N	Nac	_
+3	都	_	D	Dab	_
+4	習慣	_	V	VL2	_
+5	了	_	T	Ta	_
+
+1	為何	_	D	Dj	_
+2	要	_	D	Dbab	_
+3	改變	_	V	VC2	_
+
+1	教	_	V	VC2	_
+2	新	_	V	VH11	_
+3	書	_	N	Nab	_
+
+1	也	_	D	Dbb	_
+2	學	_	V	VC2	_
+3	人生	_	N	Nac	_
+
+1	許多	_	Ne	Neqa	_
+2	教育界	_	N	Ncb	_
+3	人士	_	N	Nab	_
+4	認為	_	V	VE2	_
+
+1	跟	_	P	P63	_
+2	所有	_	Ne	Neqa	_
+3	的	_	DE	DE	_
+4	教育	_	N	Nad	_
+5	改革	_	N	Nv1	_
+6	一樣	_	V	VH11	_
+
+1	教科書	_	N	Nab	_
+2	改革	_	V	VC2	_
+3	也	_	D	Dbb	_
+4	要	_	D	Dbab	_
+5	有	_	V	V_2	_
+6	相關	_	V	VH11	_
+7	的	_	DE	DE	_
+8	配套	_	N	Nv4	_
+9	措施	_	N	Nac	_
+
+1	去除	_	V	VC2	_
+2	教科書	_	N	Nab	_
+3	選用	_	V	VC2	_
+4	的	_	DE	DE	_
+5	非教育	_	A	A	_
+6	因素	_	N	Nac	_
+7	外	_	N	Ncda	_
+
+1	健全	_	V	VH16	_
+2	教科書	_	N	Nab	_
+3	審查	_	N	Nv1	_
+4	制度	_	N	Nac	_
+
+1	能	_	D	Dbab	_
+2	據實	_	D	Dh	_
+3	比較	_	V	VC2	_
+4	各	_	Ne	Nes	_
+5	版本	_	N	Nac	_
+6	的	_	DE	DE	_
+7	評鑑	_	N	Nv1	_
+8	制度	_	N	Nac	_
+
+1	都	_	D	Dab	_
+2	是	_	V	V_11	_
+3	使	_	V	VL4	_
+4	教科書	_	N	Nab	_
+5	品質	_	N	Nad	_
+6	更	_	D	Dh	_
+7	好	_	V	VH11	_
+8	的	_	DE	DE	_
+9	步驟	_	N	Nac	_
+
+1	更	_	D	Dh	_
+2	是	_	V	V_11	_
+3	其中	_	Ne	Nep	_
+4	關鍵	_	N	Nac	_
+
+1	這	_	Ne	Nep	_
+2	又	_	D	Dd	_
+3	牽涉到	_	V	VJ1	_
+4	我們	_	N	Nhaa	_
+5	想要	_	V	VE2	_
+6	有	_	V	V_2	_
+7	怎樣	_	V	VH11	_
+8	的	_	DE	DE	_
+9	下	_	Ne	Nes	_
+10	一	_	Ne	Neu	_
+11	代	_	N	Nad	_
+
+1	我們	_	N	Nhaa	_
+2	的	_	DE	DE	_
+3	教育	_	N	Nad	_
+4	中心	_	N	Nad	_
+5	思想	_	N	Nad	_
+6	如何	_	V	VH11	_
+
+1	老師	_	N	Nab	_
+2	們	_	N	Naea	_
+3	心	_	N	Nab	_
+4	中	_	N	Ncda	_
+5	有無	_	V	VJ3	_
+6	荷擔	_	V	VC2	_
+7	教育	_	N	Nad	_
+8	使命	_	N	Nac	_
+9	的	_	DE	DE	_
+10	勇氣	_	N	Nac	_
+
+1	也	_	D	Dbb	_
+2	是	_	V	V_11	_
+3	新竹	_	N	Nca	_
+4	師範	_	A	A	_
+5	學院	_	N	Ncb	_
+6	副教授	_	N	Nab	_
+7	的	_	DE	DE	_
+8	周淑卿	_	N	Nba	_
+9	語重心長	_	V	VH11	_
+10	地	_	DE	DE	_
+11	說	_	V	VE2	_
+
+1	新竹	_	N	Nca	_
+2	山湖	_	N	Nba	_
+3	國小	_	N	Ncb	_
+4	教師	_	N	Nab	_
+5	魯柏君	_	N	Nba	_
+6	的	_	DE	DE	_
+7	例子	_	N	Nac	_
+8	或	_	D	Dbaa	_
+9	可	_	D	Dbab	_
+10	供	_	V	VF2	_
+11	參考	_	V	VC2	_
+
+1	身為	_	V	VG2	_
+2	數學	_	N	Nad	_
+3	老師	_	N	Nab	_
+4	的	_	DE	DE	_
+5	她	_	N	Nhaa	_
+
+1	在	_	P	P21	_
+2	使用	_	V	VC2	_
+3	過	_	DE	Di	_
+4	一個	_	DM	DM	_
+5	大家	_	N	Nhab	_
+6	都	_	D	Dab	_
+7	認為	_	V	VE2	_
+8	很	_	D	Dfa	_
+9	難	_	V	VH11	_
+10	的	_	DE	DE	_
+11	教科書	_	N	Nab	_
+12	版本	_	N	Nac	_
+13	後	_	Ng	Ng	_
+
+1	看到	_	V	VE2	_
+2	孩子	_	N	Nab	_
+3	比起	_	P	P49	_
+4	以前	_	N	Ndda	_
+5	在	_	P	P21	_
+6	課堂	_	N	Ncb	_
+7	上	_	N	Ncda	_
+8	更	_	D	Dh	_
+9	願意	_	V	VK1	_
+10	思考	_	V	VE2	_
+
+1	也	_	D	Dbb	_
+2	更	_	D	Dh	_
+3	願意	_	V	VK1	_
+4	學習	_	V	VC2	_
+
+1	大呼	_	V	VE2	_
+2	過癮	_	V	VH11	_
+
+1	對	_	P	P31[+part]	_
+2	我	_	N	Nhaa	_
+3	來說	_	P	P31[+part]	_
+
+1	那	_	Ne	Nep	_
+2	不只	_	D	Daa	_
+3	是	_	V	V_11	_
+4	新	_	V	VH11	_
+5	教材	_	N	Naeb	_
+
+1	而	_	C	Cbca	_
+2	是	_	V	V_11	_
+3	教學	_	N	Nv4	_
+4	態度	_	N	Nad	_
+
+1	甚或	_	D	Dbb	_
+2	誇張	_	V	VH16	_
+3	一點	_	D	Dfb	_
+
+1	整個	_	Ne	Neqa	_
+2	人生觀	_	N	Nad	_
+3	也	_	D	Dbb	_
+4	由	_	P	P06	_
+5	此	_	Ne	Nep	_
+6	啟發	_	V	VC2	_
+
+1	她	_	N	Nhaa	_
+2	說	_	V	VE2	_
+
+1	關鍵	_	N	Nac	_
+2	果真	_	D	Dbb	_
+3	在	_	V	VG2	_
+4	人	_	N	Nab	_
+
+1	結合	_	V	VH16	_
+2	歐	_	N	Nca	_
+3	日	_	N	Nca	_
+4	著名	_	V	VH11	_
+5	廠商	_	N	Nab	_
+6	共同	_	A	A	_
+7	製產	_	V	VC31	_
+
+1	並	_	C	Cbcb	_
+2	於	_	P	P23	_
+3	米蘭	_	N	Nca	_
+4	成立	_	V	VC33	_
+5	分公司	_	N	Ncb	_
+
+1	整條	_	DM	DM	_
+2	購物街	_	N	Ncb	_
+3	不但	_	C	Cbbb	_
+4	富有	_	V	VJ3	_
+5	歐洲	_	N	Nca	_
+6	氣息	_	N	Naa	_
+
+1	四處	_	D	Dg	_
+2	林立	_	V	VH14	_
+3	的	_	DE	DE	_
+4	義大利	_	N	Nca	_
+5	服飾	_	N	Naeb	_
+6	、	_	C	Caa	_
+7	珠寶	_	N	Nab	_
+8	、	_	C	Caa	_
+9	舶來品	_	N	Nab	_
+10	時髦	_	V	VH11	_
+11	商店	_	N	Ncb	_
+
+1	獨具	_	V	VJ3	_
+2	一番	_	DM	DM	_
+3	流行	_	V	VH14	_
+4	風貌	_	N	Nac	_
+
+1	專門店	_	N	Ncb	_
+2	街	_	N	Nab	_
+
+1	中國	_	N	Nca	_
+2	、	_	C	Caa	_
+3	巴西	_	N	Nca	_
+4	等	_	C	Cab	_
+5	世界	_	N	Ncb	_
+6	精品店	_	N	Ncb	_
+
+1	並	_	C	Cbcb	_
+2	有	_	V	V_2	_
+3	荷蘭	_	N	Nca	_
+4	民藝品	_	N	Nab	_
+5	、	_	C	Caa	_
+6	玻璃	_	N	Naa	_
+7	工藝	_	N	Nad	_
+8	、	_	C	Caa	_
+9	香水店	_	N	Ncb	_
+10	、	_	C	Caa	_
+11	兒童	_	N	Nab	_
+12	商店	_	N	Ncb	_
+13	等	_	C	Cab	_
+
+1	您	_	N	Nhac	_
+2	還	_	D	Dbb	_
+3	可以	_	D	Dbab	_
+4	穿	_	V	VC2	_
+5	著	_	DE	Di	_
+6	民俗	_	N	Nad	_
+7	服裝	_	N	Nab	_
+8	到	_	P	P61	_
+9	攝影棚	_	N	Ncb	_
+10	拍照	_	V	VB11	_
+11	留念	_	V	VI2	_
+
+1	卡通	_	N	Nac	_
+2	商品	_	N	Nab	_
+3	專賣店	_	N	Ncb	_
+
+1	此	_	Ne	Nep	_
+2	處	_	N	Ncb	_
+3	集結	_	V	VA2	_
+4	森林	_	N	Nab	_
+5	之	_	DE	DE	_
+6	家	_	N	Ncb	_
+7	的	_	DE	DE	_
+8	各種	_	DM	DM	_
+9	象徵	_	N	Nac	_
+10	商品	_	N	Nab	_
+
+1	如	_	P	P47	_
+2	吉祥物	_	N	Nab	_
+3	路基	_	N	Nab	_
+4	獅子	_	N	Nab	_
+
+1	綜合	_	A	A	_
+2	商店	_	N	Ncb	_
+
+1	包括	_	V	VK2	_
+2	長崎縣	_	N	Nca	_
+3	的	_	DE	DE	_
+4	森林	_	N	Nab	_
+5	之	_	DE	DE	_
+6	家	_	N	Ncb	_
+7	、	_	C	Caa	_
+8	荷蘭村	_	N	Nca	_
+9	、	_	C	Caa	_
+10	肥前夢	_	N	Nba	_
+11	街道	_	N	Nab	_
+12	及	_	C	Caa	_
+13	西海	_	N	Nba	_
+14	樂園	_	N	Nab	_
+
+1	都	_	D	Dab	_
+2	可	_	D	Dbab	_
+3	在	_	P	P21	_
+4	此	_	Ne	Nep	_
+5	區	_	N	Ncb	_
+6	一次	_	DM	DM	_
+7	購買	_	V	VC31	_
+8	齊全	_	V	VH11	_
+
+1	餐飲	_	N	Naa	_
+2	美食	_	N	Naeb	_
+3	類	_	N	Naeb	_
+
+1	與	_	P	P35	_
+2	美食	_	N	Naeb	_
+3	文化	_	N	Nad	_
+4	邂逅	_	V	VC1	_
+5	為	_	V	VG2	_
+6	主題	_	N	Nac	_
+7	的	_	DE	DE	_
+8	５８家	_	DM	DM	_
+9	餐廳	_	N	Ncb	_
+
+1	讓	_	V	VL4	_
+2	森林	_	N	Nab	_
+3	之	_	DE	DE	_
+4	家	_	N	Ncb	_
+5	的	_	DE	DE	_
+6	遊客	_	N	Nab	_
+7	能	_	D	Dbab	_
+8	享受到	_	V	VJ1	_
+9	世界	_	N	Ncb	_
+10	各	_	Ne	Nes	_
+11	地	_	N	Ncb	_
+12	聞名	_	V	VI2	_
+13	的	_	DE	DE	_
+14	美食	_	N	Naeb	_
+
+1	比如	_	P	P54	_
+
+1	世界	_	N	Ncb	_
+2	美食街	_	N	Ncb	_
+
+1	以	_	P	P11	_
+2	品嚐	_	V	VC31	_
+3	荷蘭	_	N	Nca	_
+4	料理	_	N	Naa	_
+5	及	_	C	Caa	_
+6	法國	_	N	Nca	_
+7	精緻	_	V	VH11	_
+8	佳餚	_	N	Naa	_
+9	為主	_	V	VI2	_
+
+1	在	_	P	P21	_
+2	進餐	_	V	VA4	_
+3	的	_	DE	DE	_
+4	同時	_	N	Ndabe	_
+
+1	可	_	D	Dbab	_
+2	由	_	P	P06	_
+3	露天	_	N	Ncb	_
+4	陽台	_	N	Nab	_
+5	上	_	N	Ncda	_
+6	眺望	_	V	VC2	_
+7	運河	_	N	Nab	_
+8	美景	_	N	Nad	_
+
+1	企業館	_	N	Ncb	_
+2	餐廳	_	N	Ncb	_
+3	街	_	N	Nab	_
+
+1	由	_	P	P06	_
+2	不同	_	V	VH11	_
+3	的	_	DE	DE	_
+4	飲食	_	N	Naea	_
+5	主題	_	N	Nac	_
+
+1	延伸	_	V	VH14	_
+2	探討	_	V	VE2	_
+3	其	_	Ne	Nep	_
+4	製作	_	N	Nv1	_
+5	過程	_	N	Nac	_
+6	、	_	C	Caa	_
+7	歷史	_	N	Nad	_
+8	背景	_	N	Nad	_
+
+1	從中	_	D	Dh	_
+2	挖掘出	_	V	VC2	_
+3	特有	_	A	A	_
+4	的	_	DE	DE	_
+5	美食	_	N	Naeb	_
+6	文化	_	N	Nad	_
+
+1	例	_	P	P54	_
+
+1	露天	_	N	Ncb	_
+2	咖啡座	_	N	Nab	_
+3	以	_	P	P11	_
+4	啤酒	_	N	Naa	_
+5	為	_	V	VG1	_
+6	主題	_	N	Nac	_
+
+1	老饕店	_	N	Ncb	_
+2	以	_	P	P11	_
+3	肉	_	N	Naa	_
+4	為	_	V	VG1	_
+5	主題	_	N	Nac	_
+6	等	_	C	Cab	_
+
+1	海鮮	_	N	Naeb	_
+2	市場	_	N	Ncb	_
+
+1	強調	_	V	VE2	_
+2	現場	_	N	Ncb	_
+3	烹飪	_	V	VC2	_
+4	的	_	DE	DE	_
+5	即時	_	D	Dd	_
+6	享用	_	N	Nv1	_
+7	及	_	C	Caa	_
+8	高度	_	N	Nad	_
+9	的	_	DE	DE	_
+10	鮮美	_	V	VH11	_
+11	口味	_	N	Nad	_
+
+1	此	_	Ne	Nep	_
+2	處	_	N	Ncb	_
+3	所	_	D	Dab	_
+4	指	_	V	VC2	_
+5	之	_	DE	DE	_
+6	護照	_	N	Nab	_
+
+1	即為	_	V	VG2	_
+2	入門票	_	N	Nab	_
+3	與	_	C	Caa	_
+4	遊樂券	_	N	Nab	_
+
+1	小孩	_	N	Nab	_
+2	未滿	_	V	VJ3	_
+3	４歲	_	DM	DM	_
+4	免費	_	V	VH11	_
+5	入場	_	V	VA13	_
+
+1	剩餘	_	V	VJ3	_
+2	的	_	DE	DE	_
+3	卡片點	_	N	Nac	_
+
+1	可	_	D	Dbab	_
+2	於	_	P	P23	_
+3	下次	_	DM	DM	_
+4	入場	_	V	VA13	_
+5	時	_	Ng	Ng	_
+6	使用	_	V	VC2	_
+
+1	若要	_	C	Cbba	_
+2	住宿	_	V	VA12	_
+3	於	_	P	P23	_
+4	森林	_	N	Nab	_
+5	之	_	DE	DE	_
+6	家	_	N	Ncb	_
+
+1	月光	_	N	Nad	_
+2	護照	_	N	Nab	_
+3	以外	_	Ng	Ng	_
+4	的	_	DE	DE	_
+5	護照	_	N	Nab	_
+
+1	若要	_	C	Cbba	_
+2	住宿	_	V	VA12	_
+3	於	_	P	P23	_
+4	森林	_	N	Nab	_
+
+1	月光	_	N	Nad	_
+2	護照	_	N	Nab	_
+3	以外	_	Ng	Ng	_
+4	的	_	DE	DE	_
+5	護照	_	N	Nab	_
+
+1	護照	_	N	Nab	_
+2	種類	_	N	Nad	_
+3	、	_	C	Caa	_
+4	費用	_	N	Naeb	_
+5	有	_	D	Dbab	_
+6	可能	_	D	Dbaa	_
+7	未	_	D	Dc	_
+8	經	_	P	P26	_
+9	預告	_	V	VE2	_
+10	而	_	C	Cbca	_
+11	變更	_	V	VC2	_
+
+1	當	_	P	P16	_
+2	童話	_	N	Nab	_
+3	故事	_	N	Nac	_
+4	遇上	_	V	VC2	_
+5	現代	_	V	VH11	_
+6	科技	_	N	Nac	_
+
+1	１７世紀	_	N	Ndaaa	_
+2	荷蘭	_	N	Nca	_
+3	市鎮	_	N	Naeb	_
+4	日本	_	N	Nca	_
+5	現形	_	V	VH11	_
+6	記	_	N	Nad	_
+
+1	隔著	_	P	P65	_
+2	大村灣	_	N	Nca	_
+3	與	_	P	P35	_
+4	森林	_	N	Nab	_
+5	之	_	DE	DE	_
+6	家	_	N	Ncb	_
+7	相望	_	V	VA4	_
+8	的	_	DE	DE	_
+9	荷蘭村	_	N	Nca	_
+
+1	是	_	V	V_11	_
+2	另一處	_	DM	DM	_
+3	童稚	_	A	A	_
+4	的	_	DE	DE	_
+5	夢幻	_	N	Nad	_
+6	樂園	_	N	Nab	_
+
+1	這	_	Ne	Nep	_
+2	有	_	V	V_2	_
+3	無邊	_	V	VH11	_
+4	的	_	DE	DE	_
+5	想像	_	N	Nv1	_
+6	空間	_	N	Nac	_
+7	、	_	C	Caa	_
+8	充滿	_	V	VJ3	_
+9	新奇	_	N	Nv4	_
+10	、	_	C	Caa	_
+11	驚異	_	N	Nv4	_
+12	的	_	DE	DE	_
+13	探險	_	N	Nv1	_
+14	旅程	_	N	Nac	_
+
+1	舉手投足	_	N	Nad	_
+2	碰觸到	_	V	VC2	_
+3	的	_	DE	DE	_
+4	盡	_	D	Dab	_
+5	是	_	V	V_11	_
+6	歡樂	_	V	VH21	_
+7	因子	_	N	Nac	_
+
+1	坐落	_	V	VH14	_
+2	於	_	P	P23	_
+3	長崎縣	_	N	Nca	_
+4	西彼杵	_	N	Nca	_
+5	那邵西彼町	_	N	Nca	_
+6	的	_	DE	DE	_
+7	荷蘭村	_	N	Nca	_
+
+1	創建	_	V	VC31	_
+2	於	_	P	P23	_
+3	１９８３年	_	N	Ndaad	_
+4	７月	_	N	Ndabc	_
+
+1	整個	_	DM	DM	_
+2	樂園	_	N	Nab	_
+3	的	_	DE	DE	_
+4	精髓	_	N	Nad	_
+5	乃	_	V	VG2	_
+6	以	_	P	P11	_
+7	１７世紀	_	N	Ndaaa	_
+8	荷蘭	_	N	Nca	_
+9	市鎮	_	N	Naeb	_
+10	原形	_	N	Nad	_
+11	為主	_	V	VI2	_
+
+1	內部	_	N	Ncdb	_
+2	娛樂	_	N	Nad	_
+3	設施	_	N	Nab	_
+4	分為	_	V	VG1	_
+5	大村灣	_	N	Nca	_
+6	廣場	_	N	Ncb	_
+7	及	_	C	Caa	_
+8	威簾塔	_	N	Nca	_
+9	二	_	Ne	Neu	_
+10	大	_	V	VH13	_
+11	區域	_	N	Nab	_
+
+1	其	_	Ne	Nep	_
+2	間	_	N	Ncda	_
+3	有	_	V	V_2	_
+4	快艇	_	N	Nab	_
+5	連結	_	V	VC2	_
+
+1	大村灣	_	N	Nca	_
+2	廣場	_	N	Ncb	_
+3	共	_	D	Daa	_
+4	有	_	V	V_2	_
+5	６項	_	DM	DM	_
+6	遊樂	_	N	Nv4	_
+7	設施	_	N	Nab	_
+
+1	值得	_	V	VH15	_
+2	入	_	V	VC1	_
+3	內	_	N	Ncda	_
+4	一	_	D	Dd	_
+5	探	_	V	VC2	_
+
+1	如	_	P	P47	_
+
+1	小	_	V	VH13	_
+2	精靈	_	N	Nac	_
+3	幸運館	_	N	Ncb	_
+
+1	與	_	P	P35	_
+2	歐洲	_	N	Nca	_
+3	傳說	_	N	Nac	_
+4	中	_	Ng	Ng	_
+5	的	_	DE	DE	_
+6	幸運	_	V	VH11	_
+7	小鬼	_	N	Nab	_
+8	ＧＯＢＬＩＮ	_	N	Nba	_
+9	爭奪	_	V	VC2	_
+10	幸運	_	N	Nv4	_
+
+1	有	_	V	V_2	_
+2	５次	_	DM	DM	_
+3	機會	_	N	Nac	_
+
+1	勝利	_	V	VH11	_
+2	者	_	N	Nab	_
+3	可	_	D	Dbab	_
+4	獲得	_	V	VJ3	_
+5	精美	_	V	VH11	_
+6	贈品	_	N	Naeb	_
+
+1	威廉	_	N	Nba	_
+2	王子	_	N	Nab	_
+3	號	_	N	Nab	_
+
+1	重現	_	V	VA12	_
+2	１７世紀	_	N	Ndaaa	_
+3	荷蘭	_	N	Nbc	_
+4	最	_	D	Dfa	_
+5	大	_	V	VH13	_
+6	的	_	DE	DE	_
+7	木造	_	A	A	_
+8	帆船	_	N	Nab	_
+
+1	乃	_	V	VG2	_
+2	荷蘭村	_	N	Ncb	_
+3	內	_	N	Ncda	_
+4	最	_	D	Dfa	_
+5	具	_	V	VJ3	_
+6	象徵性	_	N	Nad	_
+7	的	_	DE	DE	_
+8	展示	_	N	Nv1	_
+9	物	_	N	Nab	_
+
+1	小人國	_	N	Ncb	_
+
+1	在	_	P	P21	_
+2	小人國	_	N	Ncb	_
+3	內	_	N	Ncda	_
+4	走	_	V	VA11	_
+5	一遭	_	DM	DM	_
+
+1	彷彿	_	D	Dbaa	_
+2	自己	_	N	Nhab	_
+3	便	_	D	Dd	_
+4	是	_	V	V_11	_
+5	童話	_	N	Nab	_
+6	中	_	Ng	Ng	_
+7	的	_	DE	DE	_
+8	巨人	_	N	Nab	_
+9	格列弗	_	N	Nba	_
+
+1	威簾塔	_	N	Nba	_
+2	區	_	N	Ncb	_
+3	內	_	N	Ncda	_
+4	１２項	_	DM	DM	_
+5	吸引	_	V	VJ1	_
+6	遊客	_	N	Nab	_
+7	的	_	DE	DE	_
+8	設施	_	N	Nab	_
+
+1	樣樣	_	Ne	Neqa	_
+2	皆	_	D	Dab	_
+3	能	_	D	Dbab	_
+4	滿足	_	V	VH22	_
+5	您	_	N	Nhac	_
+6	的	_	DE	DE	_
+7	冒險心	_	N	Nad	_
+8	與	_	C	Caa	_
+9	想像力	_	N	Nad	_
+
+1	如	_	P	P47	_
+
+1	未來城	_	N	Nca	_
+
+1	以	_	P	P11	_
+2	電腦	_	N	Nab	_
+3	合成	_	V	VG1	_
+4	影像	_	N	Nac	_
+5	與	_	C	Caa	_
+6	晃座席	_	N	Ncb	_
+7	的	_	DE	DE	_
+8	動感	_	V	VH11	_
+9	效果	_	N	Nac	_
+
+1	帶領	_	V	VF2	_
+2	遊客	_	N	Nab	_
+3	駛向	_	V	VC1	_
+4	超時空	_	A	A	_
+5	的	_	DE	DE	_
+6	冒險	_	V	VA4	_
+7	之	_	DE	DE	_
+8	旅	_	N	Nac	_
+
+1	鏡子	_	N	Nab	_
+2	迷宮	_	N	Nab	_
+
+1	由	_	P	P06	_
+2	鏡子	_	N	Nab	_
+3	、	_	C	Caa	_
+4	光	_	N	Naa	_
+5	和	_	C	Caa	_
+6	聲音	_	N	Nad	_
+7	組合成	_	V	VG1	_
+8	的	_	DE	DE	_
+9	秘密	_	N	Nac	_
+10	空間	_	N	Nac	_
+
+1	在	_	P	P21	_
+2	無數	_	Ne	Neqa	_
+3	的	_	DE	DE	_
+4	驚訝	_	N	Nv2	_
+5	與	_	C	Caa	_
+6	讚歎聲	_	N	Nad	_
+7	中	_	Ng	Ng	_
+
+1	體驗	_	V	VC2	_
+2	奇妙	_	V	VH11	_
+3	的	_	DE	DE	_
+4	鏡	_	N	Nab	_
+5	中	_	N	Ncda	_
+6	世界	_	N	Ncb	_
+
+1	立體	_	V	VH11	_
+2	空間	_	N	Nac	_
+3	劇院	_	N	Ncb	_
+
+1	以	_	P	P11	_
+2	現代	_	N	Nddc	_
+3	三劍客	_	N	Nba	_
+4	故事	_	N	Nac	_
+5	為	_	V	VG1	_
+6	題材	_	N	Nac	_
+
+1	將	_	P	P07	_
+2	來賓	_	N	Nab	_
+3	與	_	C	Caa	_
+4	戲劇	_	N	Nac	_
+5	融為	_	V	VG1	_
+6	一體	_	N	Nad	_
+
+1	原野	_	N	Nab	_
+2	樂園	_	N	Nab	_
+
+1	提供	_	V	VD1	_
+2	大人	_	N	Nab	_
+3	與	_	C	Caa	_
+4	小孩	_	N	Nab	_
+5	共同	_	A	A	_
+6	接近	_	V	VC2	_
+7	大自然	_	N	Ncb	_
+8	的	_	DE	DE	_
+9	運動	_	N	Nac	_
+10	空間	_	N	Nac	_
+
+1	是	_	V	V_11	_
+2	行動派	_	N	Nac	_
+3	冒險	_	V	VA4	_
+4	者	_	N	Nab	_
+5	的	_	DE	DE	_
+6	最愛	_	N	Nab	_
+
+1	乾	_	V	VH11	_
+2	泳池	_	N	Nab	_
+
+1	以	_	P	P11	_
+2	柔軟	_	V	VH11	_
+3	的	_	DE	DE	_
+4	小	_	V	VH13	_
+5	球	_	N	Nab	_
+6	堆積	_	V	VC33	_
+7	而	_	C	Cbca	_
+8	成	_	V	VG2	_
+9	的	_	DE	DE	_
+10	泳池	_	N	Nab	_
+
+1	是	_	V	V_11	_
+2	小朋友	_	N	Nab	_
+3	愛不離身	_	V	VI1	_
+4	的	_	DE	DE	_
+5	親子	_	N	Nab	_
+6	天地	_	N	Naeb	_
+
+1	不但	_	C	Cbbb	_
+2	可	_	D	Dbab	_
+3	游泳	_	V	VA4	_
+4	、	_	C	Caa	_
+5	浮潛	_	V	VA4	_
+
+1	還	_	D	Dbb	_
+2	可	_	D	Dbab	_
+3	玩	_	V	VC2	_
+4	各種	_	DM	DM	_
+5	遊戲	_	N	Nac	_
+
+1	耗資	_	V	VJ3	_
+2	約	_	D	Daa	_
+3	合	_	V	VG2	_
+4	新台幣	_	N	Naeb	_
+5	４７億元	_	DM	DM	_
+6	創建	_	V	VC31	_
+7	的	_	DE	DE	_
+8	荷蘭村	_	N	Nca	_
+9	主題	_	N	Nac	_
+10	樂園	_	N	Nab	_
+
+1	與	_	P	P35	_
+2	森林	_	N	Nab	_
+3	之	_	DE	DE	_
+4	家	_	N	Ncb	_
+5	屬於	_	V	VG2	_
+6	同	_	Ne	Nes	_
+7	一	_	Ne	Neu	_
+8	企業	_	N	Nac	_
+9	體系	_	N	Nac	_
+
+1	只是	_	D	Dbb	_
+2	完成	_	V	VC31	_
+3	的	_	DE	DE	_
+4	先後	_	N	Nddc	_
+5	有別	_	V	VH11	_
+
+1	配合上	_	V	VC2	_
+2	鄰近	_	V	VJ1	_
+3	的	_	DE	DE	_
+4	長崎	_	N	Nca	_
+5	生物	_	N	Nab	_
+6	公園	_	N	Ncb	_
+7	與	_	C	Caa	_
+8	森林	_	N	Nab	_
+9	之	_	DE	DE	_
+10	家	_	N	Ncb	_
+11	高爾夫	_	N	Nad	_
+12	２	_	Ne	Neu	_
+13	人	_	N	Nab	_
+14	俱樂部	_	N	Ncb	_
+
+1	對於	_	P	P32[+part]	_
+2	喜愛	_	V	VL1	_
+3	主題	_	N	Nac	_
+4	樂園	_	N	Nab	_
+5	旅遊	_	V	VA4	_
+6	的	_	DE	DE	_
+7	人	_	N	Nab	_
+8	而言	_	P	P32[+part]	_
+
+1	這	_	Ne	Nep	_
+2	無疑	_	D	Dbaa	_
+3	是	_	V	V_11	_
+4	最佳	_	A	A	_
+5	選擇	_	N	Nac	_
+
+1	化	_	V	VG1	_
+2	地球人	_	N	Nab	_
+3	的	_	DE	DE	_
+4	太空	_	N	Nab	_
+5	夢想	_	N	Nac	_
+6	為	_	P	P66	_
+7	真實	_	V	VH11	_
+
+1	一座	_	DM	DM	_
+2	誕生	_	V	VA12	_
+3	日本	_	N	Nca	_
+4	的	_	DE	DE	_
+5	宇宙	_	N	Nab	_
+6	世界	_	N	Ncb	_
+
+1	在	_	P	P21	_
+2	百萬	_	Ne	Neu	_
+3	人口	_	N	Nad	_
+4	的	_	DE	DE	_
+5	北	_	N	Ncda	_
+6	九州市	_	N	Nca	_
+7	誕生	_	V	VA12	_
+8	一	_	Ne	Neu	_
+9	處	_	N	Ncb	_
+10	以	_	P	P11	_
+11	宇宙	_	N	Nab	_
+12	太空	_	N	Nab	_
+13	為	_	V	VG1	_
+14	主題	_	N	Nac	_
+15	的	_	DE	DE	_
+16	遊樂園	_	N	Ncb	_
+
+1	為	_	P	P03	_
+2	實現	_	V	VC2	_
+3	地球	_	N	Nab	_
+4	人類	_	N	Naeb	_
+5	管接	_	V	VC2	_
+6	太空	_	N	Nab	_
+7	、	_	C	Caa	_
+8	瞭解	_	V	VK1	_
+9	太空	_	N	Nab	_
+10	進而	_	C	Cbcb	_
+11	掌握	_	V	VC2	_
+12	太空	_	N	Nab	_
+13	的	_	DE	DE	_
+14	偉大	_	V	VH11	_
+15	夢想	_	N	Nac	_
+
+1	不妨	_	D	Dbaa	_
+2	走	_	V	VA11	_
+3	一趟	_	DM	DM	_
+4	太空	_	N	Nab	_
+5	世界	_	N	Ncb	_
+6	提前	_	V	VB12	_
+7	領略	_	V	VJ2	_
+8	未知	_	N	Nv2	_
+9	宇宙	_	N	Nab	_
+10	的	_	DE	DE	_
+11	奇異	_	N	Nv4	_
+12	與	_	C	Caa	_
+13	精妙	_	N	Nv4	_
+
+1	深受	_	P	P02	_
+2	小朋友	_	N	Nab	_
+3	喜愛	_	V	VL1	_
+4	的	_	DE	DE	_
+5	太空	_	N	Nab	_
+6	世界	_	N	Ncb	_
+
+1	開幕	_	V	VH11	_
+2	於	_	P	P23	_
+3	平成	_	N	Ndaac	_
+4	２年	_	N	Ndaad	_
+5	４月	_	N	Ndabc	_
+
+1	原先	_	D	Dd	_
+2	只	_	D	Daa	_
+3	是	_	V	V_11	_
+4	一處	_	DM	DM	_
+5	乏人問津	_	V	VH11	_
+6	的	_	DE	DE	_
+7	製鐵廠	_	N	Ncb	_
+8	遺跡	_	N	Nab	_
+
+1	經過	_	V	VC1	_
+2	專家	_	N	Nab	_
+3	規劃	_	V	VC2	_
+4	設計	_	V	VC31	_
+5	後	_	Ng	Ng	_
+
+1	搖身一變	_	V	VA4	_
+2	成為	_	V	VG2	_
+3	日本	_	N	Nca	_
+4	舉世	_	N	Naea	_
+5	無雙	_	V	VH11	_
+6	的	_	DE	DE	_
+7	宇宙	_	N	Nab	_
+8	大	_	V	VH13	_
+9	太空	_	N	Nab	_
+10	主題	_	N	Nac	_
+11	樂園	_	N	Nab	_
+
+1	近來	_	D	Dd	_
+2	更	_	D	Dfa	_
+3	擴大	_	V	VC2	_
+4	層面	_	N	Nac	_
+
+1	對準	_	V	VC2	_
+2	外國	_	N	Nce	_
+3	遊客	_	N	Nab	_
+4	散發	_	V	VC31	_
+5	吸引力	_	N	Nad	_
+
+1	人勢	_	N	Nad	_
+2	直	_	D	Dh	_
+3	逼	_	V	VF2	_
+4	東京	_	N	Nca	_
+5	迪斯奈	_	N	Nba	_
+6	樂園	_	N	Nab	_
+
+1	太空	_	N	Nab	_
+2	世界	_	N	Ncb	_
+
+1	活脫脫	_	V	VH11	_
+2	是	_	V	V_11	_
+3	浩瀚	_	V	VH11	_
+4	宇宙	_	N	Nab	_
+5	的	_	DE	DE	_
+6	縮影	_	N	Nac	_
+
+1	遊樂	_	N	Nv4	_
+2	設施	_	N	Nab	_
+3	包羅萬象	_	V	VH11	_
+
+1	除了	_	P	P50	_
+2	深入	_	V	VH11	_
+3	探究	_	V	VE2	_
+4	銀河	_	N	Nab	_
+5	行星系	_	N	Ncb	_
+6	秘境	_	N	Ncb	_
+
+1	更	_	D	Dfa	_
+2	擴大	_	V	VC2	_
+3	設立	_	V	VC33	_
+4	各項	_	DM	DM	_
+5	遊樂	_	N	Nv4	_
+6	設施	_	N	Nab	_
+7	可	_	D	Dbab	_
+8	親身	_	D	Dh	_
+9	參加	_	V	VC2	_
+10	體驗	_	V	VC2	_
+11	的	_	DE	DE	_
+12	太空	_	N	Nab	_
+13	遊戲	_	N	Nac	_
+
+1	遊園	_	N	Nv4	_
+2	項目	_	N	Nac	_
+3	共	_	D	Daa	_
+4	２２項	_	DM	DM	_
+
+1	宇宙館	_	N	Ncb	_
+
+1	號稱是	_	V	VG2	_
+2	地球	_	N	Nab	_
+3	上	_	N	Ncda	_
+4	第一個	_	DM	DM	_
+5	體驗	_	V	VC2	_
+6	宇宙	_	N	Nab	_
+7	旅行	_	N	Nv4	_
+8	的	_	DE	DE	_
+9	展示館	_	N	Ncb	_
+
+1	有	_	V	V_2	_
+2	三組	_	DM	DM	_
+3	刺激	_	V	VH11	_
+4	內容	_	N	Nad	_
+
+1	從	_	P	P19	_
+2	Ｃｏｓｍｏｐｉａ	_	N	Nba	_
+3	飛	_	V	VA11	_
+4	向	_	P	P62	_
+5	月球	_	N	Nab	_
+6	、	_	C	Caa	_
+7	恆星	_	N	Nab	_
+8	黑洞	_	N	Nab	_
+9	探險	_	V	VA4	_
+
+1	宇宙	_	N	Nab	_
+2	特快車	_	N	Nab	_
+
+1	逼真	_	V	VH11	_
+2	的	_	DE	DE	_
+3	未來	_	N	Nddb	_
+4	宇宙	_	N	Nab	_
+5	交通	_	N	Nad	_
+6	工具	_	N	Nab	_
+
+1	兼備	_	V	VJ3	_
+2	藝術	_	N	Nad	_
+3	造形	_	N	Nad	_
+
+1	置身	_	V	VC1	_
+2	其	_	Ne	Nep	_
+3	間	_	N	Ncda	_
+4	感受	_	V	VK1	_
+5	驚心動魄	_	V	VH21	_
+6	的	_	DE	DE	_
+7	旅行	_	N	Nv4	_
+
+1	垂直	_	V	VI2	_
+2	懸落	_	V	VA11	_
+3	ＧＯ	_	V	VA11	_
+
+1	從	_	P	P19	_
+2	４０公尺	_	DM	DM	_
+3	高	_	V	VH13	_
+4	的	_	DE	DE	_
+5	上空	_	N	Ncb	_
+
+1	垂直	_	N	Nv3	_
+2	下墜	_	V	VA11	_
+
+1	享受	_	V	VJ2	_
+2	無	_	V	VJ3	_
+3	重力	_	N	Nad	_
+4	的	_	DE	DE	_
+5	驚恐感	_	N	Nad	_
+
+1	考驗	_	V	VC2	_
+2	心臟	_	N	Nab	_
+3	負荷	_	N	Nad	_
+4	能力	_	N	Nad	_
+
+1	恆星	_	N	Nab	_
+2	銀河	_	N	Nab	_
+3	飄流	_	V	VA11	_
+
+1	世界	_	N	Ncb	_
+2	最	_	D	Dfa	_
+3	大	_	V	VH13	_
+4	規模	_	N	Nad	_
+5	的	_	DE	DE	_
+6	水域	_	N	Nab	_
+7	探險	_	N	Nv4	_
+8	活動	_	N	Nac	_
+
+1	體驗	_	V	VC2	_
+2	乘船	_	V	VA13	_
+3	於	_	P	P23	_
+4	激流	_	N	Nab	_
+5	中	_	N	Ncda	_
+6	求生	_	V	VA4	_
+7	的	_	DE	DE	_
+8	興奮感	_	N	Nad	_
+
+1	宇宙	_	N	Nab	_
+2	博物館	_	N	Ncb	_
+
+1	日本	_	N	Nca	_
+2	第一個	_	DM	DM	_
+3	宇宙	_	N	Nab	_
+4	博物館	_	N	Ncb	_
+
+1	展出	_	V	VC31	_
+2	阿波羅	_	N	Nba	_
+3	登月艇	_	N	Nab	_
+4	和	_	C	Caa	_
+5	阿杰那羅那	_	N	Nba	_
+6	火箭	_	N	Nab	_
+7	的	_	DE	DE	_
+8	實物	_	N	Nab	_
+
+1	宇宙	_	N	Nab	_
+2	空間	_	N	Nac	_
+3	露營	_	V	VA4	_
+
+1	此	_	Ne	Nep	_
+2	館	_	N	Ncb	_
+3	乃	_	D	Dd	_
+4	經	_	P	P26	_
+5	美國	_	N	Nca	_
+6	宇宙	_	N	Nab	_
+7	空間	_	N	Nac	_
+8	財團	_	N	Nab	_
+9	許可	_	V	VE2	_
+10	而	_	C	Cbca	_
+11	在	_	P	P21	_
+12	日本	_	N	Nca	_
+13	設立	_	V	VC33	_
+
+1	可以	_	D	Dbab	_
+2	停宿	_	V	VA12	_
+3	體驗	_	V	VC2	_
+4	與	_	P	P35	_
+5	美國	_	N	Nca	_
+6	宇航局	_	N	Nca	_
+7	宇航員	_	N	Nab	_
+8	相同	_	V	VH11	_
+9	內容	_	N	Nad	_
+10	訓練	_	N	Nad	_
+
+1	前往	_	V	VC1	_
+2	宇宙	_	N	Nab	_
+3	世界	_	N	Ncb	_
+4	的	_	DE	DE	_
+5	門戶	_	N	Naeb	_
+6	為	_	V	VG2	_
+7	福岡縣	_	N	Nca	_
+
+1	從	_	P	P19	_
+2	台灣	_	N	Nca	_
+3	出發	_	V	VA4	_
+4	的	_	DE	DE	_
+5	遊客	_	N	Nab	_
+
+1	得	_	D	Dbab	_
+2	先	_	D	Dd	_
+3	搭乘	_	V	VC2	_
+4	飛機	_	N	Nab	_
+5	飛抵	_	V	VC1	_
+6	福岡	_	N	Nca	_
+
+1	再	_	D	Dbb	_
+2	轉乘	_	V	VC2	_
+3	巴士	_	N	Nab	_
+
+1	約	_	D	Daa	_
+2	７０分	_	DM	DM	_
+3	的	_	DE	DE	_
+4	路程	_	N	Nad	_
+5	可	_	D	Dbab	_
+6	達	_	V	VC1	_
+
+1	於	_	P	P23	_
+2	ＪＲ	_	N	Nba	_
+3	枝光	_	N	Nba	_
+4	車站	_	N	Ncb	_
+5	下車	_	V	VA13	_
+6	後	_	Ng	Ng	_
+
+1	徒步	_	V	VA11	_
+2	即可	_	D	Dbab	_
+3	到達	_	V	VC1	_
+
+1	休館	_	N	Nv4	_
+2	日期	_	N	Nac	_
+3	不定	_	V	VH11	_
+
+1	出發	_	V	VA4	_
+2	前	_	Ng	Ng	_
+3	宜	_	D	Dbab	_
+4	先	_	D	Dd	_
+5	去	_	V	VC1	_
+6	電話	_	N	Nab	_
+7	查詢	_	V	VE11	_
+
+1	查詢	_	N	Nv1	_
+2	電話	_	N	Nac	_
+3	０９３６７２３６００	_	N	Nba	_
+
+1	遊走	_	V	VC1	_
+2	歡笑	_	N	Nv4	_
+3	與	_	C	Caa	_
+4	和諧	_	N	Nv4	_
+5	邊緣	_	N	Ncb	_
+
+1	好	_	V	VH11	_
+2	個	_	DM	DM	_
+3	忘郤	_	V	VK1	_
+4	塵世	_	N	Ncb	_
+5	的	_	DE	DE	_
+6	ＨａｒｍｏｎｙＬａｎｄ	_	N	Nba	_
+
+1	聚集	_	V	VA2	_
+2	無限	_	V	VH11	_
+3	歡樂	_	N	Nv4	_
+4	的	_	DE	DE	_
+5	ＨａｒｍｏｎｙＬａｎｄ	_	N	Nca	_
+
+1	在	_	P	P21	_
+2	豐富	_	V	VH16	_
+3	的	_	DE	DE	_
+4	自然	_	N	Nad	_
+5	景觀	_	N	Nad	_
+6	中	_	Ng	Ng	_
+
+1	添加	_	V	VC33	_
+2	娛人	_	V	VA4	_
+3	的	_	DE	DE	_
+4	遊樂	_	N	Nv4	_
+5	設施	_	N	Nab	_
+6	及	_	C	Caa	_
+7	可	_	D	Dbab	_
+8	放鬆	_	V	VH16	_
+9	心情	_	N	Nad	_
+10	的	_	DE	DE	_
+11	休閒	_	N	Nv4	_
+12	設備	_	N	Naeb	_
+
+1	暫時	_	D	Dd	_
+2	將	_	P	P07	_
+3	塵世	_	N	Ncb	_
+4	俗事	_	N	Nac	_
+5	拋	_	V	VC32	_
+6	諸	_	P	P23	_
+7	腦	_	N	Nab	_
+8	後	_	Ng	Ng	_
+
+1	悠遊	_	V	VH11	_
+2	於	_	P	P23	_
+3	和諧	_	V	VH11	_
+4	融樂	_	V	VH21	_
+5	的	_	DE	DE	_
+6	天地	_	N	Naeb	_
+
+1	從	_	P	P19	_
+2	夢幻	_	N	Nad	_
+3	般	_	Ng	Ng	_
+4	的	_	DE	DE	_
+5	入口處	_	N	Ncb	_
+
+1	並列	_	V	VG2	_
+2	著	_	DE	Di	_
+3	四季之家	_	N	Nba	_
+4	的	_	DE	DE	_
+5	美景	_	N	Nad	_
+
+1	即刻	_	D	Dd	_
+2	感染到	_	V	VJ1	_
+3	樂園	_	N	Nab	_
+4	的	_	DE	DE	_
+5	氣氛	_	N	Nad	_
+
+1	四周	_	N	Ncdb	_
+2	陳列	_	V	VC33	_
+3	著	_	DE	Di	_
+4	一棟棟	_	Ne	Neqa	_
+5	奇特	_	V	VH11	_
+6	建築物	_	N	Nab	_
+
+1	此	_	Ne	Nep	_
+2	地	_	N	Ncb	_
+3	是	_	V	V_11	_
+4	您	_	N	Nhac	_
+5	體驗	_	V	VC2	_
+6	大分	_	N	Nca	_
+7	風情	_	N	Nad	_
+8	的	_	DE	DE	_
+9	絕佳	_	V	VH11	_
+10	去處	_	N	Ncb	_
+
+1	ＨａｒｍｏｎｙＬａｎｄ	_	N	Nca	_
+2	的	_	DE	DE	_
+3	門票	_	N	Nab	_
+
+1	分為	_	V	VG1	_
+2	二種	_	DM	DM	_
+
+1	一	_	Ne	Neu	_
+2	是	_	V	V_11	_
+3	歡迎券	_	N	Nab	_
+
+1	一	_	Ne	Neu	_
+2	是	_	V	V_11	_
+3	驚奇券	_	N	Nab	_
+
+1	歡迎券	_	N	Nab	_
+2	的	_	DE	DE	_
+3	費用	_	N	Naeb	_
+4	為	_	V	VG2	_
+5	大人	_	N	Nab	_
+6	日幣	_	N	Nab	_
+7	１５００元	_	DM	DM	_
+
+1	中學生	_	N	Nab	_
+2	日幣	_	N	Nab	_
+3	１０００元	_	DM	DM	_
+
+1	４歲	_	DM	DM	_
+2	以下	_	Ng	Ng	_
+3	兒童	_	N	Nab	_
+4	日幣	_	N	Nab	_
+5	６００元	_	DM	DM	_
+
+1	驚奇券	_	N	Nab	_
+2	的	_	DE	DE	_
+3	費用	_	N	Naeb	_
+4	較	_	D	Dfa	_
+5	高	_	V	VH13	_
+
+1	大人	_	N	Nab	_
+2	為	_	V	VG2	_
+3	日幣	_	N	Naeb	_
+4	３３００元	_	DM	DM	_
+
+1	中學生	_	N	Nab	_
+2	日幣	_	N	Naeb	_
+3	１７００元	_	DM	DM	_
+
+1	４歲	_	DM	DM	_
+2	以下	_	Ng	Ng	_
+3	兒童	_	N	Nab	_
+4	日幣	_	N	Naeb	_
+5	２３００	_	Ne	Neu	_
+
+1	所	_	D	Dab	_
+2	含蓋	_	V	VC2	_
+3	的	_	DE	DE	_
+4	費用	_	N	Naeb	_
+5	範圍	_	N	Nac	_
+6	包括	_	V	VK2	_
+7	園	_	N	Ncb	_
+8	內	_	N	Ncda	_
+9	每一項	_	DM	DM	_
+10	表演	_	N	Nac	_
+11	都	_	D	Dab	_
+12	可	_	D	Dbab	_
+13	參觀	_	V	VC2	_
+
+1	因此	_	C	Cbca	_
+2	較	_	P	P49	_
+3	歡迎券	_	N	Nab	_
+4	受	_	P	P02	_
+5	歡迎	_	V	VJ1	_
+
+1	園	_	N	Ncb	_
+2	內	_	N	Ncda	_
+3	遊樂	_	N	Nv4	_
+4	設施	_	N	Nab	_
+5	多達	_	V	VJ3	_
+6	１５項	_	DM	DM	_
+
+1	較	_	D	Dfa	_
+2	吸引	_	V	VJ1	_
+3	遊客	_	N	Nab	_
+4	的	_	DE	DE	_
+5	項目	_	N	Nac	_
+6	為	_	V	VG2	_
+7	神話	_	N	Nac	_
+8	與	_	C	Caa	_
+9	傳說	_	N	Nac	_
+10	的	_	DE	DE	_
+11	宮殿	_	N	Nab	_
+12	、	_	C	Caa	_
+13	夢幻	_	N	Nad	_
+14	時間	_	N	Nad	_
+15	機器	_	N	Nab	_
+16	、	_	C	Caa	_
+17	嘉年華區	_	N	Ncb	_
+18	車站	_	N	Ncb	_
+19	、	_	C	Caa	_
+20	節慶	_	N	Nac	_
+21	舞台	_	N	Nab	_
+22	及	_	C	Caa	_
+23	一	_	Ne	Neu	_
+24	村	_	N	Ncb	_
+25	一	_	Ne	Neu	_
+26	物	_	N	Nab	_
+27	鄉村	_	N	Ncb	_
+28	市場	_	N	Ncb	_
+29	等	_	C	Cab	_
+
+1	ＨａｒｍｏｎｙＬａｎｄ	_	N	Nca	_
+2	與	_	P	P35	_
+3	鄰近	_	V	VJ1	_
+4	的	_	DE	DE	_
+5	車站	_	N	Ncb	_
+6	及	_	C	Caa	_
+7	機場	_	N	Ncb	_
+8	的	_	DE	DE	_
+9	距離	_	N	Nad	_
+10	不	_	D	Dc	_
+11	超過	_	V	VJ1	_
+12	３０公里	_	DM	DM	_
+
+1	大約	_	D	Daa	_
+2	在	_	P	P21	_
+3	４０分鐘	_	DM	DM	_
+4	內	_	Ng	Ng	_
+5	可	_	D	Dbab	_
+6	抵達	_	V	VC1	_
+
+1	如	_	P	P47	_
+2	距離	_	P	P15	_
+3	ＪＲ	_	N	Nba	_
+4	日出站	_	N	Ncb	_
+5	４公里	_	DM	DM	_
+
+1	約	_	D	Daa	_
+2	１０分鐘	_	DM	DM	_
+3	車程	_	N	Nad	_
+
+1	距離	_	P	P15	_
+2	ＪＲ	_	N	Nba	_
+3	別府站	_	N	Ncb	_
+4	１８公里	_	DM	DM	_
+
+1	約	_	D	Daa	_
+2	２５分鐘	_	DM	DM	_
+3	車程	_	N	Nad	_
+
+1	距離	_	P	P15	_
+2	ＪＲ	_	N	Nba	_
+3	大分站	_	N	Ncb	_
+4	３０公里	_	DM	DM	_
+
+1	約	_	D	Daa	_
+2	４０分鐘	_	DM	DM	_
+3	車程	_	N	Nad	_
+
+1	距離	_	P	P15	_
+2	木分	_	N	Nba	_
+3	機場	_	N	Ncb	_
+4	２５公里	_	DM	DM	_
+
+1	約	_	D	Daa	_
+2	３５分鐘	_	DM	DM	_
+3	車程	_	N	Nad	_
+
+1	營業	_	N	Nv4	_
+2	時間	_	N	Nad	_
+3	為	_	V	VG2	_
+4	上午	_	N	Ndabe	_
+5	９點	_	N	Ndabe	_
+6	至	_	C	Caa	_
+7	下午	_	N	Ndabe	_
+8	６點	_	N	Ndabe	_
+
+1	查詢	_	N	Nv1	_
+2	專線	_	N	Nac	_
+3	０９７７７３１１１１	_	N	Nba	_
+

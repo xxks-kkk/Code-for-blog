@@ -1,0 +1,6420 @@
+1	tashiro	_	NAME	NAMEper	_
+2	yasuko	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	hayakawa	_	NAME	NAMEper	_
+2	ryou	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	hayakawa	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	ima	_	N	Ntmp	_
+4	chotto	_	ADV	ADV	_
+5	ojikaN	_	N	NN	_
+6	yoroshii	_	ADJ	ADJifin	_
+7	desu	_	PV	PVfin	u
+8	ka	_	PS	PSE	_
+9	chotto	_	ADV	ADV	_
+10	doitsu	_	NAME	NAMEloc	_
+11	no	_	P	Pgen	_
+12	shucchou	_	N	VN	_
+13	no	_	P	Pgen	_
+14	koto	_	N	NF	_
+15	de	_	P	P	_
+16	gosoudaN	_	N	VN	_
+17	shitai	_	VADJ	VADJi	_
+18	no	_	N	NF	_
+19	desu	_	PV	PVfin	u
+20	ga	_	PS	PSSb	_
+21	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	ga	_	PS	PSSb	_
+4	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	dekimashitara	_	V	Vcnd	_
+3	koNkai	_	N	Ntmp	_
+4	no	_	P	Pgen	_
+5	shucchou	_	N	VN	_
+6	juuichigatsu	_	CD	CDdate	_
+7	ni	_	P	P	_
+8	to	_	P	PQ	_
+9	omotte	_	V	Vte	_
+10	iru	_	VAUX	VAUXfin	u
+11	no	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	ga	_	PS	PSSb	_
+14	juuichigatsu	_	CD	CDdate	_
+15	desu	_	PV	PVfin	u
+16	to	_	PS	PSSa	_
+17	goyotei	_	N	NN	_
+18	no	_	P	Pgen	_
+19	hou	_	N	NF	_
+20	ikaga	_	ADV	ADVwh	_
+21	deshou	_	PV	PVfin	u
+22	ka	_	PS	PSE	_
+23	.	_	.	.	_
+
+1	juuichigatsu	_	CD	CDdate	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	juuichigatsu	_	CD	CDdate	_
+2	wa	_	P	Pfoc	_
+3	zeNhaN	_	N	Ntmp	_
+4	nara	_	P	Pfoc	_
+5	jikaN	_	N	NN	_
+6	ga	_	P	Pnom	_
+7	toreru	_	V	Vfin	u
+8	ka	_	PS	PSE	_
+9	to	_	P	PQ	_
+10	omoimasu	_	V	Vfin	u
+11	ga	_	PS	PSSb	_
+12	.	_	.	.	_
+
+1	tsuki	_	N	NN	_
+2	no	_	P	Pgen	_
+3	zeNhaN	_	N	Ntmp	_
+4	nara	_	P	Pfoc	_
+5	yoroshii	_	ADJ	ADJifin	_
+6	desu	_	PV	PVfin	u
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	shimasu	_	V	Vfin	u
+3	to	_	PS	PSSa	_
+4	kokonoka	_	CD	CDdate	_
+5	no	_	P	Pgen	_
+6	getsuyou	_	NT	NT	_
+7	hatsu	_	N	Nsf	_
+8	toka	_	P	Pcnj	_
+9	wa	_	P	Pfoc	_
+10	ikaga	_	ADV	ADVwh	_
+11	deshou	_	PV	PVfin	u
+12	ka	_	PS	PSE	_
+13	.	_	.	.	_
+
+1	getsuyoubi	_	NT	NT	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	sumimaseN	_	V	Vfin	eN
+2	.	_	.	.	_
+
+1	sukoshi	_	ADV	ADVdgr	_
+2	e	_	ITJ	ITJ	_
+3	kokonoka	_	CD	CDdate	_
+4	da	_	PV	PVfin	ta
+5	to	_	PS	PSSa	_
+6	itsu	_	N	Nwh	_
+7	goro	_	N	Nsf	_
+8	kaette	_	V	Vte	_
+9	kuru	_	VAUX	VAUXfin	u
+10	koto	_	N	NF	_
+11	ni	_	P	P	_
+12	narimasu	_	V	Vfin	u
+13	ka	_	PS	PSE	_
+14	ne	_	PS	PSE	_
+15	.	_	.	.	_
+
+1	kokonoka	_	CD	CDdate	_
+2	desu	_	PV	PVfin	u
+3	to	_	PS	PSSa	_
+4	itsukakaN	_	CD	CDU	_
+5	no	_	P	Pgen	_
+6	yotei	_	N	VN	_
+7	nanode	_	PS	PSSa	_
+8	kaeri	_	N	NN	_
+9	ga	_	P	Pnom	_
+10	juusaNnichi	_	CD	CDdate	_
+11	no	_	P	Pgen	_
+12	kiNyoubi	_	NT	NT	_
+13	no	_	N	NF	_
+14	narimasu	_	V	Vfin	u
+15	.	_	.	.	_
+
+1	sumimaseN	_	V	Vfin	eN
+2	.	_	.	.	_
+
+1	juusaNnichi	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	kiNyoubi	_	NT	NT	_
+4	wa	_	P	Pfoc	_
+5	niji	_	CD	CDtime	_
+6	kara	_	P	P	_
+7	koushuukai	_	N	NN	_
+8	ga	_	P	Pnom	_
+9	arimashite	_	V	Vte	_
+10	dekireba	_	ADV	ADV	_
+11	mou	_	ADV	ADV	_
+12	sukoshi	_	ADV	ADVdgr	_
+13	hayai	_	ADJ	ADJifin	_
+14	jikaN	_	N	NN	_
+15	jiki	_	N	NN	_
+16	ni	_	P	P	_
+17	shite	_	VS	VSte	_
+18	itadakeru	_	VAUX	VAUXfin	u
+19	to	_	PS	PSSa	_
+20	arigatai	_	ADJ	ADJifin	_
+21	no	_	N	NF	_
+22	desu	_	PV	PVfin	u
+23	ga	_	PS	PSSb	_
+24	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	shimasu	_	V	Vfin	u
+3	to	_	PS	PSSa	_
+4	yokka	_	CD	CDdate	_
+5	no	_	P	Pgen	_
+6	suiyoubi	_	NT	NT	_
+7	wa	_	P	Pfoc	_
+8	ikaga	_	ADV	ADVwh	_
+9	desu	_	PV	PVfin	u
+10	ka	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	sou	_	ADV	ADVdem	_
+3	shimasu	_	V	Vfin	u
+4	to	_	PS	PSSa	_
+5	suiyoubi	_	NT	NT	_
+6	hatsu	_	N	Nsf	_
+7	da	_	PV	PVfin	ta
+8	to	_	PS	PSSa	_
+9	do	_	NT	NT	_
+10	nichi	_	NT	NT	_
+11	hasamimasu	_	V	Vfin	u
+12	node	_	PS	PSSa	_
+13	nittei	_	N	NN	_
+14	nanokakaN	_	CD	CDU	_
+15	ni	_	P	P	_
+16	naru	_	V	Vfin	u
+17	no	_	N	NF	_
+18	desu	_	PV	PVfin	u
+19	ga	_	PS	PSSb	_
+20	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	wa	_	P	Pfoc	_
+3	daijoubu	_	ADJ	ADJ_n	_
+4	deshou	_	PV	PVfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	yokka	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	suiyoubi	_	NT	NT	_
+4	hatsu	_	N	Nsf	_
+5	de	_	P	P	_
+6	tooka	_	CD	CDdate	_
+7	no	_	P	Pgen	_
+8	kayoubi	_	NT	NT	_
+9	nihoN	_	NAME	NAMEloc	_
+10	kikoku	_	N	VN	_
+11	ni	_	P	P	_
+12	narimasu	_	V	Vfin	u
+13	ga	_	PS	PSSb	_
+14	.	_	.	.	_
+
+1	tooka	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	kayoubi	_	NT	NT	_
+4	deshitara	_	PV	PVcnd	_
+5	yotei	_	N	VN	_
+6	ga	_	P	Pnom	_
+7	sono	_	ADJ	ADJdem	_
+8	aida	_	N	NN	_
+9	wa	_	P	Pfoc	_
+10	nani	_	xxx	xxx	_
+11	mo	_	xxx	xxx	_
+12	arimaseN	_	V	Vfin	eN
+13	node	_	PS	PSSa	_
+14	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	nittei	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	wa	_	P	Pfoc	_
+6	yokka	_	CD	CDdate	_
+7	no	_	P	Pgen	_
+8	suiyoubi	_	NT	NT	_
+9	hatsu	_	N	Nsf	_
+10	tooka	_	CD	CDdate	_
+11	no	_	P	Pgen	_
+12	kayoubi	_	NT	NT	_
+13	nihoN	_	NAME	NAMEloc	_
+14	kikoku	_	N	VN	_
+15	to	_	P	PQ	_
+16	iu	_	V	Vfin	u
+17	koto	_	N	NF	_
+18	de	_	P	P	_
+19	kimemashou	_	V	Vfin	u
+20	.	_	.	.	_
+
+1	sono	_	ADJ	ADJdem	_
+2	tsugi	_	N	NN	_
+3	ni	_	P	P	_
+4	dewa	_	CNJ	CNJ	_
+5	hikouki	_	N	NN	_
+6	nano	_	N	NF	_
+7	desu	_	PV	PVfin	u
+8	ga	_	PS	PSSb	_
+9	atakushi	_	N	PRON	_
+10	no	_	P	Pgen	_
+11	hou	_	N	NF	_
+12	ima	_	N	Ntmp	_
+13	jikokuhyou	_	N	NN	_
+14	o	_	P	Pacc	_
+15	motte	_	V	Vte	_
+16	iru	_	VAUX	VAUXfin	u
+17	no	_	N	NF	_
+18	desu	_	PV	PVfin	u
+19	ga	_	PS	PSSb	_
+20	yokka	_	CD	CDdate	_
+21	no	_	P	Pgen	_
+22	suiyoubi	_	NT	NT	_
+23	desu	_	PV	PVfin	u
+24	to	_	PS	PSSa	_
+25	saN	_	CD	CD	_
+26	biN	_	UNIT	UNIT	_
+27	aru	_	V	Vfin	u
+28	no	_	N	NF	_
+29	desu	_	PV	PVfin	u
+30	ne	_	PS	PSE	_
+31	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	de	_	P	P	_
+3	zeNnikkuu	_	NAME	NAMEorg	_
+4	rufutohaNza	_	NAME	NAMEorg	_
+5	nihoNkoukuu	_	NAME	NAMEorg	_
+6	aru	_	V	Vfin	u
+7	no	_	N	NF	_
+8	desu	_	PV	PVfin	u
+9	ga	_	PS	PSSb	_
+10	zeNnikkuu	_	NAME	NAMEorg	_
+11	rufutohaNza	_	NAME	NAMEorg	_
+12	desu	_	PV	PVfin	u
+13	to	_	PS	PSSa	_
+14	narita	_	NAME	NAMEloc	_
+15	hatsu	_	N	Nsf	_
+16	ga	_	P	Pnom	_
+17	juuji	_	CD	CDtime	_
+18	no	_	N	NF	_
+19	narimashite	_	V	Vte	_
+20	ryouhou	_	N	NN	_
+21	tomo	_	N	Nsf	_
+22	doujitsu	_	N	Ntmp	_
+23	no	_	P	Pgen	_
+24	juunanaji	_	CD	CDtime	_
+25	gojuppuN	_	CD	CDtime	_
+26	hanoofaa	_	NAME	NAMEloc	_
+27	chaku	_	N	Nsf	_
+28	ni	_	P	P	_
+29	narimasu	_	V	Vfin	u
+30	.	_	.	.	_
+
+1	nihoNkoukuu	_	NAME	NAMEorg	_
+2	desu	_	PV	PVfin	u
+3	to	_	PS	PSSa	_
+4	mou	_	ADV	ADV	_
+5	sukoshi	_	ADV	ADVdgr	_
+6	jikaN	_	N	NN	_
+7	ga	_	P	Pnom	_
+8	osoku	_	ADJ	ADJiku	_
+9	narimashite	_	V	Vte	_
+10	juuichiji	_	CD	CDtime	_
+11	yoNjuppuN	_	CD	CDtime	_
+12	narita	_	NAME	NAMEloc	_
+13	hatsu	_	N	Nsf	_
+14	hanoofaa	_	NAME	NAMEloc	_
+15	chaku	_	N	Nsf	_
+16	nijuuji	_	CD	CDtime	_
+17	juppuN	_	CD	CDtime	_
+18	ni	_	P	P	_
+19	narimasu	_	V	Vfin	u
+20	ga	_	PS	PSSb	_
+21	ojikaN	_	N	NN	_
+22	no	_	P	Pgen	_
+23	hou	_	N	NF	_
+24	wa	_	P	Pfoc	_
+25	dochira	_	N	Nwh	_
+26	ga	_	P	Pnom	_
+27	tsugou	_	N	NN	_
+28	yoroshii	_	ADJ	ADJifin	_
+29	deshou	_	PV	PVfin	u
+30	ka	_	PS	PSE	_
+31	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	narubeku	_	ADV	ADV	_
+5	noNbiri	_	N	VN	_
+6	shitai	_	VADJ	VADJi	_
+7	node	_	PS	PSSa	_
+8	.	_	.	.	_
+
+1	osoi	_	ADJ	ADJifin	_
+2	biN	_	N	NN	_
+3	no	_	P	Pgen	_
+4	juuichiji	_	CD	CDtime	_
+5	yoNjuppuN	_	CD	CDtime	_
+6	hatsu	_	N	Nsf	_
+7	desu	_	PV	PVfin	u
+8	ka	_	PS	PSE	_
+9	sochira	_	N	Ndem	_
+10	no	_	P	Pgen	_
+11	hou	_	N	NF	_
+12	ni	_	P	P	_
+13	shite	_	VS	VSte	_
+14	itadakenai	_	VADJ	VADJi	_
+15	deshou	_	PV	PVfin	u
+16	ka	_	PS	PSE	_
+17	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kochira	_	N	Ndem	_
+3	nihoNkoukuu	_	NAME	NAMEorg	_
+4	ni	_	P	P	_
+5	narimasu	_	V	Vfin	u
+6	ga	_	PS	PSSb	_
+7	juuichiji	_	CD	CDtime	_
+8	yoNjuppuN	_	CD	CDtime	_
+9	narita	_	NAME	NAMEloc	_
+10	hatsu	_	N	Nsf	_
+11	de	_	P	P	_
+12	hanoofaa	_	NAME	NAMEloc	_
+13	chaku	_	N	Nsf	_
+14	nijuuji	_	CD	CDtime	_
+15	juppuN	_	CD	CDtime	_
+16	kochira	_	N	Ndem	_
+17	yoyaku	_	N	VN	_
+18	shimasu	_	VS	VSfin	u
+19	.	_	.	.	_
+
+1	soreto	_	CNJ	CNJ	_
+2	kikoku	_	N	VN	_
+3	biN	_	N	NN	_
+4	nano	_	N	NF	_
+5	desu	_	PV	PVfin	u
+6	ga	_	PS	PSSb	_
+7	nihoN	_	NAME	NAMEloc	_
+8	chaku	_	N	Nsf	_
+9	wa	_	P	Pfoc	_
+10	tooka	_	CD	CDdate	_
+11	no	_	P	Pgen	_
+12	kayoubi	_	NT	NT	_
+13	desu	_	PV	PVfin	u
+14	ga	_	PS	PSSb	_
+15	mukou	_	N	NN	_
+16	o	_	P	Pacc	_
+17	deru	_	V	Vfin	u
+18	no	_	N	NF	_
+19	wa	_	P	Pfoc	_
+20	kokonoka	_	CD	CDdate	_
+21	no	_	P	Pgen	_
+22	getsuyoubi	_	NT	NT	_
+23	ni	_	P	P	_
+24	narimasu	_	V	Vfin	u
+25	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	shimasu	_	V	Vfin	u
+3	to	_	PS	PSSa	_
+4	kochira	_	N	Ndem	_
+5	zeNbu	_	ADV	ADVdgr	_
+6	rufutohaNza	_	NAME	NAMEorg	_
+7	ni	_	P	P	_
+8	naru	_	V	Vfin	u
+9	no	_	N	NF	_
+10	desu	_	PV	PVfin	u
+11	ne	_	PS	PSE	_
+12	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	kochira	_	N	Ndem	_
+3	hayaku	_	ADJ	ADJiku	_
+4	nihoN	_	NAME	NAMEloc	_
+5	ni	_	P	P	_
+6	tsuita	_	V	Vfin	ta
+7	hou	_	N	NF	_
+8	ga	_	P	Pnom	_
+9	yoroshii	_	ADJ	ADJifin	_
+10	desu	_	PV	PVfin	u
+11	ka	_	PS	PSE	_
+12	.	_	.	.	_
+
+1	ie	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	betsu	_	ADJ	ADJ_n	_
+2	ni	_	P	P	_
+3	tokuni	_	ADV	ADV	_
+4	isogi	_	N	NN	_
+5	no	_	P	Pgen	_
+6	youji	_	N	NN	_
+7	wa	_	P	Pfoc	_
+8	arimaseN	_	V	Vfin	eN
+9	node	_	PS	PSSa	_
+10	.	_	.	.	_
+
+1	noNbiri	_	ADV	ADV	_
+2	to	_	P	P	_
+3	tsuku	_	V	Vfin	u
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	kamaimaseN	_	V	Vfin	eN
+7	ga	_	PS	PSSb	_
+8	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	shimasu	_	V	Vfin	u
+3	to	_	PS	PSSa	_
+4	nihoN	_	NAME	NAMEloc	_
+5	chaku	_	N	Nsf	_
+6	ga	_	P	Pnom	_
+7	juugoji	_	CD	CDtime	_
+8	to	_	P	Pcnj	_
+9	juurokuji	_	CD	CDtime	_
+10	to	_	P	Pcnj	_
+11	ryouhou	_	N	NN	_
+12	gozaimasu	_	V	Vfin	u
+13	ga	_	PS	PSSb	_
+14	tada	_	ADV	ADV	_
+15	are	_	N	Ndem	_
+16	nano	_	N	NF	_
+17	desu	_	PV	PVfin	u
+18	ne	_	PS	PSE	_
+19	norikae	_	N	NN	_
+20	no	_	P	Pgen	_
+21	keN	_	N	NF	_
+22	ga	_	P	Pnom	_
+23	aru	_	V	Vfin	u
+24	node	_	PS	PSSa	_
+25	osoku	_	ADJ	ADJiku	_
+26	dete	_	V	Vte	_
+27	mo	_	P	Pfoc	_
+28	hayaku	_	ADJ	ADJiku	_
+29	tsuku	_	V	Vfin	u
+30	to	_	P	PQ	_
+31	iu	_	V	Vfin	u
+32	hou	_	N	NF	_
+33	ga	_	P	Pnom	_
+34	yappari	_	ADV	ADV	_
+35	gomeNnasai	_	V	Vimp	_
+36	chigaimashita	_	V	Vfin	ta
+37	juugoji	_	CD	CDtime	_
+38	to	_	P	Pcnj	_
+39	juurokuji	_	CD	CDtime	_
+40	nihoN	_	NAME	NAMEloc	_
+41	chaku	_	N	Nsf	_
+42	ga	_	P	Pnom	_
+43	aru	_	V	Vfin	u
+44	no	_	N	NF	_
+45	desu	_	PV	PVfin	u
+46	ga	_	PS	PSSb	_
+47	.	_	.	.	_
+
+1	dochira	_	N	Nwh	_
+2	ga	_	P	Pnom	_
+3	yoroshii	_	ADJ	ADJifin	_
+4	desu	_	PV	PVfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	kakaru	_	V	Vfin	u
+2	jikaN	_	N	NN	_
+3	wa	_	P	Pfoc	_
+4	onaji	_	ADJ	ADJ	_
+5	gurai	_	N	Nsf	_
+6	desu	_	PV	PVfin	u
+7	yo	_	PS	PSE	_
+8	ne	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	tada	_	ADV	ADV	_
+2	katahou	_	N	NN	_
+3	ga	_	P	Pnom	_
+4	furaNkufuruto	_	NAME	NAMEloc	_
+5	norikae	_	N	NN	_
+6	de	_	P	P	_
+7	katahou	_	N	NN	_
+8	ga	_	P	Pnom	_
+9	roNdoN	_	NAME	NAMEloc	_
+10	norikae	_	N	NN	_
+11	nano	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	ne	_	PS	PSE	_
+14	.	_	.	.	_
+
+1	desunode	_	CNJ	CNJ	_
+2	hanoofaa	_	NAME	NAMEloc	_
+3	hatsu	_	N	Nsf	_
+4	juurokuji	_	CD	CDtime	_
+5	gojuppuN	_	CD	CDtime	_
+6	ga	_	P	Pnom	_
+7	nihoN	_	NAME	NAMEloc	_
+8	chaku	_	N	Nsf	_
+9	juugoji	_	CD	CDtime	_
+10	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	mou	_	ADV	ADV	_
+3	ichi	_	CD	CD	_
+4	biN	_	UNIT	UNIT	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	ga	_	P	Pnom	_
+8	hanoofaa	_	NAME	NAMEloc	_
+9	hatsu	_	N	Nsf	_
+10	juuyoji	_	CD	CDtime	_
+11	saNjuugofuN	_	CD	CDtime	_
+12	nihoN	_	NAME	NAMEloc	_
+13	chaku	_	N	Nsf	_
+14	juurokuji	_	CD	CDtime	_
+15	ni	_	P	P	_
+16	narimasu	_	V	Vfin	u
+17	.	_	.	.	_
+
+1	dochira	_	N	Nwh	_
+2	ga	_	P	Pnom	_
+3	ii	_	ADJ	ADJifin	_
+4	deshou	_	PV	PVfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	doitsu	_	NAME	NAMEloc	_
+5	de	_	P	P	_
+6	mo	_	P	Pfoc	_
+7	yukkuri	_	ADV	ADV	_
+8	to	_	P	P	_
+9	demashou	_	V	Vfin	u
+10	ka	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	hoteru	_	N	NN	_
+6	mo	_	P	Pfoc	_
+7	sukoshi	_	ADV	ADVdgr	_
+8	awatenai	_	VADJ	VADJi	_
+9	de	_	P	P	_
+10	deraremasu	_	V	Vfin	u
+11	shi	_	PS	PSSa	_
+12	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	hanoofaa	_	NAME	NAMEloc	_
+3	hatsu	_	N	Nsf	_
+4	juurokuji	_	CD	CDtime	_
+5	gojuppuN	_	CD	CDtime	_
+6	yoyaku	_	N	VN	_
+7	shite	_	VS	VSte	_
+8	mo	_	P	Pfoc	_
+9	yoroshii	_	ADJ	ADJifin	_
+10	desu	_	PV	PVfin	u
+11	ka	_	PS	PSE	_
+12	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kikoku	_	N	VN	_
+3	biN	_	N	NN	_
+4	mo	_	P	Pfoc	_
+5	kochira	_	N	Ndem	_
+6	no	_	P	Pgen	_
+7	hou	_	N	NF	_
+8	de	_	P	P	_
+9	yoyaku	_	N	VN	_
+10	shite	_	VS	VSte	_
+11	okimasu	_	VAUX	VAUXfin	u
+12	.	_	.	.	_
+
+1	hoteru	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	o	_	P	Pacc	_
+5	kimenakute	_	VADJ	VADJi	kute
+6	wa	_	P	Pfoc	_
+7	ikemaseN	_	V	Vfin	eN
+8	yo	_	PS	PSE	_
+9	ne	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hoteru	_	N	NN	_
+2	nano	_	N	NF	_
+3	desu	_	PV	PVfin	u
+4	ga	_	PS	PSSb	_
+5	.	_	.	.	_
+
+1	kono	_	ADJ	ADJdem	_
+2	aida	_	N	NN	_
+3	doitsu	_	NAME	NAMEloc	_
+4	o	_	P	Pacc	_
+5	toriagete	_	V	Vte	_
+6	iru	_	VAUX	VAUXfin	u
+7	terebi	_	N	NN	_
+8	baNgumi	_	N	NN	_
+9	o	_	P	Pacc	_
+10	mimashite	_	V	Vte	_
+11	soko	_	N	Ndem	_
+12	de	_	P	P	_
+13	kakuyasu	_	N	NN	_
+14	de	_	P	P	_
+15	otoku	_	ADJ	ADJ_n	_
+16	na	_	ADJ	ADJsf	_
+17	atoraNta	_	NAME	NAMEloc	_
+18	to	_	P	PQ	_
+19	iu	_	V	Vfin	u
+20	hoteru	_	N	NN	_
+21	o	_	P	Pacc	_
+22	mita	_	V	Vfin	ta
+23	no	_	N	NF	_
+24	desu	_	PV	PVfin	u
+25	ga	_	PS	PSSb	_
+26	sochira	_	N	Ndem	_
+27	no	_	P	Pgen	_
+28	hou	_	N	NF	_
+29	de	_	P	P	_
+30	yoroshii	_	ADJ	ADJifin	_
+31	deshou	_	PV	PVfin	u
+32	ka	_	PS	PSE	_
+33	.	_	.	.	_
+
+1	ii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	terebi	_	N	NN	_
+2	de	_	P	P	_
+3	toriageta	_	V	Vfin	ta
+4	no	_	N	NF	_
+5	dattara	_	PV	PVcnd	_
+6	kitto	_	ADV	ADV	_
+7	nanika	_	N	NN	_
+8	tokubetsu	_	ADJ	ADJ_n	_
+9	na	_	ADJ	ADJsf	_
+10	koto	_	N	NF	_
+11	ga	_	P	Pnom	_
+12	aru	_	V	Vfin	u
+13	no	_	N	NF	_
+14	deshou	_	PV	PVfin	u
+15	ka	_	PS	PSE	_
+16	ne	_	PS	PSE	_
+17	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	toritatete	_	V	Vte	_
+5	kirei	_	ADJ	ADJ_n	_
+6	na	_	ADJ	ADJsf	_
+7	wake	_	N	NF	_
+8	de	_	P	P	_
+9	wa	_	P	Pfoc	_
+10	nai	_	ADJ	ADJifin	_
+11	no	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	ga	_	PS	PSSb	_
+14	eki	_	N	NN	_
+15	kara	_	P	P	_
+16	chikai	_	ADJ	ADJifin	_
+17	koto	_	N	NF	_
+18	mo	_	P	Pfoc	_
+19	arimashite	_	V	Vte	_
+20	warito	_	ADV	ADV	_
+21	mawari	_	N	NN	_
+22	no	_	P	Pgen	_
+23	fuNiki	_	N	NN	_
+24	ga	_	P	Pnom	_
+25	ii	_	ADJ	ADJifin	_
+26	ka	_	PS	PSE	_
+27	to	_	P	PQ	_
+28	omoimasu	_	V	Vfin	u
+29	ga	_	PS	PSSb	_
+30	.	_	.	.	_
+
+1	yahari	_	ADV	ADV	_
+2	shucchou	_	N	VN	_
+3	no	_	P	Pgen	_
+4	toki	_	N	NN	_
+5	wa	_	P	Pfoc	_
+6	eki	_	N	NN	_
+7	kara	_	P	P	_
+8	chikai	_	ADJ	ADJifin	_
+9	to	_	PS	PSSa	_
+10	beNri	_	ADJ	ADJ_n	_
+11	desu	_	PV	PVfin	u
+12	yo	_	PS	PSE	_
+13	ne	_	PS	PSE	_
+14	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	wa	_	P	Pfoc	_
+3	sore	_	N	Ndem	_
+4	de	_	P	P	_
+5	zeNzeN	_	ADV	ADVdgr	_
+6	moNdai	_	N	NN	_
+7	nai	_	ADJ	ADJifin	_
+8	desu	_	PV	PVfin	u
+9	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	daburu	_	N	NN	_
+5	to	_	P	Pcnj	_
+6	shiNguru	_	N	NN	_
+7	no	_	P	Pgen	_
+8	heya	_	N	NN	_
+9	no	_	P	Pgen	_
+10	hou	_	N	NF	_
+11	nano	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	ga	_	PS	PSSb	_
+14	dochira	_	N	Nwh	_
+15	mo	_	P	Pfoc	_
+16	yasui	_	ADJ	ADJifin	_
+17	node	_	PS	PSSa	_
+18	watashi	_	N	PRON	_
+19	to	_	P	P	_
+20	shite	_	V	Vte	_
+21	wa	_	P	Pfoc	_
+22	daburu	_	N	NN	_
+23	no	_	P	Pgen	_
+24	heya	_	N	NN	_
+25	ni	_	P	P	_
+26	tomaritai	_	VADJ	VADJi	_
+27	kana	_	PS	PSE	_
+28	to	_	P	PQ	_
+29	omotte	_	V	Vte	_
+30	iru	_	VAUX	VAUXfin	u
+31	no	_	N	NF	_
+32	desu	_	PV	PVfin	u
+33	ga	_	PS	PSSb	_
+34	.	_	.	.	_
+
+1	onedaN	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ni	_	P	P	_
+5	eikyou	_	N	NN	_
+6	ga	_	P	Pnom	_
+7	nai	_	ADJ	ADJifin	_
+8	no	_	P	Pgen	_
+9	dattara	_	PV	PVcnd	_
+10	watashi	_	N	PRON	_
+11	mo	_	P	Pfoc	_
+12	daburu	_	N	NN	_
+13	no	_	P	Pgen	_
+14	hou	_	N	NF	_
+15	ga	_	P	Pnom	_
+16	arigatai	_	ADJ	ADJifin	_
+17	desu	_	PV	PVfin	u
+18	ne	_	PS	PSE	_
+19	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	daburu	_	N	NN	_
+3	ni	_	P	P	_
+4	shimashou	_	V	Vfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	shigoto	_	N	VN	_
+5	no	_	P	Pgen	_
+6	ato	_	N	Ntmp	_
+7	kaNkou	_	N	VN	_
+8	wa	_	P	Pfoc	_
+9	dekisou	_	ADJ	ADJ_n	_
+10	desu	_	PV	PVfin	u
+11	kara	_	PS	PSSa	_
+12	dokka	_	N	NN	_
+13	ikimashou	_	V	Vfin	u
+14	ka	_	PS	PSE	_
+15	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	yo	_	PS	PSE	_
+4	ne	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	sekkaku	_	ADV	ADV	_
+2	jikaN	_	N	NN	_
+3	ga	_	P	Pnom	_
+4	aru	_	V	Vfin	u
+5	no	_	N	NF	_
+6	da	_	PV	PVfin	ta
+7	kara	_	PS	PSSa	_
+8	sukoshi	_	ADV	ADVdgr	_
+9	doitsu	_	NAME	NAMEloc	_
+10	mo	_	P	Pfoc	_
+11	mite	_	V	Vte	_
+12	kitai	_	VADJ	VADJi	_
+13	desu	_	PV	PVfin	u
+14	yo	_	PS	PSE	_
+15	ne	_	PS	PSE	_
+16	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	jitsuwa	_	ADV	ADV	_
+3	beruriNnokabe	_	NAME	NAMEloc	_
+4	no	_	P	Pgen	_
+5	ato	_	N	NN	_
+6	to	_	P	PQ	_
+7	iu	_	V	Vfin	u
+8	no	_	N	NF	_
+9	o	_	P	Pacc	_
+10	mite	_	V	Vte	_
+11	mitai	_	VADJ	VADJi	_
+12	no	_	N	NF	_
+13	desu	_	PV	PVfin	u
+14	kedo	_	PS	PSSb	_
+15	.	_	.	.	_
+
+1	ii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	mo	_	P	Pfoc	_
+3	mite	_	V	Vte	_
+4	mitai	_	VADJ	VADJi	_
+5	desu	_	PV	PVfin	u
+6	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	soko	_	N	Ndem	_
+3	ikimashou	_	V	Vfin	u
+4	ka	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kimemashou	_	V	Vfin	u
+3	sore	_	N	Ndem	_
+4	ni	_	P	P	_
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	ichiou	_	ADV	ADV	_
+3	hikouki	_	N	NN	_
+4	to	_	P	Pcnj	_
+5	hoteru	_	N	NN	_
+6	wa	_	P	Pfoc	_
+7	kore	_	N	Ndem	_
+8	de	_	P	P	_
+9	kettei	_	N	VN	_
+10	nanode	_	PS	PSSa	_
+11	yoyaku	_	N	VN	_
+12	ga	_	P	Pnom	_
+13	tore	_	V	Vbas	_
+14	shidai	_	P	PADV	_
+15	watashi	_	N	PRON	_
+16	no	_	P	Pgen	_
+17	hou	_	N	NF	_
+18	kara	_	P	P	_
+19	mata	_	ADV	ADV	_
+20	odeNwa	_	N	VN	_
+21	sashiagemasu	_	V	Vfin	u
+22	node	_	PS	PSSa	_
+23	hayakawa	_	NAME	NAMEper	_
+24	saN	_	P	PNsf	_
+25	no	_	P	Pgen	_
+26	hou	_	N	NF	_
+27	mo	_	P	Pfoc	_
+28	kimari	_	V	Vbas	_
+29	shidai	_	P	PADV	_
+30	goreNraku	_	N	VN	_
+31	shite	_	VS	VSte	_
+32	kudasai	_	VAUX	VAUXimp	_
+33	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	shitsurei	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	shitsurei	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	shiNbo	_	NAME	NAMEper	_
+2	masanori	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	koide	_	NAME	NAMEper	_
+2	takafumi	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	koNnichiwa	_	GR	GR	_
+2	.	_	.	.	_
+
+1	koide	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	.	_	.	.	_
+
+1	koNnichiwa	_	GR	GR	_
+2	.	_	.	.	_
+
+1	shiNbo	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	.	_	.	.	_
+
+1	ima	_	N	Ntmp	_
+2	sekkaku	_	ADV	ADV	_
+3	nanode	_	PS	PSSa	_
+4	koNdo	_	N	Ntmp	_
+5	no	_	P	Pgen	_
+6	doitsu	_	NAME	NAMEloc	_
+7	shucchou	_	N	VN	_
+8	no	_	P	Pgen	_
+9	keN	_	N	NF	_
+10	no	_	P	Pgen	_
+11	hanashi	_	N	VN	_
+12	o	_	P	Pacc	_
+13	susumete	_	V	Vte	_
+14	ikimaseN	_	VAUX	VAUXfin	eN
+15	ka	_	PS	PSE	_
+16	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	ojikaN	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	daijoubu	_	ADJ	ADJ_n	_
+5	desu	_	PV	PVfin	u
+6	ka	_	PS	PSE	_
+7	.	_	.	.	_
+
+1	kekkou	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	chotto	_	ADV	ADV	_
+3	taNjikaN	_	N	NN	_
+4	de	_	P	P	_
+5	uchiawase	_	N	VN	_
+6	shimashou	_	VS	VSfin	u
+7	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	saisho	_	N	Ntmp	_
+2	ni	_	P	P	_
+3	nittei	_	N	NN	_
+4	nano	_	N	NF	_
+5	desu	_	PV	PVfin	u
+6	ga	_	PS	PSSb	_
+7	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	juu	_	CD	CD	_
+5	juuichigatsu	_	CD	CDdate	_
+6	to	_	PS	PSSa	_
+7	sukoshi	_	ADV	ADVdgr	_
+8	you	_	N	NN	_
+9	ga	_	P	Pnom	_
+10	arimashite	_	V	Vte	_
+11	dekireba	_	ADV	ADV	_
+12	juunigatsu	_	CD	CDdate	_
+13	ni	_	P	P	_
+14	ikereba	_	V	Vcnd	_
+15	to	_	P	PQ	_
+16	omotte	_	V	Vte	_
+17	iru	_	VAUX	VAUXfin	u
+18	no	_	N	NF	_
+19	desu	_	PV	PVfin	u
+20	ga	_	PS	PSSb	_
+21	.	_	.	.	_
+
+1	koide	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	no	_	P	Pgen	_
+6	gotsugou	_	N	NN	_
+7	wa	_	P	Pfoc	_
+8	dou	_	ADV	ADVwh	_
+9	deshou	_	PV	PVfin	u
+10	ka	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	boku	_	N	PRON	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	wa	_	P	Pfoc	_
+5	juu	_	CD	CD	_
+6	juuichigatsu	_	CD	CDdate	_
+7	no	_	P	Pgen	_
+8	hou	_	N	NF	_
+9	de	_	P	P	_
+10	mo	_	P	Pfoc	_
+11	kamawanai	_	VADJ	VADJi	_
+12	no	_	N	NF	_
+13	desu	_	PV	PVfin	u
+14	ga	_	PS	PSSb	_
+15	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	shiNbo	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	ga	_	P	Pnom	_
+6	juunigatsu	_	CD	CDdate	_
+7	ga	_	P	Pnom	_
+8	ii	_	ADJ	ADJifin	_
+9	to	_	P	PQ	_
+10	iu	_	V	Vfin	u
+11	no	_	N	NF	_
+12	dattara	_	PV	PVcnd	_
+13	boku	_	N	PRON	_
+14	no	_	P	Pgen	_
+15	hou	_	N	NF	_
+16	mo	_	P	Pfoc	_
+17	juunigatsu	_	CD	CDdate	_
+18	de	_	P	P	_
+19	mo	_	P	Pfoc	_
+20	kamaimaseN	_	V	Vfin	eN
+21	node	_	PS	PSSa	_
+22	.	_	.	.	_
+
+1	juunigatsu	_	CD	CDdate	_
+2	de	_	P	P	_
+3	kyoukou	_	N	VN	_
+4	shimashou	_	VS	VSfin	u
+5	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	shite	_	VS	VSte	_
+3	itadakeru	_	VAUX	VAUXfin	u
+4	to	_	PS	PSSa	_
+5	arigatai	_	ADJ	ADJifin	_
+6	desu	_	PV	PVfin	u
+7	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	juu	_	CD	CD	_
+6	juuichi	_	CD	CD	_
+7	to	_	P	P	_
+8	yotei	_	N	VN	_
+9	ga	_	P	Pnom	_
+10	haitte	_	V	Vte	_
+11	imasu	_	VAUX	VAUXfin	u
+12	node	_	PS	PSSa	_
+13	.	_	.	.	_
+
+1	juunigatsu	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	saisho	_	N	Ntmp	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	ka	_	P	Pcnj	_
+7	sono	_	ADJ	ADJdem	_
+8	juuichi	_	CD	CD	_
+9	ikou	_	N	Nsf	_
+10	juuninichi	_	CD	CDdate	_
+11	ikou	_	N	Nsf	_
+12	to	_	P	PQ	_
+13	iimasu	_	V	Vfin	u
+14	ka	_	PS	PSE	_
+15	chuujuN	_	NT	NT	_
+16	desu	_	PV	PVfin	u
+17	to	_	PS	PSSa	_
+18	ii	_	ADJ	ADJifin	_
+19	no	_	N	NF	_
+20	desu	_	PV	PVfin	u
+21	ga	_	PS	PSSb	_
+22	dochira	_	N	Nwh	_
+23	no	_	P	Pgen	_
+24	hou	_	N	NF	_
+25	ga	_	P	Pnom	_
+26	yoroshii	_	ADJ	ADJifin	_
+27	desu	_	PV	PVfin	u
+28	ka	_	PS	PSE	_
+29	ne	_	PS	PSE	_
+30	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	juugonichi	_	CD	CDdate	_
+5	kara	_	P	P	_
+6	to	_	P	PQ	_
+7	iu	_	V	Vfin	u
+8	no	_	N	NF	_
+9	ga	_	P	Pnom	_
+10	boku	_	N	PRON	_
+11	wa	_	P	Pfoc	_
+12	ii	_	ADJ	ADJifin	_
+13	to	_	P	PQ	_
+14	omou	_	V	Vfin	u
+15	no	_	N	NF	_
+16	desu	_	PV	PVfin	u
+17	ga	_	PS	PSSb	_
+18	aite	_	V	Vte	_
+19	imasu	_	VAUX	VAUXfin	u
+20	deshou	_	PV	PVfin	u
+21	ka	_	PS	PSE	_
+22	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	aite	_	V	Vte	_
+2	imasu	_	VAUX	VAUXfin	u
+3	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	sou	_	ADV	ADVdem	_
+3	desu	_	PV	PVfin	u
+4	ne	_	PS	PSE	_
+5	dewa	_	CNJ	CNJ	_
+6	juugonichi	_	CD	CDdate	_
+7	shuppatsu	_	N	VN	_
+8	to	_	P	PQ	_
+9	iu	_	V	Vfin	u
+10	koto	_	N	NF	_
+11	de	_	P	P	_
+12	mou	_	ADV	ADV	_
+13	yoroshii	_	ADJ	ADJifin	_
+14	desu	_	PV	PVfin	u
+15	ka	_	PS	PSE	_
+16	ne	_	PS	PSE	_
+17	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	ga	_	P	Pnom	_
+3	ii	_	ADJ	ADJifin	_
+4	to	_	P	PQ	_
+5	omoimasu	_	V	Vfin	u
+6	.	_	.	.	_
+
+1	amari	_	ADV	ADVdgr	_
+2	neNmatsu	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	ni	_	P	P	_
+6	narimashite	_	V	Vte	_
+7	mo	_	P	Pfoc	_
+8	are	_	N	Ndem	_
+9	nanode	_	PS	PSSa	_
+10	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	juugonichi	_	CD	CDdate	_
+3	ni	_	P	P	_
+4	shuppatsu	_	N	VN	_
+5	shimashou	_	VS	VSfin	u
+6	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	juugonichi	_	CD	CDdate	_
+3	ni	_	P	P	_
+4	shuppatsu	_	N	VN	_
+5	to	_	P	P	_
+6	narimasu	_	V	Vfin	u
+7	to	_	PS	PSSa	_
+8	doyoubi	_	NT	NT	_
+9	ni	_	P	P	_
+10	kochira	_	N	Ndem	_
+11	ni	_	P	P	_
+12	kaette	_	V	Vte	_
+13	kuru	_	VAUX	VAUXfin	u
+14	koto	_	N	NF	_
+15	ni	_	P	P	_
+16	narimasu	_	V	Vfin	u
+17	keredomo	_	PS	PSSb	_
+18	daijoubu	_	ADJ	ADJ_n	_
+19	deshou	_	PV	PVfin	u
+20	ka	_	PS	PSE	_
+21	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	mattaku	_	ADV	ADV	_
+2	kamaimaseN	_	V	Vfin	eN
+3	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	juugonichi	_	CD	CDdate	_
+3	ni	_	P	P	_
+4	ichiou	_	ADV	ADV	_
+5	shuppatsu	_	N	VN	_
+6	to	_	P	PQ	_
+7	iu	_	V	Vfin	u
+8	koto	_	N	NF	_
+9	de	_	P	P	_
+10	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	hatsuka	_	CD	CDdate	_
+3	juukunichi	_	CD	CDdate	_
+4	ni	_	P	P	_
+5	kochira	_	N	Ndem	_
+6	ni	_	P	P	_
+7	kikoku	_	N	VN	_
+8	suru	_	VS	VSfin	u
+9	koto	_	N	NF	_
+10	ni	_	P	P	_
+11	narimasu	_	V	Vfin	u
+12	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	watashi	_	N	PRON	_
+3	ima	_	N	Ntmp	_
+4	choudo	_	ADV	ADV	_
+5	doitsu	_	NAME	NAMEloc	_
+6	iki	_	N	Nsf	_
+7	no	_	P	Pgen	_
+8	sukejuuru	_	N	NN	_
+9	o	_	P	Pacc	_
+10	ano	_	ITJ	ITJ	_
+11	hikouki	_	N	NN	_
+12	no	_	P	Pgen	_
+13	sukejuuru	_	N	NN	_
+14	o	_	P	Pacc	_
+15	motte	_	V	Vte	_
+16	iru	_	VAUX	VAUXfin	u
+17	no	_	N	NF	_
+18	desu	_	PV	PVfin	u
+19	keredomo	_	PS	PSSb	_
+20	ima	_	N	Ntmp	_
+21	chotto	_	ADV	ADV	_
+22	mou	_	ADV	ADV	_
+23	okime	_	N	VN	_
+24	shitai	_	VADJ	VADJi	_
+25	to	_	P	PQ	_
+26	omotte	_	V	Vte	_
+27	iru	_	VAUX	VAUXfin	u
+28	no	_	N	NF	_
+29	desu	_	PV	PVfin	u
+30	ga	_	PS	PSSb	_
+31	kayoubi	_	NT	NT	_
+32	desu	_	PV	PVfin	u
+33	to	_	PS	PSSa	_
+34	to	_	ITJ	ITJ	_
+35	futatsu	_	CD	CDU	_
+36	naritakuukou	_	NAME	NAMEloc	_
+37	hatsu	_	N	Nsf	_
+38	no	_	P	Pgen	_
+39	hikouki	_	N	NN	_
+40	ga	_	P	Pnom	_
+41	futatsu	_	CD	CDU	_
+42	arimashite	_	V	Vte	_
+43	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+44	to	_	P	Pcnj	_
+45	ato	_	CNJ	CNJ	_
+46	jaru	_	NAME	NAMEorg	_
+47	no	_	P	Pgen	_
+48	hou	_	N	NF	_
+49	ga	_	P	Pnom	_
+50	aru	_	V	Vfin	u
+51	no	_	N	NF	_
+52	desu	_	PV	PVfin	u
+53	ga	_	PS	PSSb	_
+54	.	_	.	.	_
+
+1	iki	_	N	NN	_
+2	no	_	P	Pgen	_
+3	jikaNtai	_	N	NN	_
+4	wa	_	P	Pfoc	_
+5	sorehodo	_	ADV	ADV	_
+6	kawaranai	_	VADJ	VADJi	_
+7	no	_	N	NF	_
+8	desu	_	PV	PVfin	u
+9	ga	_	PS	PSSb	_
+10	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+11	de	_	P	P	_
+12	ikimasu	_	V	Vfin	u
+13	to	_	PS	PSSa	_
+14	hanoofaa	_	NAME	NAMEloc	_
+15	ni	_	P	P	_
+16	rokuji	_	CD	CDtime	_
+17	goro	_	N	Nsf	_
+18	tsuku	_	V	Vfin	u
+19	no	_	N	NF	_
+20	desu	_	PV	PVfin	u
+21	ga	_	PS	PSSb	_
+22	nihoNkoukuu	_	NAME	NAMEorg	_
+23	desu	_	PV	PVfin	u
+24	to	_	PS	PSSa	_
+25	yoru	_	N	Ntmp	_
+26	no	_	P	Pgen	_
+27	hachiji	_	CD	CDtime	_
+28	gurai	_	N	Nsf	_
+29	ni	_	P	P	_
+30	natte	_	V	Vte	_
+31	shimau	_	VAUX	VAUXfin	u
+32	no	_	N	NF	_
+33	desu	_	PV	PVfin	u
+34	keredomo	_	PS	PSSb	_
+35	sono	_	ADJ	ADJdem	_
+36	buN	_	N	NF	_
+37	chotto	_	ADV	ADV	_
+38	asa	_	N	Ntmp	_
+39	wa	_	P	Pfoc	_
+40	yukkuri	_	ADV	ADV	_
+41	nano	_	N	NF	_
+42	desu	_	PV	PVfin	u
+43	ga	_	PS	PSSb	_
+44	.	_	.	.	_
+
+1	dochira	_	N	Nwh	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	kou	_	ADV	ADVdem	_
+6	ii	_	ADJ	ADJifin	_
+7	yoroshii	_	ADJ	ADJifin	_
+8	desu	_	PV	PVfin	u
+9	ka	_	PS	PSE	_
+10	ne	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	watakushi	_	N	PRON	_
+2	kaigai	_	N	NN	_
+3	ni	_	P	P	_
+4	iku	_	V	Vfin	u
+5	no	_	N	NF	_
+6	hajimete	_	ADJ	ADJ_n	_
+7	nanode	_	PS	PSSa	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ikkoku	_	N	NN	_
+2	mo	_	P	Pfoc	_
+3	hayaku	_	ADJ	ADJiku	_
+4	doitsu	_	NAME	NAMEloc	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	ni	_	P	P	_
+8	ikitai	_	VADJ	VADJi	_
+9	na	_	PS	PSE	_
+10	to	_	P	PQ	_
+11	omou	_	V	Vfin	u
+12	node	_	PS	PSSa	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	dewa	_	CNJ	CNJ	_
+5	tsugi	_	N	NN	_
+6	no	_	P	Pgen	_
+7	hi	_	N	Ntmp	_
+8	kara	_	P	P	_
+9	mou	_	ADV	ADV	_
+10	shigoto	_	N	VN	_
+11	nanode	_	PS	PSSa	_
+12	.	_	.	.	_
+
+1	hayaku	_	ADJ	ADJiku	_
+2	tsuite	_	V	Vte	_
+3	oita	_	VAUX	VAUXfin	ta
+4	hou	_	N	NF	_
+5	ga	_	P	Pnom	_
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	socchi	_	N	Ndem	_
+2	.	_	.	.	_
+
+1	yoroshii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	hayai	_	ADJ	ADJifin	_
+3	hou	_	N	NF	_
+4	de	_	P	P	_
+5	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+6	de	_	P	P	_
+7	ikimashou	_	V	Vfin	u
+8	.	_	.	.	_
+
+1	ojikaN	_	N	NN	_
+2	ga	_	P	Pnom	_
+3	naritakuukou	_	NAME	NAMEloc	_
+4	juuji	_	CD	CDtime	_
+5	hatsu	_	N	Nsf	_
+6	desu	_	PV	PVfin	u
+7	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	geNchi	_	N	NN	_
+3	no	_	P	Pgen	_
+4	doitsu	_	NAME	NAMEloc	_
+5	no	_	P	Pgen	_
+6	hanoofaa	_	NAME	NAMEloc	_
+7	no	_	P	Pgen	_
+8	hou	_	N	NF	_
+9	ni	_	P	P	_
+10	goji	_	CD	CDtime	_
+11	gojuppuN	_	CD	CDtime	_
+12	ni	_	P	P	_
+13	tsukimasu	_	V	Vfin	u
+14	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kochira	_	N	Ndem	_
+3	no	_	P	Pgen	_
+4	hayai	_	ADJ	ADJifin	_
+5	hou	_	N	NF	_
+6	de	_	P	P	_
+7	ikimashou	_	V	Vfin	u
+8	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	ato	_	CNJ	CNJ	_
+3	kaeri	_	N	NN	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	mo	_	P	Pfoc	_
+7	sekkaku	_	ADV	ADV	_
+8	nanode	_	PS	PSSa	_
+9	mou	_	ADV	ADV	_
+10	ima	_	N	Ntmp	_
+11	okime	_	N	VN	_
+12	shitai	_	VADJ	VADJi	_
+13	to	_	P	PQ	_
+14	omotte	_	V	Vte	_
+15	iru	_	VAUX	VAUXfin	u
+16	no	_	N	NF	_
+17	desu	_	PV	PVfin	u
+18	ga	_	PS	PSSb	_
+19	kaeri	_	N	NN	_
+20	ga	_	P	Pnom	_
+21	doyoubi	_	NT	NT	_
+22	ni	_	P	P	_
+23	kochira	_	N	Ndem	_
+24	ni	_	P	P	_
+25	kaette	_	V	Vte	_
+26	kuru	_	VAUX	VAUXfin	u
+27	koto	_	N	NF	_
+28	ni	_	P	P	_
+29	narimasu	_	V	Vfin	u
+30	node	_	PS	PSSa	_
+31	kiNyoubi	_	NT	NT	_
+32	ni	_	P	P	_
+33	doitsu	_	NAME	NAMEloc	_
+34	o	_	P	Pacc	_
+35	deru	_	V	Vfin	u
+36	no	_	N	NF	_
+37	desu	_	PV	PVfin	u
+38	ga	_	PS	PSSb	_
+39	.	_	.	.	_
+
+1	kiNyoubi	_	NT	NT	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	ooku	_	ADJ	ADJiku	_
+6	hikouki	_	N	NN	_
+7	ga	_	P	Pnom	_
+8	arimashite	_	V	Vte	_
+9	sou	_	ADV	ADVdem	_
+10	desu	_	PV	PVfin	u
+11	ne	_	PS	PSE	_
+12	yuugata	_	N	Ntmp	_
+13	goji	_	CD	CDtime	_
+14	goro	_	N	Nsf	_
+15	ni	_	P	P	_
+16	hanoofaa	_	NAME	NAMEloc	_
+17	o	_	P	Pacc	_
+18	dete	_	V	Vte	_
+19	saNji	_	CD	CDtime	_
+20	goro	_	N	Nsf	_
+21	ni	_	P	P	_
+22	nihoN	_	NAME	NAMEloc	_
+23	ni	_	P	P	_
+24	tsuku	_	V	Vfin	u
+25	no	_	N	NF	_
+26	ga	_	P	Pnom	_
+27	futatsu	_	CD	CDU	_
+28	arimashite	_	V	Vte	_
+29	sore	_	N	Ndem	_
+30	to	_	P	Pcnj	_
+31	doitsu	_	NAME	NAMEloc	_
+32	o	_	P	Pacc	_
+33	mou	_	ADV	ADV	_
+34	kuji	_	CD	CDtime	_
+35	haN	_	N	NN	_
+36	ni	_	P	P	_
+37	demashite	_	V	Vte	_
+38	nihoN	_	NAME	NAMEloc	_
+39	ni	_	P	P	_
+40	mou	_	ADV	ADV	_
+41	gozeNchuu	_	NT	NT	_
+42	ni	_	P	P	_
+43	kaette	_	V	Vte	_
+44	kuru	_	VAUX	VAUXfin	u
+45	no	_	N	NF	_
+46	to	_	P	Pcnj	_
+47	aru	_	V	Vfin	u
+48	no	_	N	NF	_
+49	desu	_	PV	PVfin	u
+50	ga	_	PS	PSSb	_
+51	kaeri	_	N	NN	_
+52	no	_	P	Pgen	_
+53	hou	_	N	NF	_
+54	wa	_	P	Pfoc	_
+55	nanika	_	N	NN	_
+56	kibou	_	N	VN	_
+57	to	_	P	PQ	_
+58	iu	_	V	Vfin	u
+59	no	_	N	NF	_
+60	wa	_	P	Pfoc	_
+61	arimasu	_	V	Vfin	u
+62	deshou	_	PV	PVfin	u
+63	ka	_	PS	PSE	_
+64	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	doitsu	_	NAME	NAMEloc	_
+5	ni	_	P	P	_
+6	sukoshi	_	ADV	ADVdgr	_
+7	demo	_	P	Pfoc	_
+8	nagaku	_	ADJ	ADJiku	_
+9	itai	_	VADJ	VADJi	_
+10	to	_	P	PQ	_
+11	omou	_	V	Vfin	u
+12	node	_	PS	PSSa	_
+13	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	yo	_	PS	PSE	_
+4	ne	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	osoi	_	ADJ	ADJifin	_
+2	hou	_	N	NF	_
+3	no	_	P	Pgen	_
+4	biN	_	N	NN	_
+5	de	_	P	P	_
+6	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	osoi	_	ADJ	ADJifin	_
+3	hou	_	N	NF	_
+4	no	_	P	Pgen	_
+5	biN	_	N	NN	_
+6	ga	_	P	Pnom	_
+7	futatsu	_	CD	CDU	_
+8	aru	_	V	Vfin	u
+9	no	_	N	NF	_
+10	desu	_	PV	PVfin	u
+11	keredomo	_	PS	PSSb	_
+12	futatsu	_	CD	CDU	_
+13	aru	_	V	Vfin	u
+14	no	_	N	NF	_
+15	wa	_	P	Pfoc	_
+16	furaNkufuruto	_	NAME	NAMEloc	_
+17	ni	_	P	P	_
+18	ikimashite	_	V	Vte	_
+19	kara	_	P	P	_
+20	nihoNkoukuu	_	NAME	NAMEorg	_
+21	to	_	P	Pcnj	_
+22	zeNnikkuu	_	NAME	NAMEorg	_
+23	to	_	P	Pcnj	_
+24	nishurui	_	CD	CDU	_
+25	aru	_	V	Vfin	u
+26	no	_	N	NF	_
+27	desu	_	PV	PVfin	u
+28	keredomo	_	PS	PSSb	_
+29	kore	_	N	Ndem	_
+30	mou	_	ADV	ADV	_
+31	watashi	_	N	PRON	_
+32	kojiNteki	_	ADJ	ADJteki	_
+33	ni	_	P	P	_
+34	nihoNkoukuu	_	NAME	NAMEorg	_
+35	no	_	N	NF	_
+36	ga	_	P	Pnom	_
+37	suki	_	ADJ	ADJ_n	_
+38	nano	_	N	NF	_
+39	desu	_	PV	PVfin	u
+40	keredomo	_	PS	PSSb	_
+41	.	_	.	.	_
+
+1	kochira	_	N	Ndem	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	de	_	P	P	_
+5	yoroshii	_	ADJ	ADJifin	_
+6	desu	_	PV	PVfin	u
+7	ka	_	PS	PSE	_
+8	ne	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	de	_	P	P	_
+3	kamaimaseN	_	V	Vfin	eN
+4	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kochira	_	N	Ndem	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	yoyaku	_	N	VN	_
+7	shite	_	VS	VSte	_
+8	okou	_	VAUX	VAUXfin	u
+9	to	_	P	PQ	_
+10	omou	_	V	Vfin	u
+11	no	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	ga	_	PS	PSSb	_
+14	ichiou	_	ADV	ADV	_
+15	yoji	_	CD	CDtime	_
+16	gojuppuN	_	CD	CDtime	_
+17	ni	_	P	P	_
+18	hanoofaa	_	NAME	NAMEloc	_
+19	o	_	P	Pacc	_
+20	demashite	_	V	Vte	_
+21	de	_	CNJ	CNJ	_
+22	nihoN	_	NAME	NAMEloc	_
+23	no	_	P	Pgen	_
+24	naritakuukou	_	NAME	NAMEloc	_
+25	no	_	P	Pgen	_
+26	hou	_	N	NF	_
+27	ni	_	P	P	_
+28	gogo	_	NT	NT	_
+29	no	_	P	Pgen	_
+30	saNji	_	CD	CDtime	_
+31	ni	_	P	P	_
+32	tsuku	_	V	Vfin	u
+33	koto	_	N	NF	_
+34	ni	_	P	P	_
+35	narimasu	_	V	Vfin	u
+36	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	de	_	P	P	_
+3	kamawanai	_	VADJ	VADJi	_
+4	to	_	P	PQ	_
+5	omoimasu	_	V	Vfin	u
+6	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	sassoku	_	ADV	ADVtmp	_
+3	kore	_	N	Ndem	_
+4	de	_	P	P	_
+5	yoyaku	_	N	VN	_
+6	no	_	P	Pgen	_
+7	hou	_	N	NF	_
+8	irete	_	V	Vte	_
+9	okimasu	_	VAUX	VAUXfin	u
+10	node	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	gojikaN	_	N	NN	_
+2	no	_	P	Pgen	_
+3	ojikaN	_	N	NN	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	onegai	_	N	VN	_
+7	shimasu	_	VS	VSfin	u
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	touzeN	_	ADJ	ADJ_n	_
+3	tomaru	_	V	Vfin	u
+4	to	_	P	PQ	_
+5	omou	_	V	Vfin	u
+6	node	_	PS	PSSa	_
+7	hoteru	_	N	NN	_
+8	ni	_	P	P	_
+9	tomaritai	_	VADJ	VADJi	_
+10	to	_	P	PQ	_
+11	omou	_	V	Vfin	u
+12	no	_	N	NF	_
+13	desu	_	PV	PVfin	u
+14	kedo	_	PS	PSSb	_
+15	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hoteru	_	N	NN	_
+2	to	_	P	P	_
+3	shite	_	VS	VSte	_
+4	wa	_	P	Pfoc	_
+5	mittsu	_	CD	CDU	_
+6	boku	_	N	PRON	_
+7	wa	_	P	Pfoc	_
+8	kaNgaete	_	V	Vte	_
+9	iru	_	VAUX	VAUXfin	u
+10	no	_	N	NF	_
+11	desu	_	PV	PVfin	u
+12	kedo	_	PS	PSSb	_
+13	kasuteNsuhoteruruiizeNhofu	_	NAME	NAMEloc	_
+14	to	_	P	PQ	_
+15	iu	_	V	Vfin	u
+16	hoteru	_	N	NN	_
+17	to	_	P	Pcnj	_
+18	rokkumaahoofu	_	NAME	NAMEloc	_
+19	to	_	P	PQ	_
+20	iu	_	V	Vfin	u
+21	hoteru	_	N	NN	_
+22	to	_	P	Pcnj	_
+23	ato	_	CNJ	CNJ	_
+24	musumaN	_	NAME	NAMEloc	_
+25	to	_	P	PQ	_
+26	iu	_	V	Vfin	u
+27	hoteru	_	N	NN	_
+28	ga	_	P	Pnom	_
+29	aru	_	V	Vfin	u
+30	no	_	N	NF	_
+31	desu	_	PV	PVfin	u
+32	ga	_	PS	PSSb	_
+33	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	mazu	_	ADV	ADVtmp	_
+2	daburu	_	N	NN	_
+3	to	_	P	Pcnj	_
+4	shiNguru	_	N	NN	_
+5	dochira	_	N	Nwh	_
+6	de	_	P	P	_
+7	itashimashou	_	V	Vfin	u
+8	ka	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	mijikai	_	ADJ	ADJifin	_
+2	ryokou	_	N	VN	_
+3	de	_	P	P	_
+4	kaisha	_	N	NN	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	ni	_	P	P	_
+8	sorehodo	_	ADV	ADV	_
+9	gomeiwaku	_	N	VN	_
+10	okake	_	N	VN	_
+11	suru	_	VS	VSfin	u
+12	wake	_	N	NF	_
+13	de	_	P	P	_
+14	wa	_	P	Pfoc	_
+15	nai	_	ADJ	ADJifin	_
+16	node	_	PS	PSSa	_
+17	.	_	.	.	_
+
+1	daburu	_	N	NN	_
+2	no	_	P	Pgen	_
+3	yuttari	_	ADV	ADV	_
+4	shita	_	VS	VSfin	ta
+5	mono	_	N	NF	_
+6	ni	_	P	P	_
+7	shimaseN	_	V	Vfin	eN
+8	ka	_	PS	PSE	_
+9	sekkaku	_	ADV	ADV	_
+10	nanode	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	boku	_	N	PRON	_
+2	mo	_	P	Pfoc	_
+3	sochira	_	N	Ndem	_
+4	ga	_	P	Pnom	_
+5	ii	_	ADJ	ADJifin	_
+6	to	_	P	PQ	_
+7	omoimasu	_	V	Vfin	u
+8	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	da	_	PV	PVfin	ta
+3	to	_	PS	PSSa	_
+4	ii	_	ADJ	ADJifin	_
+5	no	_	N	NF	_
+6	desu	_	PV	PVfin	u
+7	keredomo	_	PS	PSSb	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	rokkumaahoofu	_	NAME	NAMEloc	_
+3	to	_	P	PQ	_
+4	iu	_	V	Vfin	u
+5	hoteru	_	N	NN	_
+6	ni	_	P	P	_
+7	wa	_	P	Pfoc	_
+8	puuru	_	N	NN	_
+9	ga	_	P	Pnom	_
+10	arimashite	_	V	Vte	_
+11	musumaN	_	NAME	NAMEloc	_
+12	to	_	P	PQ	_
+13	iu	_	V	Vfin	u
+14	hoteru	_	N	NN	_
+15	ni	_	P	P	_
+16	wa	_	P	Pfoc	_
+17	sauna	_	N	NN	_
+18	ga	_	P	Pnom	_
+19	aru	_	V	Vfin	u
+20	mitai	_	P	PADJ	_
+21	nano	_	N	NF	_
+22	desu	_	PV	PVfin	u
+23	kedo	_	PS	PSSb	_
+24	boku	_	N	PRON	_
+25	kojiNteki	_	ADJ	ADJteki	_
+26	ni	_	P	P	_
+27	wa	_	P	Pfoc	_
+28	juunigatsu	_	CD	CDdate	_
+29	ni	_	P	P	_
+30	chotto	_	ADV	ADV	_
+31	zeitaku	_	N	NN	_
+32	ni	_	P	P	_
+33	mo	_	P	Pfoc	_
+34	oyogitai	_	VADJ	VADJi	_
+35	na	_	PS	PSE	_
+36	to	_	P	PQ	_
+37	iu	_	V	Vfin	u
+38	kaNji	_	N	NN	_
+39	mo	_	P	Pfoc	_
+40	suru	_	VS	VSfin	u
+41	node	_	PS	PSSa	_
+42	rokkumaahoofu	_	NAME	NAMEloc	_
+43	to	_	P	PQ	_
+44	iu	_	V	Vfin	u
+45	hoteru	_	N	NN	_
+46	ni	_	P	P	_
+47	zehi	_	ADV	ADV	_
+48	tomaritai	_	VADJ	VADJi	_
+49	na	_	PS	PSE	_
+50	to	_	P	PQ	_
+51	omou	_	V	Vfin	u
+52	no	_	N	NF	_
+53	desu	_	PV	PVfin	u
+54	kedo	_	PS	PSSb	_
+55	ikaga	_	ADV	ADVwh	_
+56	deshou	_	PV	PVfin	u
+57	ka	_	PS	PSE	_
+58	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hoteru	_	N	NN	_
+2	no	_	P	Pgen	_
+3	puuru	_	N	NN	_
+4	to	_	P	PQ	_
+5	iu	_	V	Vfin	u
+6	no	_	N	NF	_
+7	wa	_	P	Pfoc	_
+8	chotto	_	ADV	ADV	_
+9	futsuu	_	N	NN	_
+10	no	_	P	Pgen	_
+11	no	_	P	Pgen	_
+12	puuru	_	N	NN	_
+13	to	_	P	P	_
+14	chigatte	_	V	Vte	_
+15	kanari	_	ADV	ADVdgr	_
+16	ii	_	ADJ	ADJifin	_
+17	mono	_	N	NF	_
+18	nanode	_	PS	PSSa	_
+19	.	_	.	.	_
+
+1	zehitomo	_	ADV	ADV	_
+2	sore	_	N	Ndem	_
+3	ni	_	P	P	_
+4	shimashou	_	V	Vfin	u
+5	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	dewa	_	CNJ	CNJ	_
+3	rokkumaahoofu	_	NAME	NAMEloc	_
+4	to	_	P	PQ	_
+5	iu	_	V	Vfin	u
+6	hoteru	_	N	NN	_
+7	de	_	P	P	_
+8	kettei	_	N	VN	_
+9	to	_	P	PQ	_
+10	iu	_	V	Vfin	u
+11	koto	_	N	NF	_
+12	de	_	P	P	_
+13	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	kochira	_	N	Ndem	_
+2	nanika	_	N	NN	_
+3	yoyaku	_	N	VN	_
+4	toka	_	P	Pcnj	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	wa	_	P	Pfoc	_
+8	onegai	_	N	VN	_
+9	shite	_	VS	VSte	_
+10	yoroshii	_	ADJ	ADJifin	_
+11	desu	_	PV	PVfin	u
+12	ka	_	PS	PSE	_
+13	ne	_	PS	PSE	_
+14	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	daburu	_	N	NN	_
+5	no	_	P	Pgen	_
+6	daburu	_	N	NN	_
+7	desu	_	PV	PVfin	u
+8	to	_	PS	PSSa	_
+9	hyaku	_	CD	CD	_
+10	rokujuu	_	CD	CD	_
+11	maruku	_	UNIT	UNIT	_
+12	nanode	_	PS	PSSa	_
+13	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	boku	_	N	PRON	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	de	_	P	P	_
+5	yoyaku	_	N	VN	_
+6	wa	_	P	Pfoc	_
+7	shite	_	VS	VSte	_
+8	okimasu	_	VAUX	VAUXfin	u
+9	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	onegai	_	N	VN	_
+3	shimasu	_	VS	VSfin	u
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	ato	_	CNJ	CNJ	_
+3	kaNkou	_	N	VN	_
+4	o	_	P	Pacc	_
+5	sukoshi	_	ADV	ADVdgr	_
+6	sukoshi	_	ADV	ADVdgr	_
+7	desu	_	PV	PVfin	u
+8	keredomo	_	PS	PSSb	_
+9	dekiru	_	V	Vfin	u
+10	to	_	P	PQ	_
+11	omou	_	V	Vfin	u
+12	no	_	N	NF	_
+13	desu	_	PV	PVfin	u
+14	ga	_	PS	PSSb	_
+15	.	_	.	.	_
+
+1	doitsu	_	NAME	NAMEloc	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	hajimete	_	ADV	ADV	_
+6	da	_	PV	PVfin	ta
+7	to	_	P	PQ	_
+8	iu	_	V	Vfin	u
+9	fuuni	_	P	PADV	_
+10	okiki	_	N	VN	_
+11	shimashita	_	VS	VSfin	ta
+12	node	_	PS	PSSa	_
+13	watashi	_	N	PRON	_
+14	no	_	P	Pgen	_
+15	hou	_	N	NF	_
+16	de	_	P	P	_
+17	sugoku	_	ADV	ADVdgr	_
+18	ii	_	ADJ	ADJifin	_
+19	bijutsukaN	_	N	NN	_
+20	o	_	P	Pacc	_
+21	shitte	_	V	Vte	_
+22	imasu	_	VAUX	VAUXfin	u
+23	node	_	PS	PSSa	_
+24	.	_	.	.	_
+
+1	zehitomo	_	ADV	ADV	_
+2	sochira	_	N	Ndem	_
+3	e	_	P	P	_
+4	itte	_	V	Vte	_
+5	mimaseN	_	VAUX	VAUXfin	eN
+6	ka	_	PS	PSE	_
+7	.	_	.	.	_
+
+1	zehi	_	ADV	ADV	_
+2	jaa	_	ITJ	ITJ	_
+3	onegai	_	N	VN	_
+4	shimasu	_	VS	VSfin	u
+5	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kore	_	N	Ndem	_
+3	kono	_	ADJ	ADJdem	_
+4	kaNkou	_	N	VN	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	wa	_	P	Pfoc	_
+8	boku	_	N	PRON	_
+9	no	_	P	Pgen	_
+10	hou	_	N	NF	_
+11	de	_	P	P	_
+12	watashi	_	N	PRON	_
+13	no	_	P	Pgen	_
+14	hou	_	N	NF	_
+15	de	_	P	P	_
+16	kuwashiku	_	ADJ	ADJiku	_
+17	shirabete	_	V	Vte	_
+18	okimasu	_	VAUX	VAUXfin	u
+19	node	_	PS	PSSa	_
+20	mata	_	ADV	ADV	_
+21	eeto	_	ITJ	ITJ	_
+22	gojitsu	_	N	Ntmp	_
+23	juunigatsu	_	CD	CDdate	_
+24	made	_	P	P	_
+25	jikaN	_	N	NN	_
+26	arimasu	_	V	Vfin	u
+27	node	_	PS	PSSa	_
+28	mata	_	ADV	ADV	_
+29	gojitsu	_	N	Ntmp	_
+30	jikaN	_	N	NN	_
+31	ga	_	P	Pnom	_
+32	aru	_	V	Vfin	u
+33	toki	_	N	NN	_
+34	ni	_	P	P	_
+35	ohanashi	_	N	VN	_
+36	shimaseN	_	VS	VSfin	eN
+37	ka	_	PS	PSE	_
+38	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	onegai	_	N	VN	_
+3	shite	_	VS	VSte	_
+4	shitai	_	VADJ	VADJi	_
+5	to	_	P	PQ	_
+6	omoimasu	_	V	Vfin	u
+7	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kyou	_	N	Ntmp	_
+3	wa	_	P	Pfoc	_
+4	kokora	_	N	Ndem	_
+5	heN	_	N	NF	_
+6	de	_	P	P	_
+7	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	sayounara	_	GR	GR	_
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	arigatou	_	ADJ	ADJiku	_
+2	gozaimashita	_	V	Vfin	ta
+3	.	_	.	.	_
+
+1	koide	_	NAME	NAMEper	_
+2	takafumi	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	komatsu	_	NAME	NAMEper	_
+2	youjiN	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	komatsu	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	koNdo	_	N	Ntmp	_
+4	no	_	P	Pgen	_
+5	keNshuu	_	N	VN	_
+6	no	_	P	Pgen	_
+7	keN	_	N	NF	_
+8	nano	_	N	NF	_
+9	desu	_	PV	PVfin	u
+10	ga	_	PS	PSSb	_
+11	nittei	_	N	NN	_
+12	boku	_	N	PRON	_
+13	no	_	P	Pgen	_
+14	hou	_	N	NF	_
+15	kara	_	P	P	_
+16	juugatsu	_	CD	CDdate	_
+17	juuichigatsu	_	CD	CDdate	_
+18	juunigatsu	_	CD	CDdate	_
+19	to	_	P	P	_
+20	sorezore	_	ADV	ADV	_
+21	kekkou	_	ADV	ADV	_
+22	aite	_	V	Vte	_
+23	wa	_	P	Pfoc	_
+24	iru	_	V	Vfin	u
+25	no	_	N	NF	_
+26	desu	_	PV	PVfin	u
+27	kedo	_	PS	PSSb	_
+28	juugatsu	_	CD	CDdate	_
+29	no	_	P	Pgen	_
+30	juurokunichi	_	CD	CDdate	_
+31	kara	_	P	P	_
+32	shuppatsu	_	N	VN	_
+33	shimashite	_	V	Vte	_
+34	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	juugatsu	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	nijuuninichi	_	CD	CDdate	_
+5	ni	_	P	P	_
+6	kikoku	_	N	VN	_
+7	suru	_	VS	VSfin	u
+8	to	_	P	PQ	_
+9	iu	_	V	Vfin	u
+10	katachi	_	N	NN	_
+11	de	_	P	P	_
+12	dou	_	ADV	ADVwh	_
+13	deshou	_	PV	PVfin	u
+14	ka	_	PS	PSE	_
+15	.	_	.	.	_
+
+1	aite	_	V	Vte	_
+2	imasu	_	VAUX	VAUXfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	juugatsu	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	juurokunichi	_	CD	CDdate	_
+4	yori	_	P	P	_
+5	mo	_	P	Pfoc	_
+6	juushichinichi	_	CD	CDdate	_
+7	kara	_	P	P	_
+8	shitsurei	_	N	VN	_
+9	shimashita	_	VS	VSfin	ta
+10	juukunichi	_	CD	CDdate	_
+11	kara	_	P	P	_
+12	no	_	P	Pgen	_
+13	getsuyoubi	_	NT	NT	_
+14	kara	_	P	P	_
+15	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	P	PQ	_
+2	iu	_	V	Vfin	u
+3	no	_	N	NF	_
+4	wa	_	P	Pfoc	_
+5	dou	_	ADV	ADVwh	_
+6	deshou	_	PV	PVfin	u
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	de	_	P	P	_
+3	mo	_	P	Pfoc	_
+4	kamawanai	_	VADJ	VADJi	_
+5	node	_	PS	PSSa	_
+6	onegai	_	N	VN	_
+7	shimasu	_	VS	VSfin	u
+8	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	deshitara	_	PV	PVcnd	_
+3	itsu	_	N	Nwh	_
+4	goro	_	N	Nsf	_
+5	kaette	_	V	Vte	_
+6	kuru	_	VAUX	VAUXfin	u
+7	koto	_	N	NF	_
+8	ni	_	P	P	_
+9	naru	_	V	Vfin	u
+10	no	_	N	NF	_
+11	deshou	_	PV	PVfin	u
+12	ka	_	PS	PSE	_
+13	.	_	.	.	_
+
+1	kiNyoubi	_	NT	NT	_
+2	ni	_	P	P	_
+3	kaette	_	V	Vte	_
+4	kimasu	_	VAUX	VAUXfin	u
+5	kara	_	PS	PSSa	_
+6	juugatsu	_	CD	CDdate	_
+7	no	_	P	Pgen	_
+8	nijuusaNnichi	_	CD	CDdate	_
+9	ni	_	P	P	_
+10	kikoku	_	N	VN	_
+11	shimasu	_	VS	VSfin	u
+12	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	hikouki	_	N	NN	_
+3	iki	_	N	NN	_
+4	no	_	P	Pgen	_
+5	hikouki	_	N	NN	_
+6	nano	_	N	NF	_
+7	desu	_	PV	PVfin	u
+8	keredomo	_	PS	PSSb	_
+9	getsuyoubi	_	NT	NT	_
+10	desu	_	PV	PVfin	u
+11	node	_	PS	PSSa	_
+12	futatsu	_	CD	CDU	_
+13	hikouki	_	N	NN	_
+14	ga	_	P	Pnom	_
+15	arimashite	_	V	Vte	_
+16	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+17	nanahyaku	_	CD	CD	_
+18	yoNjuusaN	_	CD	CD	_
+19	biN	_	UNIT	UNIT	_
+20	to	_	P	PQ	_
+21	iu	_	V	Vfin	u
+22	no	_	N	NF	_
+23	ga	_	P	Pnom	_
+24	naritakuukou	_	NAME	NAMEloc	_
+25	juuniji	_	CD	CDtime	_
+26	juugofuN	_	CD	CDtime	_
+27	ni	_	P	P	_
+28	demashite	_	V	Vte	_
+29	hanoofaa	_	NAME	NAMEloc	_
+30	no	_	P	Pgen	_
+31	hou	_	N	NF	_
+32	ni	_	P	P	_
+33	nijuuji	_	CD	CDtime	_
+34	juppuN	_	CD	CDtime	_
+35	ni	_	P	P	_
+36	tsukimashite	_	V	Vte	_
+37	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	nihoNkoukuu	_	NAME	NAMEorg	_
+2	yoNhyaku	_	CD	CD	_
+3	nijuugo	_	CD	CD	_
+4	biN	_	UNIT	UNIT	_
+5	to	_	P	PQ	_
+6	iu	_	V	Vfin	u
+7	no	_	N	NF	_
+8	wa	_	P	Pfoc	_
+9	naritakuukou	_	NAME	NAMEloc	_
+10	o	_	P	Pacc	_
+11	juuichiji	_	CD	CDtime	_
+12	yoNjuppuN	_	CD	CDtime	_
+13	ni	_	P	P	_
+14	demashite	_	V	Vte	_
+15	hanoofaa	_	NAME	NAMEloc	_
+16	no	_	P	Pgen	_
+17	hou	_	N	NF	_
+18	ni	_	P	P	_
+19	onajiku	_	ADV	ADV	_
+20	nijuuji	_	CD	CDtime	_
+21	juppuN	_	CD	CDtime	_
+22	ni	_	P	P	_
+23	tsuku	_	V	Vfin	u
+24	no	_	N	NF	_
+25	desu	_	PV	PVfin	u
+26	keredomo	_	PS	PSSb	_
+27	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	shuppatsu	_	N	VN	_
+2	suru	_	VS	VSfin	u
+3	jikaN	_	N	NN	_
+4	wa	_	P	Pfoc	_
+5	saNjuppuN	_	CD	CDtime	_
+6	kurai	_	N	Nsf	_
+7	shika	_	P	P	_
+8	kawaranai	_	VADJ	VADJi	_
+9	node	_	PS	PSSa	_
+10	.	_	.	.	_
+
+1	boku	_	N	PRON	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	wa	_	P	Pfoc	_
+5	kojiNteki	_	ADJ	ADJteki	_
+6	nano	_	N	NF	_
+7	desu	_	PV	PVfin	u
+8	kedo	_	PS	PSSb	_
+9	nihoNkoukuu	_	NAME	NAMEorg	_
+10	no	_	P	Pgen	_
+11	hou	_	N	NF	_
+12	ga	_	P	Pnom	_
+13	suki	_	ADJ	ADJ_n	_
+14	nanode	_	PS	PSSa	_
+15	.	_	.	.	_
+
+1	dekireba	_	ADV	ADV	_
+2	nihoNkoukuu	_	NAME	NAMEorg	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	ikitai	_	VADJ	VADJi	_
+7	to	_	P	PQ	_
+8	omou	_	V	Vfin	u
+9	no	_	N	NF	_
+10	desu	_	PV	PVfin	u
+11	kedo	_	PS	PSSb	_
+12	.	_	.	.	_
+
+1	komatsu	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	dou	_	ADV	ADVwh	_
+4	deshou	_	PV	PVfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	mo	_	P	Pfoc	_
+3	kinaishoku	_	N	NN	_
+4	ga	_	P	Pnom	_
+5	desu	_	PV	PVfin	u
+6	ne	_	PS	PSE	_
+7	nihoN	_	NAME	NAMEloc	_
+8	shoku	_	N	NN	_
+9	ga	_	P	Pnom	_
+10	deru	_	V	Vfin	u
+11	hou	_	N	NF	_
+12	ga	_	P	Pnom	_
+13	arigatai	_	ADJ	ADJifin	_
+14	node	_	PS	PSSa	_
+15	nihoNkoukuu	_	NAME	NAMEorg	_
+16	no	_	N	NF	_
+17	ga	_	P	Pnom	_
+18	ii	_	ADJ	ADJifin	_
+19	to	_	P	PQ	_
+20	omoimasu	_	V	Vfin	u
+21	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	naritakuukou	_	NAME	NAMEloc	_
+3	o	_	P	Pacc	_
+4	juuichiji	_	CD	CDtime	_
+5	yoNjuppuN	_	CD	CDtime	_
+6	ni	_	P	P	_
+7	shuppatsu	_	N	VN	_
+8	suru	_	VS	VSfin	u
+9	nihoNkoukuu	_	NAME	NAMEorg	_
+10	no	_	P	Pgen	_
+11	biN	_	N	NN	_
+12	de	_	P	P	_
+13	ikimashou	_	V	Vfin	u
+14	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hanoofaa	_	NAME	NAMEloc	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ni	_	P	P	_
+5	wa	_	P	Pfoc	_
+6	nijuuji	_	CD	CDtime	_
+7	juppuN	_	CD	CDtime	_
+8	ni	_	P	P	_
+9	tsukimasu	_	V	Vfin	u
+10	.	_	.	.	_
+
+1	nijuu	_	CD	CD	_
+2	juppuN	_	CD	CDtime	_
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	kaeri	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	no	_	P	Pgen	_
+6	biN	_	N	NN	_
+7	no	_	P	Pgen	_
+8	hou	_	N	NF	_
+9	mo	_	P	Pfoc	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	kimete	_	V	Vte	_
+2	okitai	_	VADJ	VADJi	_
+3	to	_	P	PQ	_
+4	omou	_	V	Vfin	u
+5	no	_	N	NF	_
+6	desu	_	PV	PVfin	u
+7	keredomo	_	PS	PSSb	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	mokuyoubi	_	NT	NT	_
+2	ni	_	P	P	_
+3	hanoofaa	_	NAME	NAMEloc	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	o	_	P	Pacc	_
+7	shuppatsu	_	N	VN	_
+8	itashimasu	_	VS	VSfin	u
+9	node	_	PS	PSSa	_
+10	kochira	_	N	Ndem	_
+11	no	_	P	Pgen	_
+12	hou	_	N	NF	_
+13	wa	_	P	Pfoc	_
+14	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+15	nanajuunana	_	CD	CD	_
+16	biN	_	UNIT	UNIT	_
+17	to	_	P	PQ	_
+18	iu	_	V	Vfin	u
+19	no	_	N	NF	_
+20	ga	_	P	Pnom	_
+21	hanoofaa	_	NAME	NAMEloc	_
+22	o	_	P	Pacc	_
+23	juuichiji	_	CD	CDtime	_
+24	ni	_	P	P	_
+25	demashite	_	V	Vte	_
+26	sorekara	_	CNJ	CNJ	_
+27	mou	_	ADV	ADV	_
+28	hitotsu	_	CD	CDU	_
+29	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+30	hachijuusaN	_	CD	CD	_
+31	biN	_	UNIT	UNIT	_
+32	to	_	P	PQ	_
+33	iu	_	V	Vfin	u
+34	hou	_	N	NF	_
+35	wa	_	P	Pfoc	_
+36	hanoofaa	_	NAME	NAMEloc	_
+37	no	_	P	Pgen	_
+38	hou	_	N	NF	_
+39	juuyoji	_	CD	CDtime	_
+40	saNjuugofuN	_	CD	CDtime	_
+41	ni	_	P	P	_
+42	shuppatsu	_	N	VN	_
+43	suru	_	VS	VSfin	u
+44	no	_	N	NF	_
+45	desu	_	PV	PVfin	u
+46	keredomo	_	PS	PSSb	_
+47	boku	_	N	PRON	_
+48	no	_	P	Pgen	_
+49	kaNgae	_	N	NN	_
+50	to	_	P	P	_
+51	shite	_	V	Vte	_
+52	wa	_	P	Pfoc	_
+53	doitsu	_	NAME	NAMEloc	_
+54	no	_	P	Pgen	_
+55	hou	_	N	NF	_
+56	ni	_	P	P	_
+57	dekirudake	_	ADV	ADV	_
+58	nagaku	_	ADJ	ADJiku	_
+59	taizai	_	N	VN	_
+60	shitai	_	VADJ	VADJi	_
+61	na	_	PS	PSE	_
+62	to	_	P	PQ	_
+63	omou	_	V	Vfin	u
+64	node	_	PS	PSSa	_
+65	.	_	.	.	_
+
+1	hachijuusaN	_	CD	CD	_
+2	biN	_	UNIT	UNIT	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	hanoofaa	_	NAME	NAMEloc	_
+7	o	_	P	Pacc	_
+8	juuyoji	_	CD	CDtime	_
+9	saNjuugofuN	_	CD	CDtime	_
+10	ni	_	P	P	_
+11	deru	_	V	Vfin	u
+12	to	_	P	PQ	_
+13	iu	_	V	Vfin	u
+14	hou	_	N	NF	_
+15	de	_	P	P	_
+16	kaeritai	_	VADJ	VADJi	_
+17	to	_	P	PQ	_
+18	wa	_	P	Pfoc	_
+19	omou	_	V	Vfin	u
+20	no	_	N	NF	_
+21	desu	_	PV	PVfin	u
+22	keredomo	_	PS	PSSb	_
+23	ikaga	_	ADV	ADVwh	_
+24	deshou	_	PV	PVfin	u
+25	ka	_	PS	PSE	_
+26	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	nagai	_	ADJ	ADJifin	_
+5	aida	_	N	NN	_
+6	doitsu	_	NAME	NAMEloc	_
+7	ni	_	P	P	_
+8	taizai	_	N	VN	_
+9	watashi	_	N	PRON	_
+10	mo	_	P	Pfoc	_
+11	shitai	_	VADJ	VADJi	_
+12	node	_	PS	PSSa	_
+13	.	_	.	.	_
+
+1	sochira	_	N	Ndem	_
+2	ni	_	P	P	_
+3	shimashou	_	V	Vfin	u
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	hanoofaa	_	NAME	NAMEloc	_
+3	o	_	P	Pacc	_
+4	juuyoji	_	CD	CDtime	_
+5	saNjuugofuN	_	CD	CDtime	_
+6	ni	_	P	P	_
+7	shuppatsu	_	N	VN	_
+8	mokuyoubi	_	NT	NT	_
+9	no	_	P	Pgen	_
+10	juuyoji	_	CD	CDtime	_
+11	saNjuugofuN	_	CD	CDtime	_
+12	ni	_	P	P	_
+13	shuppatsu	_	N	VN	_
+14	shimashite	_	V	Vte	_
+15	kaette	_	V	Vte	_
+16	kuru	_	VAUX	VAUXfin	u
+17	no	_	N	NF	_
+18	wa	_	P	Pfoc	_
+19	yokujitsu	_	N	Ntmp	_
+20	jisa	_	N	NN	_
+21	ga	_	P	Pnom	_
+22	arimasu	_	V	Vfin	u
+23	node	_	PS	PSSa	_
+24	yokujitsu	_	N	Ntmp	_
+25	no	_	P	Pgen	_
+26	juushichiji	_	CD	CDtime	_
+27	desu	_	PV	PVfin	u
+28	ka	_	PS	PSE	_
+29	nihoN	_	NAME	NAMEloc	_
+30	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	juushichiji	_	CD	CDtime	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ni	_	P	P	_
+2	naritakuukou	_	NAME	NAMEloc	_
+3	ni	_	P	P	_
+4	kaette	_	V	Vte	_
+5	kimasu	_	VAUX	VAUXfin	u
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	touchaku	_	N	VN	_
+2	nano	_	N	NF	_
+3	desu	_	PV	PVfin	u
+4	ga	_	PS	PSSb	_
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hachiji	_	CD	CDtime	_
+2	juppuN	_	CD	CDtime	_
+3	ni	_	P	P	_
+4	tsuku	_	V	Vfin	u
+5	to	_	P	PQ	_
+6	iu	_	V	Vfin	u
+7	koto	_	N	NF	_
+8	nano	_	N	NF	_
+9	desu	_	PV	PVfin	u
+10	ga	_	PS	PSSb	_
+11	hachiji	_	CD	CDtime	_
+12	juppuN	_	CD	CDtime	_
+13	desu	_	PV	PVfin	u
+14	to	_	PS	PSSa	_
+15	yoru	_	N	Ntmp	_
+16	osoi	_	ADJ	ADJifin	_
+17	desu	_	PV	PVfin	u
+18	yo	_	PS	PSE	_
+19	ne	_	PS	PSE	_
+20	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	shimasu	_	V	Vfin	u
+3	to	_	PS	PSSa	_
+4	hoteru	_	N	NN	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	nano	_	N	NF	_
+8	desu	_	PV	PVfin	u
+9	ga	_	PS	PSSb	_
+10	.	_	.	.	_
+
+1	eki	_	N	NN	_
+2	kara	_	P	P	_
+3	chikai	_	ADJ	ADJifin	_
+4	hou	_	N	NF	_
+5	ga	_	P	Pnom	_
+6	idou	_	N	VN	_
+7	shiyasui	_	VADJ	VADJi	_
+8	to	_	P	PQ	_
+9	omou	_	V	Vfin	u
+10	node	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	eki	_	N	NN	_
+2	kara	_	P	P	_
+3	chikai	_	ADJ	ADJifin	_
+4	hoteru	_	N	NN	_
+5	wa	_	P	Pfoc	_
+6	futatsu	_	CD	CDU	_
+7	arimasu	_	V	Vfin	u
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	futatsu	_	CD	CDU	_
+3	tomo	_	N	Nsf	_
+4	amari	_	ADV	ADVdgr	_
+5	kawari	_	N	NN	_
+6	ga	_	P	Pnom	_
+7	nai	_	ADJ	ADJifin	_
+8	no	_	N	NF	_
+9	desu	_	PV	PVfin	u
+10	ga	_	PS	PSSb	_
+11	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hitotsu	_	CD	CDU	_
+2	wa	_	P	Pfoc	_
+3	resutoraN	_	N	NN	_
+4	ga	_	P	Pnom	_
+5	tsuite	_	V	Vte	_
+6	ite	_	VAUX	VAUXte	_
+7	mou	_	ADV	ADV	_
+8	hitotsu	_	CD	CDU	_
+9	wa	_	P	Pfoc	_
+10	baa	_	N	NN	_
+11	ga	_	P	Pnom	_
+12	tsuite	_	V	Vte	_
+13	iru	_	VAUX	VAUXfin	u
+14	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	kore	_	N	Ndem	_
+2	gurai	_	N	Nsf	_
+3	shika	_	P	P	_
+4	chigai	_	N	NN	_
+5	ga	_	P	Pnom	_
+6	nai	_	ADJ	ADJifin	_
+7	no	_	N	NF	_
+8	desu	_	PV	PVfin	u
+9	ga	_	PS	PSSb	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dochira	_	N	Nwh	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	okonomi	_	N	NN	_
+6	desu	_	PV	PVfin	u
+7	ka	_	PS	PSE	_
+8	ne	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	boku	_	N	PRON	_
+5	wa	_	P	Pfoc	_
+6	warito	_	ADV	ADV	_
+7	osake	_	N	NN	_
+8	suki	_	ADJ	ADJ_n	_
+9	nanode	_	PS	PSSa	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	baa	_	N	NN	_
+2	ga	_	P	Pnom	_
+3	tsuite	_	V	Vte	_
+4	iru	_	VAUX	VAUXfin	u
+5	hou	_	N	NF	_
+6	ga	_	P	Pnom	_
+7	ii	_	ADJ	ADJifin	_
+8	kana	_	PS	PSE	_
+9	to	_	P	PQ	_
+10	omoimasu	_	V	Vfin	u
+11	node	_	PS	PSSa	_
+12	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	mo	_	P	Pfoc	_
+3	baa	_	N	NN	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	ga	_	P	Pnom	_
+7	ii	_	ADJ	ADJifin	_
+8	to	_	P	PQ	_
+9	omotte	_	V	Vte	_
+10	iru	_	VAUX	VAUXfin	u
+11	node	_	PS	PSSa	_
+12	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	baa	_	N	NN	_
+3	no	_	P	Pgen	_
+4	aru	_	V	Vfin	u
+5	rejideNtsu	_	NAME	NAMEloc	_
+6	to	_	P	PQ	_
+7	iu	_	V	Vfin	u
+8	hoteru	_	N	NN	_
+9	de	_	P	P	_
+10	yoyaku	_	N	VN	_
+11	shite	_	VS	VSte	_
+12	okimasu	_	VAUX	VAUXfin	u
+13	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	onedaN	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	wa	_	P	Pfoc	_
+5	.	_	.	.	_
+
+1	nedaN	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	nano	_	N	NF	_
+5	desu	_	PV	PVfin	u
+6	ga	_	PS	PSSb	_
+7	.	_	.	.	_
+
+1	daburu	_	N	NN	_
+2	ga	_	P	Pnom	_
+3	nihyaku	_	CD	CD	_
+4	juu	_	CD	CD	_
+5	maruku	_	UNIT	UNIT	_
+6	shiNguru	_	N	NN	_
+7	ga	_	P	Pnom	_
+8	hyaku	_	CD	CD	_
+9	rokujuugo	_	CD	CD	_
+10	maruku	_	UNIT	UNIT	_
+11	.	_	.	.	_
+
+1	daburu	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	yoroshii	_	ADJ	ADJifin	_
+6	desu	_	PV	PVfin	u
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	yappari	_	ADV	ADV	_
+5	yuttari	_	ADV	ADV	_
+6	to	_	P	P	_
+7	shita	_	VS	VSfin	ta
+8	tokoro	_	N	NN	_
+9	ni	_	P	P	_
+10	tomaritai	_	VADJ	VADJi	_
+11	to	_	P	PQ	_
+12	omou	_	V	Vfin	u
+13	node	_	PS	PSSa	_
+14	.	_	.	.	_
+
+1	daburu	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	de	_	P	P	_
+5	ikimashou	_	V	Vfin	u
+6	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	daburu	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	yoyaku	_	N	VN	_
+7	o	_	P	Pacc	_
+8	totte	_	V	Vte	_
+9	okimasu	_	VAUX	VAUXfin	u
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	ichinichi	_	CD	CDU	_
+3	kurai	_	N	Nsf	_
+4	wa	_	P	Pfoc	_
+5	kaNkou	_	N	VN	_
+6	dekiru	_	VS	VSfin	u
+7	to	_	P	PQ	_
+8	omou	_	V	Vfin	u
+9	node	_	PS	PSSa	_
+10	yahari	_	ADV	ADV	_
+11	doitsu	_	NAME	NAMEloc	_
+12	to	_	P	PQ	_
+13	ittara	_	V	Vcnd	_
+14	biiru	_	N	NN	_
+15	ga	_	P	Pnom	_
+16	oishii	_	ADJ	ADJifin	_
+17	to	_	P	PQ	_
+18	omou	_	V	Vfin	u
+19	node	_	PS	PSSa	_
+20	zehi	_	ADV	ADV	_
+21	komatsu	_	NAME	NAMEper	_
+22	saN	_	P	PNsf	_
+23	to	_	P	P	_
+24	issho	_	ADV	ADV	_
+25	ni	_	P	P	_
+26	chotto	_	ADV	ADV	_
+27	katari	_	V	Vbas	_
+28	nagara	_	P	PADV	_
+29	biiru	_	N	NN	_
+30	demo	_	P	Pfoc	_
+31	nomitai	_	VADJ	VADJi	_
+32	na	_	PS	PSE	_
+33	to	_	P	PQ	_
+34	omou	_	V	Vfin	u
+35	node	_	PS	PSSa	_
+36	biiru	_	N	NN	_
+37	no	_	P	Pgen	_
+38	oishii	_	ADJ	ADJifin	_
+39	tokoro	_	N	NN	_
+40	o	_	P	Pacc	_
+41	chotto	_	ADV	ADV	_
+42	hoka	_	N	NN	_
+43	no	_	P	Pgen	_
+44	hito	_	N	NN	_
+45	kara	_	P	P	_
+46	kiite	_	V	Vte	_
+47	iru	_	VAUX	VAUXfin	u
+48	node	_	PS	PSSa	_
+49	.	_	.	.	_
+
+1	sochira	_	N	Ndem	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ni	_	P	P	_
+5	ikimashou	_	V	Vfin	u
+6	.	_	.	.	_
+
+1	zehi	_	ADV	ADV	_
+2	onegai	_	N	VN	_
+3	shimasu	_	VS	VSfin	u
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	tanoshimi	_	N	NN	_
+3	ni	_	P	P	_
+4	shite	_	V	Vte	_
+5	imasu	_	VAUX	VAUXfin	u
+6	node	_	PS	PSSa	_
+7	.	_	.	.	_
+
+1	mata	_	ADV	ADV	_
+2	sono	_	ADJ	ADJdem	_
+3	toki	_	N	Ntmp	_
+4	wa	_	P	Pfoc	_
+5	yoroshiku	_	ADJ	ADJiku	_
+6	onegai	_	N	VN	_
+7	shimasu	_	VS	VSfin	u
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	kochira	_	N	Ndem	_
+2	.	_	.	.	_
+
+1	yoroshiku	_	ADJ	ADJiku	_
+2	onegai	_	N	VN	_
+3	shimasu	_	VS	VSfin	u
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sayounara	_	GR	GR	_
+2	.	_	.	.	_
+
+1	sayounara	_	GR	GR	_
+2	.	_	.	.	_
+
+1	komatsu	_	NAME	NAMEper	_
+2	youjiN	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	hayashi	_	NAME	NAMEper	_
+2	naomi	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	hayashi	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	koNnichiwa	_	GR	GR	_
+4	.	_	.	.	_
+
+1	koNnichiwa	_	GR	GR	_
+2	.	_	.	.	_
+
+1	kyou	_	N	Ntmp	_
+2	wa	_	P	Pfoc	_
+3	desu	_	PV	PVfin	u
+4	ne	_	PS	PSE	_
+5	shucchou	_	N	VN	_
+6	no	_	P	Pgen	_
+7	keN	_	N	NF	_
+8	de	_	P	P	_
+9	ohanashi	_	N	VN	_
+10	ga	_	P	Pnom	_
+11	arimashite	_	V	Vte	_
+12	oyobi	_	N	VN	_
+13	shita	_	VS	VSfin	ta
+14	no	_	N	NF	_
+15	desu	_	PV	PVfin	u
+16	ga	_	PS	PSSb	_
+17	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	shucchou	_	N	VN	_
+2	wa	_	P	Pfoc	_
+3	doitsu	_	NAME	NAMEloc	_
+4	no	_	P	Pgen	_
+5	hanoofaa	_	NAME	NAMEloc	_
+6	to	_	P	PQ	_
+7	iu	_	V	Vfin	u
+8	koto	_	N	NF	_
+9	de	_	P	P	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hinichi	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	kara	_	P	P	_
+5	kimetai	_	VADJ	VADJi	_
+6	to	_	P	PQ	_
+7	omoimasu	_	V	Vfin	u
+8	ga	_	PS	PSSb	_
+9	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	juunigatsu	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	desu	_	PV	PVfin	u
+5	ne	_	PS	PSE	_
+6	youka	_	CD	CDdate	_
+7	kara	_	P	P	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	youka	_	CD	CDdate	_
+2	kara	_	P	P	_
+3	desu	_	PV	PVfin	u
+4	ne	_	PS	PSE	_
+5	atari	_	N	NN	_
+6	ga	_	P	Pnom	_
+7	ii	_	ADJ	ADJifin	_
+8	to	_	P	PQ	_
+9	omoimasu	_	V	Vfin	u
+10	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	dou	_	ADV	ADVwh	_
+3	deshou	_	PV	PVfin	u
+4	ka	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	.	_	.	.	_
+
+1	atashi	_	N	PRON	_
+2	wa	_	P	Pfoc	_
+3	juunigatsu	_	CD	CDdate	_
+4	no	_	P	Pgen	_
+5	kokonoka	_	CD	CDdate	_
+6	kara	_	P	P	_
+7	aite	_	V	Vte	_
+8	imasu	_	VAUX	VAUXfin	u
+9	keredo	_	PS	PSSb	_
+10	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	juunigatsu	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	kokonoka	_	CD	CDdate	_
+4	desu	_	PV	PVfin	u
+5	to	_	PS	PSSa	_
+6	juunigatsu	_	CD	CDdate	_
+7	no	_	P	Pgen	_
+8	kokonoka	_	CD	CDdate	_
+9	de	_	P	P	_
+10	kaette	_	V	Vte	_
+11	kuru	_	VAUX	VAUXfin	u
+12	no	_	N	NF	_
+13	ga	_	P	Pnom	_
+14	desu	_	PV	PVfin	u
+15	ne	_	PS	PSE	_
+16	kayoubi	_	NT	NT	_
+17	ni	_	P	P	_
+18	narimashite	_	V	Vte	_
+19	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	juugonichi	_	CD	CDdate	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	isshuukaN	_	CD	CDU	_
+2	.	_	.	.	_
+
+1	kekkou	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	isshuukaN	_	CD	CDU	_
+2	hodo	_	N	Nsf	_
+3	to	_	P	PQ	_
+4	iu	_	V	Vfin	u
+5	koto	_	N	NF	_
+6	de	_	P	P	_
+7	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	hikouki	_	N	NN	_
+3	no	_	P	Pgen	_
+4	koto	_	N	NF	_
+5	kimetai	_	VADJ	VADJi	_
+6	to	_	P	PQ	_
+7	omoimasu	_	V	Vfin	u
+8	ga	_	PS	PSSb	_
+9	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	kokonoka	_	CD	CDdate	_
+2	kayoubi	_	NT	NT	_
+3	hatsu	_	N	Nsf	_
+4	saN	_	CD	CD	_
+5	biN	_	UNIT	UNIT	_
+6	arimashite	_	V	Vte	_
+7	zeNnikkuu	_	NAME	NAMEorg	_
+8	to	_	P	Pcnj	_
+9	rufutohaNza	_	NAME	NAMEorg	_
+10	to	_	P	Pcnj	_
+11	nihoNkoukuu	_	NAME	NAMEorg	_
+12	ga	_	P	Pnom	_
+13	arimashite	_	V	Vte	_
+14	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	narita	_	NAME	NAMEloc	_
+3	hatsu	_	N	Nsf	_
+4	zeNnikkuu	_	NAME	NAMEorg	_
+5	to	_	P	Pcnj	_
+6	rufutohaNza	_	NAME	NAMEorg	_
+7	ga	_	P	Pnom	_
+8	juuji	_	CD	CDtime	_
+9	hatsu	_	N	Nsf	_
+10	de	_	P	P	_
+11	de	_	CNJ	CNJ	_
+12	nihoNkoukuu	_	NAME	NAMEorg	_
+13	ga	_	P	Pnom	_
+14	juuichiji	_	CD	CDtime	_
+15	yoNjuppuN	_	CD	CDtime	_
+16	hatsu	_	N	Nsf	_
+17	nano	_	N	NF	_
+18	desu	_	PV	PVfin	u
+19	ne	_	PS	PSE	_
+20	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	wa	_	P	Pfoc	_
+3	chotto	_	ADV	ADV	_
+4	asa	_	N	Ntmp	_
+5	wa	_	P	Pfoc	_
+6	nigate	_	ADJ	ADJ_n	_
+7	nanode	_	PS	PSSa	_
+8	narubeku	_	ADV	ADV	_
+9	osoi	_	ADJ	ADJifin	_
+10	hou	_	N	NF	_
+11	ga	_	P	Pnom	_
+12	ii	_	ADJ	ADJifin	_
+13	no	_	N	NF	_
+14	desu	_	PV	PVfin	u
+15	keredomo	_	PS	PSSb	_
+16	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	nihoNkoukuu	_	NAME	NAMEorg	_
+2	ga	_	P	Pnom	_
+3	dewa	_	CNJ	CNJ	_
+4	juuichiji	_	CD	CDtime	_
+5	yoNjuppuN	_	CD	CDtime	_
+6	hatsu	_	N	Nsf	_
+7	nanode	_	PS	PSSa	_
+8	.	_	.	.	_
+
+1	sochira	_	N	Ndem	_
+2	ni	_	P	P	_
+3	shimashou	_	V	Vfin	u
+4	ka	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	tsuku	_	V	Vfin	u
+2	no	_	N	NF	_
+3	mo	_	P	Pfoc	_
+4	hachiji	_	CD	CDtime	_
+5	juppuN	_	CD	CDtime	_
+6	to	_	P	PQ	_
+7	iu	_	V	Vfin	u
+8	koto	_	N	NF	_
+9	de	_	P	P	_
+10	.	_	.	.	_
+
+1	yoroshiku	_	ADJ	ADJiku	_
+2	onegai	_	N	VN	_
+3	shimasu	_	VS	VSfin	u
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	itashimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	kaeri	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hikouki	_	N	NN	_
+5	mo	_	P	Pfoc	_
+6	issho	_	ADV	ADV	_
+7	ni	_	P	P	_
+8	kimete	_	V	Vte	_
+9	okitai	_	VADJ	VADJi	_
+10	to	_	P	PQ	_
+11	omoimasu	_	V	Vfin	u
+12	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	kayoubi	_	NT	NT	_
+2	juugonichi	_	CD	CDdate	_
+3	to	_	P	PQ	_
+4	iu	_	V	Vfin	u
+5	koto	_	N	NF	_
+6	de	_	P	P	_
+7	ni	_	CD	CD	_
+8	biN	_	UNIT	UNIT	_
+9	arimasu	_	V	Vfin	u
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	juuichiji	_	CD	CDtime	_
+2	ni	_	P	P	_
+3	shuppatsu	_	N	VN	_
+4	shite	_	VS	VSte	_
+5	hachiji	_	CD	CDtime	_
+6	juugofuN	_	CD	CDtime	_
+7	ni	_	P	P	_
+8	narita	_	NAME	NAMEloc	_
+9	touchaku	_	N	VN	_
+10	to	_	P	PQ	_
+11	iu	_	V	Vfin	u
+12	no	_	N	NF	_
+13	to	_	P	Pcnj	_
+14	chi	_	--	--	_
+15	niji	_	CD	CDtime	_
+16	saNjuugofuN	_	CD	CDtime	_
+17	gogo	_	NT	NT	_
+18	niji	_	CD	CDtime	_
+19	saNjuugofuN	_	CD	CDtime	_
+20	ni	_	P	P	_
+21	shuppatsu	_	N	VN	_
+22	shite	_	VS	VSte	_
+23	niji	_	CD	CDtime	_
+24	saNjuugofuN	_	CD	CDtime	_
+25	desu	_	PV	PVfin	u
+26	ne	_	PS	PSE	_
+27	ni	_	P	P	_
+28	touchaku	_	N	VN	_
+29	suru	_	VS	VSfin	u
+30	to	_	PS	PSSa	_
+31	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	yappari	_	ADV	ADV	_
+2	doitsu	_	NAME	NAMEloc	_
+3	ni	_	P	P	_
+4	wa	_	P	Pfoc	_
+5	nagaku	_	ADJ	ADJiku	_
+6	ita	_	V	Vfin	ta
+7	hou	_	N	NF	_
+8	ga	_	P	Pnom	_
+9	ii	_	ADJ	ADJifin	_
+10	desu	_	PV	PVfin	u
+11	yo	_	PS	PSE	_
+12	ne	_	PS	PSE	_
+13	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	wa	_	P	Pfoc	_
+3	sukoshi	_	ADV	ADVdgr	_
+4	demo	_	P	Pfoc	_
+5	nagaku	_	ADJ	ADJiku	_
+6	iretara	_	V	Vcnd	_
+7	ii	_	ADJ	ADJifin	_
+8	na	_	PS	PSE	_
+9	to	_	P	PQ	_
+10	omou	_	V	Vfin	u
+11	node	_	PS	PSSa	_
+12	.	_	.	.	_
+
+1	hanoofaa	_	NAME	NAMEloc	_
+2	o	_	P	Pacc	_
+3	shuppatsu	_	N	VN	_
+4	suru	_	VS	VSfin	u
+5	no	_	N	NF	_
+6	ga	_	P	Pnom	_
+7	mae	_	N	Ntmp	_
+8	no	_	P	Pgen	_
+9	hi	_	N	Ntmp	_
+10	no	_	P	Pgen	_
+11	getsuyoubi	_	NT	NT	_
+12	to	_	P	PQ	_
+13	iu	_	V	Vfin	u
+14	koto	_	N	NF	_
+15	de	_	P	P	_
+16	.	_	.	.	_
+
+1	getsuyoubi	_	NT	NT	_
+2	no	_	P	Pgen	_
+3	niji	_	CD	CDtime	_
+4	saNjuugofuN	_	CD	CDtime	_
+5	ni	_	P	P	_
+6	shuppatsu	_	N	VN	_
+7	to	_	P	PQ	_
+8	iu	_	V	Vfin	u
+9	koto	_	N	NF	_
+10	de	_	P	P	_
+11	.	_	.	.	_
+
+1	ii	_	ADJ	ADJifin	_
+2	deshou	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	shimashou	_	V	Vfin	u
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	hoteru	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	wa	_	P	Pfoc	_
+6	dou	_	ADV	ADVwh	_
+7	shimasu	_	V	Vfin	u
+8	.	_	.	.	_
+
+1	hoteru	_	N	NN	_
+2	wa	_	P	Pfoc	_
+3	desu	_	PV	PVfin	u
+4	ne	_	PS	PSE	_
+5	touchaku	_	N	VN	_
+6	suru	_	VS	VSfin	u
+7	no	_	N	NF	_
+8	ga	_	P	Pnom	_
+9	hachiji	_	CD	CDtime	_
+10	juppuN	_	CD	CDtime	_
+11	to	_	P	PQ	_
+12	iu	_	V	Vfin	u
+13	koto	_	N	NF	_
+14	de	_	P	P	_
+15	.	_	.	.	_
+
+1	osoi	_	ADJ	ADJifin	_
+2	node	_	PS	PSSa	_
+3	eki	_	N	NN	_
+4	kara	_	P	P	_
+5	chikai	_	ADJ	ADJifin	_
+6	hou	_	N	NF	_
+7	ga	_	P	Pnom	_
+8	ii	_	ADJ	ADJifin	_
+9	no	_	N	NF	_
+10	de	_	P	P	_
+11	wa	_	P	Pfoc	_
+12	nai	_	ADJ	ADJifin	_
+13	deshou	_	PV	PVfin	u
+14	ka	_	PS	PSE	_
+15	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	kochira	_	N	Ndem	_
+3	de	_	P	P	_
+4	chotto	_	ADV	ADV	_
+5	shirabeta	_	V	Vfin	ta
+6	no	_	N	NF	_
+7	desu	_	PV	PVfin	u
+8	keredo	_	PS	PSSb	_
+9	.	_	.	.	_
+
+1	hoteru	_	N	NN	_
+2	eki	_	N	NN	_
+3	kara	_	P	P	_
+4	ichibaN	_	ADV	ADVdgr	_
+5	chikai	_	ADJ	ADJifin	_
+6	to	_	PS	PSSa	_
+7	naru	_	V	Vfin	u
+8	to	_	PS	PSSa	_
+9	atoraNtahoteru	_	NAME	NAMEloc	_
+10	ga	_	P	Pnom	_
+11	ii	_	ADJ	ADJifin	_
+12	kana	_	PS	PSE	_
+13	to	_	P	PQ	_
+14	omoimasu	_	V	Vfin	u
+15	keredomo	_	PS	PSSb	_
+16	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	nedaN	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	mo	_	P	Pfoc	_
+6	to	_	ITJ	ITJ	_
+7	daburu	_	N	NN	_
+8	da	_	PV	PVfin	ta
+9	to	_	PS	PSSa	_
+10	hyaku	_	CD	CD	_
+11	hachijuu	_	CD	CD	_
+12	maruku	_	UNIT	UNIT	_
+13	de	_	P	P	_
+14	kekkou	_	ADV	ADV	_
+15	otegoro	_	ADJ	ADJ_n	_
+16	ka	_	PS	PSE	_
+17	to	_	P	PQ	_
+18	omoimasu	_	V	Vfin	u
+19	keredo	_	PS	PSSb	_
+20	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	sochira	_	N	Ndem	_
+3	ni	_	P	P	_
+4	shimashou	_	V	Vfin	u
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	oheya	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	wa	_	P	Pfoc	_
+6	daburu	_	N	NN	_
+7	to	_	P	Pcnj	_
+8	shiNguru	_	N	NN	_
+9	dochira	_	N	Nwh	_
+10	ni	_	P	P	_
+11	shimasu	_	V	Vfin	u
+12	ka	_	PS	PSE	_
+13	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	daburu	_	N	NN	_
+2	de	_	P	P	_
+3	ii	_	ADJ	ADJifin	_
+4	deshou	_	PV	PVfin	u
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	atoraNtahoteru	_	NAME	NAMEloc	_
+3	no	_	P	Pgen	_
+4	daburu	_	N	NN	_
+5	ni	_	P	P	_
+6	dewa	_	CNJ	CNJ	_
+7	yoyaku	_	N	VN	_
+8	shite	_	VS	VSte	_
+9	okimasu	_	VAUX	VAUXfin	u
+10	ne	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	juunigatsu	_	CD	CDdate	_
+5	o	_	P	Pacc	_
+6	eraNda	_	V	Vfin	ta
+7	riyuu	_	N	NN	_
+8	to	_	P	P	_
+9	shite	_	V	Vte	_
+10	kurisumasu	_	NAME	NAME	_
+11	ga	_	P	Pnom	_
+12	chikai	_	ADJ	ADJifin	_
+13	de	_	P	P	_
+14	wa	_	P	Pfoc	_
+15	nai	_	ADJ	ADJifin	_
+16	desu	_	PV	PVfin	u
+17	ka	_	PS	PSE	_
+18	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	machinami	_	N	NN	_
+3	mo	_	P	Pfoc	_
+4	kirei	_	ADJ	ADJ_n	_
+5	to	_	P	PQ	_
+6	omou	_	V	Vfin	u
+7	da	_	PV	PVfin	ta
+8	to	_	P	PQ	_
+9	omou	_	V	Vfin	u
+10	node	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	kaNkou	_	N	VN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	mo	_	P	Pfoc	_
+5	desu	_	PV	PVfin	u
+6	ne	_	PS	PSE	_
+7	yoru	_	N	Ntmp	_
+8	oishii	_	ADJ	ADJifin	_
+9	omise	_	N	NN	_
+10	de	_	P	P	_
+11	mo	_	P	Pfoc	_
+12	ryouri	_	N	NN	_
+13	o	_	P	Pacc	_
+14	tabete	_	V	Vte	_
+15	yonaka	_	N	Ntmp	_
+16	saNpo	_	N	NN	_
+17	shite	_	VS	VSte	_
+18	aruite	_	V	Vte	_
+19	miru	_	VAUX	VAUXfin	u
+20	no	_	N	NF	_
+21	de	_	P	P	_
+22	mo	_	P	Pfoc	_
+23	ii	_	ADJ	ADJifin	_
+24	no	_	N	NF	_
+25	deshou	_	PV	PVfin	u
+26	ka	_	PS	PSE	_
+27	ne	_	PS	PSE	_
+28	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	oishii	_	ADJ	ADJifin	_
+2	biiru	_	N	NN	_
+3	naNka	_	N	Nsf	_
+4	mo	_	P	Pfoc	_
+5	nomitai	_	VADJ	VADJi	_
+6	desu	_	PV	PVfin	u
+7	yo	_	PS	PSE	_
+8	ne	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kochira	_	N	Ndem	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	omise	_	N	NN	_
+7	toka	_	P	Pcnj	_
+8	ato	_	CNJ	CNJ	_
+9	keshiki	_	N	NN	_
+10	ga	_	P	Pnom	_
+11	kirei	_	ADJ	ADJ_n	_
+12	na	_	ADJ	ADJsf	_
+13	basho	_	N	NN	_
+14	nado	_	N	Nsf	_
+15	o	_	P	Pacc	_
+16	risutoappu	_	N	VN	_
+17	shite	_	VS	VSte	_
+18	okimasu	_	VAUX	VAUXfin	u
+19	node	_	PS	PSSa	_
+20	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	yoroshiku	_	ADJ	ADJiku	_
+3	onegai	_	N	VN	_
+4	shimasu	_	VS	VSfin	u
+5	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	kyou	_	N	Ntmp	_
+3	wa	_	P	Pfoc	_
+4	watashi	_	N	PRON	_
+5	watakushi	_	N	PRON	_
+6	kaerasete	_	V	Vte	_
+7	itadakimasu	_	VAUX	VAUXfin	u
+8	node	_	PS	PSSa	_
+9	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ie	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	arigatou	_	ADJ	ADJiku	_
+2	gozaimasu	_	V	Vfin	u
+3	.	_	.	.	_
+
+1	osaki	_	N	Ntmp	_
+2	ni	_	P	P	_
+3	shitsurei	_	N	VN	_
+4	shimasu	_	VS	VSfin	u
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hayashi	_	NAME	NAMEper	_
+2	naomi	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	ishizuka	_	NAME	NAMEper	_
+2	yuuko	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	ishizuka	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	chotto	_	ADV	ADV	_
+4	ojikaN	_	N	NN	_
+5	yoroshii	_	ADJ	ADJifin	_
+6	desu	_	PV	PVfin	u
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	shucchou	_	N	VN	_
+2	no	_	P	Pgen	_
+3	keN	_	N	NF	_
+4	ohanashi	_	N	VN	_
+5	itashimaseN	_	VAUX	VAUXfin	eN
+6	ka	_	PS	PSE	_
+7	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	kimete	_	V	Vte	_
+2	shimaimashou	_	VAUX	VAUXfin	u
+3	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	mazu	_	ADV	ADVtmp	_
+2	nittei	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	nano	_	N	NF	_
+6	desu	_	PV	PVfin	u
+7	keredomo	_	PS	PSSb	_
+8	dou	_	ADV	ADVwh	_
+9	nasaimasu	_	V	Vfin	u
+10	ka	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	wa	_	P	Pfoc	_
+5	juuichigatsu	_	CD	CDdate	_
+6	no	_	P	Pgen	_
+7	yokka	_	CD	CDdate	_
+8	kara	_	P	P	_
+9	aite	_	V	Vte	_
+10	orimasu	_	VAUX	VAUXfin	u
+11	keredomo	_	PS	PSSb	_
+12	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	mo	_	P	Pfoc	_
+3	soko	_	N	Ndem	_
+4	ga	_	P	Pnom	_
+5	tsugou	_	N	NN	_
+6	ga	_	P	Pnom	_
+7	ii	_	ADJ	ADJifin	_
+8	desu	_	PV	PVfin	u
+9	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	juuichigatsu	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	yokka	_	CD	CDdate	_
+5	shuppatsubi	_	N	NN	_
+6	de	_	P	P	_
+7	yoroshii	_	ADJ	ADJifin	_
+8	desu	_	PV	PVfin	u
+9	ka	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	P	PQ	_
+2	yokka	_	CD	CDdate	_
+3	o	_	P	Pacc	_
+4	shuppatsu	_	N	VN	_
+5	desu	_	PV	PVfin	u
+6	to	_	PS	PSSa	_
+7	tooka	_	CD	CDdate	_
+8	no	_	P	Pgen	_
+9	kayoubi	_	NT	NT	_
+10	ni	_	P	P	_
+11	nihoN	_	NAME	NAMEloc	_
+12	ni	_	P	P	_
+13	kaette	_	V	Vte	_
+14	kuru	_	VAUX	VAUXfin	u
+15	koto	_	N	NF	_
+16	ni	_	P	P	_
+17	narimasu	_	V	Vfin	u
+18	keredo	_	PS	PSSb	_
+19	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	da	_	PV	PVfin	ta
+2	.	_	.	.	_
+
+1	yoroshii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	daijoubu	_	ADJ	ADJ_n	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	koukuu	_	N	NN	_
+3	biN	_	N	NN	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	nano	_	N	NF	_
+7	desu	_	PV	PVfin	u
+8	keredo	_	PS	PSSb	_
+9	to	_	ITJ	ITJ	_
+10	chotto	_	ADV	ADV	_
+11	kochira	_	N	Ndem	_
+12	no	_	P	Pgen	_
+13	hou	_	N	NF	_
+14	de	_	P	P	_
+15	shirabete	_	V	Vte	_
+16	mita	_	VAUX	VAUXfin	ta
+17	no	_	N	NF	_
+18	desu	_	PV	PVfin	u
+19	keredomo	_	PS	PSSb	_
+20	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	P	PQ	_
+2	yokka	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	suiyoubi	_	NT	NT	_
+5	desu	_	PV	PVfin	u
+6	to	_	PS	PSSa	_
+7	saN	_	CD	CD	_
+8	biN	_	UNIT	UNIT	_
+9	arimashite	_	V	Vte	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	narita	_	NAME	NAMEloc	_
+2	o	_	P	Pacc	_
+3	juuji	_	CD	CDtime	_
+4	hatsu	_	N	Nsf	_
+5	no	_	P	Pgen	_
+6	mono	_	N	NF	_
+7	to	_	P	Pcnj	_
+8	juuichiji	_	CD	CDtime	_
+9	yoNjuppuN	_	CD	CDtime	_
+10	hatsu	_	N	Nsf	_
+11	no	_	P	Pgen	_
+12	mono	_	N	NF	_
+13	ga	_	P	Pnom	_
+14	arimasu	_	V	Vfin	u
+15	keredo	_	PS	PSSb	_
+16	dochira	_	N	Nwh	_
+17	ga	_	P	Pnom	_
+18	yoroshii	_	ADJ	ADJifin	_
+19	desu	_	PV	PVfin	u
+20	ka	_	PS	PSE	_
+21	ne	_	PS	PSE	_
+22	.	_	.	.	_
+
+1	docchi	_	N	Nwh	_
+2	ga	_	P	Pnom	_
+3	saki	_	N	Ntmp	_
+4	ni	_	P	P	_
+5	doitsu	_	NAME	NAMEloc	_
+6	ni	_	P	P	_
+7	tsukimasu	_	V	Vfin	u
+8	ka	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	eeto	_	ITJ	ITJ	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	ichibaN	_	ADV	ADVdgr	_
+5	hayaku	_	ADJ	ADJiku	_
+6	tsuku	_	V	Vfin	u
+7	no	_	N	NF	_
+8	ga	_	P	Pnom	_
+9	juuji	_	CD	CDtime	_
+10	shuppatsu	_	N	VN	_
+11	no	_	P	Pgen	_
+12	hou	_	N	NF	_
+13	de	_	P	P	_
+14	zeNnikkuu	_	NAME	NAMEorg	_
+15	to	_	P	Pcnj	_
+16	rufutohaNza	_	NAME	NAMEorg	_
+17	no	_	P	Pgen	_
+18	biN	_	N	NN	_
+19	ni	_	P	P	_
+20	narimasu	_	V	Vfin	u
+21	keredomo	_	PS	PSSb	_
+22	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	sochira	_	N	Ndem	_
+3	de	_	P	P	_
+4	onegai	_	N	VN	_
+5	shimasu	_	VS	VSfin	u
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	zeNnikkuu	_	NAME	NAMEorg	_
+2	to	_	P	Pcnj	_
+3	rufutohaNza	_	NAME	NAMEorg	_
+4	dochira	_	N	Nwh	_
+5	ni	_	P	P	_
+6	shimasu	_	V	Vfin	u
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	zeNnikkuu	_	NAME	NAMEorg	_
+3	de	_	P	P	_
+4	onegai	_	N	VN	_
+5	shimasu	_	VS	VSfin	u
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	zeNnikkuu	_	NAME	NAMEorg	_
+3	de	_	P	P	_
+4	juuji	_	CD	CDtime	_
+5	hatsu	_	N	Nsf	_
+6	de	_	P	P	_
+7	hanoofaa	_	NAME	NAMEloc	_
+8	hatsu	_	N	Nsf	_
+9	ga	_	P	Pnom	_
+10	juushichiji	_	CD	CDtime	_
+11	gojuppuN	_	CD	CDtime	_
+12	de	_	P	P	_
+13	ii	_	ADJ	ADJifin	_
+14	desu	_	PV	PVfin	u
+15	ne	_	PS	PSE	_
+16	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kochira	_	N	Ndem	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	yoyaku	_	N	VN	_
+7	totte	_	V	Vte	_
+8	okimasu	_	VAUX	VAUXfin	u
+9	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	itashimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	sorede	_	CNJ	CNJ	_
+2	kaeri	_	N	NN	_
+3	no	_	P	Pgen	_
+4	biN	_	N	NN	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	mo	_	P	Pfoc	_
+8	kimete	_	V	Vte	_
+9	shimaimaseN	_	VAUX	VAUXfin	eN
+10	ka	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	kaeri	_	N	NN	_
+3	wa	_	P	Pfoc	_
+4	kokonoka	_	CD	CDdate	_
+5	getsuyoubi	_	NT	NT	_
+6	oshuppatsu	_	N	NN	_
+7	ni	_	P	P	_
+8	narimasu	_	V	Vfin	u
+9	keredo	_	PS	PSSb	_
+10	to	_	ITJ	ITJ	_
+11	getsuyoubi	_	NT	NT	_
+12	hatsu	_	N	Nsf	_
+13	no	_	P	Pgen	_
+14	hou	_	N	NF	_
+15	wa	_	P	Pfoc	_
+16	saN	_	CD	CD	_
+17	biN	_	UNIT	UNIT	_
+18	arimashite	_	V	Vte	_
+19	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	kochira	_	N	Ndem	_
+3	wa	_	P	Pfoc	_
+4	hanoofaa	_	NAME	NAMEloc	_
+5	o	_	P	Pacc	_
+6	juuichiji	_	CD	CDtime	_
+7	shuppatsu	_	N	VN	_
+8	no	_	P	Pgen	_
+9	mono	_	N	NF	_
+10	to	_	P	Pcnj	_
+11	juurokuji	_	CD	CDtime	_
+12	no	_	P	Pgen	_
+13	mono	_	N	NF	_
+14	to	_	P	Pcnj	_
+15	juuyoji	_	CD	CDtime	_
+16	no	_	P	Pgen	_
+17	mono	_	N	NF	_
+18	arimasu	_	V	Vfin	u
+19	keredo	_	PS	PSSb	_
+20	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	osome	_	N	NN	_
+3	ni	_	P	P	_
+4	shuppatsu	_	N	VN	_
+5	shite	_	VS	VSte	_
+6	sukoshi	_	ADV	ADVdgr	_
+7	kaNkou	_	N	VN	_
+8	shimaseN	_	VS	VSfin	eN
+9	ka	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	ichibaN	_	ADV	ADVdgr	_
+3	osoi	_	ADJ	ADJifin	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	ii	_	ADJ	ADJifin	_
+7	desu	_	PV	PVfin	u
+8	yo	_	PS	PSE	_
+9	ne	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	hanoofaa	_	NAME	NAMEloc	_
+3	o	_	P	Pacc	_
+4	juurokuji	_	CD	CDtime	_
+5	gojuppuN	_	CD	CDtime	_
+6	shuppatsu	_	N	VN	_
+7	ni	_	P	P	_
+8	shimashou	_	V	Vfin	u
+9	ka	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	de	_	P	P	_
+3	ii	_	ADJ	ADJifin	_
+4	desu	_	PV	PVfin	u
+5	ne	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	kore	_	N	Ndem	_
+3	wa	_	P	Pfoc	_
+4	rufutohaNza	_	NAME	NAMEorg	_
+5	no	_	P	Pgen	_
+6	hachijuugo	_	CD	CD	_
+7	biN	_	UNIT	UNIT	_
+8	ni	_	P	P	_
+9	narimasu	_	V	Vfin	u
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	narita	_	NAME	NAMEloc	_
+3	ni	_	P	P	_
+4	tsuku	_	V	Vfin	u
+5	no	_	N	NF	_
+6	ga	_	P	Pnom	_
+7	saNji	_	CD	CDtime	_
+8	ni	_	P	P	_
+9	gogo	_	NT	NT	_
+10	saNji	_	CD	CDtime	_
+11	ni	_	P	P	_
+12	narimasu	_	V	Vfin	u
+13	ne	_	PS	PSE	_
+14	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	kore	_	N	Ndem	_
+3	wa	_	P	Pfoc	_
+4	tochuu	_	N	NN	_
+5	jaru	_	NAME	NAMEorg	_
+6	de	_	P	P	_
+7	keiyu	_	N	VN	_
+8	suru	_	VS	VSfin	u
+9	koto	_	N	NF	_
+10	ni	_	P	P	_
+11	narimasu	_	V	Vfin	u
+12	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kochira	_	N	Ndem	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	yoyaku	_	N	VN	_
+6	totte	_	V	Vte	_
+7	okimasu	_	VAUX	VAUXfin	u
+8	ne	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	hoteru	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	atashi	_	N	PRON	_
+6	ga	_	P	Pnom	_
+7	sukoshi	_	ADV	ADVdgr	_
+8	pikkuakku	_	--	--	_
+9	pikkuappu	_	N	VN	_
+10	shite	_	VS	VSte	_
+11	mita	_	VAUX	VAUXfin	ta
+12	no	_	N	NF	_
+13	ga	_	P	Pnom	_
+14	aru	_	V	Vfin	u
+15	no	_	N	NF	_
+16	desu	_	PV	PVfin	u
+17	kedo	_	PS	PSSb	_
+18	.	_	.	.	_
+
+1	arigatou	_	ADJ	ADJiku	_
+2	gozaimasu	_	V	Vfin	u
+3	.	_	.	.	_
+
+1	hitotsu	_	CD	CDU	_
+2	wa	_	P	Pfoc	_
+3	pianobaa	_	N	NN	_
+4	ga	_	P	Pnom	_
+5	aru	_	V	Vfin	u
+6	tokoro	_	N	NN	_
+7	de	_	P	P	_
+8	hitotsu	_	CD	CDU	_
+9	wa	_	P	Pfoc	_
+10	futsuu	_	N	NN	_
+11	no	_	P	Pgen	_
+12	baa	_	N	NN	_
+13	nokori	_	N	NN	_
+14	no	_	P	Pgen	_
+15	futatsu	_	CD	CDU	_
+16	wa	_	P	Pfoc	_
+17	futsuu	_	N	NN	_
+18	no	_	P	Pgen	_
+19	baa	_	N	NN	_
+20	ga	_	P	Pnom	_
+21	aru	_	V	Vfin	u
+22	no	_	N	NF	_
+23	desu	_	PV	PVfin	u
+24	kedo	_	PS	PSSb	_
+25	eki	_	N	NN	_
+26	kara	_	P	P	_
+27	chikai	_	ADJ	ADJifin	_
+28	hou	_	N	NF	_
+29	ga	_	P	Pnom	_
+30	ii	_	ADJ	ADJifin	_
+31	desu	_	PV	PVfin	u
+32	ka	_	PS	PSE	_
+33	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	eki	_	N	NN	_
+2	kara	_	P	P	_
+3	chikai	_	ADJ	ADJifin	_
+4	no	_	N	NF	_
+5	ni	_	P	P	_
+6	onegai	_	N	VN	_
+7	shimasu	_	VS	VSfin	u
+8	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	eki	_	N	NN	_
+3	kara	_	P	P	_
+4	chikaku	_	N	NN	_
+5	de	_	P	P	_
+6	pianobaa	_	N	NN	_
+7	ga	_	P	Pnom	_
+8	aru	_	V	Vfin	u
+9	tokoro	_	N	NN	_
+10	ni	_	P	P	_
+11	shimaseN	_	V	Vfin	eN
+12	ka	_	PS	PSE	_
+13	.	_	.	.	_
+
+1	ii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	daburu	_	N	NN	_
+3	to	_	P	Pcnj	_
+4	shiNguru	_	N	NN	_
+5	dochira	_	N	Nwh	_
+6	ni	_	P	P	_
+7	shimashou	_	V	Vfin	u
+8	ka	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	daburu	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	ga	_	P	Pnom	_
+6	yoyuu	_	N	NN	_
+7	ga	_	P	Pnom	_
+8	atte	_	V	Vte	_
+9	ii	_	ADJ	ADJifin	_
+10	desu	_	PV	PVfin	u
+11	yo	_	PS	PSE	_
+12	ne	_	PS	PSE	_
+13	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	hyaku	_	CD	CD	_
+3	rokujuu	_	CD	CD	_
+4	maruku	_	UNIT	UNIT	_
+5	de	_	P	P	_
+6	dewa	_	CNJ	CNJ	_
+7	daburu	_	N	NN	_
+8	no	_	P	Pgen	_
+9	hou	_	N	NF	_
+10	de	_	P	P	_
+11	yoyaku	_	N	VN	_
+12	o	_	P	Pacc	_
+13	shite	_	V	Vte	_
+14	okimasu	_	VAUX	VAUXfin	u
+15	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sumimaseN	_	V	Vfin	eN
+2	.	_	.	.	_
+
+1	naN	_	N	Nwh	_
+2	to	_	P	PQ	_
+3	iu	_	V	Vfin	u
+4	namae	_	N	NN	_
+5	no	_	P	Pgen	_
+6	hoteru	_	N	NN	_
+7	desu	_	PV	PVfin	u
+8	ka	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	sumimaseN	_	V	Vfin	eN
+2	.	_	.	.	_
+
+1	rokkumaahoofuhoteru	_	NAME	NAMEloc	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	dewa	_	CNJ	CNJ	_
+5	kaNkou	_	N	VN	_
+6	no	_	P	Pgen	_
+7	hou	_	N	NF	_
+8	doko	_	N	Nwh	_
+9	dou	_	ADV	ADVwh	_
+10	itta	_	V	Vfin	ta
+11	tokoro	_	N	NN	_
+12	ikimasu	_	V	Vfin	u
+13	ka	_	PS	PSE	_
+14	.	_	.	.	_
+
+1	kaNkou	_	N	VN	_
+2	wa	_	P	Pfoc	_
+3	dou	_	ADV	ADVwh	_
+4	shimashou	_	V	Vfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	yahari	_	ADV	ADV	_
+2	watashi	_	N	PRON	_
+3	wa	_	P	Pfoc	_
+4	oishii	_	ADJ	ADJifin	_
+5	biiru	_	N	NN	_
+6	nado	_	N	Nsf	_
+7	o	_	P	Pacc	_
+8	nomitai	_	VADJ	VADJi	_
+9	node	_	PS	PSSa	_
+10	mazu	_	ADV	ADVtmp	_
+11	wa	_	P	Pfoc	_
+12	oishii	_	ADJ	ADJifin	_
+13	resutoraN	_	N	NN	_
+14	nado	_	N	Nsf	_
+15	ni	_	P	P	_
+16	ikitai	_	VADJ	VADJi	_
+17	desu	_	PV	PVfin	u
+18	keredomo	_	PS	PSSb	_
+19	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	hoteru	_	N	NN	_
+3	no	_	P	Pgen	_
+4	shousai	_	N	NN	_
+5	o	_	P	Pacc	_
+6	shiraberu	_	V	Vfin	u
+7	tsuide	_	N	NN	_
+8	ni	_	P	P	_
+9	sou	_	ADV	ADVdem	_
+10	iu	_	V	Vfin	u
+11	tokoro	_	N	NN	_
+12	mo	_	P	Pfoc	_
+13	mite	_	V	Vte	_
+14	okimasu	_	VAUX	VAUXfin	u
+15	.	_	.	.	_
+
+1	ee	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	mata	_	ADV	ADV	_
+3	shousai	_	N	NN	_
+4	ni	_	P	P	_
+5	tsuite	_	V	Vte	_
+6	wa	_	P	Pfoc	_
+7	gojitsu	_	N	Ntmp	_
+8	reNraku	_	N	VN	_
+9	shimasu	_	VS	VSfin	u
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	onegai	_	N	VN	_
+3	itashimasu	_	VS	VSfin	u
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	sayounara	_	GR	GR	_
+3	.	_	.	.	_
+
+1	sayounara	_	GR	GR	_
+2	.	_	.	.	_
+
+1	ishizuka	_	NAME	NAMEper	_
+2	yuuko	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	shiNbo	_	NAME	NAMEper	_
+2	masanori	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	shiNbo	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	koNdo	_	N	Ntmp	_
+4	no	_	P	Pgen	_
+5	doitsu	_	NAME	NAMEloc	_
+6	e	_	P	P	_
+7	no	_	P	Pgen	_
+8	shucchou	_	N	VN	_
+9	no	_	P	Pgen	_
+10	keN	_	N	NF	_
+11	de	_	P	P	_
+12	ima	_	N	Ntmp	_
+13	ojikaN	_	N	NN	_
+14	chotto	_	ADV	ADVdgr	_
+15	ii	_	ADJ	ADJifin	_
+16	desu	_	PV	PVfin	u
+17	ka	_	PS	PSE	_
+18	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ima	_	N	Ntmp	_
+2	da	_	PV	PVfin	ta
+3	to	_	PS	PSSa	_
+4	choudo	_	ADV	ADV	_
+5	ii	_	ADJ	ADJifin	_
+6	node	_	PS	PSSa	_
+7	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	ishizuka	_	NAME	NAMEper	_
+3	saN	_	P	PNsf	_
+4	ima	_	N	Ntmp	_
+5	hanashiaimashou	_	V	Vfin	u
+6	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	nittei	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	mazu	_	ADV	ADVtmp	_
+5	saki	_	N	Ntmp	_
+6	ni	_	P	P	_
+7	kimete	_	V	Vte	_
+8	shimaitai	_	VADJ	VADJi	_
+9	no	_	N	NF	_
+10	desu	_	PV	PVfin	u
+11	kedo	_	PS	PSSb	_
+12	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	to	_	P	P	_
+3	shite	_	V	Vte	_
+4	wa	_	P	Pfoc	_
+5	juugatsu	_	CD	CDdate	_
+6	no	_	P	Pgen	_
+7	chuujuN	_	NT	NT	_
+8	goro	_	N	Nsf	_
+9	ga	_	P	Pnom	_
+10	ii	_	ADJ	ADJifin	_
+11	no	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	kedo	_	PS	PSSb	_
+14	.	_	.	.	_
+
+1	juusaNnichi	_	CD	CDdate	_
+2	ikou	_	N	Nsf	_
+3	toka	_	P	Pcnj	_
+4	.	_	.	.	_
+
+1	juugatsu	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	chuujuN	_	NT	NT	_
+4	desu	_	PV	PVfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ga	_	P	Pnom	_
+5	juuhachi	_	CD	CD	_
+6	juuku	_	CD	CD	_
+7	to	_	PS	PSSa	_
+8	haitte	_	V	Vte	_
+9	imasu	_	VAUX	VAUXfin	u
+10	node	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	chotto	_	ADV	ADV	_
+2	juusaN	_	CD	CD	_
+3	desu	_	PV	PVfin	u
+4	to	_	PS	PSSa	_
+5	chotto	_	ADV	ADVdgr	_
+6	kibishii	_	ADJ	ADJifin	_
+7	no	_	N	NF	_
+8	desu	_	PV	PVfin	u
+9	keredomo	_	PS	PSSb	_
+10	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	juuichigatsu	_	CD	CDdate	_
+3	de	_	P	P	_
+4	wa	_	P	Pfoc	_
+5	itsu	_	N	Nwh	_
+6	goro	_	N	Nsf	_
+7	ga	_	P	Pnom	_
+8	daijoubu	_	ADJ	ADJ_n	_
+9	desu	_	PV	PVfin	u
+10	ka	_	PS	PSE	_
+11	.	_	.	.	_
+
+1	juuichigatsu	_	CD	CDdate	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	juuichigatsu	_	CD	CDdate	_
+2	desu	_	PV	PVfin	u
+3	to	_	PS	PSSa	_
+4	gejuN	_	NT	NT	_
+5	desu	_	PV	PVfin	u
+6	to	_	PS	PSSa	_
+7	ichibaN	_	ADV	ADVdgr	_
+8	ii	_	ADJ	ADJifin	_
+9	no	_	N	NF	_
+10	desu	_	PV	PVfin	u
+11	keredomo	_	PS	PSSb	_
+12	.	_	.	.	_
+
+1	kiNroukaNsha	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hi	_	N	Ntmp	_
+4	ikou	_	N	Nsf	_
+5	toka	_	P	Pcnj	_
+6	desu	_	PV	PVfin	u
+7	to	_	PS	PSSa	_
+8	ichibaN	_	ADV	ADVdgr	_
+9	ii	_	ADJ	ADJifin	_
+10	desu	_	PV	PVfin	u
+11	keredomo	_	PS	PSSb	_
+12	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	watashi	_	N	PRON	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	ga	_	P	Pnom	_
+6	dame	_	ADJ	ADJ_n	_
+7	nanode	_	PS	PSSa	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	juunigatsu	_	CD	CDdate	_
+3	ni	_	P	P	_
+4	shimashou	_	V	Vfin	u
+5	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	itsu	_	N	Nwh	_
+2	goro	_	N	Nsf	_
+3	ga	_	P	Pnom	_
+4	daijoubu	_	ADJ	ADJ_n	_
+5	desu	_	PV	PVfin	u
+6	ka	_	PS	PSE	_
+7	.	_	.	.	_
+
+1	juunigatsu	_	CD	CDdate	_
+2	wa	_	P	Pfoc	_
+3	kekkou	_	ADV	ADV	_
+4	aite	_	V	Vte	_
+5	imashite	_	VAUX	VAUXte	_
+6	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	atashi	_	N	PRON	_
+3	wa	_	P	Pfoc	_
+4	futsuka	_	CD	CDdate	_
+5	ikou	_	N	Nsf	_
+6	toka	_	P	Pcnj	_
+7	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	hai	_	ITJ	ITJ	_
+5	.	_	.	.	_
+
+1	futsuka	_	CD	CDdate	_
+2	dake	_	N	Nsf	_
+3	demasu	_	V	Vfin	u
+4	keredomo	_	PS	PSSb	_
+5	mikka	_	CD	CDdate	_
+6	ikou	_	N	Nsf	_
+7	deshitara	_	PV	PVcnd	_
+8	daijoubu	_	ADJ	ADJ_n	_
+9	desu	_	PV	PVfin	u
+10	node	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	mikka	_	CD	CDdate	_
+3	ikou	_	N	Nsf	_
+4	ni	_	P	P	_
+5	shimashou	_	V	Vfin	u
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	mikka	_	CD	CDdate	_
+3	shuppatsu	_	N	VN	_
+4	de	_	P	P	_
+5	yoroshii	_	ADJ	ADJifin	_
+6	desu	_	PV	PVfin	u
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	mikka	_	CD	CDdate	_
+3	shuppatsu	_	N	VN	_
+4	deshitara	_	PV	PVcnd	_
+5	youka	_	CD	CDdate	_
+6	ni	_	P	P	_
+7	nihoN	_	NAME	NAMEloc	_
+8	ni	_	P	P	_
+9	touchaku	_	N	VN	_
+10	desu	_	PV	PVfin	u
+11	yo	_	PS	PSE	_
+12	ne	_	PS	PSE	_
+13	.	_	.	.	_
+
+1	youka	_	CD	CDdate	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	hikouki	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	kimete	_	V	Vte	_
+6	shimaimashou	_	VAUX	VAUXfin	u
+7	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	mikka	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	mokuyoubi	_	NT	NT	_
+5	da	_	PV	PVfin	ta
+6	to	_	PS	PSSa	_
+7	nihoN	_	NAME	NAMEloc	_
+8	hatsu	_	N	Nsf	_
+9	wa	_	P	Pfoc	_
+10	hitotsu	_	CD	CDU	_
+11	shika	_	P	P	_
+12	arimaseN	_	V	Vfin	eN
+13	ne	_	PS	PSE	_
+14	.	_	.	.	_
+
+1	juuniji	_	CD	CDtime	_
+2	juugofuN	_	CD	CDtime	_
+3	ni	_	P	P	_
+4	nihoN	_	NAME	NAMEloc	_
+5	hatsu	_	N	Nsf	_
+6	de	_	P	P	_
+7	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	doitsu	_	NAME	NAMEloc	_
+2	ni	_	P	P	_
+3	hachiji	_	CD	CDtime	_
+4	juppuN	_	CD	CDtime	_
+5	ni	_	P	P	_
+6	touchaku	_	N	VN	_
+7	desu	_	PV	PVfin	u
+8	nijuuji	_	CD	CDtime	_
+9	juppuN	_	CD	CDtime	_
+10	ni	_	P	P	_
+11	touchaku	_	N	VN	_
+12	ni	_	P	P	_
+13	narimasu	_	V	Vfin	u
+14	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	chinami	_	N	NN	_
+2	ni	_	P	P	_
+3	hikouki	_	N	NN	_
+4	wa	_	P	Pfoc	_
+5	dochira	_	N	Nwh	_
+6	no	_	P	Pgen	_
+7	koukuugaisha	_	N	NN	_
+8	desu	_	PV	PVfin	u
+9	ka	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+2	ni	_	P	P	_
+3	narimasu	_	V	Vfin	u
+4	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	wakarimashita	_	V	Vfin	ta
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kaeri	_	N	NN	_
+3	mo	_	P	Pfoc	_
+4	kimete	_	V	Vte	_
+5	shimaimashou	_	VAUX	VAUXfin	u
+6	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	nanoka	_	CD	CDdate	_
+3	getsuyoubi	_	NT	NT	_
+4	no	_	P	Pgen	_
+5	biN	_	N	NN	_
+6	wa	_	P	Pfoc	_
+7	saN	_	CD	CD	_
+8	biN	_	UNIT	UNIT	_
+9	aru	_	V	Vfin	u
+10	no	_	N	NF	_
+11	desu	_	PV	PVfin	u
+12	kedo	_	PS	PSSb	_
+13	.	_	.	.	_
+
+1	suiyoubi	_	NT	NT	_
+2	ni	_	P	P	_
+3	shuppatsu	_	N	VN	_
+4	mikka	_	CD	CDdate	_
+5	no	_	P	Pgen	_
+6	mokuyoubi	_	NT	NT	_
+7	ni	_	P	P	_
+8	shuppatsu	_	N	VN	_
+9	shimasu	_	VS	VSfin	u
+10	to	_	PS	PSSa	_
+11	kokonoka	_	CD	CDdate	_
+12	kikoku	_	N	VN	_
+13	desu	_	PV	PVfin	u
+14	ka	_	PS	PSE	_
+15	ne	_	PS	PSE	_
+16	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	yo	_	PS	PSE	_
+4	ne	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	youka	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	kayoubi	_	NT	NT	_
+5	no	_	P	Pgen	_
+6	biN	_	N	NN	_
+7	narimasu	_	V	Vfin	u
+8	ne	_	PS	PSE	_
+9	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	shitsurei	_	N	VN	_
+2	shimashita	_	VS	VSfin	ta
+3	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	asa	_	N	Ntmp	_
+3	hayaku	_	ADJ	ADJiku	_
+4	nihoN	_	NAME	NAMEloc	_
+5	ni	_	P	P	_
+6	tsuku	_	V	Vfin	u
+7	no	_	N	NF	_
+8	to	_	P	Pcnj	_
+9	hachiji	_	CD	CDtime	_
+10	juugofuN	_	CD	CDtime	_
+11	to	_	P	Pcnj	_
+12	juuyoji	_	CD	CDtime	_
+13	saNjuugofuN	_	CD	CDtime	_
+14	dochira	_	N	Nwh	_
+15	nihoN	_	NAME	NAMEloc	_
+16	ga	_	P	Pnom	_
+17	tsuku	_	V	Vfin	u
+18	hou	_	N	NF	_
+19	nihoN	_	NAME	NAMEloc	_
+20	ni	_	P	P	_
+21	tsuku	_	V	Vfin	u
+22	hou	_	N	NF	_
+23	ga	_	P	Pnom	_
+24	ii	_	ADJ	ADJifin	_
+25	desu	_	PV	PVfin	u
+26	ka	_	PS	PSE	_
+27	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	kekkou	_	ADJ	ADJ_n	_
+3	isshuukaN	_	CD	CDU	_
+4	iku	_	V	Vfin	u
+5	to	_	PS	PSSa	_
+6	tsukarete	_	V	Vte	_
+7	shimaimasu	_	VAUX	VAUXfin	u
+8	node	_	PS	PSSa	_
+9	.	_	.	.	_
+
+1	nihoN	_	NAME	NAMEloc	_
+2	ni	_	P	P	_
+3	hayaku	_	ADJ	ADJiku	_
+4	kaette	_	V	Vte	_
+5	yukkuri	_	ADV	ADV	_
+6	yasumitai	_	VADJ	VADJi	_
+7	to	_	P	PQ	_
+8	omotte	_	V	Vte	_
+9	iru	_	VAUX	VAUXfin	u
+10	no	_	N	NF	_
+11	desu	_	PV	PVfin	u
+12	ga	_	PS	PSSb	_
+13	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	nihoN	_	NAME	NAMEloc	_
+3	ni	_	P	P	_
+4	hayaku	_	ADJ	ADJiku	_
+5	tsuku	_	V	Vfin	u
+6	hou	_	N	NF	_
+7	no	_	P	Pgen	_
+8	doitsu	_	NAME	NAMEloc	_
+9	o	_	P	Pacc	_
+10	juuichiji	_	CD	CDtime	_
+11	hatsu	_	N	Nsf	_
+12	de	_	P	P	_
+13	nihoN	_	NAME	NAMEloc	_
+14	ni	_	P	P	_
+15	hachiji	_	CD	CDtime	_
+16	juugofuN	_	CD	CDtime	_
+17	ni	_	P	P	_
+18	chaku	_	N	Nsf	_
+19	no	_	P	Pgen	_
+20	ni	_	P	P	_
+21	shimashou	_	V	Vfin	u
+22	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sochira	_	N	Ndem	_
+2	de	_	P	P	_
+3	onegai	_	N	VN	_
+4	shimasu	_	VS	VSfin	u
+5	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	sekkaku	_	ADV	ADV	_
+3	nanode	_	PS	PSSa	_
+4	watashi	_	N	PRON	_
+5	hoteru	_	N	NN	_
+6	no	_	P	Pgen	_
+7	hou	_	N	NF	_
+8	o	_	P	Pacc	_
+9	shiryou	_	N	NN	_
+10	ima	_	N	Ntmp	_
+11	o	_	--	--	_
+12	omochi	_	N	VN	_
+13	shite	_	VS	VSte	_
+14	imasu	_	VAUX	VAUXfin	u
+15	node	_	PS	PSSa	_
+16	kimete	_	V	Vte	_
+17	shimaimaseN	_	VAUX	VAUXfin	eN
+18	ka	_	PS	PSE	_
+19	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	ichiou	_	ADV	ADV	_
+2	mittsu	_	CD	CDU	_
+3	watashi	_	N	PRON	_
+4	ima	_	N	Ntmp	_
+5	temoto	_	N	NN	_
+6	ni	_	P	P	_
+7	aru	_	V	Vfin	u
+8	no	_	N	NF	_
+9	desu	_	PV	PVfin	u
+10	keredomo	_	PS	PSSb	_
+11	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	tokuni	_	ADV	ADV	_
+2	osusume	_	N	VN	_
+3	no	_	P	Pgen	_
+4	watashi	_	N	PRON	_
+5	no	_	P	Pgen	_
+6	ichido	_	CD	CDU	_
+7	kochira	_	N	Ndem	_
+8	otozureta	_	V	Vfin	ta
+9	koto	_	N	NF	_
+10	ga	_	P	Pnom	_
+11	atte	_	V	Vte	_
+12	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	rejideNtsu	_	NAME	NAMEloc	_
+3	to	_	P	PQ	_
+4	iu	_	V	Vfin	u
+5	hoteru	_	N	NN	_
+6	ga	_	P	Pnom	_
+7	totemo	_	ADV	ADVdgr	_
+8	ii	_	ADJ	ADJifin	_
+9	baa	_	N	NN	_
+10	ga	_	P	Pnom	_
+11	arimashite	_	V	Vte	_
+12	onedaN	_	N	NN	_
+13	mo	_	P	Pfoc	_
+14	sorehodo	_	ADV	ADV	_
+15	hoka	_	N	NN	_
+16	no	_	P	Pgen	_
+17	hoteru	_	N	NN	_
+18	to	_	P	P	_
+19	kawaranakute	_	V	Vte	_
+20	ii	_	ADJ	ADJifin	_
+21	no	_	N	NF	_
+22	desu	_	PV	PVfin	u
+23	keredomo	_	PS	PSSb	_
+24	.	_	.	.	_
+
+1	nanika	_	N	NN	_
+2	gokibou	_	N	NN	_
+3	no	_	P	Pgen	_
+4	mono	_	N	NF	_
+5	wa	_	P	Pfoc	_
+6	arimasu	_	V	Vfin	u
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	tokuni	_	ADV	ADV	_
+2	nai	_	ADJ	ADJifin	_
+3	node	_	PS	PSSa	_
+4	dewa	_	CNJ	CNJ	_
+5	soko	_	N	Ndem	_
+6	de	_	P	P	_
+7	ii	_	ADJ	ADJifin	_
+8	desu	_	PV	PVfin	u
+9	ne	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	kono	_	ADJ	ADJdem	_
+3	baa	_	N	NN	_
+4	ga	_	P	Pnom	_
+5	hoNtou	_	ADV	ADV	_
+6	ni	_	P	P	_
+7	ii	_	ADJ	ADJifin	_
+8	baa	_	N	NN	_
+9	de	_	P	P	_
+10	subarashii	_	ADJ	ADJifin	_
+11	hoteru	_	N	NN	_
+12	desu	_	PV	PVfin	u
+13	node	_	PS	PSSa	_
+14	.	_	.	.	_
+
+1	kochira	_	N	Ndem	_
+2	no	_	P	Pgen	_
+3	hoteru	_	N	NN	_
+4	yoyaku	_	N	VN	_
+5	shite	_	VS	VSte	_
+6	okimasu	_	VAUX	VAUXfin	u
+7	node	_	PS	PSSa	_
+8	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	itashimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	dewa	_	CNJ	CNJ	_
+5	doitsu	_	NAME	NAMEloc	_
+6	ni	_	P	P	_
+7	shonichi	_	N	Ntmp	_
+8	ni	_	P	P	_
+9	hachiji	_	CD	CDtime	_
+10	sugi	_	N	Nsf	_
+11	ni	_	P	P	_
+12	tsuku	_	V	Vfin	u
+13	node	_	PS	PSSa	_
+14	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	naNka	_	N	Nwh	_
+2	kono	_	ADJ	ADJdem	_
+3	hi	_	N	Ntmp	_
+4	ni	_	P	P	_
+5	kaNkou	_	N	VN	_
+6	shimaseN	_	VS	VSfin	eN
+7	ka	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	chotto	_	ADV	ADV	_
+2	omachi	_	N	VN	_
+3	kudasai	_	VAUX	VAUXimp	_
+4	.	_	.	.	_
+
+1	hoteru	_	N	NN	_
+2	no	_	P	Pgen	_
+3	hou	_	N	NF	_
+4	ichiou	_	ADV	ADV	_
+5	shiNguru	_	N	NN	_
+6	to	_	P	Pcnj	_
+7	daburu	_	N	NN	_
+8	to	_	P	Pcnj	_
+9	arimashite	_	V	Vte	_
+10	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	daburu	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	sukoshi	_	ADV	ADVdgr	_
+6	takaku	_	ADJ	ADJiku	_
+7	natte	_	V	Vte	_
+8	shimau	_	VAUX	VAUXfin	u
+9	no	_	N	NF	_
+10	desu	_	PV	PVfin	u
+11	keredomo	_	PS	PSSb	_
+12	.	_	.	.	_
+
+1	hiroi	_	ADJ	ADJifin	_
+2	hou	_	N	NF	_
+3	to	_	P	Pcnj	_
+4	semai	_	ADJ	ADJifin	_
+5	semai	_	ADJ	ADJifin	_
+6	to	_	P	PQ	_
+7	iimasu	_	V	Vfin	u
+8	ka	_	PS	PSSq	_
+9	futsuu	_	N	NN	_
+10	no	_	P	Pgen	_
+11	to	_	P	Pcnj	_
+12	dochira	_	N	Nwh	_
+13	ga	_	P	Pnom	_
+14	ii	_	ADJ	ADJifin	_
+15	desu	_	PV	PVfin	u
+16	ka	_	PS	PSE	_
+17	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	betsu	_	ADJ	ADJ_n	_
+3	ni	_	P	P	_
+4	shiNguru	_	N	NN	_
+5	de	_	P	P	_
+6	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	yo	_	PS	PSE	_
+4	ne	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	kekkou	_	ADV	ADV	_
+2	nagaku	_	ADJ	ADJiku	_
+3	tomarimasu	_	V	Vfin	u
+4	node	_	PS	PSSa	_
+5	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	shiNguru	_	N	NN	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	de	_	P	P	_
+6	totte	_	V	Vte	_
+7	okimasu	_	VAUX	VAUXfin	u
+8	node	_	PS	PSSa	_
+9	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	shonichi	_	N	Ntmp	_
+3	ni	_	P	P	_
+4	hachiji	_	CD	CDtime	_
+5	sugi	_	N	Nsf	_
+6	ni	_	P	P	_
+7	tsuku	_	V	Vfin	u
+8	node	_	PS	PSSa	_
+9	amari	_	ADV	ADVdgr	_
+10	iroNna	_	ADJ	ADJ	_
+11	tokoro	_	N	NN	_
+12	ni	_	P	P	_
+13	wa	_	P	Pfoc	_
+14	ikenai	_	VADJ	VADJi	_
+15	no	_	N	NF	_
+16	desu	_	PV	PVfin	u
+17	kedo	_	PS	PSSb	_
+18	watashi	_	N	PRON	_
+19	wa	_	P	Pfoc	_
+20	doitsu	_	NAME	NAMEloc	_
+21	ni	_	P	P	_
+22	hajimete	_	ADV	ADV	_
+23	iku	_	V	Vfin	u
+24	node	_	PS	PSSa	_
+25	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	naNka	_	N	NN	_
+2	yoru	_	N	Ntmp	_
+3	dake	_	N	Nsf	_
+4	naNka	_	N	NN	_
+5	shinai	_	N	NN	_
+6	o	_	P	Pacc	_
+7	kaNkou	_	N	VN	_
+8	shimaseN	_	VS	VSfin	eN
+9	ka	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	yoru	_	N	Ntmp	_
+2	no	_	P	Pgen	_
+3	iroNna	_	ADJ	ADJ	_
+4	shinai	_	N	NN	_
+5	o	_	P	Pacc	_
+6	meguru	_	V	Vfin	u
+7	kaNkou	_	N	VN	_
+8	suru	_	VS	VSfin	u
+9	basu	_	N	NN	_
+10	ya	_	P	Pcnj	_
+11	tsuaa	_	N	NN	_
+12	toka	_	P	Pcnj	_
+13	aru	_	V	Vfin	u
+14	to	_	P	PQ	_
+15	omoimasu	_	V	Vfin	u
+16	node	_	PS	PSSa	_
+17	.	_	.	.	_
+
+1	sochira	_	N	Ndem	_
+2	saNka	_	N	VN	_
+3	shite	_	VS	VSte	_
+4	mimashou	_	VAUX	VAUXfin	u
+5	ka	_	PS	PSE	_
+6	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	sochira	_	N	Ndem	_
+3	no	_	P	Pgen	_
+4	hou	_	N	NF	_
+5	shirabete	_	V	Vte	_
+6	okimasu	_	VAUX	VAUXfin	u
+7	.	_	.	.	_
+
+1	yoroshiku	_	ADJ	ADJiku	_
+2	onegai	_	N	VN	_
+3	shimasu	_	VS	VSfin	u
+4	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	dewa	_	CNJ	CNJ	_
+3	dewa	_	CNJ	CNJ	_
+4	mata	_	ADV	ADV	_
+5	.	_	.	.	_
+
+1	mata	_	ADV	ADV	_
+2	yoroshiku	_	ADJ	ADJiku	_
+3	onegai	_	N	VN	_
+4	shimasu	_	VS	VSfin	u
+5	.	_	.	.	_
+
+1	yoroshiku	_	ADJ	ADJiku	_
+2	onegai	_	N	VN	_
+3	shimasu	_	VS	VSfin	u
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	shitsurei	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	shiNbo	_	NAME	NAMEper	_
+2	masanori	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	komatsu	_	NAME	NAMEper	_
+2	youjiN	_	NAME	NAMEper	_
+3	desu	_	PV	PVfin	u
+4	.	_	.	.	_
+
+1	komatsu	_	NAME	NAMEper	_
+2	saN	_	P	PNsf	_
+3	koNnichiwa	_	GR	GR	_
+4	.	_	.	.	_
+
+1	koNnichiwa	_	GR	GR	_
+2	.	_	.	.	_
+
+1	sekkaku	_	ADV	ADV	_
+2	choudo	_	ADV	ADV	_
+3	oai	_	N	VN	_
+4	shimashita	_	VS	VSfin	ta
+5	node	_	PS	PSSa	_
+6	.	_	.	.	_
+
+1	doitsu	_	NAME	NAMEloc	_
+2	no	_	P	Pgen	_
+3	shucchou	_	N	VN	_
+4	no	_	P	Pgen	_
+5	keN	_	N	NF	_
+6	o	_	P	Pacc	_
+7	ima	_	N	Ntmp	_
+8	chotto	_	ADV	ADV	_
+9	uchiawase	_	N	VN	_
+10	suru	_	VS	VSfin	u
+11	koto	_	N	NF	_
+12	wa	_	P	Pfoc	_
+13	dekimasu	_	V	Vfin	u
+14	ka	_	PS	PSE	_
+15	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	ii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	yo	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	chotto	_	ADV	ADV	_
+3	uchiawase	_	N	VN	_
+4	shimashou	_	VS	VSfin	u
+5	.	_	.	.	_
+
+1	mazu	_	ADV	ADVtmp	_
+2	ichibaN	_	ADV	ADVdgr	_
+3	daiji	_	ADJ	ADJ_n	_
+4	na	_	ADJ	ADJsf	_
+5	nittei	_	N	NN	_
+6	nano	_	N	NF	_
+7	desu	_	PV	PVfin	u
+8	keredomo	_	PS	PSSb	_
+9	itsu	_	N	Nwh	_
+10	goro	_	N	Nsf	_
+11	desu	_	PV	PVfin	u
+12	to	_	PS	PSSa	_
+13	ichibaN	_	ADV	ADVdgr	_
+14	gotsugou	_	N	NN	_
+15	ga	_	P	Pnom	_
+16	ii	_	ADJ	ADJifin	_
+17	desu	_	PV	PVfin	u
+18	ka	_	PS	PSE	_
+19	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	juugatsu	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	naka	_	N	NN	_
+5	goro	_	N	Nsf	_
+6	ga	_	P	Pnom	_
+7	aite	_	V	Vte	_
+8	iru	_	VAUX	VAUXfin	u
+9	no	_	N	NF	_
+10	ga	_	P	Pnom	_
+11	ooi	_	ADJ	ADJifin	_
+12	no	_	N	NF	_
+13	desu	_	PV	PVfin	u
+14	ga	_	PS	PSSb	_
+15	aite	_	V	Vte	_
+16	iru	_	VAUX	VAUXfin	u
+17	hi	_	N	Ntmp	_
+18	ga	_	P	Pnom	_
+19	ooi	_	ADJ	ADJifin	_
+20	no	_	N	NF	_
+21	desu	_	PV	PVfin	u
+22	ga	_	PS	PSSb	_
+23	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	juusaN	_	CD	CD	_
+3	to	_	P	Pcnj	_
+4	juuyoN	_	CD	CD	_
+5	ni	_	P	P	_
+6	arimasu	_	V	Vfin	u
+7	yotei	_	N	VN	_
+8	ga	_	P	Pnom	_
+9	haitte	_	V	Vte	_
+10	iru	_	VAUX	VAUXfin	u
+11	no	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	ga	_	PS	PSSb	_
+14	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	ikou	_	N	Nsf	_
+3	da	_	PV	PVfin	ta
+4	to	_	PS	PSSa	_
+5	arimaseN	_	V	Vfin	eN
+6	node	_	PS	PSSa	_
+7	juugonichi	_	CD	CDdate	_
+8	ikou	_	N	Nsf	_
+9	toka	_	P	Pcnj	_
+10	to	_	P	PQ	_
+11	iu	_	V	Vfin	u
+12	iimasu	_	V	Vfin	u
+13	to	_	PS	PSSa	_
+14	dou	_	ADV	ADVwh	_
+15	deshou	_	PV	PVfin	u
+16	ka	_	PS	PSE	_
+17	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	juugonichi	_	CD	CDdate	_
+2	ikou	_	N	Nsf	_
+3	da	_	PV	PVfin	ta
+4	to	_	PS	PSSa	_
+5	chotto	_	ADV	ADV	_
+6	yotei	_	N	VN	_
+7	ga	_	P	Pnom	_
+8	haitte	_	V	Vte	_
+9	shimau	_	VAUX	VAUXfin	u
+10	node	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	wa	_	P	Pfoc	_
+3	juugonichi	_	CD	CDdate	_
+4	mae	_	N	Ntmp	_
+5	ga	_	P	Pnom	_
+6	yokatta	_	ADJ	ADJifin	ta
+7	no	_	N	NF	_
+8	desu	_	PV	PVfin	u
+9	ga	_	PS	PSSb	_
+10	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	chotto	_	ADV	ADV	_
+3	juugatsu	_	CD	CDdate	_
+4	wa	_	P	Pfoc	_
+5	kibishii	_	ADJ	ADJifin	_
+6	desu	_	PV	PVfin	u
+7	ne	_	PS	PSE	_
+8	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	watashi	_	N	PRON	_
+3	juuichigatsu	_	CD	CDdate	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	desu	_	PV	PVfin	u
+7	to	_	PS	PSSa	_
+8	.	_	.	.	_
+
+1	sumimaseN	_	V	Vfin	eN
+2	.	_	.	.	_
+
+1	juuichigatsu	_	CD	CDdate	_
+2	no	_	P	Pgen	_
+3	koto	_	N	NF	_
+4	o	_	P	Pacc	_
+5	ima	_	N	Ntmp	_
+6	itte	_	V	Vte	_
+7	ita	_	VAUX	VAUXfin	ta
+8	no	_	N	NF	_
+9	itte	_	V	Vte	_
+10	ita	_	VAUX	VAUXfin	ta
+11	no	_	N	NF	_
+12	desu	_	PV	PVfin	u
+13	ga	_	PS	PSSb	_
+14	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	chotto	_	ADV	ADV	_
+2	dewa	_	CNJ	CNJ	_
+3	chotto	_	ADV	ADV	_
+4	kaNchigai	_	N	VN	_
+5	shite	_	VS	VSte	_
+6	ita	_	VAUX	VAUXfin	ta
+7	mitai	_	P	PADJ	_
+8	desu	_	PV	PVfin	u
+9	ne	_	PS	PSE	_
+10	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	watashi	_	N	PRON	_
+3	mochi	_	--	--	_
+4	su	_	--	--	_
+5	modoshimasu	_	V	Vfin	u
+6	to	_	PS	PSSa	_
+7	juugatsu	_	CD	CDdate	_
+8	no	_	P	Pgen	_
+9	juugonichi	_	CD	CDdate	_
+10	gurai	_	N	Nsf	_
+11	kara	_	P	P	_
+12	desu	_	PV	PVfin	u
+13	to	_	PS	PSSa	_
+14	nishuukaN	_	CD	CDU	_
+15	gurai	_	N	Nsf	_
+16	marumaru	_	ADV	ADV	_
+17	aite	_	V	Vte	_
+18	imashite	_	VAUX	VAUXte	_
+19	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	moshi	_	ADV	ADV	_
+2	yokereba	_	ADV	ADV	_
+3	to	_	P	PQ	_
+4	omotte	_	V	Vte	_
+5	iru	_	VAUX	VAUXfin	u
+6	no	_	N	NF	_
+7	desu	_	PV	PVfin	u
+8	ga	_	PS	PSSb	_
+9	.	_	.	.	_
+
+1	soredewa	_	CNJ	CNJ	_
+2	juukunichi	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	getsuyoubi	_	NT	NT	_
+5	kara	_	P	P	_
+6	de	_	P	P	_
+7	wa	_	P	Pfoc	_
+8	dou	_	ADV	ADVwh	_
+9	deshou	_	PV	PVfin	u
+10	.	_	.	.	_
+
+1	zeNzeN	_	ADV	ADVdgr	_
+2	daijoubu	_	ADJ	ADJ_n	_
+3	desu	_	PV	PVfin	u
+4	node	_	PS	PSSa	_
+5	dewa	_	CNJ	CNJ	_
+6	juukunichi	_	CD	CDdate	_
+7	shuppatsu	_	N	VN	_
+8	to	_	P	PQ	_
+9	iu	_	V	Vfin	u
+10	koto	_	N	NF	_
+11	de	_	P	P	_
+12	yoroshii	_	ADJ	ADJifin	_
+13	desu	_	PV	PVfin	u
+14	ka	_	PS	PSE	_
+15	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	juukunichi	_	CD	CDdate	_
+2	ni	_	P	P	_
+3	shuppatsu	_	N	VN	_
+4	shimasu	_	VS	VSfin	u
+5	to	_	PS	PSSa	_
+6	kiNyoubi	_	NT	NT	_
+7	no	_	P	Pgen	_
+8	nijuusaNnichi	_	CD	CDdate	_
+9	ni	_	P	P	_
+10	kaette	_	V	Vte	_
+11	kimasu	_	VAUX	VAUXfin	u
+12	keredomo	_	PS	PSSb	_
+13	yoroshii	_	ADJ	ADJifin	_
+14	desu	_	PV	PVfin	u
+15	ka	_	PS	PSE	_
+16	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	juukunichi	_	CD	CDdate	_
+3	shuppatsu	_	N	VN	_
+4	de	_	P	P	_
+5	nijuusaNnichi	_	CD	CDdate	_
+6	kikoku	_	N	VN	_
+7	to	_	P	PQ	_
+8	iu	_	V	Vfin	u
+9	koto	_	N	NF	_
+10	de	_	P	P	_
+11	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	watashi	_	N	PRON	_
+3	choudo	_	ADV	ADV	_
+4	nihoN	_	NAME	NAMEloc	_
+5	doitsu	_	NAME	NAMEloc	_
+6	kaN	_	N	Nsf	_
+7	no	_	P	Pgen	_
+8	furaito	_	N	NN	_
+9	sukejuuru	_	N	NN	_
+10	o	_	P	Pacc	_
+11	motte	_	V	Vte	_
+12	imasu	_	VAUX	VAUXfin	u
+13	node	_	PS	PSSa	_
+14	ima	_	N	Ntmp	_
+15	mou	_	ADV	ADV	_
+16	kimete	_	V	Vte	_
+17	shimaitai	_	VADJ	VADJi	_
+18	to	_	P	PQ	_
+19	omou	_	V	Vfin	u
+20	no	_	N	NF	_
+21	desu	_	PV	PVfin	u
+22	ga	_	PS	PSSb	_
+23	.	_	.	.	_
+
+1	yoroshii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	onegai	_	N	VN	_
+2	shimasu	_	VS	VSfin	u
+3	.	_	.	.	_
+
+1	to	_	ITJ	ITJ	_
+2	juukunichi	_	CD	CDdate	_
+3	no	_	P	Pgen	_
+4	getsuyoubi	_	NT	NT	_
+5	desu	_	PV	PVfin	u
+6	to	_	PS	PSSa	_
+7	ni	_	P	P	_
+8	nihoN	_	NAME	NAMEloc	_
+9	hatsu	_	N	Nsf	_
+10	naritakuukou	_	NAME	NAMEloc	_
+11	hatsu	_	N	Nsf	_
+12	doitsu	_	NAME	NAMEloc	_
+13	iki	_	N	Nsf	_
+14	ga	_	P	Pnom	_
+15	ni	_	CD	CD	_
+16	biN	_	UNIT	UNIT	_
+17	arimashite	_	V	Vte	_
+18	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+19	to	_	P	Pcnj	_
+20	nihoNkoukuu	_	NAME	NAMEorg	_
+21	to	_	P	Pcnj	_
+22	arimashite	_	V	Vte	_
+23	hotoNdo	_	ADV	ADVdgr	_
+24	jikaN	_	N	NN	_
+25	wa	_	P	Pfoc	_
+26	kawarimaseN	_	V	Vfin	eN
+27	shi	_	PS	PSSa	_
+28	tsuku	_	V	Vfin	u
+29	jikaN	_	N	NN	_
+30	mo	_	P	Pfoc	_
+31	mattaku	_	ADV	ADV	_
+32	issho	_	ADJ	ADJ_n	_
+33	desu	_	PV	PVfin	u
+34	node	_	PS	PSSa	_
+35	douse	_	ADV	ADV	_
+36	deshitara	_	PV	PVcnd	_
+37	nihoNkoukuu	_	NAME	NAMEorg	_
+38	de	_	P	P	_
+39	ikimashita	_	V	Vfin	ta
+40	hou	_	N	NF	_
+41	ga	_	P	Pnom	_
+42	nihoN	_	NAME	NAMEloc	_
+43	no	_	P	Pgen	_
+44	de	_	P	P	_
+45	kutsuroide	_	V	Vte	_
+46	ikeru	_	V	Vfin	u
+47	to	_	P	PQ	_
+48	omou	_	V	Vfin	u
+49	no	_	N	NF	_
+50	desu	_	PV	PVfin	u
+51	ga	_	PS	PSSb	_
+52	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	yoroshii	_	ADJ	ADJifin	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	ne	_	PS	PSE	_
+5	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ne	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	nihoN	_	NAME	NAMEloc	_
+2	no	_	P	Pgen	_
+3	suchuwaadesu	_	N	NN	_
+4	saN	_	P	PNsf	_
+5	no	_	P	Pgen	_
+6	hou	_	N	NF	_
+7	ga	_	P	Pnom	_
+8	ochitsukimasu	_	V	Vfin	u
+9	shi	_	PS	PSSa	_
+10	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	da	_	PV	PVfin	ta
+3	to	_	PS	PSSa	_
+4	ii	_	ADJ	ADJifin	_
+5	no	_	N	NF	_
+6	desu	_	PV	PVfin	u
+7	ga	_	PS	PSSb	_
+8	.	_	.	.	_
+
+1	watashi	_	N	PRON	_
+2	mo	_	P	Pfoc	_
+3	nihoN	_	NAME	NAMEloc	_
+4	no	_	P	Pgen	_
+5	hikouki	_	N	NN	_
+6	no	_	P	Pgen	_
+7	ga	_	P	Pnom	_
+8	suki	_	ADJ	ADJ_n	_
+9	deshite	_	PV	PVte	_
+10	dewa	_	CNJ	CNJ	_
+11	nihoNkoukuu	_	NAME	NAMEorg	_
+12	no	_	P	Pgen	_
+13	yoNhyaku	_	CD	CD	_
+14	nijuugo	_	CD	CD	_
+15	biN	_	UNIT	UNIT	_
+16	to	_	P	PQ	_
+17	iu	_	V	Vfin	u
+18	no	_	N	NF	_
+19	ga	_	P	Pnom	_
+20	arimashite	_	V	Vte	_
+21	naritakuukou	_	NAME	NAMEloc	_
+22	juuichiji	_	CD	CDtime	_
+23	yoNjuppuN	_	CD	CDtime	_
+24	ni	_	P	P	_
+25	shuppatsu	_	N	VN	_
+26	shimashite	_	V	Vte	_
+27	hanoofaa	_	NAME	NAMEloc	_
+28	ni	_	P	P	_
+29	wa	_	P	Pfoc	_
+30	hachiji	_	CD	CDtime	_
+31	juppuN	_	CD	CDtime	_
+32	ni	_	P	P	_
+33	yoru	_	N	Ntmp	_
+34	no	_	P	Pgen	_
+35	hachiji	_	CD	CDtime	_
+36	juppuN	_	CD	CDtime	_
+37	ni	_	P	P	_
+38	tsukimasu	_	V	Vfin	u
+39	.	_	.	.	_
+
+1	de	_	CNJ	CNJ	_
+2	kikoku	_	N	VN	_
+3	nano	_	N	NF	_
+4	desu	_	PV	PVfin	u
+5	keredomo	_	PS	PSSb	_
+6	kiNyoubi	_	NT	NT	_
+7	ni	_	P	P	_
+8	kikoku	_	N	VN	_
+9	nano	_	N	NF	_
+10	desu	_	PV	PVfin	u
+11	keredo	_	PS	PSSb	_
+12	mokuyoubi	_	NT	NT	_
+13	ni	_	P	P	_
+14	doitsu	_	NAME	NAMEloc	_
+15	o	_	P	Pacc	_
+16	tatsu	_	V	Vfin	u
+17	no	_	N	NF	_
+18	desu	_	PV	PVfin	u
+19	keredomo	_	PS	PSSb	_
+20	ni	_	CD	CD	_
+21	biN	_	UNIT	UNIT	_
+22	arimashite	_	V	Vte	_
+23	gozeNchuu	_	NT	NT	_
+24	ni	_	P	P	_
+25	hanoofaa	_	NAME	NAMEloc	_
+26	o	_	P	Pacc	_
+27	shuppatsu	_	N	VN	_
+28	suru	_	VS	VSfin	u
+29	mono	_	N	NF	_
+30	to	_	P	Pcnj	_
+31	gogo	_	NT	NT	_
+32	no	_	P	Pgen	_
+33	niji	_	CD	CDtime	_
+34	haN	_	N	NN	_
+35	ni	_	P	P	_
+36	shuppatsu	_	N	VN	_
+37	suru	_	VS	VSfin	u
+38	mono	_	N	NF	_
+39	to	_	P	Pcnj	_
+40	aru	_	V	Vfin	u
+41	no	_	N	NF	_
+42	desu	_	PV	PVfin	u
+43	ga	_	PS	PSSb	_
+44	.	_	.	.	_
+
+1	sukoshi	_	ADV	ADVdgr	_
+2	gogo	_	NT	NT	_
+3	deru	_	V	Vfin	u
+4	no	_	N	NF	_
+5	wa	_	P	Pfoc	_
+6	raku	_	ADJ	ADJ_n	_
+7	nano	_	N	NF	_
+8	desu	_	PV	PVfin	u
+9	keredomo	_	PS	PSSb	_
+10	nihoN	_	NAME	NAMEloc	_
+11	ni	_	P	P	_
+12	kaette	_	V	Vte	_
+13	kuru	_	VAUX	VAUXfin	u
+14	no	_	N	NF	_
+15	ga	_	P	Pnom	_
+16	goji	_	CD	CDtime	_
+17	to	_	P	PQ	_
+18	iu	_	V	Vfin	u
+19	fuuni	_	P	PADV	_
+20	sugoku	_	ADV	ADVdgr	_
+21	osoku	_	ADJ	ADJiku	_
+22	natte	_	V	Vte	_
+23	shimau	_	VAUX	VAUXfin	u
+24	no	_	N	NF	_
+25	desu	_	PV	PVfin	u
+26	keredomo	_	PS	PSSb	_
+27	.	_	.	.	_
+
+1	tokubetsu	_	ADJ	ADJ_n	_
+2	nanika	_	N	NN	_
+3	kaette	_	V	Vte	_
+4	kuru	_	VAUX	VAUXfin	u
+5	hi	_	N	Ntmp	_
+6	wa	_	P	Pfoc	_
+7	sukoshi	_	ADV	ADVdgr	_
+8	hayame	_	N	NN	_
+9	no	_	P	Pgen	_
+10	hou	_	N	NF	_
+11	ga	_	P	Pnom	_
+12	ii	_	ADJ	ADJifin	_
+13	toka	_	P	Pcnj	_
+14	nanika	_	N	NN	_
+15	arimasu	_	V	Vfin	u
+16	deshou	_	PV	PVfin	u
+17	ka	_	PS	PSE	_
+18	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	.	_	.	.	_
+
+1	betsu	_	ADJ	ADJ_n	_
+2	ni	_	P	P	_
+3	hayaku	_	ADJ	ADJiku	_
+4	kaette	_	V	Vte	_
+5	konakereba	_	VADJ	VADJicnd	_
+6	ikenai	_	ADJ	ADJifin	_
+7	riyuu	_	N	NN	_
+8	nado	_	N	Nsf	_
+9	nai	_	ADJ	ADJifin	_
+10	node	_	PS	PSSa	_
+11	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dekirudake	_	ADV	ADV	_
+2	nagaku	_	ADJ	ADJiku	_
+3	doitsu	_	NAME	NAMEloc	_
+4	no	_	P	Pgen	_
+5	hou	_	N	NF	_
+6	ni	_	P	P	_
+7	irereba	_	V	Vcnd	_
+8	ii	_	ADJ	ADJifin	_
+9	na	_	PS	PSE	_
+10	to	_	P	PQ	_
+11	.	_	.	.	_
+
+1	sou	_	ADV	ADVdem	_
+2	desu	_	PV	PVfin	u
+3	ka	_	PS	PSE	_
+4	.	_	.	.	_
+
+1	hai	_	ITJ	ITJ	_
+2	.	_	.	.	_
+
+1	dewa	_	CNJ	CNJ	_
+2	wakarimashita	_	V	Vfin	ta
+3	.	_	.	.	_
+
+1	onaji	_	ADJ	ADJ	_
+2	rufutohaNzakoukuu	_	NAME	NAMEorg	_
+3	nano	_	N	NF	_
+4	desu	_	PV	PVfin	u
+5	ga	_	PS	PSSb	_
+6	dewa	_	CNJ	CNJ	_
+7	sukoshi	_	ADV	ADVdgr	_
+8	osoku	_	ADJ	ADJiku	_
+9	deremasu	_	V	Vfin	u
+10	niji	_	CD	CDtime	_
+11	saNjuugofuN	_	CD	CDtime	_
+12	hatsu	_	N	Nsf	_
+13	no	_	N	NF	_
+14	ni	_	P	P	_
+15	shimashou	_	V	Vfin	u
+16	.	_	.	.	_
+
+1	sore	_	N	Ndem	_
+2	de	_	P	P	_
+3	o	_	--	--	_
+4	onegai	_	N	VN	_
+5	shimasu	_	VS	VSfin	u
+6	.	_	.	.	_
+

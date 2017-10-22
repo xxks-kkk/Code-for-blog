@@ -1,0 +1,24 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Ballesteros(2015)}]{cmuarc}
+Miguel Ballesteros. 2015.
+\newblock {\em Transition-based Dependency Parsing\/}.
+
+\bibitem[{Goldberg and Nivre(2012)}]{GoldbergN12}
+Yoav Goldberg and Joakim Nivre. 2012.
+\newblock \href{http://aclweb.org/anthology/C/C12/C12-1059.pdf}{A dynamic
+  oracle for arc-eager dependency parsing}.
+\newblock In {\em {COLING} 2012, 24th International Conference on Computational
+  Linguistics, Proceedings of the Conference: Technical Papers, 8-15 December
+  2012, Mumbai, India\/}. pages 959--976.
+\newblock
+  \href{http://aclweb.org/anthology/C/C12/C12-1059.pdf}{http://aclweb.org/anthology/C/C12/C12-1059.pdf}.
+
+\bibitem[{Jurafsky and H.Martin(2017)}]{Jurafsky:2017}
+Dan Jurafsky and James H.Martin. 2017.
+\newblock Speech and language processing.
+\newblock Preprint on webpage at
+  \url{https://web.stanford.edu/~jurafsky/slp3/}.
+
+\end{thebibliography}
