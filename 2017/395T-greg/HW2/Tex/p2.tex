@@ -122,8 +122,8 @@ we perform the SSVM update using the features that are cumulative over the whole
 
 So far, we have assumed that the transitions between states follow the arc standard system. As the extension
 to the project, I want to explore the alternative transition system: arc eager. Unfortunately, I meet some
-issues during the implementations. The major one comes from the inconsistent
-definition of the precondtion for each action under in the system. We can apply \verb|LeftArc| action as long as the top
+issues during the implementation. The major one comes from the inconsistent
+definition of the precondtion for each action in the system. We can apply \verb|LeftArc| action as long as the top
 of the stack is not the root node. For \verb|Shift| action, we can apply it as long as there are tokens inside the buffer.
 There is no restriction for the \verb|RightArc|. However, for \verb|Reduce| operation, there are
 discrepancies from different literature. Jurafsky~\shortcite{Jurafsky:2017} does not explicitly talk about this issue
