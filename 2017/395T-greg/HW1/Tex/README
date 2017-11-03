@@ -1,0 +1,8 @@
+Feedback:
+
+Good beam search extension and good performance overall!
+For the writeup, you should include your best number / overall performance results in a table rather than just a graph (and the graph should have larger text).
+
+For profiling/timing, you should run on a larger number of sentences to reduce variance
+-- patterns of memory accesses, etc. aren't necessarily exposed accurately on one example (referring to the nanos experiment).
+Extension should be slightly more analytical: try to shed light on why the results are the way they are.
