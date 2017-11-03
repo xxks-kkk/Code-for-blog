@@ -13,3 +13,6 @@ token.mat
 2017/tex-drawings/img/*.pdf
 *.pyc
 log*
+*.bbl
+*.blg
+.idea/
