@@ -180,7 +180,7 @@ and \emph{Module voting algorithm} \cite{Zhang:2015}.
 
 \begin{itemize}
 \item \textbf{Module aggregation algorithm} selects the action that maximizes the Q value of all modules combined for a given state.
-Concretelym we choose action $a^* = \argmax_a Q(s,a)$, where $Q(s,a) = \sum_i Q_i(s_i,a)$ with $i$ representing module $i$.
+Concretely, we choose action $a^* = \argmax_a Q(s,a)$, where $Q(s,a) = \sum_i Q_i(s_i,a)$ with $i$ representing module $i$.
 \item \textbf{Module selection algorithm} selects the action that has the highest weight across the all modules. Let $W_i(s_i)$ denote
 the weight of module $i$ at state $s_i$. We choose $W_i(s_i) = \sigma(Q_i(s_i,a))$, where $\sigma(Q_i(s_i,a))$ is the standard
 deviation of Q values acorss actions. The intuition behind the scene is that the variance of Q values across all actions indicates
@@ -300,7 +300,7 @@ hyperparameters shown in table 2. The rest of hyperparameters are kept untouched
 
 \begin{table}
 \captionsetup{size=footnotesize}
-\caption{Hyperparameter configuration for globlal policy construction algorithms} \label{tab:freq}
+\caption{Hyperparameter configuration for globlal policy construction algorithms experiment} \label{tab:freq}
 %\setlength\tabcolsep{0pt} % let LaTeX compute intercolumn whitespace
 \footnotesize\centering
 %This table provides the frequencies.
