@@ -1,0 +1,71 @@
+digraph G {
+    rankdir = LR;
+    splines=false;
+    edge[style=invis];
+    ranksep= 1.4;
+    {
+            node [shape=circle, color=yellow, style=filled, fillcolor=yellow];
+            x0  [label=""]
+            a02 [label=""]
+            a03 [label=""]
+    }
+    {
+            node [shape=circle, color=chartreuse, style=filled, fillcolor=chartreuse];
+            x1 [label=""];
+            x2 [label=""]; 
+            x3 [label=""];
+    }
+    {
+            node [shape=circle, color=dodgerblue, style=filled, fillcolor=dodgerblue];
+            a12 [label=""];
+            a22 [label=""];
+            a32 [label=""];
+            a42 [label=""];
+            a52 [label=""];
+            a13 [label=""];
+            a23 [label=""];
+            a33 [label=""];
+            a43 [label=""];
+            a53 [label=""];
+    }
+    {
+            node [shape=circle, color=coral1, style=filled, fillcolor=coral1];
+            O1 [label=""];
+            O2 [label=""]; 
+            O3 [label=""]; 
+            O4 [label=""];
+    }
+    {
+        rank=same;
+        x0->x1->x2->x3;
+    }
+    {
+        rank=same;
+        a02->a12->a22->a32->a42->a52;
+    }
+    {
+        rank=same;
+        a03->a13->a23->a33->a43->a53;
+    }
+    {
+        rank=same;
+        O1->O2->O3->O4;
+    }
+    a02->a03;  // prevent tilting
+    l0 [shape=plaintext, label="Input Layer"];
+    l0->x0;
+    {rank=same; l0;x0};
+    l1 [shape=plaintext, label="Hidden Layer 1"];
+    l1->a02;
+    {rank=same; l1;a02};
+    l2 [shape=plaintext, label="Hidden Layer 2"];
+    l2->a03;
+    {rank=same; l2;a03};
+    l3 [shape=plaintext, label="Output Layer (10 Units)"];
+    l3->O1;
+    {rank=same; l3;O1};
+    edge[style=solid, tailport=e, headport=w];
+    {x0; x1; x2; x3} -> {a12;a22;a32;a42;a52};
+    {a02;a12;a22;a32;a42;a52} -> {a13;a23;a33;a43;a53};
+    {a03;a13;a23;a33;a43;a53} -> {O1,O2,O3,O4};
+}
