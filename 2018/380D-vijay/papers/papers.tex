@@ -1,0 +1,98 @@
+\documentclass[11pt,fleqn]{article}
+%\usepackage{CJK}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage{graphicx, float}\usepackage{graphicx}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[colorlinks]{hyperref}
+\usepackage[toc,page]{appendix}
+\usepackage{bm}
+\setlength{\oddsidemargin}{-0.0in}
+\setlength{\evensidemargin}{-0.0in} \setlength{\textwidth}{6.0in}
+\setlength{\textheight}{9.0in} \setlength{\topmargin}{-0.2in}
+%\usepackage[boxruled]{algorithm2e}
+
+%\setlength{\leftmargin}{0.7in}
+\usepackage{amssymb, graphicx, amsmath}  %  fancyheadings,
+\usepackage{setspace}
+\newcommand\qed{\qquad $\square$}
+\newcommand{\nn}{\nonumber}
+
+\usepackage{lipsum}
+
+\def \[{\begin{equation}}
+\def \]{\end{equation}}
+\def\proof{{\bf Proof:\quad}}
+\def \endzm {\quad $\Box$}
+\def\dist{\hbox{dist}}
+
+\usepackage{tabularx,booktabs}
+\newcolumntype{C}{>{\centering\arraybackslash\hsize=.5\hsize}X} % centered version of "X" type
+\setlength{\extrarowheight}{1pt}
+\usepackage{caption}% <-- added
+
+
+\newcommand{\R}{\mathbb{R}}
+%\newtheorem{yinli}{ТэАн}[section]
+\newcommand{\D}{\displaystyle}
+\newcommand{\T}{\textstyle}
+\newcommand{\SC}{\scriptstyle}
+\newcommand{\FT}{\footnotesize}
+
+\usepackage{hyperref}
+\newcommand\fnurl[2]{%
+  \href{#2}{#1}\footnote{\url{#2}}%
+}
+
+
+%\newtheorem{theorem}{Theorem}[section]
+%\renewcommand{\thetheorem}{\arabic{section}.\arabic{theorem}}
+\newtheorem{definition}{Definition}
+\renewcommand{\thedefinition}{\arabic{section}.\arabic{definition}}
+\newtheorem{lemma}{Lemma}[section]
+\renewcommand{\thelemma}{\arabic{section}.\arabic{lemma}}
+\newtheorem{remark}{Remark}
+\renewcommand{\theremark}{\arabic{section}.\arabic{remark}}
+\newtheorem{proposition}{Proposition}[section]
+\renewcommand{\theproposition}{\arabic{section}.\arabic{proposition}}
+\newtheorem{corollary}{Corollary }[section]
+\renewcommand{\thecorollary}{\arabic{section}.\arabic{corollary}}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\baselinestretch}{1.35}
+\newtheorem{exam}{Example}[section]
+\renewcommand{\theexam}{\arabic{section}.\arabic{exam}}
+\newtheorem{theo}{Theorem}[section]
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+
+% Define a \HEADER{Title} ... \ENDHEADER block
+\makeatletter
+\newcommand{\HEADER}[1]{\ALC@it\underline{\textsc{#1}}\begin{ALC@g}}
+\newcommand{\ENDHEADER}{\end{ALC@g}}
+\makeatother
+
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\begin{document}
+%\begin{CJK*}{GBK}{song}
+
+\begin{center}
+
+{\LARGE \bf CS380D: Distributed Systems Paper List}\\
+
+\vskip 25pt
+ {Zeyuan Hu, iamzeyuanhu@utexas.edu }\\
+\vskip 5pt
+{\small EID:zh4378 Spring 2018 }
+
+\end{center}
+
+
+
+\bibliographystyle{acm}
+\bibliography{papers}
+
+
+\end{document}
