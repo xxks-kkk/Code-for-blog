@@ -1,0 +1,26 @@
+\section{Jan 26 Review Questions}
+\begin{QandA}
+   \item Jeff Dean's talk mentions several patterns in distributed systems (Single Master, Many Workers; Canary Requests; ...). Describe how some of these could be applied in a current system not described in the slides.
+         \begin{answered}
+         Amazon EC2 system adopts ``Elastic Systems" design pattern described in the talk. A user can rent their own server(s) on the Amazon EC2. However, it is hard for user to forsee the exact peak load for his usage.
+         It is expensive to rent multiple servers in the anticipation of high workload. On the other hand, the current server instances may suffer from the sudden jump in the workload, which can only be handled by renting
+         additional servers. To handle this type of user's needs, Amazon EC2 system is designed to have the elastic capability to handle the workload: Amazon EC2 can automatically shrink capacity when there is not much workload and grow capacity as the workload grows. In addition, Amazon EC2 as a cloud platform can have huge amount of users' service requests. It is unfeasible to have one single machine to handle the requests from the beginning to the end. Thus, ``Tree distribution of Requests" and ``Multiple Smaller Units per Machine" design patterns can be helpful here. We restrict the amount of requests can be handled by each machine (i.e., 10-100 requests/machine) and we distribute the requests (e.g., 
+         create 100 instances) to 50 leaf machines and with each leaf machine only needs to perform small amount of tasks (e.g., create two instances) . Those 50 leaf machines can connect to another tree sturcture parents and root machines to collect the status of tasks progress requested by the user.
+         \end{answered}
+
+   \item Provide an example of modern day events that are related by the happens-before relationship and an example of events that are concurrent. What are the possible relationships of the logical clock times for the events?
+         \begin{answered}
+		 The preference ranking on goods by a consumer. A consumer prefers $A$ over $B$ is denoted as $A \succ B$. This is similar to the "happen-before" relationship in the sense that consumer's more favorable object (i.e., $A$)
+		 always comes before the less favorable object (i.e., $B$). "Concurrent" concept is also perserved in the preference ranking in the sense that if a consumer is indifferent between two goods $A$ and $B$, we can denote
+		 them as $A \sim B$. In other words, if a consumer cannot tell if he perfers $A$ over $B$ or perfers $B$ over $A$, we say he is indifferent between two goods. Mathematically, $A \sim B$ when $A \nsucc B$ and $A \nprec B$,
+		 which mimics concurrent definition exactly. The "logical clock times" for preference ranking is utility function where we assign numbers to each good based on the consumer's preference ranking.
+		 We have $U(A) > U(B)$ if and only if $A \succ B$. In words, if the utility function value of $A$
+		 is greater than $B$, we know that the consumer prefers $A$ over $B$. Reverse statement also holds. If two objects' utility function values are equal to each other (i.e., $U(A) = U(B)$), we know that the consumer
+		 is indifferent between two goods (i.e., $A \sim B$).
+         \end{answered}
+\end{QandA}
+
+\subsection{Feedback}
+
+While $C(A) = C(B)$ would imply that events are concurrent, the events being concurrent doesn't actually imply $C(A) = C(B)$. 
+For concurrent events $A$ and $B$, any relationship between $C(A)$ and $C(B)$ is valid. The similarity to a utility function would hold better for vector clocks, where the happens-before relationship can be inferred from the clock times.

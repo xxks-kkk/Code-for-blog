@@ -1,0 +1,36 @@
+\section{Feb 02 Review Questions}
+\begin{QandA}
+   \item The state machine approach paper describes implementing stability using several different clock methods. What properties does a clock need to provide so that it can be used to implement stability?
+         \begin{answered}
+ 		 The clock should be able to assign the unique identifier to each request whose issuance corresponds to an an event. In addition, the clock should ensure the total ordering on the unique identifiers. In other words, the clock has to satisfy: 1) clock value $\hat{T_p}$ incremented after each event at process $p$ 2) Upon receipt of a message with timestamp $\tau$, process resets the clock value $\hat{T_p}$ to 
+ 		 $\max(\hat{T_p}, \tau) + 1$.
+         \end{answered}
+
+   \item For linearizability, sequential consistency, and eventual consistency, describe an application (real or imagined) that could reasonably use that consistency model.
+         \begin{answered}
+		 \begin{itemize}
+		 \item linearizability example: transactions on RDBMS enforces linearizability in the sense that the read/write operations on a table in RDBMS have to be "atomic". Once a tuple is modified and commited,
+		 the changes to the tuple become visible to the following read immediately. A real life example is that when I deposit the money into an 
+		 account, I want to see the the money reflect the latest deposit immediately in my bank account.
+		 \item sequential consistency example: isolation requirement for RDBMS. When two transactions that are modifying the same table, each operation
+		 within the transactions are executed in the order they are issued. However, the operations from two transactions may be interleaved (i.e., under "Read uncommitted" isolation level). Another
+		 example is one person $A$ issues "unfriend", "post" operations and the other person $B$ issues "scroll the facebook page". The operation
+		 order from these two people are kept: "post" never goes before "unfriend" but operations may interleave: "unfriend", "scroll the facebook
+		 page", "post" instead of doing $A$'s operation first ("unfriend", "post") and then $B$'s.
+		 \item eventual consistency example: high available key-value store like Dynamo. The order status display service may not see the user's
+		 update on the shopping cart but eventually those updates can be seen by every services. Another example is when you like a post, the 
+		 other people who can see the post may not see your ``like" immediately in their facebook page but eventually, they will see your ``like" on the post.
+		 \end{itemize}
+         \end{answered}
+         
+   \item What's one benefit of using invalidations instead of leases? What's one benefit of using leases over invalidations?
+         \begin{answered}
+         One benefit of using leases over invalidations can be seen from the following example: suppose we use the eventual consistency model 
+         and a write is waiting on invalidations. 
+  		 Invalidation has negative impact to the system performance because the user cannot use the cache due to the invalidation but it is ok for client reads the old value because of eventual consistency. However, for the lease, if the cache is hold by the lease holder and still within the lease term, user can still read the data from the cache. This scenario also indicates the benefit of the invalidations over leases in the sense that the user may not get the latest updated value since they can read
+       	the old value from the lease-holder-protected cache directly. Thus, for the linearizability consistency model, we cannot use the leases because the write may not be approved by the leaseholder and there might be a read that happens immediately after reading
+       	from the out-dated cache. This violates the linearizability, which guarantees that reads always reflect the latest write. 
+       	Thus, there will be a delay in write, which hinders the system performance. However, for
+       	eventual consistency model, leases is more favorable than invalidations.
+         \end{answered}
+\end{QandA}

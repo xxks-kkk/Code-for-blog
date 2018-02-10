@@ -1,0 +1,33 @@
+\section{Jan 19 Review Questions}
+\begin{QandA}
+   \item How do the 8 fallacies of distributed systems differ between designing a system over the world wide web (say between India and the US) and between servers inside a single datacenter? 
+         \begin{answered}
+         \begin{enumerate}
+          \item The network is reliable. The network for a system that spans globablly may be highly likely unreliable. However, for a system
+          resides only in a single datacenter. We can think the network is reliable. However, there are still chances for network outage even
+          in a single datacenter.
+          \item Latency is zero. The latency for a global system is necessarily non-zero and large. However, for servers in a single datacenter, we can assume that the latency is very small but we still cannot assume that the latency is zero.
+          \item Bandwidth is infinite. No matter which scenarios, the bandwidth is limited.
+          \item The network is secure. For servers within a single datacenter, if we have built a good firewall to isolate the network inside the
+          datacenter from outside, we are likely to have a secure network. However, for a system that relies on a global network, we need to put
+          much more effort to ensure the security of the network.
+          \item Topology doesn't change. We can assume this one for servers in a single network. However, for a system that utilizes multiple datacenters, the topology may change over the time because we may switch to other datacenters during the time.
+          \item There is one administrator. In either scenarios, we cannot assume we have one administrator. This is especially true for a global
+          sytem that needs to provide a 24x7 service.
+          \item Transport cost is zero. Similar to the latency, we cannot assume the transport cost is zero in either cases.
+          \item The network is homogeneous. For servers in a single datacenter, we can assume this one holds. However, for a global system, this
+          assumption can never be true because the network infrastructure is necessarily different from country to country.
+         \end{enumerate}
+         \end{answered}
+
+   \item What would you expect to be different between Tandem's breakdown of outage reasons and the breakdown of outage reasons for a modern service, say Amazon EC2?
+         \begin{answered}
+         I think the administration outages still are the major source of the outage for both Tandem and a modern service given that 
+         the notable outages from last year (\fnurl{GitLab}{https://about.gitlab.com/2017/02/10/postmortem-of-database-outage-of-january-31/} and \fnurl{AWS}{https://aws.amazon.com/message/41926/}) are due to the human errors. In addition, the software outage may also take the second
+         place for the outage reasons given the complexity of the system has increased. However, I would expect that the outage reasons due to the
+         hardware and environment may no longer hold for a modern service nowadays. The stability of hardware has increased since Tandem's paper
+         and for a large scare sevice like Amazon EC2, people use multiple datacenters to provide redundancy instead of multiple servers reside in
+         the same datacenter. Providing service backup using multiple datacenters across different locations make the outage due to power, communications, and facilities very unlikely.
+         \end{answered}
+\end{QandA}
+
