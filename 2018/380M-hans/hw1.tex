@@ -30,8 +30,8 @@ Translate the following sentences into predicate logic.
    \item If an argument with two premises is valid and its conclusion is false, then one of the premises is false.
          \begin{answered}
          $((\forall x)(\forall y)(\forall z)(\forall k)(\texttt{argument}(x) \land \texttt{premise}(y) \land \texttt{premise}(z)
-         \land \texttt{belongToArgument}(y,x) \land \texttt{belongToArgument}(z,x) \land \texttt{valid}(x)) \rightarrow (\neg \texttt{conclusion}(k)))
-         \rightarrow (\neg y \lor \neg z)$
+         \land \texttt{belongToArgument}(y,x) \land \texttt{belongToArgument}(z,x) \land \texttt{valid}(x) \land \neg \texttt{conclusion}(k)
+         \land \texttt{belongToArgument}(k,x)) \rightarrow (\neg y \lor \neg z)$
          \end{answered}
    \item There are three dishes that John doesn’t like.
          \begin{answered}
