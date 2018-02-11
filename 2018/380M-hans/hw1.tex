@@ -1,0 +1,41 @@
+\section{HW1}
+Translate the following sentences into predicate logic. 	
+(You may choose your own letters to serve as non-logical constants. Translate ``but'' as if it were ``and'')
+\begin{QandA}
+   \item John loves Mary, but she doesn’t love him. 
+         \begin{answered}
+		 $\texttt{love}(J,M) \land \neg \texttt{love}(M,J)$
+         \end{answered}
+
+   \item John believes all things that Mary believes and some other things as well.
+         \begin{answered}
+         $(\forall y)((\texttt{things}(y) \land \texttt{believe}(M,y)) \rightarrow \texttt{believe}(J,y)) \land (\exists x)(\texttt{things}(x)
+         \land \texttt{believe}(J,x) \land \neg \texttt{believe}(M,x))$
+         \end{answered}
+         
+   \item If a cat and a mouse are in the same room and the mouse doesn’t run away, then either the mouse is dead or the cat is dead.
+         \begin{answered}
+         $(\forall x)(\forall y)(\texttt{cat}(x) \land \texttt{mouse}(y) \land \texttt{inTheSameRoom}(x,y) \land \neg \texttt{runAway}(y)) 
+         \rightarrow (\texttt{dead}(x) \lor \texttt{dead}(y))$ \footnote{Here, I interpret ``either ... or" as $\texttt{OR}$ in logic term. If
+         we treat ``either ... or" as $\texttt{XOR}$ instead, the PC of the sentence then becomes
+         $(\forall x)(\forall y)(\texttt{cat}(x) \land \texttt{mouse}(y) \land \texttt{inTheSameRoom}(x,y) \land \neg \texttt{runAway}(y)) 
+         \rightarrow ((\texttt{dead}(x) \land \neg \texttt{dead}(y)) \lor (\texttt{dead}(y) \land \neg \texttt{dead}(x)))$} 
+         \end{answered}
+   \item Everyone who has two jobs neglects one of them.
+         \begin{answered}
+         $(\forall x)(\exists y)(\exists z)(\texttt{Human}(x) \land \texttt{job}(y) \land \texttt{job}(z) \land \texttt{hasJob}(x,y) \land
+         \texttt{hasJob}(x,z)) \rightarrow ((\texttt{neglect}(y) \land \neg \texttt{neglect}(z)) \lor (\texttt{neglect}(z) \land 
+         \neg \texttt{neglect}(y)))$
+         \end{answered}
+   \item If an argument with two premises is valid and its conclusion is false, then one of the premises is false.
+         \begin{answered}
+         $((\forall x)(\forall y)(\forall z)(\forall k)(\texttt{argument}(x) \land \texttt{premise}(y) \land \texttt{premise}(z)
+         \land \texttt{belongToArgument}(y,x) \land \texttt{belongToArgument}(z,x) \land \texttt{valid}(x)) \rightarrow (\neg \texttt{conclusion}(k)))
+         \rightarrow (\neg y \lor \neg z)$
+         \end{answered}
+   \item There are three dishes that John doesn’t like.
+         \begin{answered}
+         $((\exists x)(\exists y)(\exists z)(\texttt{dish}(x) \land \texttt{dish}(y) \land \texttt{dish}(z))) \rightarrow (
+         \neg \texttt{like}(J,x) \land \neg \texttt{like}(J,y) \land \neg \texttt{like}(J,z))$
+         \end{answered}
+\end{QandA}
