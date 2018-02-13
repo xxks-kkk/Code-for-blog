@@ -1,0 +1,23 @@
+#
+# trace13.txt - Restart every stopped process in process group
+#
+/bin/echo -e msh> ./mysplit 4
+./mysplit 4 
+
+SLEEP 2
+TSTP
+
+/bin/echo msh> jobs
+jobs
+
+/bin/echo msh> /bin/ps a
+/bin/ps a
+
+/bin/echo msh> fg %1
+fg %1
+
+/bin/echo msh> /bin/ps a
+/bin/ps a
+
+
+

@@ -1,0 +1,119 @@
+			+--------------------+
+			|        CS 439      |
+			|  PROJECT 0: SHELL  |
+			|   DESIGN DOCUMENT  |
+			+--------------------+
+
+The questions in this design document should reflect the design of the code you 
+wrote for the project.   Your grade will reflect both the quality of your answer
+ in this document and the quality of the design implementation in your code.  
+You may receive partial credit for answering questions for parts of the project 
+that you did not get to implement, but you must indicate in your answer that 
+there is no corresponding implementation, or you will not receive any credit.
+
+For each question, you should include both the name of the file(s), function 
+name(s), and the line numbers where the relevant code may be found.
+
+These design documents should be completed individually.   Group members are 
+welcome to use this document as a guide for design and are welcome to discuss 
+the questions, but there should be no group notes or other sorts of copying of 
+design documents.
+
+When you have completed your design document, submit it to the Canvas assignment
+ Project 1 Design and Documentation.  ***Your submission must be a text file and
+ each line must not extend past 80 characters.  (Note that rtf files are NOT 
+text files.)
+
+################
+YOUR INFO
+################
+Name1:
+EID1:
+CS login:
+Email:
+Unique Number:
+
+Slip days used:
+
+****EACH student submits a (unique) design document.****
+
+################
+YOUR PARTNER'S INFO
+################
+Name1:
+EID1:
+CS login:
+Email:
+Unique Number:
+
+Your partner's ranking (scale below):
+
+################
+PARTNER EVALUATION SCALE
+################
+Excellent: Consistently went above and beyond - tutored others, carried
+more than his/her fair share of the load.
+
+Very Good: Consistently did what he/she was supposed to do, very well
+prepared and cooperative.
+
+Satisfactory: Usually did what he/she was supposed to do, minimally
+prepared and cooperative.
+
+Marginal: Sometimes failed to show up and/or rarely prepared.
+
+Deficient: Often failed to show up and/or rarely prepared.
+
+Unsatisfactory: Consistently failed to show up and/or unprepared.
+
+Superficial: Practically no participation.
+
+No Show: No participation at all.
+
+################
+Preliminaries
+################
+(1) If you have any preliminary comments on your submission or notes for
+  the TAs, please give them here.
+
+(2) Please cite any offline or online sources you consulted while
+  preparing your submission, other than the Linux documentation,
+  course text, and lecture notes.
+
+
+################
+Questions regarding Part 0
+################
+(1) How many child processes are created when doFib() begins with
+  an input of 5?  Show the return value for each child process, numbering
+  the processes beginning with 0 (the original process) and incrementing for
+  each child process.
+
+(2) In part 0.3, which flavor of exec did you choose to use?  Why?
+
+
+################
+Questions regarding Part 1
+################
+(1) In the provided utility function Signal(), what does the call to
+  sigaction() do?  Why was sigaction() used instead of signal()?
+
+(2) What is the last assembly language instruction executed by the
+  signal handler function that you write?  (You may choose either signal
+  handler.)
+
+(3) After the instruction identified in the previous question executes, 
+  what is the next assembly language instruction executed in the application 
+  code?
+
+
+################
+Questions regarding Part 2
+################
+(1) Describe your implementation of waitfg().  How did you avoid race
+  conditions with the SIGCHLD handler?  How did you avoid busy waiting?
+
+(2) In msh.c, we use three separate signal handlers to catch our signals. 
+  You can also use a single signal handler to catch all three signals.  Is
+  there a design advantage of one over the other?  Explain your answer.
+

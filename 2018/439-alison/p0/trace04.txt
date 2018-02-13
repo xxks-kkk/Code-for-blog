@@ -1,0 +1,5 @@
+#
+# trace04.txt - Run a background job.
+#
+/bin/echo -e msh> ./myspin 1 \046
+./myspin 1 &
