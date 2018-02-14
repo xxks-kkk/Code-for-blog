@@ -7,8 +7,6 @@ EID1: zh4378
 CS login: zeyuanhu
 Email: iamzeyuanhu@utexas.edu
 Unique Number:
-
-
 ################
 
 
@@ -47,3 +45,8 @@ mysplit.c	# Forks a child that spins for <n> seconds
 mystop.c        # Spins for <n> seconds and sends SIGTSTP to itself
 myint.c         # Spins for <n> seconds and sends SIGINT to itself
 
+################
+Remarks
+################
+
+- 'doFib' in fib.c demonstrates how we can get value from child process

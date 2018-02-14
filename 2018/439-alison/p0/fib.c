@@ -75,7 +75,7 @@ static void doFib(int n, int doPrint)
     if (WIFEXITED(status))
       res += WEXITSTATUS(status);
   //Reap second child
-  while(waitpid(pid2,&status, 0) > 0)
+  while(waitpid(pid2, &status, 0) > 0)
     if (WIFEXITED(status))
       res += WEXITSTATUS(status);
   if(doPrint){

@@ -1,7 +1,7 @@
 /* 
  * psh - A prototype tiny shell program with job control
  * 
- * <Put your name and login ID here>
+ * <Zeyuan Hu, UTCS ID: zeyuanhu>
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,6 +33,7 @@ int builtin_cmd(char **argv);
 /* Here are helper routines that we've provided for you */
 void usage(void);
 void sigquit_handler(int sig);
+static pid_t Fork(void);
 
 
 
@@ -71,24 +72,24 @@ int main(int argc, char **argv)
     Signal(SIGQUIT, sigquit_handler); 
 
     /* Execute the shell's read/eval loop */
-    while (1) {
+    while (1)
+    {
+        /* Read command line */
+        if (emit_prompt) {
+            printf("%s", prompt);
+            fflush(stdout);
+        }
+        if ((fgets(cmdline, MAXLINE, stdin) == NULL) && ferror(stdin))
+            app_error("fgets error");
+        if (feof(stdin)) { /* End of file (ctrl-d) */
+            fflush(stdout);
+            exit(0);
+        }
 
-	/* Read command line */
-	if (emit_prompt) {
-	    printf("%s", prompt);
-	    fflush(stdout);
-	}
-	if ((fgets(cmdline, MAXLINE, stdin) == NULL) && ferror(stdin))
-	    app_error("fgets error");
-	if (feof(stdin)) { /* End of file (ctrl-d) */
-	    fflush(stdout);
-	    exit(0);
-	}
-
-	/* Evaluate the command line */
-	eval(cmdline);
-	fflush(stdout);
-	fflush(stdout);
+        /* Evaluate the command line */
+        eval(cmdline);
+        fflush(stdout);
+        fflush(stdout);
     } 
 
     exit(0); /* control never reaches here */
@@ -104,6 +105,41 @@ int main(int argc, char **argv)
 */
 void eval(char *cmdline) 
 {
+    char *argv[MAXARGS];  /* Argument list execve() */
+    char buf[MAXLINE];    /* Holds modified command line */
+    int bg;               /* Should the job run in bg or fg? */
+    pid_t pid;            /* Process id */
+
+    strcpy(buf, cmdline);
+    bg = parseline(buf, argv);
+    if (argv[0] == NULL)
+        return;           /* Ignore empty lines */
+
+    if(!builtin_cmd(argv))
+    {
+        if ((pid = Fork()) == 0) /* Child runs user job */
+        {
+            if (execve(argv[0], argv, environ) < 0)
+            {
+                printf("%s: Command not found.\n", argv[0]);
+                exit(0);
+            }
+        }
+
+        /* Foreground job and parent waits for foreground job to terminate */
+        if(!bg)
+        {
+            int status;
+            if (waitpid(pid,&status,0) < 0)
+            {
+                unix_error("Waitfg: waitpid error");
+            }
+        }
+        else
+        {
+            printf("%d %s", pid, cmdline);
+        }
+    }
     return;
 }
 
@@ -116,7 +152,11 @@ void eval(char *cmdline)
  */
 int builtin_cmd(char **argv) 
 {
-    return 0;     /* not a builtin command */
+    if (!strcmp(argv[0], "quit")) /* quit command */
+        exit(0);
+    if (!strcmp(argv[0], "&"))    /* Ignore singleton & */
+        return 1;
+    return 0;                     /* not a builtin command */
 }
 
 
@@ -153,5 +193,11 @@ void sigquit_handler(int sig)
     exit(1);
 }
 
-
+static pid_t Fork(void)
+{
+    pid_t pid;
+    if ((pid = fork()) < 0)
+        unix_error("Fork error");
+    return pid;
+}
 
