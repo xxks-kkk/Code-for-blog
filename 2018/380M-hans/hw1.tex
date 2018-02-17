@@ -29,9 +29,13 @@ Translate the following sentences into predicate logic.
          \end{answered}
    \item If an argument with two premises is valid and its conclusion is false, then one of the premises is false.
          \begin{answered}
-         $((\forall x)(\forall y)(\forall z)(\forall k)(\texttt{argument}(x) \land \texttt{premise}(y) \land \texttt{premise}(z)
-         \land \texttt{belongToArgument}(y,x) \land \texttt{belongToArgument}(z,x) \land \texttt{valid}(x) \land \neg \texttt{conclusion}(k)
-         \land \texttt{belongToArgument}(k,x)) \rightarrow (\neg y \lor \neg z)$
+         $(\forall x)(\forall y)(\forall z)(\forall k)((\texttt{argument}(x) \land \texttt{premise}(y) \land \texttt{premise}(z)
+         \land \texttt{belongToArgument}(y,x) \land \texttt{belongToArgument}(z,x) \land \texttt{valid}(x) \land \texttt{conclusion}(k)
+         \land \neg \text{conclusionIsTrue}(k) \land \texttt{belongToArgument}(k,x)) \rightarrow (\neg y \lor \neg z))$ 
+         \footnote{Since an argument is consisted of premises and conclusion, $\texttt{conclusion}(k)$ may be ambiguous as it can either
+         represent whether $k$ is a conclusion or not in an argument (it can be premise) or it can represent the truth value of a conclusion. Thus,
+         I think it is necessary to avoid this ambiguity by introducting another predicate $\texttt{conclusionIsTrue}$ to indicate the
+         truth value of a conclusion and use $\texttt{conclusion}$ predicate to indicate whether the given variable is a conclusion or not.}
          \end{answered}
    \item There are three dishes that John doesn’t like.
          \begin{answered}
