@@ -2,6 +2,8 @@ package nlp.lm;
 
 import java.util.*;
 
+@SuppressWarnings("Duplicates")
+
 /**
  * @author Zeyuan Hu
  */
@@ -346,6 +348,7 @@ public class Ngrams {
         // In bigram unknown then its prob is zero
         if (bigramVal != null)
             bigramProb = bigramVal.getValue();
+        //System.out.println(unigramVal.getValue()+" "+bigramProb);
         // Linearly combine weighted unigram and bigram probs
         return lambda1 * unigramVal.getValue() + lambda2 * bigramProb;
     }
