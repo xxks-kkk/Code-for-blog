@@ -22,7 +22,9 @@ public class BidirectionalBigramModel extends Ngrams {
 
     /** Train model by training both forward and backward models*/
     public void train (List<List<String>> sentences) {
+        // sentence structure: <S>A B C</S>
         bigramModel.train(sentences, bigramModel.start_symbol, bigramModel.end_symbol);
+        // sentence structure: </S>C B A<S>
         backwardBigramModel.train(sentences, backwardBigramModel.end_symbol, backwardBigramModel.start_symbol);
     }
 
@@ -45,8 +47,15 @@ public class BidirectionalBigramModel extends Ngrams {
         double sentenceLogProb = 0;
         assert (forwardProbs.length == backwardProbs.length) && (forwardProbs.length == sentence.size()+1);
         for (int i = 0; i < sentence.size(); i++) {
+            /**
+             * Given <S>A B C</S> in forward model and </S>C B A<S> in backward model,
+             * forwardProbs:  [P(A|<S>), P(B|A), P(C|B), P(</S>|C)]
+             * backwardProbs: [P(C|</S>), P(B|C), P(A|B), P(<S>|A)]
+             * Then for determining the probability of a word in the sentence, say A, we need to compute
+             * 0.5*P(A|<S>) + 0.5*P(A|B)
+             */
             double forwardProbToken = forwardProbs[i];
-            double backwardProbToken = backwardProbs[i];
+            double backwardProbToken = backwardProbs[backwardProbs.length - i - 2];
             double logProbToken = Math.log(forwardProbToken * forwardWeight + backwardProbToken * backwardWeight);
             sentenceLogProb += logProbToken;
         }
