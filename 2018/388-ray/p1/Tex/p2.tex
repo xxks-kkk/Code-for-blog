@@ -93,7 +93,7 @@ of a given token from \texttt{BigramModel} and \texttt{BackwardBigramModel} with
 Beyond the implementation approach highlighted above for both \texttt{BackwardBigramModel} and \texttt{BidirectionalBigramModel},
 we need to think about dealing with $\langle S \rangle$ and $\langle /S \rangle$. For a given sentence 
 $\langle S \rangle A B C \langle /S \rangle$, whether
-we reverse $\langle S \rangle$ and $\langle /S \rangle$ in the \texttt{BackwardBigramModel} is not matter: we
+we reverse $\langle S \rangle$ and $\langle /S \rangle$ in the \texttt{BackwardBigramModel} does not matter: we
 can have $\langle S \rangle C B A \langle /S \rangle$ or $\langle /S \rangle C B A \langle S \rangle$ as long as we stick with
 one convention consistently in both training and testing phase(i.e., perplexity calculation).
 One thing to note is that when we use $\langle S \rangle C B A \langle /S \rangle$, we modify the semantics of $\langle S \rangle$
@@ -192,9 +192,9 @@ Backward & train & 9.01  & 74.27  & 93.51  \\
 
 \section{Conclusion and Future Work}
 
-In this project, we implement backward bigram and bidirectional bigram model
+In this project, we implement backward bigram model and bidirectional bigram model
 and we show that using the surround words as context can give us the highest chance
-to predict a given token. In the future, we can see whether this observation still
+to predict a given token correctly. In the future, we can see whether this observation still
 holds under bidirectional-LSTM setting.
 
 \bibliography{acl2017}

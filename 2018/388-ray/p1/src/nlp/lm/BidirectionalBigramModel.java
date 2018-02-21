@@ -9,10 +9,7 @@ public class BidirectionalBigramModel extends Ngram {
     public double forwardWeight = 0.5;
     public double backwardWeight = 1 - forwardWeight;
 
-    /** Forward bigram model */
     public BigramModel bigramModel;
-
-    /** Backward bigram model */
     public BackwardBigramModel backwardBigramModel;
 
     public BidirectionalBigramModel(){
