@@ -15,7 +15,7 @@ import java.util.*;
  * from their right context rather than their left context.
  */
 
-public class BackwardBigramModel extends Ngrams{
+public class BackwardBigramModel extends Ngram{
 
 
     /** Train the reversed sentence on the Forward model */
@@ -86,17 +86,14 @@ public class BackwardBigramModel extends Ngrams{
         BackwardBigramModel model = new BackwardBigramModel();
 
         System.out.println("Training...");
-        //model.train(trainSentences, model.start_symbol, model.end_symbol);
         model.train(trainSentences, model.end_symbol, model.start_symbol);
 
         // Test on training data using test and test2
-        //model.test(trainSentences, model.start_symbol, model.end_symbol);
         model.test(trainSentences, model.end_symbol, model.start_symbol);
         model.test2(trainSentences, model.end_symbol);
 
         System.out.println("Testing...");
         // Test on test data using test and test2
-        //model.test(testSentences, model.start_symbol, model.end_symbol);
         model.test(testSentences, model.end_symbol, model.start_symbol);
         model.test2(testSentences, model.end_symbol);
     }

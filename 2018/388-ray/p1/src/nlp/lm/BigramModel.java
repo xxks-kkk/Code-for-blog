@@ -10,7 +10,7 @@ import java.util.*;
  * with a unigram model for smoothing.
  */
 
-public class BigramModel extends Ngrams{
+public class BigramModel extends Ngram{
 
     /**
      * Train and test a bigram model.

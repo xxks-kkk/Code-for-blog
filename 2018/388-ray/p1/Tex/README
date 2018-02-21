@@ -1,0 +1,7 @@
+Feedback:
+
+Good performance of the models.
+I suspect the discrepancy is based on the following:
+Reduce is legal for the transition system to apply in states according to
+Goldberg and Nivre, but the Ballesteros description is when you
+actually should apply it when computing the oracle. This distinction is subtle!

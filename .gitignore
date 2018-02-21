@@ -17,3 +17,5 @@ log*
 *.blg
 .idea/
 cmake-build-debug/
+out/
+*.class

@@ -2,13 +2,11 @@ package nlp.lm;
 
 import java.util.*;
 
-@SuppressWarnings("Duplicates")
-
 /**
  * @author Zeyuan Hu
  */
 
-public class Ngrams {
+public class Ngram {
 
     /**
      * Unigram model that maps a token to its unigram probability
@@ -36,7 +34,7 @@ public class Ngrams {
      */
     public double lambda2 = 0.9;
 
-    /** Naming start and end markers */
+    /** Naming start-of-sentence and end-of-sentence symbol */
     public String start_symbol = "<S>";
     public String end_symbol = "</S>";
 
@@ -45,7 +43,7 @@ public class Ngrams {
      * unigram entries for setence start (<S>), sentence end (</S>)
      * and unknown tokens
      */
-    public Ngrams() {
+    public Ngram() {
         unigramMap = new HashMap<String, DoubleValue>();
         bigramMap = new HashMap<String, DoubleValue>();
         unigramMap.put(start_symbol, new DoubleValue());
@@ -348,7 +346,6 @@ public class Ngrams {
         // In bigram unknown then its prob is zero
         if (bigramVal != null)
             bigramProb = bigramVal.getValue();
-        //System.out.println(unigramVal.getValue()+" "+bigramProb);
         // Linearly combine weighted unigram and bigram probs
         return lambda1 * unigramVal.getValue() + lambda2 * bigramProb;
     }

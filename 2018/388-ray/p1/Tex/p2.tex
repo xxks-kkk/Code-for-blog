@@ -1,0 +1,203 @@
+%
+% File acl2017.tex
+%
+%% Based on the style files for ACL-2015, with some improvements
+%%  taken from the NAACL-2016 style
+%% Based on the style files for ACL-2014, which were, in turn,
+%% based on ACL-2013, ACL-2012, ACL-2011, ACL-2010, ACL-IJCNLP-2009,
+%% EACL-2009, IJCNLP-2008...
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{acl2017}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{argmax} % thin space, limits underneath in displays
+\usepackage{url}
+
+\usepackage{tabularx,booktabs}
+\newcolumntype{C}{>{\centering\arraybackslash\hsize=.5\hsize}X} % centered version of "X" type
+\setlength{\extrarowheight}{1pt}
+
+
+\usepackage{adjustbox}
+\usepackage{float}
+
+\usepackage[justification=centering]{caption}
+
+
+\aclfinalcopy % Uncomment this line for the final submission
+%\def\aclpaperid{***} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\newcommand\BibTeX{B{\sc ib}\TeX}
+
+\title{CS388: N-gram Language Models Project Report}
+
+\author{Zeyuan Hu \\
+  Computer Science Department \\
+  University of Texas at Austin \\
+  Austin, Texas \\
+  {\tt iamzeyuanhu@utexas.edu} \\
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In this project, we build a backward bigram model and a bidirectional language model.
+We compare these two models with (forward) Bigram model and find that the bidirectional
+language model achieves the best result in terms of perplexity in all three corpora:
+ATIS-3 \cite{Dahl94}, Penn Treebank \cite{Marcus:1994}, and Brown \cite{browncorpus}.
+\end{abstract}
+
+\section{Introduction}
+
+N-Gram language model has many applications in NLP. The idea of N-gram model
+is to estimate probability of each word given previous $N-1$ as prior context.
+Specifically, for bigram model, we calculate $P(w_k|w_{k-1})$ to estimate the 
+probability of appearance for a given word $w_k$. Once we have the probability
+estimate for each word, we can estimate the probability of the appearance for 
+a given sentence. The standard (forward) N-gram language model models the generation
+of text from left to right. However, we can have better prediction of tokens (i.e., words)
+based on the context to their right. That is the motivation for the backward bigram 
+model. In addition, for a given token, we might be at best estimate its probability
+both from its left context and its right context, which leads us to the bidirectional
+language model.
+
+\section{Implementation Details}
+
+We build our backward bigram model and bidirectional bigram model based on the 
+source code provided by Ray Mooney \cite{ray}. Since the only difference between
+backward bigram model and bigram model is that backward bigram model models the 
+generation of a sentence from right to left. Thus, we make a separate class file
+\texttt{Ngrams} to hold the share methods between two models. Then, we extend
+\texttt{Ngrams} class to implement both \texttt{BigramModel} and \texttt{BackwardBigramModel}.
+We also implement \texttt{BidirectionalBigramModel} in the same way as the previous two models.
+In \texttt{BidirectionalBigramModel}, we linearly interplote the probability estimate
+of a given token from \texttt{BigramModel} and \texttt{BackwardBigramModel} with equally weights
+(i.e., $P(w_k) = \lambda_1 P(w_k|w_{k-1}) + \lambda_2 P(w_k | w_{k+1}) \texttt{ where } \lambda_1 + \lambda_2 = 1$).
+
+Beyond the implementation approach highlighted above for both \texttt{BackwardBigramModel} and \texttt{BidirectionalBigramModel},
+we need to think about dealing with $\langle S \rangle$ and $\langle /S \rangle$. For a given sentence 
+$\langle S \rangle A B C \langle /S \rangle$, whether
+we reverse $\langle S \rangle$ and $\langle /S \rangle$ in the \texttt{BackwardBigramModel} is not matter: we
+can have $\langle S \rangle C B A \langle /S \rangle$ or $\langle /S \rangle C B A \langle S \rangle$ as long as we stick with
+one convention consistently in both training and testing phase(i.e., perplexity calculation).
+One thing to note is that when we use $\langle S \rangle C B A \langle /S \rangle$, we modify the semantics of $\langle S \rangle$
+to indicate the end of sentence and $\langle /S \rangle$ as the beginning of the sentence. In the implementation,
+we empirically verify this point by exposing additional input variables \texttt{start\_marker} and \texttt{end\_marker}
+to both the training and evaluation functions. In addition, we use linear interpolation with a unigram model to perform smoothing and we replace
+the first ouccrence of each token with $\langle UNK \rangle$ in both training and testing sets to handle out-of-vocabulary
+(OOV) words.
+
+\section{Experiments and Analysis}
+
+We run all three models on all three corpus with parameter setup shown in Table \ref{tab:freq}.
+Table \ref{tab:word-p} shows the word perplexity of three models on both training and testing data from
+three datasets. Table \ref{tab:p} shows the perplexity of bigram and backward bigram models. Word perplexity
+is different from perplexity in the sense that we exclude the probability estimate of $\langle S \rangle$
+of each sentence in bigram model and the probability estimate of $\langle /S \rangle$ in the backward bigram
+model. Doing so allows us to compare the models in a resaonable way (i.e., generating $\langle S \rangle$
+is a task different from generating $\langle /S \rangle$).
+
+As one can see from Table \ref{tab:word-p}, there isn't any significant difference in terms of mode performance
+between bigram model and backward bigram model. However, the word perplexity does drop from
+$275.12$ to $266.35$ in Penn Treebank test set and $319.67$ to $299.69$ in Brown corpus test set. This slight performance increment
+is partially due to the fact that right context of a token has slightly more information than its left context. However,
+the similar performance of bigram model and backward bigram model indicates that the left context word and right context
+word of a token contains roughly same information for the token prediction, which suggests that we should treat 
+equally when we combine them together.
+
+In bidirectional bigram model, the word perplexity drops significantly across all three models on the test set
+with $46\%$ drecrease in ATIS-3, $54\%$ in Penn Treebank, and $48\%$ in Brown corpus when compared with
+bigram model word perplexity. The experiment result hints that we can indeed make better predication of words given the 
+context words surrounding them. This finding implies that the bidirectional model incorporate more information about
+corpus than using the bigram or backward bigram model alone and we can improve model by including information about corpus
+as much as we can.
+To verify if we should treat both bigram and backward bigram model equally in bidirectional
+bigram model, we vary $\lambda_1$ and plot the word perplexity of the bidirectional bigram model
+on the test set of Penn Treebank and as shown by Figure \ref{fig:1}, the observation holds.
+
+\begin{table}
+\captionsetup{size=footnotesize}
+\caption{Parameter setup} \label{tab:freq}
+%\setlength\tabcolsep{0pt} % let LaTeX compute intercolumn whitespace
+\footnotesize\centering
+%This table provides the frequencies.
+
+\smallskip 
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}cc}
+\toprule
+  Description  & Values  \\
+\midrule
+ training data split & 0.9      \\
+ testing data split & 0.1 \\
+ Weights of unigram in smoothing & 0.1        \\
+ Weights of bigram in smoothing & 0.9        \\
+ Weights of bigram in birdirectional $\lambda_1$ & 0.5 \\
+ Weights of backward bigram in bidirectional $\lambda_2$ & 0.5 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\begin{table}
+\captionsetup{justification=centering}
+\caption{Word Perplexity Comparison}
+\label{tab:word-p}
+\begin{tabular}{c|c|*3{c}}
+\hline
+Model & data type & ATIS-3 & Penn Treebank & Brown \\ \hline
+Bigram & train & 10.59 & 88.89 & 113.36  \\ 
+& test & 24.05  & 275.12  & 319.67 \\ \hline
+Backward & train & 11.64  & 86.66  & 110.78  \\ 
+& test & 27.16  & 266.35  & 299.69 \\ \hline
+Bidirectional & train & 7.24 & 46.51 & 61.47 \\ 
+& test & \textbf{12.70} & \textbf{126.11} & \textbf{167.49} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\captionsetup{justification=centering}
+\caption{Perplexity Comparison}
+\label{tab:p}
+\begin{tabular}{c|c|*3{c}}
+\hline
+Model & data type & ATIS-3 & Penn Treebank & Brown \\ \hline
+Bigram & train & 9.04 & 74.26 & 93.52  \\ 
+& test & \textbf{19.34}  & 219.72  & 231.30 \\ \hline
+Backward & train & 9.01  & 74.27  & 93.51  \\ 
+& test & 19.36  & \textbf{219.52}  & \textbf{231.21} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\includegraphics[scale=0.4]{figure_1.png}
+\caption{Word perplexity vs. $\lambda_1$}
+\label{fig:1}
+\end{figure}
+
+
+\section{Conclusion and Future Work}
+
+In this project, we implement backward bigram and bidirectional bigram model
+and we show that using the surround words as context can give us the highest chance
+to predict a given token. In the future, we can see whether this observation still
+holds under bidirectional-LSTM setting.
+
+\bibliography{acl2017}
+\bibliographystyle{acl_natbib}
+
+\end{document}

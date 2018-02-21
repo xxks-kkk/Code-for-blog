@@ -3,7 +3,7 @@ package nlp.lm;
 import java.util.*;
 import java.io.*;
 
-public class BidirectionalBigramModel extends Ngrams {
+public class BidirectionalBigramModel extends Ngram {
 
     /** Weights of forward and backward models */
     public double forwardWeight = 0.5;
@@ -42,10 +42,14 @@ public class BidirectionalBigramModel extends Ngrams {
     }
 
     public double sentenceLogProb2 (List<String> sentence) {
-        double[] forwardProbs = bigramModel.sentenceTokenProbs(sentence, bigramModel.start_symbol, bigramModel.end_symbol);
-        double[] backwardProbs = backwardBigramModel.sentenceTokenProbs(sentence, backwardBigramModel.end_symbol, backwardBigramModel.start_symbol);
+        double[] forwardProbs = bigramModel.sentenceTokenProbs(sentence,
+                                                               bigramModel.start_symbol,
+                                                               bigramModel.end_symbol);
+        double[] backwardProbs = backwardBigramModel.sentenceTokenProbs(sentence,
+                                                                        backwardBigramModel.end_symbol,
+                                                                        backwardBigramModel.start_symbol);
         double sentenceLogProb = 0;
-        assert (forwardProbs.length == backwardProbs.length) && (forwardProbs.length == sentence.size()+1);
+        assert (forwardProbs.length == backwardProbs.length) && (backwardProbs.length == sentence.size()+1);
         for (int i = 0; i < sentence.size(); i++) {
             /**
              * Given <S>A B C</S> in forward model and </S>C B A<S> in backward model,
@@ -54,9 +58,9 @@ public class BidirectionalBigramModel extends Ngrams {
              * Then for determining the probability of a word in the sentence, say A, we need to compute
              * 0.5*P(A|<S>) + 0.5*P(A|B)
              */
-            double forwardProbToken = forwardProbs[i];
-            double backwardProbToken = backwardProbs[backwardProbs.length - i - 2];
-            double logProbToken = Math.log(forwardProbToken * forwardWeight + backwardProbToken * backwardWeight);
+            double forwardProbOfToken = forwardProbs[i];
+            double backwardProbOfToken = backwardProbs[backwardProbs.length - i - 2];
+            double logProbToken = Math.log(forwardProbOfToken * forwardWeight + backwardProbOfToken * backwardWeight);
             sentenceLogProb += logProbToken;
         }
         return sentenceLogProb;
