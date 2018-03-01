@@ -1,0 +1,36 @@
+\section{Feb 16 Review Questions}
+\begin{QandA}
+   \item Chain replication provides both high availability and strong consistency. What does it sacrifice in order to do this?
+         \begin{answered}
+		 Chain replication sacrifices partition tolerance. Partition tolerance requires system to continue functioning even if there
+		 is a partition between nodes. However, chain replication cannot guarantee partition tolerance because master has to continue
+		 monitoring the servers in case of failures and indicating the clients about which server is head and which server is tail.
+		 In addition, there cannot be any network partition within a chain when each object is tied to a unique chain. If so, strong consistency
+		 cannot guarantee when the update request sent to head and query sent to tail and there is a network partition in-between.
+         \end{answered}
+
+   \item From "Paxos Made Simple", choose a numbered property (P1, P2, P2a, etc.) and discuss why it is necessary for the Paxos protocol.
+         \begin{answered}
+		 P1 states that ``An acceptor must accept the first proposal that it receives." This property is neccessary for the Paxos protocol
+		 because the safety requirement of the Paxos protocol is that one and only one value has to be chosen. This indicates that no matter 
+		 scenario, a value has to be chosen. One possible situation is that there is only one value propsed by a single proposer. In this case,
+		 the safety requirement of the Paxos protocol requires to choose a value and P1 property exactly guarantees no matter what scenarios,
+		 a value will be chosen.
+         \end{answered}
+         
+   \item Chubby combines leases and invalidations for its caching mechanisms. What benefits does it get from this combination?
+         \begin{answered}
+%		 The invalidations ensure that all the clients that access the data can get a consistent view of the data. When
+%		 the modification of the data happens, the master sends out the invalidation requests but the modification happens only when
+%		 either the client invalidates its cache or the lease on the cached data expires. Lease allows the clients to use
+%		 the cache for the read when invalidation request received, which is especially useful when reads outnumber writes. 
+		 The invalidation request is sent out to all the clients and then the master is waiting for the invalidation acknowledgement. If we
+		 use invalidation only, the master may keep waiting until all clients respond. In this scenario, some client may be outage and fail
+		 to response and the master may wait for a long time. However, with the help of the lease, the server can wait for the amount of lease
+		 time and then directly update the value even some client may fail to response. This helps to improve the performance of the write.
+		 In other words, lease reduces the worst scenario waiting time of the server. In addition, the cached data protected by lease can avoid indefinitely updates while the client still need to access the file. Without lease, the client may be forced to update its cached data 
+		 during its access to the data, which causes uncessary read delay. In other words, lease allows the read from the cache during the time
+		 when the server is waiting for all the invalidation reponse. This is especially helpful when the lease expired just when the invalidation
+		 response arrives at the server.
+         \end{answered}
+\end{QandA}

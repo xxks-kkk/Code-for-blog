@@ -1,0 +1,33 @@
+\section{Feb 16 Review Questions}
+\begin{QandA}
+   \item Assuming no upper bound on message delivery time, it's impossible to completely provide the four properties of consensus (Validity, Uniform Agreement, Integrity, and Termination). Which of the properties does Paxos sacrifice, and how?
+         \begin{answered}
+		 Paxos sacrifices termination property. Termination states that every node will eventually decide on a value. If we assume there is no
+		 upper bound on message delivery time, then it is possible that before an acceptor gets its \texttt{PREPARE} message, it receives a higher 
+		 offer.Since the message delivery time can be arbitrary long, the likelihood that this scenario happens is very high. Since the proposer 
+		 receives a higher offer from its acceptor and it must change its value to the higher offer from its acceptor before sending out 
+		 \texttt{ACCEPT}. However, since the message delivery time can take arbitrarily long, then one of the acceptors may receive even higher offer 
+		 and returns \texttt{NACK} to the proposer. So, the proposer must retry again. Thus, Paxos cannot guarantee termination with the unbounded 
+		 message delivery time assumption.
+         \end{answered}
+
+   \item Paxos is often implemented using a distinguished or "leader" proposer. Why can't it assume that there is always one proposer?
+         \begin{answered}
+		 Paxos is a fault-tolerant distributed consensus algorithm which ensures that the clients request will not be blocked (not the same
+		 as being rejected) if a majority of processes are working. If Paxos assumes that there is always one proposer, then the above guarantee
+		 cannot hold as now we have a single point of failure and we need to run the leader election process which may block the requests and
+		 thus hinder the availability. ``Leader"
+		 proposer is used as a optimization trick in Paxos to simply message numbering and ensure no contention. It is not a necessary condition
+		 for ``a majority of processes are working" required by Paxos. 
+         \end{answered}
+         
+   \item What's the difference between ballot numbers and slot numbers in Paxos Made Moderately Complex?
+         \begin{answered}
+         Ballot number is the same as the proposer number mentioned previously in Paul's slide. It is used as a way to reach consensus on 
+         which serial of commands to agree upon across acceptors. However, slot numbers are served as indices to a serial of commands. Specifically, commands are associated with slots and each slot is indexed by a slot number. 
+         \end{answered}
+\end{QandA}
+
+
+
+

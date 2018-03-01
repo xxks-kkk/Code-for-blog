@@ -43,3 +43,19 @@
     	 the latest one. Thus, \texttt{Read-latest} has the strongest consistency among the tree with the worst performance.
          \end{answered}
 \end{QandA}
+
+\subsection{Feedback}
+
+\subsubsection{Samantha's Comment}
+Your discussion of leases is generally correct, but I don't think it's normally possible to have multiple strong leases for one object. The main idea behind strong leases is that one cache has exclusive use of the object.
+
+You mix up stale read anomalies and total order anomalies a bit in your paragraph, but your diagram is correct. Read-after-write only has stale read anomalies.
+
+\subsubsection{Zeyuan's Response}
+I'm referencing Jim Gray's lease paper ("Leases: An Efficient Fault-Tolerant Mechanism for Distributed File Cache Consistency") and I assume the "lease" term in the paper actually means "strong lease" in our context. In the section 2 of the paper, there is one sentence "When a client writes a datum, the server must defer the request until each leaseholder has granted approval or the term of its lease has expired.", which includes the term "each leaseholder". In addition, he gives an example of a file cache using lease and he states that "When a new version of latex is installed, the write is delayed until every leaseholder has approved the write."
+Those sentences make me think if any object in the cache can have multiple strong leases.
+
+Please let me know if I misunderstood the paper.
+
+\subsubsection{Samantha's Comment}
+I think the paper is just a generalization of the leases we talked about in class. Strong leases, as we discussed them in class, grant exclusive privileges to a cache, so no coordination is required. Giving out multiple leases and requiring coordination between them is definitely a valid system, but that's a bit more complicated than how the slides described leases. That combines some of the ideas of leases and invalidations. If this all makes sense, that's awesome. I just want to make sure you're clear on the basic leases before moving onto a more nuanced view of precisely what leases do and the range of properties that they can provide.
