@@ -1,0 +1,134 @@
+\section{HW2}
+%\begin{enumerate}
+\begin{QandA}
+	\item Translate the following sentences into Predicate Logic. 	
+	(You may choose your own letters to serve as non-logical constants,)
+	\begin{QandA}
+		\item If one person is taller than another person and that second person is taller than a third one, then the first is taller than the third one.
+		\begin{answered}
+			$(\forall x)(\forall y)(\forall z)(\text{person}(x) \land \text{person}(y) \land \text{person}(z) \land 
+			x \ne y \land x \ne z \land y \ne z \land \text{taller}(x, y) \land \text{taller}(y,z)) \rightarrow (\text{taller}(x,z))$
+		\end{answered}
+		
+		\item If one number is between two other numbers, then neither of the two others is between it and the third one.
+		\begin{answered}
+			$(\forall a)(\forall b)(\forall c)(\text{number}(a) \land \text{number}(b) \land \text{number}(c) \land a < b \land b < c)
+			\rightarrow (\neg (b < a \land a < c) \land \neg (b < c \land c < a))$
+		\end{answered}
+		         
+		\item If you move a wolf, a goat and a cabbage across a river and you have a boat that can hold two but no more than two of the four of you, then there is exactly one strategy (for getting all of you safely across) .
+		(N.B. you do not need to translate the part in parentheses.)
+		\begin{answered}
+			$(\forall x)(\forall y)(\forall z)(\forall k)(\forall w)(\text{wolf}(x) \land \text{goat}(y) \land \text{cabbage}(z) \land 
+			\text{you}(k) \land \text{boat}(w) \land (\text{canHold}(w,\lbrace x \rbrace) \land \text{canHold}(w,\lbrace y \rbrace) \land \text{canHold}(w,\lbrace z \rbrace)
+			\land \text{canHold}(w,\lbrace k \rbrace) \land \text{canHold}(w,\lbrace x,y \rbrace) \land \text{canHold}(w,\lbrace x,z \rbrace) \land \text{canHold}(w,\lbrace x,k \rbrace) \land
+			\text{canHold}(w,\lbrace y,z \rbrace) \land \text{canHold}(w,\lbrace y,k \rbrace) \land \text{canHold}(w,\lbrace z,k \rbrace) \land \neg \text{canHold}(w,\lbrace x,y,z \rbrace) \land 
+			\neg \text{canHold}(w,\lbrace x,y,k \rbrace) \land \neg \text{canHold}(w,\lbrace x,z,k \rbrace) \land \neg \text{canHold}(w,\lbrace y,z,k \rbrace) \land \neg \text{canHold}(w,\lbrace x,y,z,k \rbrace) \land \text{moveAcrossRiver}(x) \land \text{moveAcrossRiver}(y)
+			\land \text{moveAcrossRiver}(z) \land \text{moveAcrossRiver}(k)) \rightarrow 
+			(\exists x)(\text{strategy}(x) \land \text{True}(x)) \land (\forall y)((\text{strategy}(y) \land y \ne x) \rightarrow (\neg \text{True}(y)))$
+		\end{answered}
+	\end{QandA}
+	\item Give as many non-equivalent translations of sentence (a) into Predicate Logic as you can think of.
+	\begin{QandA}
+		\item Three girls met two boys.
+		\begin{answered}
+			\begin{itemize}
+			\item $(\forall x)(\forall y)(\forall z)(\forall a)(\forall b)(\text{girl}(x) \land \text{girl}(y) \land \text{girl}(z) \land 
+			x \ne y \land y \ne z \land x \ne z \land \text{boy}(a) \land \text{boy}(b) \land a \ne b \land 
+			\text{met}(\lbrace x,y,z \rbrace, \lbrace a,b \rbrace)$ 
+			\footnote{
+			$``\text{met}"$ in $ \text{met}(\lbrace x,y,z \rbrace, \lbrace a,b \rbrace)$ has meaning of 
+			$\lbrace \alpha | (\forall \alpha)(\forall \beta)((\text{function}(\alpha) \land \text{function}(\beta) \land \alpha \ne \beta) 
+			\rightarrow (\alpha \in \lbrace a, b \rbrace ^ {\lbrace x, y, z \rbrace} \land \beta \not\in \lbrace a, b \rbrace ^ {\lbrace x, y, z \rbrace})) \rbrace$ (we use PC loosely here as ). In words, $``\text{met}"$ is a set of functions that maps set $\lbrace x,y,z \rbrace$ to set 
+			$\lbrace a,b \rbrace$. $\lbrace a, b \rbrace ^ {\lbrace x, y, z \rbrace}$
+			represents all possible combinations of $``\text{met}"$ relation that can happen between boys and girls.}
+			\item $(\forall x)(\forall y)(\forall z)(\forall a)(\forall b)(\text{girl}(x) \land \text{girl}(y) \land \text{girl}(z) \land 
+						x \ne y \land y \ne z \land x \ne z \land \text{boy}(a) \land \text{boy}(b) \land a \ne b 
+						\land \text{met}(x,a) \land \text{met}(x,b) \land \text{met}(y,a) \land \text{met}(y,b) \land \text{met}(z,a) \land 
+						\text{met}(z,b)
+				)$
+			\end{itemize}
+		\end{answered}
+	\end{QandA}
+	
+	\item (Note well: this exercise consists of 4 parts: a, b, c and d.)
+	\begin{QandA}
+		\item Translate the following sentences into Predicate Logic. Use the 1-place predicate P for ‘person’ and the 2-place predicate R for `met’.
+		\begin{QandA}
+			\item No one has met everyone.
+			\begin{answered}
+				$(\forall x)(\exists y)(P(x) \land P(y) \land x \ne y \land \neg R(x,y))$
+			\end{answered}
+			\item No one has met anyone.
+			\begin{answered}
+				$\neg ((\exists x)(\exists y)(P(x) \land P(y) \land x \ne y \land R(x,y)))$
+			\end{answered}
+			\item No one has met no one.
+			\begin{answered}
+				$(\forall x)(\exists y)(P(x) \land P(y) \land x \ne y \land R(x,y))$
+			\end{answered}
+			\item If someone has met no one, then no one has met everyone.
+			\begin{answered}
+				$(\exists x)(\forall y)((P(x) \land P(y) \land x \ne y \land \neg R(x,y)) \rightarrow 
+				(\neg (\exists z)(P(z) \land z \ne y \land R(z,y)))$
+			\end{answered}
+			\item If someone has met someone, then it is not the case that no one has met anyone.
+			\begin{answered}
+				$((\exists x)(\exists y)(P(x) \land P(y) \land x \ne y \land R(x,y)) \rightarrow 
+				(\neg (\forall x)(\forall y)(P(x) \land P(y) \land x \ne y \land \neg R(x,y)))$
+			\end{answered}
+		\end{QandA}
+		\item Let $M = \langle U,I \rangle$ be the following model for the language ${P,R}$:
+		\begin{align*}
+			  & U = \lbrace a,b,c,d \rbrace                                                   \\
+			  & I(P) = U (\text{so every individual in the universe of M is a person})        \\
+			  & I(R) = \lbrace <a,b>, <a,c>, <a,d>, <b,a>, <c,a>, <d,a>, <c,d>, <d,c>,\rbrace 
+		\end{align*}
+		\begin{QandA}
+			\item Which of the sentences (i)-(v) are true in M and which false, assuming that the words 
+			no one, everyone, anyone, someone range over persons and that R translates the transitive verb meet?
+			\begin{answered}
+				(i), (ii), (iv) are false and (iii), (v) are true.
+			\end{answered}
+			\item Go through the calculation of the truth value in M of (i) by applying the truth definition for PC to the translation of (i) into PC you have given under (a).
+			\begin{answered}
+				\begin{align*}
+				 & \llbracket (\forall x)(\exists y)(P(x) \land P(y) \land x \ne y \land \neg R(x,y)) \rrbracket_{M,a} = 1  \\
+				\text{iff} & \; \text{for every} \; a' \approx_{x} a \quad \llbracket (\exists y)(P(x) \land P(y) \land x \ne y \land \neg R(x,y)) \rrbracket_{M,a'} = 1 \\
+				\text{iff} & \; \text{for every} \; a' \approx_{x} a \; \text{for some} \; a'' \approx_{y} a' \quad \llbracket (P(x) \land P(y) \land x \ne y \land \neg R(x,y)) \rrbracket_{M,a''} = 1 \\
+				\text{iff} &\; \text{for every} \; a' \approx_{x} a \; \text{for some} \; a'' \approx_{y} a' \quad 
+				\langle \llbracket x \rrbracket_{M,a''} \rangle \in I_{M}(P) \; and \; \\
+				& \langle \llbracket y \rrbracket_{M,a''} \rangle \in I_{M}(P)
+				\; and \;  \llbracket x \rrbracket_{M,a''} \ne \llbracket y \rrbracket_{M,a''} \; and \; \llbracket R(x,y) \rrbracket_{M,a''} = 0 \\
+				\text{iff} &\; \text{for every} \; a' \approx_{x} a \; \text{for some} \; a'' \approx_{y} a' \quad 
+				\langle \llbracket x \rrbracket_{M,a''} \rangle \in I_{M}(P) \; and \; \\
+				& \langle \llbracket y \rrbracket_{M,a''} \rangle \in I_{M}(P)
+				\; and \;  \llbracket x \rrbracket_{M,a''} \ne \llbracket y \rrbracket_{M,a''} \; and \; 
+				\langle \llbracket x \rrbracket_{M,a''}, \llbracket y \rrbracket_{M,a''} \rangle \not\in I_{M}(R) \\
+				\text{iff} &\; \text{for every} \; a' \approx_{x} a \; \text{for some} \; a'' \approx_{y} a' \quad 
+				\langle a''(x) \rangle \in I_{M}(P) \; and \; \\
+				& \langle a''(y) \rangle \in I_{M}(P)
+				\; and \;  a''(x) \ne a''(y) \; and \; 
+				\langle a''(x), a''(y) \rangle \not\in I_{M}(R)
+				\end{align*}
+				The above statement is false because if we let $a''(x) = a$ and there is no such $a''(y)$ that can make whole PC to
+				true. If $a''(y) = a$, then $a''(x) \ne a''(y)$ is false. If $a''(y) = b$, then $\langle a, b \rangle \in I_M(R)$,
+				which makes $\langle a''(x), a''(y) \rangle \not\in I_{M}(R)$ false. If $a''(y) = c$, then $\langle a, c \rangle \in I_M(R)$,
+				which makes $\langle a''(x), a''(y) \rangle \not\in I_{M}(R)$ false.
+			\end{answered}
+		\end{QandA}
+		\item Which of the sentences (i)-(v), if any is/are true in all models for PC?
+		\begin{answered}
+			(v)
+		\end{answered}
+		\item For each of the sentences (i)-(v) that is not true in M modify the interpretation of $I(M)$ in such a way that this sentence comes out true in the modified model. (But leave the Universe $U$ as it is!)
+		\begin{answered}
+			\begin{itemize}
+			\item (i) We modify the model by removing $\langle a,b \rangle$ from $I(R)$ 
+			\item (ii) We modify the model by making $I(R) = \lbrace \langle a, a \rangle \rbrace$
+			\item (iv) We modify the model by removing $\langle a,b \rangle, \langle a,c \rangle, \langle a,d \rangle$ from $I(R)$ 
+			\end{itemize}
+		\end{answered}
+	\end{QandA}
+	%\end{enumerate}
+\end{QandA}
