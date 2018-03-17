@@ -1,0 +1,9 @@
+# Internal Development Note
+
+- Using the port forwarding to access tensorboard result:
+
+    ssh -nNT -p 8704 -L 6006:localhost:6006 jialinwu@neothalamus.ices.utexas.edu
+
+- Fire up tensorboard:
+
+    python /h1/jialinwu/.local/lib/python2.7/site-packages/tensorboard/main.py --logdir=/h1/jialinwu/hzy/ray-p2/pos_train_dir

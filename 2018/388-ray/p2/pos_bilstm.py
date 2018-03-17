@@ -17,10 +17,15 @@ VALIDATION_FREQUENCY = 10
 CHECKPOINT_FREQUENCY = 50
 NO_OF_EPOCHS = 6
 
+# TODO: You will have to write code for computing the OOV accuracy and then add it to the Tensorboard plots.
+
 
 ## Model class is adatepd from model.py found here
 ## https://github.com/monikkinom/ner-lstm/
 class Model:
+    """
+    The implementation of the basic BiLSTM model for POS tagging
+    """
     def __init__(self, input_dim, sequence_len, output_dim,
                  hidden_state_size=300):
         self._input_dim = input_dim
