@@ -3,6 +3,67 @@ from random import shuffle
 
 MAX_LENGTH = 100
 
+# http://teacher.scholastic.com/reading/bestpractices/vocabulary/pdf/prefixes_suffixes.pdf
+COMMON_SUFFIX = (
+    "able",
+    "ible",
+    "al",
+    "ial",
+    "ed",
+    "en",
+    "er",
+    "er,",
+    "est",
+    "ful",
+    "ic",
+    "ing",
+    "ion",
+    "tion",
+    "ation",
+    "ition",
+    "ity",
+    "ty",
+    "ive",
+    "ative",
+    "itive",
+    "less",
+    "ly",
+    "ment",
+    "ness",
+    "ous",
+    "eous",
+    "ious",
+    "s",
+    "es",
+    "y"
+)
+
+COMMON_PREFIX = (
+    "anti",
+    "de",
+    "dis",
+    "en",
+    "em",
+    "fore",
+    "in",
+    "im",
+    "il",
+    "ir",
+    "inter",
+    "mid",
+    "mis",
+    "non",
+    "over",
+    "pre",
+    "re",
+    "semi",
+    "sub",
+    "super",
+    "trans",
+    "un",
+    "under"
+)
+
 
 class PreprocessData:
     """
@@ -12,6 +73,37 @@ class PreprocessData:
         self.vocabulary = {}
         self.pos_tags = {}
         self.dataset_type = dataset_type
+
+    def isCapitalized(self, word, mode="loose"):
+        """
+        Check whether a given word is capitalized
+        :param word:
+        :param mode: - loose: any character in a word has upper case counts
+                     - strict: Only beginning char of a word in upper case counts
+        :return: bool
+        """
+        if mode == "loose":
+            if any(x.isupper() for x in word):
+                return True
+        elif mode == "strict":
+            return word[0].isupper()
+        return False
+
+    def containsSuffix(self, word):
+        """
+        Check whether a given word contains the predefined suffix
+        :param word:
+        :return: bool
+        """
+        return word.endswith(COMMON_SUFFIX)
+
+    def containsPrefix(self, word):
+        """
+        Check whether a given word contains the predefined prefix
+        :param word:
+        :return: bool
+        """
+        return word.startswith(COMMON_PREFIX)
 
     ## Get standard split for WSJ
     def get_standard_split(self, files):
@@ -76,11 +168,16 @@ class PreprocessData:
                         elif PreprocessData.isFeasibleStartingCharacter(token[0]):
                             wordPosPair = token.split('/')
                             if len(wordPosPair) == 2:
+                                word, tag = wordPosPair[0], wordPosPair[1]
                                 ## get ids for word and pos tag
-                                feature = self.get_id(wordPosPair[0], self.vocabulary, mode)
+                                feature = self.get_id(word, self.vocabulary, mode)
                                 # include all pos tags.
-                                row.append((feature, self.get_id(wordPosPair[1],
-                                                                 self.pos_tags, 'train')))
+                                # Add the feature: (word, isCapitalized, containsPrefix, containsSuffix, pos)
+                                row.append((feature,
+                                            self.isCapitalized(word),
+                                            self.containsPrefix(word),
+                                            self.containsSuffix(word),
+                                            self.get_id(tag, self.pos_tags, 'train')))
         if row:
             matrix.append(row)
         return matrix
