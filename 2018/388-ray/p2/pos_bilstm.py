@@ -28,9 +28,9 @@ class Model:
     """
     def __init__(self, input_dim, sequence_len, output_dim,
                  hidden_state_size=300):
-        self._input_dim = input_dim
-        self._sequence_len = sequence_len
-        self._output_dim = output_dim
+        self._input_dim = input_dim                         # vocab_size
+        self._sequence_len = sequence_len                   # MAX_LENGTH
+        self._output_dim = output_dim                       # no_pos_classes
         self._hidden_state_size = hidden_state_size
         self._optimizer = tf.train.AdamOptimizer(0.0005)
 
@@ -137,8 +137,7 @@ class Model:
                                                             global_step)
         return apply_gradient_op
 
-        # Adapted from https://github.com/monikkinom/ner-lstm/blob/master/model.py cost function
-
+    # Adapted from https://github.com/monikkinom/ner-lstm/blob/master/model.py cost function
     def compute_accuracy(self, pos_classes, probabilities, mask):
 
         predicted_classes = tf.cast(tf.argmax(probabilities, dimension=2), tf.int32)

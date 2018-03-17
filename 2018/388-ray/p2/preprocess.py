@@ -124,6 +124,8 @@ class PreprocessData:
             X_row = [tup[0] for tup in row]
             y_row = [tup[1] for tup in row]
             ## padded words represented by len(vocab) + 1
+            ## Padding is used so the feature vector for each sentence is of same length.
+            ## Since sentences are not all of equal length we need padding at the end to achieve this.
             X_row = X_row + [self.get_pad_id(self.vocabulary)] * (max_size - len(X_row))
             ## Padded pos tags represented by -1
             y_row = y_row + [-1] * (max_size - len(y_row))
