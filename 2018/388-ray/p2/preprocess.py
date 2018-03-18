@@ -71,13 +71,8 @@ class PreprocessData:
         self.suffix_orthographic = {}
         self.dataset_type = dataset_type
 
-        # Some special prefix or suffix values
         self.prefix_orthographic['none'] = 0
-        self.prefix_orthographic['capital'] = 1
-        self.prefix_orthographic['startnum'] = 2
-
         self.suffix_orthographic['none'] = 0
-        self.suffix_orthographic['hyphen'] = 1
 
     def isCapitalized(self, word, mode="strict"):
         """
@@ -94,17 +89,29 @@ class PreprocessData:
             return 1 if word[0].isupper() else 0
         return 0
 
+    def containsHypen(self, word):
+        """
+        Check whether a given word contains hyphen
+        :param word:
+        :return: 1 - True; 0 - False
+        """
+        return 1 if "-" in word else 0
+
+    def startsWithNumber(self, word):
+        """
+        Check whether a given word starts with a number
+        :param word:
+        :return: 1 - True; 0 - False
+        """
+        return 1 if word[0].isdigit() else 0
+
     def get_prefix_feature_id(self, token, mode):
-        if token[0].isdigit():
-            return self.prefix_orthographic['startnum']
         for prefix in COMMON_PREFIX:
             if token.startswith(prefix):
                 return self.get_orthographic_id(prefix, self.prefix_orthographic)
         return self.prefix_orthographic['none']
 
     def get_suffix_feature_id(self, token, mode):
-        if "-" in token:
-            return self.suffix_orthographic['hyphen']
         for suffix in COMMON_SUFFIX:
             if token.endswith(suffix):
                 return self.get_orthographic_id(suffix, self.suffix_orthographic)
@@ -193,8 +200,14 @@ class PreprocessData:
                                 prefix_feature = self.get_prefix_feature_id(word, mode)
                                 suffix_feature = self.get_suffix_feature_id(word, mode)
 
-                                ## get ids for capitalized features
+                                ## get ids for capitalized feature
                                 cap_feature = self.isCapitalized(word)
+
+                                ## get ids for whether the word starts with a number feature
+                                num_feature = self.startsWithNumber(word)
+
+                                ## get ids for whether the word contains a hyphen feature
+                                hyphen_feature = self.containsHypen(word)
 
                                 # get id for pos tag. Instead of passing input mode
                                 # we pass train as the mode so that we can include all pos tags
@@ -202,7 +215,9 @@ class PreprocessData:
                                             self.get_id(tag, self.pos_tags, 'train'),
                                             prefix_feature,
                                             suffix_feature,
-                                            cap_feature))
+                                            cap_feature,
+                                            num_feature,
+                                            hyphen_feature))
         if row:
             matrix.append(row)
         return matrix
@@ -242,6 +257,8 @@ class PreprocessData:
         XP = []
         XS = []
         XC = []
+        XN = []
+        XH = []
         original_len = len(mat)
         mat = filter(lambda x: len(x) <= max_size, mat)
         no_removed = original_len - len(mat)
@@ -251,6 +268,8 @@ class PreprocessData:
             XP_row = [tup[2] for tup in row]
             XS_row = [tup[3] for tup in row]
             XC_row = [tup[4] for tup in row]
+            XN_row = [tup[5] for tup in row]
+            XH_row = [tup[5] for tup in row]
             ## padded words represented by len(vocab) + 1
             X_row = X_row + [self.get_pad_id(self.vocabulary)] * (max_size - len(X_row))
             ## Padded pos tags represented by -1
@@ -258,9 +277,13 @@ class PreprocessData:
             XP_row = XP_row + [self.prefix_orthographic['none']] * (max_size - len(XP_row))
             XS_row = XS_row + [self.suffix_orthographic['none']] * (max_size - len(XS_row))
             XC_row = XC_row + [self.suffix_orthographic['none']] * (max_size - len(XC_row))
+            XN_row = XN_row + [self.prefix_orthographic['none']] * (max_size - len(XN_row))
+            XH_row = XH_row + [self.prefix_orthographic['none']] * (max_size - len(XH_row))
             X.append(X_row)
             y.append(y_row)
             XP.append(XP_row)
             XS.append(XS_row)
             XC.append(XC_row)
-        return X, y, XP, XS, XC, no_removed
+            XN.append(XN_row)
+            XH.append(XH_row)
+        return X, y, XP, XS, XC, XN, XH, no_removed

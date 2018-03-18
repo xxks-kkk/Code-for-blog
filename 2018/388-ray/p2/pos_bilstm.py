@@ -35,11 +35,14 @@ def get_time_string():
 ## https://github.com/monikkinom/ner-lstm/
 class Model:
     def __init__(self,
-                 input_dim, prefix_orthographic_dim,
+                 input_dim,
+                 prefix_orthographic_dim,
                  suffix_orthographic_dim,
                  sequence_len,
                  output_dim,
                  cap_size,
+                 num_size,
+                 hyphen_size,
                  orthographic_insertion_place,
                  orthographic_insertion_type,
                  hidden_state_size=300,
@@ -48,6 +51,8 @@ class Model:
         self._prefix_orthographic_dim = prefix_orthographic_dim
         self._suffix_orthographic_dim = suffix_orthographic_dim
         self._cap_dim = cap_size
+        self._num_dim = num_size
+        self._hyphen_dim = hyphen_size
         self._sequence_len = sequence_len
         self._output_dim = output_dim
         self._hidden_state_size = hidden_state_size
@@ -62,6 +67,8 @@ class Model:
         self._prefix_features = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
         self._suffix_features = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
         self._cap_features = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
+        self._num_features = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
+        self._hyphen_features = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
         self._output_tags = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
 
     ## Returns the mask that is 1 for the actual words
@@ -72,10 +79,14 @@ class Model:
         lengths = tf.reduce_sum(mask, reduction_indices=1)  # (lengths - batch size * 1 ?)
         return mask, lengths
 
-    def get_oov_mask(self, t):  # (t - batch size * sequence length ?)
+    def get_oov_mask(self, t):
+        # self._input_dim - 2 because self._input_dim gets "len(p.vocabulary) + 2" from outside.
+        # We assign "len(p.vocabulary)" as ID to OOV word (see "get_oov_id" in preprocess.py). Thus,
+        # self._input_dim - 2 == len(p.vocabulary), which is the OOV word ID. Similarly,
+        # to get padding ID, we do "self._input_dim - 1".
         mask = tf.cast(tf.equal(t, self._input_dim - 2),
-                       tf.int32)  # (mask: batch size * sequence length ?) # _input_dim - 2 is for 'unk', input_dim - 1 is for padding
-        lengths = tf.reduce_sum(mask, reduction_indices=1)  # (lengths: batch size * 1 ?)
+                       tf.int32)
+        lengths = tf.reduce_sum(mask, reduction_indices=1)
         return mask, lengths
 
     ## Embed the large one hot input vector into a smaller space
@@ -112,21 +123,24 @@ class Model:
                 if self._orthographic_insertion_type == OrthographicInsertionType.ONE_HOT:
                     prefix_one_hot = tf.one_hot(self._prefix_features, self._prefix_orthographic_dim)
                     suffix_one_hot = tf.one_hot(self._suffix_features, self._suffix_orthographic_dim)
-                    self._hidden_state_size += self._prefix_orthographic_dim + self._suffix_orthographic_dim
-                    lstm_input = tf.concat([lstm_input, prefix_one_hot, suffix_one_hot], axis=2)
+                    cap_one_hot = tf.one_hot(self._cap_features, self._cap_dim)
+                    num_one_hot = tf.one_hot(self._num_features, self._num_dim)
+                    hyphen_one_hot = tf.one_hot(self._hyphen_features, self._hyphen_dim)
+                    lstm_input = tf.concat([lstm_input, prefix_one_hot, suffix_one_hot, cap_one_hot, num_one_hot, hyphen_one_hot], axis=2)
                 elif self._orthographic_insertion_type == OrthographicInsertionType.INT_VAL:
-                    prefix_reshaped = tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1])
-                    suffix_reshaped = tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1])
-                    cap_reshaped = tf.reshape(self._cap_features, [BATCH_SIZE, self._sequence_len, 1])
-                    prefix_reshaped = tf.cast(prefix_reshaped, tf.float32)
-                    suffix_reshaped = tf.cast(suffix_reshaped, tf.float32)
-                    cap_reshaped = tf.cast(cap_reshaped, tf.float32)
-                    lstm_input = tf.concat([lstm_input, prefix_reshaped, suffix_reshaped, cap_reshaped], axis=2)
+                    prefix_reshaped = tf.cast(tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    suffix_reshaped = tf.cast(tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    cap_reshaped = tf.cast(tf.reshape(self._cap_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    num_reshaped = tf.cast(tf.reshape(self._num_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    hyphen_reshaped = tf.cast(tf.reshape(self._hyphen_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    lstm_input = tf.concat([lstm_input, prefix_reshaped, suffix_reshaped, cap_reshaped, num_reshaped, hyphen_reshaped], axis=2)
                 elif self._orthographic_insertion_type == OrthographicInsertionType.EMBEDDED:
                     prefix_embedded = self.get_orthographic_embedding(self._prefix_features, self._prefix_orthographic_dim, "prefix_embedding")
                     suffix_embedded = self.get_orthographic_embedding(self._suffix_features, self._suffix_orthographic_dim, "suffix_embedding")
                     cap_embedded = self.get_orthographic_embedding(self._cap_features, self._cap_dim, "cap_embedding")
-                    lstm_input = tf.concat([lstm_input, prefix_embedded, suffix_embedded, cap_embedded], axis=2)
+                    num_embedded = self.get_orthographic_embedding(self._num_features, self._num_dim, "num_embedding")
+                    hyphen_embedded = self.get_orthographic_embedding(self._hyphen_features, self._hyphen_dim, "hyphen_embedding")
+                    lstm_input = tf.concat([lstm_input, prefix_embedded, suffix_embedded, cap_embedded, num_embedded, hyphen_embedded], axis=2)
 
         ## Create forward and backward cell
         forward_cell = tf.contrib.rnn.LSTMCell(self._hidden_state_size, state_is_tuple=True)
@@ -151,18 +165,24 @@ class Model:
                 if self._orthographic_insertion_type == OrthographicInsertionType.ONE_HOT:
                     prefix_one_hot = tf.one_hot(self._prefix_features, self._prefix_orthographic_dim)
                     suffix_one_hot = tf.one_hot(self._suffix_features, self._suffix_orthographic_dim)
-                    outputs = tf.concat([outputs, prefix_one_hot, suffix_one_hot], axis=2)
+                    cap_one_hot = tf.one_hot(self._cap_features, self._cap_dim)
+                    num_one_hot = tf.one_hot(self._num_features, self._num_dim)
+                    hyphen_one_hot = tf.one_hot(self._hyphen_features, self._hyphen_dim)
+                    outputs = tf.concat([outputs, prefix_one_hot, suffix_one_hot, cap_one_hot, num_one_hot, hyphen_one_hot], axis=2)
                 elif self._orthographic_insertion_type == OrthographicInsertionType.INT_VAL:
-                    prefix_reshaped = tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1])
-                    suffix_reshaped = tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1])
-                    prefix_reshaped = tf.cast(prefix_reshaped, tf.float32)
-                    suffix_reshaped = tf.cast(suffix_reshaped, tf.float32)
-                    outputs = tf.concat([outputs, prefix_reshaped, suffix_reshaped], axis=2)
+                    prefix_reshaped = tf.cast(tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    suffix_reshaped = tf.cast(tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    cap_reshaped = tf.cast(tf.reshape(self._cap_features,[BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    num_reshaped = tf.cast(tf.reshape(self._num_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    hyphen_reshaped = tf.cast(tf.reshape(self._hyphen_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+                    outputs = tf.concat([outputs, prefix_reshaped, suffix_reshaped, cap_reshaped, num_reshaped, hyphen_reshaped], axis=2)
                 elif self._orthographic_insertion_type == OrthographicInsertionType.EMBEDDED:
                     prefix_embedded = self.get_orthographic_embedding(self._prefix_features, self._prefix_orthographic_dim, "prefix_embedding")
                     suffix_embedded = self.get_orthographic_embedding(self._suffix_features, self._suffix_orthographic_dim, "suffix_embedding")
                     cap_embedded = self.get_orthographic_embedding(self._cap_features, self._cap_dim, "cap_embedding")
-                    outputs = tf.concat([outputs, prefix_embedded, suffix_embedded, cap_embedded], axis=2)
+                    num_embedded = self.get_orthographic_embedding(self._num_features, self._num_dim, "num_embedding")
+                    hyphen_embedded = self.get_orthographic_embedding(self._hyphen_features, self._hyphen_dim, "hyphen_embedding")
+                    outputs = tf.concat([outputs, prefix_embedded, suffix_embedded, cap_embedded, num_embedded, hyphen_embedded], axis=2)
 
             ## Apply linear transformation to get logits(unnormalized scores)
             logits = self.compute_logits(outputs)
@@ -278,25 +298,41 @@ class Model:
     def cap_features(self):
         return self._cap_features
 
+    @property
+    def num_features(self):
+        return self._num_features
+
+    @property
+    def hyphen_features(self):
+        return self._hyphen_features
+
 
 # Adapted from http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html
-def generate_batch(X, y, P, S, XC):
+def generate_batch(X, y, P, S, XC, XN, XH):
     for i in xrange(0, len(X), BATCH_SIZE):
-        yield X[i:i + BATCH_SIZE], y[i:i + BATCH_SIZE], P[i:i + BATCH_SIZE], S[i:i + BATCH_SIZE], XC[i:i + BATCH_SIZE]
+        yield X[i:i + BATCH_SIZE], \
+              y[i:i + BATCH_SIZE], \
+              P[i:i + BATCH_SIZE], \
+              S[i:i + BATCH_SIZE], \
+              XC[i:i + BATCH_SIZE], \
+              XN[i:i + BATCH_SIZE], \
+              XH[i:i + BATCH_SIZE]
 
 
-def shuffle_data(X, y, P, S, XC):
+def shuffle_data(X, y, P, S, XC, XN, XH):
     ran = range(len(X))
     shuffle(ran)
     return [X[num] for num in ran], \
            [y[num] for num in ran], \
            [P[num] for num in ran], \
            [S[num] for num in ran], \
-           [XC[num] for num in ran]
+           [XC[num] for num in ran], \
+           [XN[num] for num in ran], \
+           [XH[num] for num in ran]
 
 
 # Adapted from http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html
-def generate_epochs(X, y, P, S, XC, no_of_epochs):
+def generate_epochs(X, y, P, S, XC, XN, XH, no_of_epochs):
     lx = len(X)
     lx = (lx // BATCH_SIZE) * BATCH_SIZE
     X = X[:lx]
@@ -304,20 +340,29 @@ def generate_epochs(X, y, P, S, XC, no_of_epochs):
     P = P[:lx]
     S = S[:lx]
     XC = XC[:lx]
+    XN = XN[:lx]
+    XH = XH[:lx]
     for i in range(no_of_epochs):
-        shuffle_data(X, y, P, S, XC)
-        yield generate_batch(X, y, P, S, XC)
+        X,y,P,S,XC,XN,XH = shuffle_data(X, y, P, S, XC, XN, XH)
+        yield generate_batch(X, y, P, S, XC, XN, XH)
 
 
 ## Compute overall loss and accuracy on dev/test data
-def compute_summary_metrics(sess, m, sentence_words_val, sentence_tags_val, prefixes, suffixes, cap):
+def compute_summary_metrics(sess, m, sentence_words_val, sentence_tags_val, prefixes, suffixes, cap, num, hyphen):
     loss, accuracy, total_len, oov_accuracy, total_oov_len = 0.0, 0.0, 0, 0.0, 0
-    for i, epoch in enumerate(generate_epochs(sentence_words_val, sentence_tags_val, prefixes, suffixes, cap, 1)):
-        for step, (X, y, XP, XS, XC) in enumerate(epoch):
+    for i, epoch in enumerate(generate_epochs(sentence_words_val, sentence_tags_val, prefixes, suffixes, cap, num, hyphen, 1)):
+        for step, (X, y, XP, XS, XC, XN, XH) in enumerate(epoch):
             batch_loss, batch_accuracy, batch_len, batch_oov_accuracy, batch_oov_len = \
                 sess.run([m.loss, m.accuracy, m.total_length, m.oov_accuracy, m.total_oov_length], \
-                         feed_dict={m.input_words: X, m.output_tags: y, m.prefix_features: XP, m.suffix_features: XS,
-                                    m.cap_features: XC})
+                         feed_dict={
+                             m.input_words: X,
+                             m.output_tags: y,
+                             m.prefix_features: XP,
+                             m.suffix_features: XS,
+                             m.cap_features: XC,
+                             m.num_features: XN,
+                             m.hyphen_features: XH
+                         })
             loss += batch_loss
             accuracy += batch_accuracy
             total_len += batch_len
@@ -336,16 +381,22 @@ def train(sentence_words_train,
           prefixes_train,
           suffixes_train,
           cap_train,
+          num_train,
+          hyphen_train,
           sentence_words_val,
           sentence_tags_val,
           prefixes_val,
           suffixes_val,
           cap_val,
+          num_val,
+          hyphen_val,
           vocab_size,
           prefix_size,
           suffix_size,
           no_pos_classes,
           cap_size,
+          num_size,
+          hyphen_size,
           train_dir,
           orthographic_insertion_place,
           orthographic_insertion_type):
@@ -355,6 +406,8 @@ def train(sentence_words_train,
               MAX_LENGTH,
               no_pos_classes,
               cap_size,
+              num_size,
+              hyphen_size,
               orthographic_insertion_place,
               orthographic_insertion_type)
     with tf.Graph().as_default():
@@ -384,16 +437,38 @@ def train(sentence_words_train,
 
         summary_writer = tf.summary.FileWriter(train_dir, sess.graph)
         j = 0
-        for i, epoch in enumerate(generate_epochs(sentence_words_train, sentence_tags_train, prefixes_train, suffixes_train, cap_train, NO_OF_EPOCHS)):
+        for i, epoch in enumerate(generate_epochs(sentence_words_train,
+                                                  sentence_tags_train,
+                                                  prefixes_train,
+                                                  suffixes_train,
+                                                  cap_train,
+                                                  num_train,
+                                                  hyphen_train,
+                                                  NO_OF_EPOCHS)):
             start_time = time.time()
-            for step, (X, y, P, S, XC) in enumerate(epoch):
-                _, summary_value = sess.run([train_op, summary_op], feed_dict=
-                {m.input_words: X, m.output_tags: y, m.prefix_features: P, m.suffix_features: S, m.cap_features: XC})
+            for step, (X, y, P, S, XC, XN, XH) in enumerate(epoch):
+                _, summary_value = sess.run([train_op, summary_op],
+                                            feed_dict={
+                                                m.input_words: X,
+                                                m.output_tags: y,
+                                                m.prefix_features: P,
+                                                m.suffix_features: S,
+                                                m.cap_features: XC,
+                                                m.num_features: XN,
+                                                m.hyphen_features: XH
+                                            })
                 duration = time.time() - start_time
                 j += 1
                 if j % VALIDATION_FREQUENCY == 0:
-                    val_loss, val_accuracy, val_oov_accuracy = compute_summary_metrics(sess, m, sentence_words_val,
-                                                                                       sentence_tags_val, prefixes_val, suffixes_val, cap_val)
+                    val_loss, val_accuracy, val_oov_accuracy = compute_summary_metrics(sess,
+                                                                                       m,
+                                                                                       sentence_words_val,
+                                                                                       sentence_tags_val,
+                                                                                       prefixes_val,
+                                                                                       suffixes_val,
+                                                                                       cap_val,
+                                                                                       num_val,
+                                                                                       hyphen_val)
                     summary = tf.Summary()
                     summary.ParseFromString(summary_value)
                     summary.value.add(tag='Validation Loss', simple_value=val_loss)
@@ -418,11 +493,15 @@ def test(sentence_words_test,
          prefixes_test,
          suffixes_test,
          cap_test,
+         num_test,
+         hyphen_test,
          vocab_size,
          prefix_size,
          suffix_size,
          no_pos_classes,
          cap_size,
+         num_size,
+         hyphen_size,
          train_dir,
          orthographic_insertion_place,
          orthographic_insertion_type):
@@ -432,6 +511,8 @@ def test(sentence_words_test,
               MAX_LENGTH,
               no_pos_classes,
               cap_size,
+              num_size,
+              hyphen_size,
               orthographic_insertion_place,
               orthographic_insertion_type)
     with tf.Graph().as_default():
@@ -445,8 +526,15 @@ def test(sentence_words_test,
                 saver.restore(sess, ckpt.model_checkpoint_path)
 
                 global_step = ckpt.model_checkpoint_path.split('/')[-1].split('-')[-1]
-            test_loss, test_accuracy, test_oov_accuracy = compute_summary_metrics(sess, m, sentence_words_test,
-                                                                                  sentence_tags_test, prefixes_test, suffixes_test, cap_test)
+            test_loss, test_accuracy, test_oov_accuracy = compute_summary_metrics(sess,
+                                                                                  m,
+                                                                                  sentence_words_test,
+                                                                                  sentence_tags_test,
+                                                                                  prefixes_test,
+                                                                                  suffixes_test,
+                                                                                  cap_test,
+                                                                                  num_test,
+                                                                                  hyphen_test)
             print get_time_string(), 'Test Accuracy: {:.3f}'.format(test_accuracy)
             print get_time_string(), 'Test OOV Accuracy: {:.3f}'.format(test_oov_accuracy)
             print get_time_string(), 'Test Loss: {:.3f}'.format(test_loss)
@@ -479,9 +567,9 @@ if __name__ == '__main__':
     val_mat = p.get_raw_data(val_files, 'validation')
     test_mat = p.get_raw_data(test_files, 'test')
 
-    X_train, y_train, P_train, S_train, XC_train, _ = p.get_processed_data(train_mat, MAX_LENGTH)
-    X_val, y_val, P_val, S_val, XC_val, _ = p.get_processed_data(val_mat, MAX_LENGTH)
-    X_test, y_test, P_test, S_test, XC_test, _ = p.get_processed_data(test_mat, MAX_LENGTH)
+    X_train, y_train, P_train, S_train, XC_train, XN_train, XH_train, _ = p.get_processed_data(train_mat, MAX_LENGTH)
+    X_val, y_val, P_val, S_val, XC_val, XN_val, XH_val, _ = p.get_processed_data(val_mat, MAX_LENGTH)
+    X_test, y_test, P_test, S_test, XC_test, XN_test, XH_test, _ = p.get_processed_data(test_mat, MAX_LENGTH)
 
     if experiment_type == 'train':
         if os.path.exists(train_dir):
@@ -492,15 +580,21 @@ if __name__ == '__main__':
               P_train,
               S_train,
               XC_train,
+              XN_train,
+              XH_train,
               X_val,
               y_val,
               P_val,
               S_val,
               XC_val,
+              XN_val,
+              XH_val,
               len(p.vocabulary) + 2,
               len(p.prefix_orthographic),
               len(p.suffix_orthographic),
               len(p.pos_tags) + 1,
+              2,
+              2,
               2,
               train_dir,
               orthographic_insertion_place,
@@ -511,10 +605,14 @@ if __name__ == '__main__':
              P_test,
              S_test,
              XC_test,
+             XN_test,
+             XH_test,
              len(p.vocabulary) + 2,
              len(p.prefix_orthographic),
              len(p.suffix_orthographic),
              len(p.pos_tags) + 1,
+             2,
+             2,
              2,
              train_dir,
              orthographic_insertion_place,
