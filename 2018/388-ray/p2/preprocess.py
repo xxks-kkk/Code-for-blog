@@ -79,11 +79,24 @@ class PreprocessData:
         self.suffix_orthographic['none'] = 0
         self.suffix_orthographic['hyphen'] = 1
 
+    def isCapitalized(self, word, mode="strict"):
+        """
+        Check whether a given word is capitalized
+        :param word:
+        :param mode: - loose: any character in a word has upper case counts
+                     - strict: Only beginning char of a word in upper case counts
+        :return: 1 - True; 0 - False
+        """
+        if mode == "loose":
+            if any(x.isupper() for x in word):
+                return 1
+        elif mode == "strict":
+            return 1 if word[0].isupper() else 0
+        return 0
+
     def get_prefix_feature_id(self, token, mode):
         if token[0].isdigit():
             return self.prefix_orthographic['startnum']
-        if token[0].isupper():
-            return self.prefix_orthographic['capital']
         for prefix in COMMON_PREFIX:
             if token.startswith(prefix):
                 return self.get_orthographic_id(prefix, self.prefix_orthographic)
@@ -176,16 +189,20 @@ class PreprocessData:
                                 ## get ids for word
                                 feature = self.get_id(word, self.vocabulary, mode)
 
-                                # get ids for prefix and suffix features
+                                ## get ids for prefix and suffix features
                                 prefix_feature = self.get_prefix_feature_id(word, mode)
                                 suffix_feature = self.get_suffix_feature_id(word, mode)
+
+                                ## get ids for capitalized features
+                                cap_feature = self.isCapitalized(word)
 
                                 # get id for pos tag. Instead of passing input mode
                                 # we pass train as the mode so that we can include all pos tags
                                 row.append((feature,
                                             self.get_id(tag, self.pos_tags, 'train'),
                                             prefix_feature,
-                                            suffix_feature))
+                                            suffix_feature,
+                                            cap_feature))
         if row:
             matrix.append(row)
         return matrix
@@ -222,24 +239,28 @@ class PreprocessData:
     def get_processed_data(self, mat, max_size):
         X = []
         y = []
-        P = []
-        S = []
+        XP = []
+        XS = []
+        XC = []
         original_len = len(mat)
         mat = filter(lambda x: len(x) <= max_size, mat)
         no_removed = original_len - len(mat)
         for row in mat:
             X_row = [tup[0] for tup in row]
             y_row = [tup[1] for tup in row]
-            P_row = [tup[2] for tup in row]
-            S_row = [tup[3] for tup in row]
+            XP_row = [tup[2] for tup in row]
+            XS_row = [tup[3] for tup in row]
+            XC_row = [tup[4] for tup in row]
             ## padded words represented by len(vocab) + 1
             X_row = X_row + [self.get_pad_id(self.vocabulary)] * (max_size - len(X_row))
             ## Padded pos tags represented by -1
             y_row = y_row + [-1] * (max_size - len(y_row))
-            P_row = P_row + [self.prefix_orthographic['none']] * (max_size - len(P_row))
-            S_row = S_row + [self.suffix_orthographic['none']] * (max_size - len(S_row))
+            XP_row = XP_row + [self.prefix_orthographic['none']] * (max_size - len(XP_row))
+            XS_row = XS_row + [self.suffix_orthographic['none']] * (max_size - len(XS_row))
+            XC_row = XC_row + [self.suffix_orthographic['none']] * (max_size - len(XC_row))
             X.append(X_row)
             y.append(y_row)
-            P.append(P_row)
-            S.append(S_row)
-        return X, y, P, S, no_removed
+            XP.append(XP_row)
+            XS.append(XS_row)
+            XC.append(XC_row)
+        return X, y, XP, XS, XC, no_removed
