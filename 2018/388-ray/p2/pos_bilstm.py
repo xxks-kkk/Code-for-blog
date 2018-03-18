@@ -1,13 +1,8 @@
-import glob
 import sys
 import tensorflow as tf
-import numpy as np
 import time
-import math
 import os
 import shutil
-import itertools
-from datetime import datetime
 from random import shuffle
 from preprocess import PreprocessData
 
@@ -16,9 +11,6 @@ BATCH_SIZE = 128
 VALIDATION_FREQUENCY = 10
 CHECKPOINT_FREQUENCY = 50
 NO_OF_EPOCHS = 6
-
-# TODO: You will have to write code for computing the OOV accuracy and then add it to the Tensorboard plots.
-
 
 ## Model class is adatepd from model.py found here
 ## https://github.com/monikkinom/ner-lstm/
@@ -38,10 +30,6 @@ class Model:
     def create_placeholders(self):
         self._input_words = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
         self._output_tags = tf.placeholder(tf.int32, [BATCH_SIZE, self._sequence_len])
-
-    def set_input_output(self, input_, output):
-        self._input_words = input_
-        self._output_tags = output
 
     ## Returns the mask that is 1 for the actual words
     ## and 0 for the padded part
@@ -178,9 +166,9 @@ class Model:
 
     @property
     def total_length(self):
-        return self._total_length  # Adapted from http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html
+        return self._total_length
 
-
+# Adapted from http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html
 def generate_batch(X, y):
     for i in xrange(0, len(X), BATCH_SIZE):
         yield X[i:i + BATCH_SIZE], y[i:i + BATCH_SIZE]

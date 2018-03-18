@@ -1,5 +1,4 @@
 import glob
-from random import shuffle
 
 MAX_LENGTH = 100
 
@@ -174,9 +173,6 @@ class PreprocessData:
                                 # include all pos tags.
                                 # Add the feature: (word, isCapitalized, containsPrefix, containsSuffix, pos)
                                 row.append((feature,
-                                            self.isCapitalized(word),
-                                            self.containsPrefix(word),
-                                            self.containsSuffix(word),
                                             self.get_id(tag, self.pos_tags, 'train')))
         if row:
             matrix.append(row)
