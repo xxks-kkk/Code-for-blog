@@ -67,12 +67,9 @@ class PreprocessData:
     def __init__(self, dataset_type='wsj'):
         self.vocabulary = {}
         self.pos_tags = {}
-        self.prefix_orthographic = {}
-        self.suffix_orthographic = {}
+        self.prefix = {'none': 0}
+        self.suffix = {'none': 0}
         self.dataset_type = dataset_type
-
-        self.prefix_orthographic['none'] = 0
-        self.suffix_orthographic['none'] = 0
 
     def isCapitalized(self, word, mode="strict"):
         """
@@ -105,17 +102,17 @@ class PreprocessData:
         """
         return 1 if word[0].isdigit() else 0
 
-    def get_prefix_feature_id(self, token, mode):
+    def get_prefix_id(self, token, mode):
         for prefix in COMMON_PREFIX:
             if token.startswith(prefix):
-                return self.get_orthographic_id(prefix, self.prefix_orthographic)
-        return self.prefix_orthographic['none']
+                return self.get_orthographic_id(prefix, self.prefix)
+        return self.prefix['none']
 
-    def get_suffix_feature_id(self, token, mode):
+    def get_suffix_id(self, token, mode):
         for suffix in COMMON_SUFFIX:
             if token.endswith(suffix):
-                return self.get_orthographic_id(suffix, self.suffix_orthographic)
-        return self.prefix_orthographic['none']
+                return self.get_orthographic_id(suffix, self.suffix)
+        return self.prefix['none']
 
     ## Get standard split for WSJ
     def get_standard_split(self, files):
@@ -197,8 +194,8 @@ class PreprocessData:
                                 feature = self.get_id(word, self.vocabulary, mode)
 
                                 ## get ids for prefix and suffix features
-                                prefix_feature = self.get_prefix_feature_id(word, mode)
-                                suffix_feature = self.get_suffix_feature_id(word, mode)
+                                prefix_feature = self.get_prefix_id(word, mode)
+                                suffix_feature = self.get_suffix_id(word, mode)
 
                                 ## get ids for capitalized feature
                                 cap_feature = self.isCapitalized(word)
@@ -274,11 +271,11 @@ class PreprocessData:
             X_row = X_row + [self.get_pad_id(self.vocabulary)] * (max_size - len(X_row))
             ## Padded pos tags represented by -1
             y_row = y_row + [-1] * (max_size - len(y_row))
-            XP_row = XP_row + [self.prefix_orthographic['none']] * (max_size - len(XP_row))
-            XS_row = XS_row + [self.suffix_orthographic['none']] * (max_size - len(XS_row))
-            XC_row = XC_row + [self.suffix_orthographic['none']] * (max_size - len(XC_row))
-            XN_row = XN_row + [self.prefix_orthographic['none']] * (max_size - len(XN_row))
-            XH_row = XH_row + [self.prefix_orthographic['none']] * (max_size - len(XH_row))
+            XP_row = XP_row + [self.prefix['none']] * (max_size - len(XP_row))
+            XS_row = XS_row + [self.suffix['none']] * (max_size - len(XS_row))
+            XC_row = XC_row + [self.suffix['none']] * (max_size - len(XC_row))
+            XN_row = XN_row + [self.prefix['none']] * (max_size - len(XN_row))
+            XH_row = XH_row + [self.prefix['none']] * (max_size - len(XH_row))
             X.append(X_row)
             y.append(y_row)
             XP.append(XP_row)

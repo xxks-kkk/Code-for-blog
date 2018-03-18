@@ -12,7 +12,6 @@ BATCH_SIZE = 128
 VALIDATION_FREQUENCY = 10
 CHECKPOINT_FREQUENCY = 50
 NO_OF_EPOCHS = 6
-ORTHOGRAPHIC_HIDDEN_STATE_SIZE=10
 
 class OrthographicInsertionPlace(Enum):
     NONE = 0
@@ -46,7 +45,7 @@ class Model:
                  orthographic_insertion_place,
                  orthographic_insertion_type,
                  hidden_state_size=300,
-                 orthographic_hidden_state_size=ORTHOGRAPHIC_HIDDEN_STATE_SIZE):
+                 orthographic_hidden_state_size=10):
         self._input_dim = input_dim
         self._prefix_orthographic_dim = prefix_orthographic_dim
         self._suffix_orthographic_dim = suffix_orthographic_dim
@@ -84,8 +83,7 @@ class Model:
         # We assign "len(p.vocabulary)" as ID to OOV word (see "get_oov_id" in preprocess.py). Thus,
         # self._input_dim - 2 == len(p.vocabulary), which is the OOV word ID. Similarly,
         # to get padding ID, we do "self._input_dim - 1".
-        mask = tf.cast(tf.equal(t, self._input_dim - 2),
-                       tf.int32)
+        mask = tf.cast(tf.equal(t, self._input_dim - 2), tf.int32)
         lengths = tf.reduce_sum(mask, reduction_indices=1)
         return mask, lengths
 
@@ -102,6 +100,35 @@ class Model:
         embedding = tf.get_variable(embedding_var_name,
                                     [dimension, self._orthographic_hidden_state_size], dtype=tf.float32)
         return tf.nn.embedding_lookup(embedding, tf.cast(input_, tf.int32))
+
+    def concatenate_features(self, lstm_in_output):
+        """
+        Concatenate orthographic features based on the specific type (ONE_HOT, INT_VAL, EMBEDDED)
+        with the lstm_in_output, which can be lstm_input or lstm_output
+        :param lstm_in_output: lstm_input or lstm_output
+        :return: concatenated lstm_input or concatenated lstm_output
+        """
+        if self._orthographic_insertion_type == OrthographicInsertionType.ONE_HOT:
+            prefix_one_hot = tf.one_hot(self._prefix_features, self._prefix_orthographic_dim)
+            suffix_one_hot = tf.one_hot(self._suffix_features, self._suffix_orthographic_dim)
+            cap_one_hot = tf.one_hot(self._cap_features, self._cap_dim)
+            num_one_hot = tf.one_hot(self._num_features, self._num_dim)
+            hyphen_one_hot = tf.one_hot(self._hyphen_features, self._hyphen_dim)
+            return tf.concat([lstm_in_output, prefix_one_hot, suffix_one_hot, cap_one_hot, num_one_hot, hyphen_one_hot], axis=2)
+        elif self._orthographic_insertion_type == OrthographicInsertionType.INT_VAL:
+            prefix_reshaped = tf.cast(tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+            suffix_reshaped = tf.cast(tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+            cap_reshaped = tf.cast(tf.reshape(self._cap_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+            num_reshaped = tf.cast(tf.reshape(self._num_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+            hyphen_reshaped = tf.cast(tf.reshape(self._hyphen_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
+            return tf.concat([lstm_in_output, prefix_reshaped, suffix_reshaped, cap_reshaped, num_reshaped, hyphen_reshaped], axis=2)
+        elif self._orthographic_insertion_type == OrthographicInsertionType.EMBEDDED:
+            prefix_embedded = self.get_orthographic_embedding(self._prefix_features, self._prefix_orthographic_dim, "prefix_embedding")
+            suffix_embedded = self.get_orthographic_embedding(self._suffix_features, self._suffix_orthographic_dim, "suffix_embedding")
+            cap_embedded = self.get_orthographic_embedding(self._cap_features, self._cap_dim, "cap_embedding")
+            num_embedded = self.get_orthographic_embedding(self._num_features, self._num_dim, "num_embedding")
+            hyphen_embedded = self.get_orthographic_embedding(self._hyphen_features, self._hyphen_dim, "hyphen_embedding")
+            return tf.concat([lstm_in_output, prefix_embedded, suffix_embedded, cap_embedded, num_embedded, hyphen_embedded], axis=2)
 
     # Adapted from https://github.com/monikkinom/ner-lstm/blob/master/model.py __init__ function
     def create_graph(self):
@@ -120,27 +147,7 @@ class Model:
         with tf.variable_scope("lstm_input"):
             lstm_input = self.get_embedding(self._input_words)
             if self._orthographic_insertion_place == OrthographicInsertionPlace.INPUT:
-                if self._orthographic_insertion_type == OrthographicInsertionType.ONE_HOT:
-                    prefix_one_hot = tf.one_hot(self._prefix_features, self._prefix_orthographic_dim)
-                    suffix_one_hot = tf.one_hot(self._suffix_features, self._suffix_orthographic_dim)
-                    cap_one_hot = tf.one_hot(self._cap_features, self._cap_dim)
-                    num_one_hot = tf.one_hot(self._num_features, self._num_dim)
-                    hyphen_one_hot = tf.one_hot(self._hyphen_features, self._hyphen_dim)
-                    lstm_input = tf.concat([lstm_input, prefix_one_hot, suffix_one_hot, cap_one_hot, num_one_hot, hyphen_one_hot], axis=2)
-                elif self._orthographic_insertion_type == OrthographicInsertionType.INT_VAL:
-                    prefix_reshaped = tf.cast(tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    suffix_reshaped = tf.cast(tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    cap_reshaped = tf.cast(tf.reshape(self._cap_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    num_reshaped = tf.cast(tf.reshape(self._num_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    hyphen_reshaped = tf.cast(tf.reshape(self._hyphen_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    lstm_input = tf.concat([lstm_input, prefix_reshaped, suffix_reshaped, cap_reshaped, num_reshaped, hyphen_reshaped], axis=2)
-                elif self._orthographic_insertion_type == OrthographicInsertionType.EMBEDDED:
-                    prefix_embedded = self.get_orthographic_embedding(self._prefix_features, self._prefix_orthographic_dim, "prefix_embedding")
-                    suffix_embedded = self.get_orthographic_embedding(self._suffix_features, self._suffix_orthographic_dim, "suffix_embedding")
-                    cap_embedded = self.get_orthographic_embedding(self._cap_features, self._cap_dim, "cap_embedding")
-                    num_embedded = self.get_orthographic_embedding(self._num_features, self._num_dim, "num_embedding")
-                    hyphen_embedded = self.get_orthographic_embedding(self._hyphen_features, self._hyphen_dim, "hyphen_embedding")
-                    lstm_input = tf.concat([lstm_input, prefix_embedded, suffix_embedded, cap_embedded, num_embedded, hyphen_embedded], axis=2)
+                lstm_input = self.concatenate_features(lstm_input)
 
         ## Create forward and backward cell
         forward_cell = tf.contrib.rnn.LSTMCell(self._hidden_state_size, state_is_tuple=True)
@@ -159,33 +166,13 @@ class Model:
 
         with tf.variable_scope("lstm_output"):
             ## concat forward and backward states
-            outputs = tf.concat(outputs, 2)
+            lstm_outputs = tf.concat(outputs, 2)
 
             if orthographic_insertion_place == OrthographicInsertionPlace.OUTPUT:
-                if self._orthographic_insertion_type == OrthographicInsertionType.ONE_HOT:
-                    prefix_one_hot = tf.one_hot(self._prefix_features, self._prefix_orthographic_dim)
-                    suffix_one_hot = tf.one_hot(self._suffix_features, self._suffix_orthographic_dim)
-                    cap_one_hot = tf.one_hot(self._cap_features, self._cap_dim)
-                    num_one_hot = tf.one_hot(self._num_features, self._num_dim)
-                    hyphen_one_hot = tf.one_hot(self._hyphen_features, self._hyphen_dim)
-                    outputs = tf.concat([outputs, prefix_one_hot, suffix_one_hot, cap_one_hot, num_one_hot, hyphen_one_hot], axis=2)
-                elif self._orthographic_insertion_type == OrthographicInsertionType.INT_VAL:
-                    prefix_reshaped = tf.cast(tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    suffix_reshaped = tf.cast(tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    cap_reshaped = tf.cast(tf.reshape(self._cap_features,[BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    num_reshaped = tf.cast(tf.reshape(self._num_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    hyphen_reshaped = tf.cast(tf.reshape(self._hyphen_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
-                    outputs = tf.concat([outputs, prefix_reshaped, suffix_reshaped, cap_reshaped, num_reshaped, hyphen_reshaped], axis=2)
-                elif self._orthographic_insertion_type == OrthographicInsertionType.EMBEDDED:
-                    prefix_embedded = self.get_orthographic_embedding(self._prefix_features, self._prefix_orthographic_dim, "prefix_embedding")
-                    suffix_embedded = self.get_orthographic_embedding(self._suffix_features, self._suffix_orthographic_dim, "suffix_embedding")
-                    cap_embedded = self.get_orthographic_embedding(self._cap_features, self._cap_dim, "cap_embedding")
-                    num_embedded = self.get_orthographic_embedding(self._num_features, self._num_dim, "num_embedding")
-                    hyphen_embedded = self.get_orthographic_embedding(self._hyphen_features, self._hyphen_dim, "hyphen_embedding")
-                    outputs = tf.concat([outputs, prefix_embedded, suffix_embedded, cap_embedded, num_embedded, hyphen_embedded], axis=2)
+                lstm_outputs = self.concatenate_features(lstm_outputs)
 
             ## Apply linear transformation to get logits(unnormalized scores)
-            logits = self.compute_logits(outputs)
+            logits = self.compute_logits(lstm_outputs)
 
             ## Get the normalized probabilities
             ## Note that this a rank 3 tensor
@@ -590,8 +577,8 @@ if __name__ == '__main__':
               XN_val,
               XH_val,
               len(p.vocabulary) + 2,
-              len(p.prefix_orthographic),
-              len(p.suffix_orthographic),
+              len(p.prefix),
+              len(p.suffix),
               len(p.pos_tags) + 1,
               2,
               2,
@@ -608,8 +595,8 @@ if __name__ == '__main__':
              XN_test,
              XH_test,
              len(p.vocabulary) + 2,
-             len(p.prefix_orthographic),
-             len(p.suffix_orthographic),
+             len(p.prefix),
+             len(p.suffix),
              len(p.pos_tags) + 1,
              2,
              2,
