@@ -3,106 +3,99 @@ import glob
 MAX_LENGTH = 100
 
 # http://teacher.scholastic.com/reading/bestpractices/vocabulary/pdf/prefixes_suffixes.pdf
-COMMON_SUFFIX = (
-    "able",
-    "ible",
-    "al",
-    "ial",
-    "ed",
-    "en",
-    "er",
-    "er,",
-    "est",
-    "ful",
-    "ic",
-    "ing",
-    "ion",
-    "tion",
-    "ation",
-    "ition",
-    "ity",
-    "ty",
-    "ive",
-    "ative",
-    "itive",
-    "less",
-    "ly",
-    "ment",
-    "ness",
-    "ous",
-    "eous",
-    "ious",
-    "s",
-    "es",
-    "y"
-)
+COMMON_SUFFIX = {
+    "able":1,
+    "ible":2,
+    "al":3,
+    "ial":4,
+    "ed":5,
+    "en":6,
+    "er":7,
+    "er,":8,
+    "est":9,
+    "ful":10,
+    "ic":11,
+    "ing":12,
+    "ion":13,
+    "tion":14,
+    "ation":15,
+    "ition":16,
+    "ity":17,
+    "ty":18,
+    "ive":19,
+    "ative":20,
+    "itive":21,
+    "less":22,
+    "ly":23,
+    "ment":24,
+    "ness":25,
+    "ous":26,
+    "eous":27,
+    "ious":28,
+    "s":29,
+    "es":30,
+    "y":31
+}
 
-COMMON_PREFIX = (
-    "anti",
-    "de",
-    "dis",
-    "en",
-    "em",
-    "fore",
-    "in",
-    "im",
-    "il",
-    "ir",
-    "inter",
-    "mid",
-    "mis",
-    "non",
-    "over",
-    "pre",
-    "re",
-    "semi",
-    "sub",
-    "super",
-    "trans",
-    "un",
-    "under"
-)
-
+COMMON_PREFIX = {
+    "anti":32,
+    "de":33,
+    "dis":34,
+    "en":35,
+    "em":36,
+    "fore":37,
+    "in":38,
+    "im":39,
+    "il":40,
+    "ir":41,
+    "inter":42,
+    "mid":43,
+    "mis":44,
+    "non":45,
+    "over":46,
+    "pre":47,
+    "re":48,
+    "semi":49,
+    "sub":50,
+    "super":51,
+    "trans":52,
+    "un":53,
+    "under":54
+}
 
 class PreprocessData:
-    """
-    Preprocess the WSJ data to generate the input and output vectors that are fed into the BiLSTM
-    """
     def __init__(self, dataset_type='wsj'):
         self.vocabulary = {}
         self.pos_tags = {}
+        self.prefix_orthographic = {}
+        self.suffix_orthographic = {}
         self.dataset_type = dataset_type
 
-    def isCapitalized(self, word, mode="loose"):
-        """
-        Check whether a given word is capitalized
-        :param word:
-        :param mode: - loose: any character in a word has upper case counts
-                     - strict: Only beginning char of a word in upper case counts
-        :return: bool
-        """
-        if mode == "loose":
-            if any(x.isupper() for x in word):
-                return True
-        elif mode == "strict":
-            return word[0].isupper()
-        return False
+        # Some special prefix or suffix values
+        self.prefix_orthographic['none'] = 0
+        self.prefix_orthographic['capital'] = 1
+        self.prefix_orthographic['startnum'] = 2
 
-    def containsSuffix(self, word):
-        """
-        Check whether a given word contains the predefined suffix
-        :param word:
-        :return: bool
-        """
-        return word.endswith(COMMON_SUFFIX)
+        self.suffix_orthographic['none'] = 0
+        self.suffix_orthographic['hyphen'] = 1
 
-    def containsPrefix(self, word):
-        """
-        Check whether a given word contains the predefined prefix
-        :param word:
-        :return: bool
-        """
-        return word.startswith(COMMON_PREFIX)
+    def get_prefix_feature_id(self, token, mode):
+        if token[0].isdigit():
+            return self.prefix_orthographic['startnum']
+        if token[0].isupper():
+            return self.prefix_orthographic['capital']
+        for prefix in COMMON_PREFIX:
+            if token.startswith(prefix):
+                return self.get_orthographic_id(prefix, self.prefix_orthographic)
+        return self.prefix_orthographic['none']
+
+    def get_suffix_feature_id(self, token, mode):
+        if "-" in token:
+            return self.suffix_orthographic['hyphen']
+        for suffix in COMMON_SUFFIX:
+            if token.endswith(suffix):
+                return self.get_orthographic_id(suffix, self.suffix_orthographic)
+        return self.prefix_orthographic['none']
 
     ## Get standard split for WSJ
     def get_standard_split(self, files):
@@ -127,12 +120,18 @@ class PreprocessData:
         unfeasibleChars = '[]@\n'
         return not (c in unfeasibleChars)
 
-    ## unknown words represented by len(vocab)
-    def get_unk_id(self, dic):
+    ## OOV words represented by len(vocab)
+    def get_oov_id(self, dic):
         return len(dic)
 
     def get_pad_id(self, dic):
         return len(self.vocabulary) + 1
+
+    ## We add the feature to the map and assign a new id no matter whether we are in train or test
+    def get_orthographic_id(self, pos, dic):
+        if pos not in dic:
+            dic[pos] = len(dic)
+        return dic[pos]
 
     ## get id of given token(pos) from dictionary dic.
     ## if not in dic, extend the dic if in train mode
@@ -142,13 +141,14 @@ class PreprocessData:
             if mode == 'train':
                 dic[pos] = len(dic)
             else:
-                return self.get_unk_id(dic)
+                return self.get_oov_id(dic)
         return dic[pos]
 
     ## Process single file to get raw data matrix
     def processSingleFile(self, inFileName, mode):
         matrix = []
         row = []
+        word_count = 0
         with open(inFileName) as f:
             lines = f.readlines()
             for line in lines:
@@ -162,18 +162,30 @@ class PreprocessData:
                         if token[0] == '=':
                             if row:
                                 matrix.append(row)
+                            word_count = 0
                             row = []
                             break
                         elif PreprocessData.isFeasibleStartingCharacter(token[0]):
                             wordPosPair = token.split('/')
-                            if len(wordPosPair) == 2:
+                            # The MAX_LENGTH check ensures that the training vocabulary
+                            # only includes in those words that are finally a part of the
+                            # training instance (not the clipped off portion)
+                            if len(wordPosPair) == 2 and word_count < MAX_LENGTH:
+                                word_count += 1
                                 word, tag = wordPosPair[0], wordPosPair[1]
-                                ## get ids for word and pos tag
+                                ## get ids for word
                                 feature = self.get_id(word, self.vocabulary, mode)
-                                # include all pos tags.
-                                # Add the feature: (word, isCapitalized, containsPrefix, containsSuffix, pos)
+
+                                # get ids for prefix and suffix features
+                                prefix_feature = self.get_prefix_feature_id(word, mode)
+                                suffix_feature = self.get_suffix_feature_id(word, mode)
+
+                                # get id for pos tag. Instead of passing input mode
+                                # we pass train as the mode so that we can include all pos tags
                                 row.append((feature,
-                                            self.get_id(tag, self.pos_tags, 'train')))
+                                            self.get_id(tag, self.pos_tags, 'train'),
+                                            prefix_feature,
+                                            suffix_feature))
         if row:
             matrix.append(row)
         return matrix
@@ -210,18 +222,24 @@ class PreprocessData:
     def get_processed_data(self, mat, max_size):
         X = []
         y = []
+        P = []
+        S = []
         original_len = len(mat)
         mat = filter(lambda x: len(x) <= max_size, mat)
         no_removed = original_len - len(mat)
         for row in mat:
             X_row = [tup[0] for tup in row]
             y_row = [tup[1] for tup in row]
+            P_row = [tup[2] for tup in row]
+            S_row = [tup[3] for tup in row]
             ## padded words represented by len(vocab) + 1
-            ## Padding is used so the feature vector for each sentence is of same length.
-            ## Since sentences are not all of equal length we need padding at the end to achieve this.
             X_row = X_row + [self.get_pad_id(self.vocabulary)] * (max_size - len(X_row))
             ## Padded pos tags represented by -1
             y_row = y_row + [-1] * (max_size - len(y_row))
+            P_row = P_row + [self.prefix_orthographic['none']] * (max_size - len(P_row))
+            S_row = S_row + [self.suffix_orthographic['none']] * (max_size - len(S_row))
             X.append(X_row)
             y.append(y_row)
-        return X, y, no_removed
+            P.append(P_row)
+            S.append(S_row)
+        return X, y, P, S, no_removed
