@@ -7,22 +7,26 @@ from random import shuffle
 from preprocess import PreprocessData
 from enum import Enum
 
+
 MAX_LENGTH = 100
 BATCH_SIZE = 128
 VALIDATION_FREQUENCY = 10
 CHECKPOINT_FREQUENCY = 50
 NO_OF_EPOCHS = 6
 
-class OrthographicInsertionPlace(Enum):
+# Suppress tensorflow warning message
+tf.logging.set_verbosity(tf.logging.ERROR)
+
+class OrthographicConcatePlace(Enum):
     NONE = 0
     INPUT = 1
     OUTPUT = 2
 
 
-class OrthographicInsertionType(Enum):
+class OrthographicFeatureForm(Enum):
     ONE_HOT = 0
     EMBEDDED = 1
-    INT_VAL = 2
+    INT = 2
 
 
 # Returns formatted current time as string
@@ -103,26 +107,30 @@ class Model:
 
     def concatenate_features(self, lstm_in_output):
         """
-        Concatenate orthographic features based on the specific type (ONE_HOT, INT_VAL, EMBEDDED)
+        Concatenate orthographic features based on the specific type (ONE_HOT, INT, EMBEDDED)
         with the lstm_in_output, which can be lstm_input or lstm_output
         :param lstm_in_output: lstm_input or lstm_output
         :return: concatenated lstm_input or concatenated lstm_output
         """
-        if self._orthographic_insertion_type == OrthographicInsertionType.ONE_HOT:
+        if self._orthographic_insertion_type == OrthographicFeatureForm.ONE_HOT:
+            # The difference between ONE_HOT and EMBEDDED is that one-hot vector's dimension equals to the
+            # the dimension of feature (i.e., cap is a 1,0 feature. Thus its dimension is 2 and the one-hot vector
+            # dimension 1x2). However, embedding vector will have the dimension equals to either "self._orthographic_hidden_state_size"
+            # or "self._hidden_state_size".
             prefix_one_hot = tf.one_hot(self._prefix_features, self._prefix_orthographic_dim)
             suffix_one_hot = tf.one_hot(self._suffix_features, self._suffix_orthographic_dim)
             cap_one_hot = tf.one_hot(self._cap_features, self._cap_dim)
             num_one_hot = tf.one_hot(self._num_features, self._num_dim)
             hyphen_one_hot = tf.one_hot(self._hyphen_features, self._hyphen_dim)
             return tf.concat([lstm_in_output, prefix_one_hot, suffix_one_hot, cap_one_hot, num_one_hot, hyphen_one_hot], axis=2)
-        elif self._orthographic_insertion_type == OrthographicInsertionType.INT_VAL:
+        elif self._orthographic_insertion_type == OrthographicFeatureForm.INT:
             prefix_reshaped = tf.cast(tf.reshape(self._prefix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
             suffix_reshaped = tf.cast(tf.reshape(self._suffix_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
             cap_reshaped = tf.cast(tf.reshape(self._cap_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
             num_reshaped = tf.cast(tf.reshape(self._num_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
             hyphen_reshaped = tf.cast(tf.reshape(self._hyphen_features, [BATCH_SIZE, self._sequence_len, 1]), tf.float32)
             return tf.concat([lstm_in_output, prefix_reshaped, suffix_reshaped, cap_reshaped, num_reshaped, hyphen_reshaped], axis=2)
-        elif self._orthographic_insertion_type == OrthographicInsertionType.EMBEDDED:
+        elif self._orthographic_insertion_type == OrthographicFeatureForm.EMBEDDED:
             prefix_embedded = self.get_orthographic_embedding(self._prefix_features, self._prefix_orthographic_dim, "prefix_embedding")
             suffix_embedded = self.get_orthographic_embedding(self._suffix_features, self._suffix_orthographic_dim, "suffix_embedding")
             cap_embedded = self.get_orthographic_embedding(self._cap_features, self._cap_dim, "cap_embedding")
@@ -146,7 +154,7 @@ class Model:
         ## This is for computational tractability
         with tf.variable_scope("lstm_input"):
             lstm_input = self.get_embedding(self._input_words)
-            if self._orthographic_insertion_place == OrthographicInsertionPlace.INPUT:
+            if self._orthographic_insertion_place == OrthographicConcatePlace.INPUT:
                 lstm_input = self.concatenate_features(lstm_input)
 
         ## Create forward and backward cell
@@ -168,7 +176,7 @@ class Model:
             ## concat forward and backward states
             lstm_outputs = tf.concat(outputs, 2)
 
-            if orthographic_insertion_place == OrthographicInsertionPlace.OUTPUT:
+            if orthographic_insertion_place == OrthographicConcatePlace.OUTPUT:
                 lstm_outputs = self.concatenate_features(lstm_outputs)
 
             ## Apply linear transformation to get logits(unnormalized scores)
@@ -536,8 +544,8 @@ if __name__ == '__main__':
     orthographic_insertion_place = 'NONE' if len(sys.argv) <= 5 else sys.argv[5]
     orthographic_insertion_type = 'ONE_HOT' if len(sys.argv) <= 6 else sys.argv[6]
 
-    orthographic_insertion_place = OrthographicInsertionPlace[orthographic_insertion_place]
-    orthographic_insertion_type = OrthographicInsertionType[orthographic_insertion_type]
+    orthographic_insertion_place = OrthographicConcatePlace[orthographic_insertion_place.upper()]
+    orthographic_insertion_type = OrthographicFeatureForm[orthographic_insertion_type.upper()]
 
     p = PreprocessData(dataset_type='wsj')
 
