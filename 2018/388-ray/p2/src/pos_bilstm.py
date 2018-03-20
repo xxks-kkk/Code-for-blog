@@ -49,7 +49,7 @@ class Model:
                  orthographic_insertion_place,
                  orthographic_insertion_type,
                  hidden_state_size=300,
-                 orthographic_hidden_state_size=10):
+                 orthographic_embedding_dim=10):
         self._input_dim = input_dim
         self._prefix_orthographic_dim = prefix_orthographic_dim
         self._suffix_orthographic_dim = suffix_orthographic_dim
@@ -59,7 +59,7 @@ class Model:
         self._sequence_len = sequence_len
         self._output_dim = output_dim
         self._hidden_state_size = hidden_state_size
-        self._orthographic_hidden_state_size = orthographic_hidden_state_size
+        self._orthographic_embedding_dim = orthographic_embedding_dim
         self._orthographic_insertion_place = orthographic_insertion_place
         self._orthographic_insertion_type = orthographic_insertion_type
         self._optimizer = tf.train.AdamOptimizer(0.0005)
@@ -102,7 +102,7 @@ class Model:
     ## to make the lstm learning tractable
     def get_orthographic_embedding(self, input_, dimension, embedding_var_name):
         embedding = tf.get_variable(embedding_var_name,
-                                    [dimension, self._orthographic_hidden_state_size], dtype=tf.float32)
+                                    [dimension, self._orthographic_embedding_dim], dtype=tf.float32)
         return tf.nn.embedding_lookup(embedding, tf.cast(input_, tf.int32))
 
     def concatenate_features(self, lstm_in_output):
@@ -115,7 +115,7 @@ class Model:
         if self._orthographic_insertion_type == OrthographicFeatureForm.ONE_HOT:
             # The difference between ONE_HOT and EMBEDDED is that one-hot vector's dimension equals to the
             # the dimension of feature (i.e., cap is a 1,0 feature. Thus its dimension is 2 and the one-hot vector
-            # dimension 1x2). However, embedding vector will have the dimension equals to either "self._orthographic_hidden_state_size"
+            # dimension 1x2). However, embedding vector will have the dimension equals to either "self._orthographic_embedding_dim"
             # or "self._hidden_state_size".
             prefix_one_hot = tf.one_hot(self._prefix_features, self._prefix_orthographic_dim)
             suffix_one_hot = tf.one_hot(self._suffix_features, self._suffix_orthographic_dim)
@@ -157,6 +157,8 @@ class Model:
             if self._orthographic_insertion_place == OrthographicConcatePlace.INPUT:
                 lstm_input = self.concatenate_features(lstm_input)
 
+
+
         ## Create forward and backward cell
         forward_cell = tf.contrib.rnn.LSTMCell(self._hidden_state_size, state_is_tuple=True)
         backward_cell = tf.contrib.rnn.LSTMCell(self._hidden_state_size, state_is_tuple=True)
@@ -166,7 +168,7 @@ class Model:
         ## an rnn avoids the task of breaking the input into
         ## into a list of tensors (one per time step)
         with tf.variable_scope("lstm"):
-            outputs, _ = tf.nn.bidirectional_dynamic_rnn(forward_cell,
+            lstm_outputs, _ = tf.nn.bidirectional_dynamic_rnn(forward_cell,
                                                          backward_cell,
                                                          lstm_input,
                                                          dtype=tf.float32,
@@ -174,7 +176,7 @@ class Model:
 
         with tf.variable_scope("lstm_output"):
             ## concat forward and backward states
-            lstm_outputs = tf.concat(outputs, 2)
+            lstm_outputs = tf.concat(lstm_outputs, 2)
 
             if orthographic_insertion_place == OrthographicConcatePlace.OUTPUT:
                 lstm_outputs = self.concatenate_features(lstm_outputs)
@@ -432,6 +434,7 @@ def train(sentence_words_train,
 
         summary_writer = tf.summary.FileWriter(train_dir, sess.graph)
         j = 0
+        start_time = time.time()
         for i, epoch in enumerate(generate_epochs(sentence_words_train,
                                                   sentence_tags_train,
                                                   prefixes_train,
@@ -440,7 +443,6 @@ def train(sentence_words_train,
                                                   num_train,
                                                   hyphen_train,
                                                   NO_OF_EPOCHS)):
-            start_time = time.time()
             for step, (X, y, P, S, XC, XN, XH) in enumerate(epoch):
                 _, summary_value = sess.run([train_op, summary_op],
                                             feed_dict={
@@ -452,7 +454,6 @@ def train(sentence_words_train,
                                                 m.num_features: XN,
                                                 m.hyphen_features: XH
                                             })
-                duration = time.time() - start_time
                 j += 1
                 if j % VALIDATION_FREQUENCY == 0:
                     val_loss, val_accuracy, val_oov_accuracy = compute_summary_metrics(sess,
@@ -478,7 +479,8 @@ def train(sentence_words_train,
                 if j % CHECKPOINT_FREQUENCY == 0:
                     checkpoint_path = os.path.join(train_dir, 'model.ckpt')
                     saver.save(sess, checkpoint_path, global_step=j)
-
+        duration = time.time() - start_time
+        print("Duration: ", duration)
 
 ## Check performance on held out test data
 ## Loads most recent model from train_dir
