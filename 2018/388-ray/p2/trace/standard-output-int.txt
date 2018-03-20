@@ -1,0 +1,85 @@
+> python src/pos_bilstm.py wsj pos_train_o_i_dir standard train output int
+Mon Mar 19 04:11:25 2018  10 batches ====> Validation Accuracy 0.125, Validation OOV Accuracy 0.100, Validation Loss 3.726
+Mon Mar 19 04:11:36 2018  20 batches ====> Validation Accuracy 0.141, Validation OOV Accuracy 0.145, Validation Loss 3.059
+Mon Mar 19 04:11:47 2018  30 batches ====> Validation Accuracy 0.150, Validation OOV Accuracy 0.229, Validation Loss 2.981
+Mon Mar 19 04:11:58 2018  40 batches ====> Validation Accuracy 0.155, Validation OOV Accuracy 0.229, Validation Loss 2.955
+Mon Mar 19 04:12:09 2018  50 batches ====> Validation Accuracy 0.158, Validation OOV Accuracy 0.230, Validation Loss 2.930
+Mon Mar 19 04:12:23 2018  60 batches ====> Validation Accuracy 0.162, Validation OOV Accuracy 0.230, Validation Loss 2.905
+Mon Mar 19 04:12:34 2018  70 batches ====> Validation Accuracy 0.172, Validation OOV Accuracy 0.229, Validation Loss 2.870
+Mon Mar 19 04:12:45 2018  80 batches ====> Validation Accuracy 0.281, Validation OOV Accuracy 0.230, Validation Loss 2.816
+Mon Mar 19 04:12:56 2018  90 batches ====> Validation Accuracy 0.324, Validation OOV Accuracy 0.231, Validation Loss 2.717
+Mon Mar 19 04:13:08 2018  100 batches ====> Validation Accuracy 0.343, Validation OOV Accuracy 0.233, Validation Loss 2.563
+Mon Mar 19 04:13:21 2018  110 batches ====> Validation Accuracy 0.342, Validation OOV Accuracy 0.233, Validation Loss 2.378
+Mon Mar 19 04:13:32 2018  120 batches ====> Validation Accuracy 0.386, Validation OOV Accuracy 0.233, Validation Loss 2.212
+Mon Mar 19 04:13:44 2018  130 batches ====> Validation Accuracy 0.431, Validation OOV Accuracy 0.285, Validation Loss 2.072
+Mon Mar 19 04:13:55 2018  140 batches ====> Validation Accuracy 0.473, Validation OOV Accuracy 0.328, Validation Loss 1.924
+Mon Mar 19 04:14:06 2018  150 batches ====> Validation Accuracy 0.509, Validation OOV Accuracy 0.334, Validation Loss 1.775
+Mon Mar 19 04:14:20 2018  160 batches ====> Validation Accuracy 0.564, Validation OOV Accuracy 0.381, Validation Loss 1.621
+Mon Mar 19 04:14:31 2018  170 batches ====> Validation Accuracy 0.615, Validation OOV Accuracy 0.460, Validation Loss 1.461
+Mon Mar 19 04:14:42 2018  180 batches ====> Validation Accuracy 0.670, Validation OOV Accuracy 0.451, Validation Loss 1.296
+Mon Mar 19 04:14:53 2018  190 batches ====> Validation Accuracy 0.735, Validation OOV Accuracy 0.530, Validation Loss 1.125
+Mon Mar 19 04:15:04 2018  200 batches ====> Validation Accuracy 0.776, Validation OOV Accuracy 0.539, Validation Loss 0.966
+Mon Mar 19 04:15:18 2018  210 batches ====> Validation Accuracy 0.819, Validation OOV Accuracy 0.560, Validation Loss 0.830
+Mon Mar 19 04:15:29 2018  220 batches ====> Validation Accuracy 0.841, Validation OOV Accuracy 0.556, Validation Loss 0.715
+Mon Mar 19 04:15:40 2018  230 batches ====> Validation Accuracy 0.866, Validation OOV Accuracy 0.560, Validation Loss 0.613
+Mon Mar 19 04:15:51 2018  240 batches ====> Validation Accuracy 0.886, Validation OOV Accuracy 0.566, Validation Loss 0.528
+Mon Mar 19 04:16:02 2018  250 batches ====> Validation Accuracy 0.900, Validation OOV Accuracy 0.565, Validation Loss 0.458
+Mon Mar 19 04:16:16 2018  260 batches ====> Validation Accuracy 0.911, Validation OOV Accuracy 0.565, Validation Loss 0.404
+Mon Mar 19 04:16:27 2018  270 batches ====> Validation Accuracy 0.917, Validation OOV Accuracy 0.581, Validation Loss 0.360
+Mon Mar 19 04:16:38 2018  280 batches ====> Validation Accuracy 0.921, Validation OOV Accuracy 0.549, Validation Loss 0.331
+Mon Mar 19 04:16:49 2018  290 batches ====> Validation Accuracy 0.925, Validation OOV Accuracy 0.556, Validation Loss 0.303
+Mon Mar 19 04:17:00 2018  300 batches ====> Validation Accuracy 0.930, Validation OOV Accuracy 0.575, Validation Loss 0.282
+Mon Mar 19 04:17:14 2018  310 batches ====> Validation Accuracy 0.933, Validation OOV Accuracy 0.586, Validation Loss 0.266
+Mon Mar 19 04:17:25 2018  320 batches ====> Validation Accuracy 0.937, Validation OOV Accuracy 0.589, Validation Loss 0.251
+Mon Mar 19 04:17:36 2018  330 batches ====> Validation Accuracy 0.939, Validation OOV Accuracy 0.574, Validation Loss 0.239
+Mon Mar 19 04:17:47 2018  340 batches ====> Validation Accuracy 0.940, Validation OOV Accuracy 0.569, Validation Loss 0.229
+Mon Mar 19 04:17:59 2018  350 batches ====> Validation Accuracy 0.943, Validation OOV Accuracy 0.594, Validation Loss 0.218
+Mon Mar 19 04:18:12 2018  360 batches ====> Validation Accuracy 0.945, Validation OOV Accuracy 0.596, Validation Loss 0.209
+Mon Mar 19 04:18:23 2018  370 batches ====> Validation Accuracy 0.946, Validation OOV Accuracy 0.581, Validation Loss 0.203
+Mon Mar 19 04:18:34 2018  380 batches ====> Validation Accuracy 0.948, Validation OOV Accuracy 0.589, Validation Loss 0.196
+Mon Mar 19 04:18:46 2018  390 batches ====> Validation Accuracy 0.948, Validation OOV Accuracy 0.589, Validation Loss 0.191
+Mon Mar 19 04:18:57 2018  400 batches ====> Validation Accuracy 0.949, Validation OOV Accuracy 0.589, Validation Loss 0.186
+Mon Mar 19 04:19:11 2018  410 batches ====> Validation Accuracy 0.950, Validation OOV Accuracy 0.586, Validation Loss 0.184
+Mon Mar 19 04:19:22 2018  420 batches ====> Validation Accuracy 0.949, Validation OOV Accuracy 0.548, Validation Loss 0.183
+Mon Mar 19 04:19:33 2018  430 batches ====> Validation Accuracy 0.950, Validation OOV Accuracy 0.563, Validation Loss 0.177
+Mon Mar 19 04:19:44 2018  440 batches ====> Validation Accuracy 0.951, Validation OOV Accuracy 0.553, Validation Loss 0.176
+Mon Mar 19 04:19:55 2018  450 batches ====> Validation Accuracy 0.951, Validation OOV Accuracy 0.573, Validation Loss 0.173
+Mon Mar 19 04:20:09 2018  460 batches ====> Validation Accuracy 0.952, Validation OOV Accuracy 0.578, Validation Loss 0.171
+Mon Mar 19 04:20:20 2018  470 batches ====> Validation Accuracy 0.952, Validation OOV Accuracy 0.568, Validation Loss 0.171
+Mon Mar 19 04:20:31 2018  480 batches ====> Validation Accuracy 0.953, Validation OOV Accuracy 0.576, Validation Loss 0.167
+Mon Mar 19 04:20:42 2018  490 batches ====> Validation Accuracy 0.953, Validation OOV Accuracy 0.596, Validation Loss 0.165
+Mon Mar 19 04:20:53 2018  500 batches ====> Validation Accuracy 0.953, Validation OOV Accuracy 0.583, Validation Loss 0.164
+Mon Mar 19 04:21:07 2018  510 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.585, Validation Loss 0.161
+Mon Mar 19 04:21:18 2018  520 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.574, Validation Loss 0.161
+Mon Mar 19 04:21:29 2018  530 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.584, Validation Loss 0.160
+Mon Mar 19 04:21:40 2018  540 batches ====> Validation Accuracy 0.953, Validation OOV Accuracy 0.554, Validation Loss 0.161
+Mon Mar 19 04:21:51 2018  550 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.569, Validation Loss 0.160
+Mon Mar 19 04:22:05 2018  560 batches ====> Validation Accuracy 0.953, Validation OOV Accuracy 0.566, Validation Loss 0.160
+Mon Mar 19 04:22:16 2018  570 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.581, Validation Loss 0.157
+Mon Mar 19 04:22:27 2018  580 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.566, Validation Loss 0.159
+Mon Mar 19 04:22:38 2018  590 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.566, Validation Loss 0.156
+Mon Mar 19 04:22:50 2018  600 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.556, Validation Loss 0.158
+Mon Mar 19 04:23:03 2018  610 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.575, Validation Loss 0.154
+Mon Mar 19 04:23:14 2018  620 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.565, Validation Loss 0.154
+Mon Mar 19 04:23:26 2018  630 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.565, Validation Loss 0.155
+Mon Mar 19 04:23:37 2018  640 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.556, Validation Loss 0.155
+Mon Mar 19 04:23:48 2018  650 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.579, Validation Loss 0.153
+Mon Mar 19 04:24:02 2018  660 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.557, Validation Loss 0.155
+Mon Mar 19 04:24:13 2018  670 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.562, Validation Loss 0.154
+Mon Mar 19 04:24:24 2018  680 batches ====> Validation Accuracy 0.954, Validation OOV Accuracy 0.549, Validation Loss 0.158
+Mon Mar 19 04:24:35 2018  690 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.569, Validation Loss 0.153
+Mon Mar 19 04:24:46 2018  700 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.569, Validation Loss 0.156
+Mon Mar 19 04:25:00 2018  710 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.558, Validation Loss 0.156
+Mon Mar 19 04:25:11 2018  720 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.571, Validation Loss 0.153
+Mon Mar 19 04:25:22 2018  730 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.561, Validation Loss 0.154
+Mon Mar 19 04:25:33 2018  740 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.562, Validation Loss 0.153
+Mon Mar 19 04:25:45 2018  750 batches ====> Validation Accuracy 0.955, Validation OOV Accuracy 0.566, Validation Loss 0.151
+('Duration: ', 878.2875189781189)
+
+> python /u/zeyuanhu/.local/lib/python2.7/site-packages/tensorboard/main.py --logdir=pos_train_o_i_dir
+TensorBoard 1.6.0 at http://aida:6006 (Press CTRL+C to quit)
+
+> python src/pos_bilstm.py wsj pos_train_o_i_dir standard test output int
+Mon Mar 19 04:26:17 2018  Test Accuracy: 0.957
+Mon Mar 19 04:26:17 2018  Test OOV Accuracy: 0.543
+Mon Mar 19 04:26:17 2018  Test Loss: 0.140
