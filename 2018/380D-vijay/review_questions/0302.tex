@@ -1,0 +1,30 @@
+\section{Mar 02 Review Questions}
+\begin{QandA}
+   \item What are the pros and cons of having a leader in a consensus protocol?
+         \begin{answered}
+		 The pros of having a leader is that the servers can reach a consensus quickly. However,
+		 the cons of having a leader is that when the leader is down, we need to have a election procedure to select a leader
+		 and during the election we may not able to accept the requests. Thus, having a leader in a 
+		 consensus protocol may impact the availability of the system.
+         \end{answered}
+
+   \item Do you think RAFT is easier to understand than Paxos? Why or why not?
+         \begin{answered}
+		 Yes. I think RAFT is easier to understand. One reason is that RAFT has a leader and we
+		 intuitively, that usually how we think about a consensus can reach in real life. In addition,
+		 RAFT implements a heartbeat so that we can know whether a server is live or not and the how the data
+		 is commited in the log is much easier to understand than Paxos.
+         \end{answered}
+         
+   \item What benefit does Sinfonia gain by using minitransactions instead of general transactions?
+         \begin{answered}
+		 Minitransactions allow user to performing batch updates, which elmininates multiple network round-trips
+		 that can happen to general transactions. In addition, minitransactions can be executed within the commit protocol,
+		 which avoid two round-trips to commit and additional round-trips to start and execute in general transactions.
+		 Lastly, minitransactions can execute in parallel with a replication scheme.
+         \end{answered}
+\end{QandA}
+
+
+
+
