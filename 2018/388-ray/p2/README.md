@@ -43,7 +43,13 @@ DATA_DIR=wsj                             # wsj data directory location
 
 You can also run the experiment directly through command line. The synopsis of the command looks like below:
 
-    python [src_directory_path]/pos_bilstm.py [data_directory_path] [train_directory_path] standard [train | test] [input | output | none] [embedded | one_hot | int]
+    python [src_directory_path]/pos_bilstm.py \
+    [data_directory_path] \
+    [train_directory_path] \
+    standard \
+    [train | test] \
+    [input | output | none] \
+    [embedded | one_hot | int]
 
 Examples:
 
@@ -57,7 +63,6 @@ Examples:
 .
 ├── Makefile
 ├── README.md
-├── report.pdf
 ├── src
 │   ├── pos_bilstm.py
 │   └── preprocess.py
@@ -98,5 +103,5 @@ Examples:
 │   ├── standard-output-embedded.txt
 │   ├── standard-output-int.txt
 │   └── standard-output-one_hot.txt
-└── wsj
+└── wsj.zip
 ```
