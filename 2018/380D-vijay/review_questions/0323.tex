@@ -1,0 +1,28 @@
+\section{Mar 23 Review Questions}
+\begin{QandA}
+   \item Pick an assumption from the DDS paper and explain how reasonable you think it is and how it affects the design in the paper.
+         \begin{answered}
+         One assumption made in the DDS paper is that the cluster does not have network partitions and the software components in the
+         cluster are fail-stop. Since there is no network partition in the cluster, then any partition in the replica group can be
+         used to service a \texttt{get()}, and all partitions in the replica group can be synchronously updated for \texttt{put()} or 
+         \texttt{remove()} operations. With partition, we cannot have the replica group and we cannot expect any partition in the replica
+         group can be used to service \texttt{get()} operation. In addition, the without any network partition assumption also helps with
+         the trie implementation of the data partitioning (DP) map and support the strong consistency using 2PC protocol. Fail-stop assumption
+         is required to provide consistency model using 2PC. If there is byzantine problem, replica may repond even in an error status, which may
+         lead to inconsistent key-value pairs.
+         \end{answered}
+
+   \item  How does Chord's combination of fingers and successors allow it to achieve its desired correctness and performance properties?
+         \begin{answered}
+		 Chord requires only $O(\log N)$ lookups to find the node for a given key. Suppose we try to find the successor node of a key $k$, which
+		 is the location for the key. To do so, we consult our finger table. If $k$ appears in the \texttt{start} column of the fingers table, we 
+		 are done (the number in the same row under \texttt{succ.} column is the target node). If not, we figure out which \texttt{interval} covers $k$ and then we find the node's ID that is most immediately precedes $k$
+		 and we ask that node to find the sucessor node of $k$ for us. Thus, we always move closer towards the precedessor of $k$, which will leads
+		 us to the target node. $O(\log N)$ appears because we halve the distance between the node handling the query and the predecessor of $k$ 
+		 each query step towards $k$.
+         \end{answered}
+\end{QandA}
+
+
+
+
