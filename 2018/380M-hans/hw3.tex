@@ -1,0 +1,63 @@
+\section{HW3}
+For each of the sentences below give an LF and derive the semantics of the sentence from this LF in the way we have been doing for the exercises on the 3d practice homework (that is, by assigning Lambda Calculus terms to the nodes of the LF tree).
+
+In (2) and (5) only choose an LF for what you take to be the most plausible scope ordering.
+\begin{QandA}
+   \item Pedro owns a donkey. 
+         \begin{answered}
+ 		 \begin{tikzpicture}[scale=0.7]
+ 		 \tikzset{level 1+/.style={level distance=30pt}}
+ 		 \Tree [. \node[label={right:{\textit{\footnotesize t \space;\space $(\exists x)(donkey'(x) \& owns'(j,x))$}}}]{$S \star$};
+ 		 		  [. \node[label={below left:\textit{ \footnotesize $<<$e,t$>$,t$>$ \space\space $\lambda Q. Q(j)$}}]{$DP_2$}; Pedro ]
+ 		          [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $\lambda v_2. (\exists x)(donkey'(x) \& owns'(x)(v_2))$}}]{}; 
+ 		            [.2 ] 
+ 		            [.\node[label={left:\textit{\footnotesize t \space\space $(\exists x)(donkey'(x) \& owns'(x)(v_2))$}}]{$S \ast$};
+ 		              [.\node[label={left:\textit{\footnotesize $<<$e,t$>$,t$>$ \space\space $\lambda Q. (\exists x)(donkey'(x) \& Q(x))$}}]{$DP_1$}; 
+ 		                [.\node[label={below left:\textit{\footnotesize $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space\space $\lambda P. \lambda Q. (\exists x)(P(x) \& Q(x))$ }}]{Det}; a ]
+ 		                [.\node[label={below right:\textit{\footnotesize $<$e,t$>$ \space\space $donkey'$}}]{NP}; donkey ]
+ 		              ]
+ 		              [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $\lambda v_1 . owns'(v_1)(v_2)$}}]{};
+ 		                [.1 ]
+ 		                [.\node[label={right:\textit{\footnotesize $t$ \space\space $owns'(v_1)(v_2)$}}]{S};
+ 		                  [.\node[label={right:\textit{\footnotesize $v_2$ }}]{$t_2$};]
+ 		                  [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $owns'(v_1)$ }}]{VP};
+ 		                    [.\node[label={below right:\textit{\footnotesize $<$e, $<$e,t$>$$>$} \space\space $owns'$}]{$V_{tr}$}; owns ]
+ 		                    [.\node[label={below right:\textit{\footnotesize $v_1$ }}]{$t_1$};]
+ 		                  ]
+ 		                ]
+ 		              ]
+ 		            ]
+ 		          ]
+ 		       ]
+ 		 \end{tikzpicture}
+ 		 \begin{align*}
+ 		 \ast & =\lambda Q. (\exists x)(donkey'(x) \& Q(x))(\lambda v_1 owns'(v_1)(v_2)) \\
+ 		 & = (\exists x)(donkey'(x) \& (\lambda v_1 owns'(v_1)(v_2))(x)) \\
+ 		 & = (\exists x)(donkey'(x) \& owns'(x)(v_2)) \\ \\
+ 		 \star & =(\lambda Q. Q(j))(\lambda v_2. (\exists x)(donkey'(x) \& owns'(x)(v_2))) \\
+ 		 & = (\lambda v_2.(\exists x)(donkey'(x) \& owns'(x)(v_2)))(j) \\
+ 		 & = (\exists x)(donkey'(x) \& owns'(x)(j)) \\
+ 		 & = (\exists x)(donkey'(x) \& owns'(j,x))
+ 		 \end{align*}
+
+         \end{answered}
+
+   \item Somebody likes nobody.
+         \begin{answered}
+         TBA
+         \end{answered}
+         
+   \item Every sensible person who likes Mozart likes Haydn.
+         \begin{answered}
+		 TBA 
+         \end{answered}
+   \item An American farmer talked to a Canadian farmer. (Treat ‘talk to’ as a transitive verb.)
+         \begin{answered}
+		 TBA
+         \end{answered}
+   \item Not everybody who likes somebody likes everybody. (N.B. In (5) treat ‘not everybody’ as an unanalyzed determiner with the semantics:
+   $\lambda P. \lambda Q. \neg (\forall x)(P(x)\rightarrow Q(x))$)
+         \begin{answered}
+		 TBA
+         \end{answered}
+\end{QandA}
