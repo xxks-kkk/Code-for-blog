@@ -63,37 +63,55 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
    			\tikzset{level 1+/.style={level distance=30pt}}
    			\tikzset{every tree node/.style={align=left,anchor=north}}
    			\Tree [.S
-   			  [.DP Somebody ]
+   			  [.DP 
+   			    [.Det Some ]
+   			    [.NP body ] 
+   			  ]
    			  [.VP
    			    [.$V_{tr}$ likes ]
-   			    [.DP nobody ]  
+   			    [.DP 
+   			      [.Det no ]
+   			      [.NP body ]
+   			    ]  
    			  ] 
    			]
          \end{tikzpicture}
    
          \begin{answered}
-			\begin{tikzpicture}[scale=0.75]
-			\tikzset{level 1+/.style={level distance=30pt}}
-			\tikzset{every tree node/.style={align=left,anchor=north}}
-			\Tree [. \node[label={right:{\textit{\footnotesize t \space;\space $(\exists y)(person'(y) \& (\neg (\exists x)(person'(x) \& likes'(y,x))))$}}}]{$S \star$};
-			  [. \node[label={below left:\textit{ \footnotesize $<<$e,t$>$,t$>$ \space\space $\lambda Q. (\exists y)(person'(y) \& Q(y))$}}]{$DP_2$}; Somebody ]
-			     [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $\lambda v_2. \neg (\exists x)(person'(x) \& likes'(x)(v_2))$}}]{}; 
+			\begin{tikzpicture}[scale=0.60]
+			\Tree [. \node[label={right:{\textit{\footnotesize t \space $(\exists y)(person'(y) \& (\neg (\exists x)(person'(x) \& likes'(y,x))))$}}}]{$S \star$};
+			  [.\node (dp1-o) {~}; ]
+%			  [. \node[label={right:\textit{ \footnotesize $<<$e,t$>$,t$>$ \space $\lambda Q. (\exists y)(person'(y) \& Q(y))$}}]{$DP_2$}; 
+%			    [.\node [label={below left: $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. (\exists x)(P(x) \& Q(x))$}] {Det}; some ]
+%			    [.\node [label={below left: $<$e,t$>$ \space $person'$}] {NP}; body ]
+%			  ]
+			     [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space $\lambda v_2. \neg (\exists x)(person'(x) \& likes'(x)(v_2))$}}]{}; 
 			       [.2 ] 
-			       [.\node[label={left:\textit{\footnotesize t \space\space $\neg (\exists x)(person'(x) \& likes'(x)(v_2))$}}]{$S$};
-			         [.\node[label={left:\textit{\footnotesize $<<$e,t$>$,t$>$ \space\space $\lambda Q. \neg (\exists x)(person'(x) \& Q(x))$}}]{$DP_1$}; nobody ]
-			         [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $\lambda v_1 . likes'(v_1)(v_2)$}}]{};
+			       [.\node[label={left:\textit{\footnotesize t \space $\neg (\exists x)(person'(x) \& likes'(x)(v_2))$}}]{$S$};
+			         [.\node[label={left:\textit{\footnotesize $<<$e,t$>$,t$>$ \space $\lambda Q. \neg (\exists x)(person'(x) \& Q(x))$}}]{$DP_1$}; 
+			           [.\node [label={below left: $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. \neg (\exists x)(P(x) \& Q(x))$}] {Det}; no ]
+			           [.\node [label={below left: $<$e,t$>$ \space $person'$}] {NP}; body ]
+			         ]
+			         [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space $\lambda v_1 . likes'(v_1)(v_2)$}}]{};
 			           [.1 ]
-			           [.\node[label={right:\textit{\footnotesize $t$ \space\space $likes'(v_1)(v_2)$}}]{S};
-			             [.\node[label={right:\textit{\footnotesize $v_2$ }}]{$t_2$};]
-			             [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $likes'(v_1)$ }}]{VP};
-			               [.\node[label={below right:\textit{\footnotesize $<$e, $<$e,t$>$$>$} \space\space $likes'$}]{$V_{tr}$}; likes ]
-			               [.\node[label={below right:\textit{\footnotesize $v_1$ }}]{$t_1$};]
+			           [.\node[label={right:\textit{\footnotesize $t$ \space $likes'(v_1)(v_2)$}}]{S};
+			             [.\node[label={right:\textit{\footnotesize $e$ \space $v_2$ }}]{$t_2$};]
+			             [.\node[label={left:\textit{\footnotesize $<$e,t$>$ \space $likes'(v_1)$ }}]{VP};
+			               [.\node[label={below left:\textit{\footnotesize $<$e, $<$e,t$>$$>$} \space $likes'$}]{$V_{tr}$}; likes ]
+			               [.\node[label={below left:\textit{\footnotesize $e$ \space $v_1$ }}]{$t_1$};]
 			             ]
 			           ]
 			         ]
 			       ]
 			     ]
 			  ]
+			\begin{scope}[shift=({-1cm, -10cm})]
+			\Tree [. \node (dp1)[label={left:\textit{ \footnotesize $<<$e,t$>$,t$>$ \space $\lambda Q. (\exists y)(person'(y) \& Q(y))$}}]{$DP_2$}; 
+		      [.\node [label={below left: $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. (\exists x)(P(x) \& Q(x))$}] {Det}; some ]
+		      [.\node [label={below left: $<$e,t$>$ \space $person'$}] {NP}; body ]
+			]
+			\end{scope}  
+			\draw[semithick,->] (dp1) to [out=0, in=180] (dp1-o);
 			\end{tikzpicture}
 			\begin{align*}
 	 		 \star & =(\lambda Q. (\exists y)(person'(y) \& Q(y)))(\lambda v_2. \neg (\exists x)(person'(x) \& likes'(x)(v_2))) \\
