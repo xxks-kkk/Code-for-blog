@@ -130,17 +130,17 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
    			  [.DP 
    			    [.Det every ]
    			    [.NP
-   			      [.AP sensible ]
-   			      [.NP
+   			      [.NP 
+   			        [.AP sensible ]
    			        [.NP person ]
-   			        [.RC
-   			          [.Comp who ]
-   			          [.VP
-   			            [.$V_{tr}$ likes ]
-   			            [.DP Mozart ] 
-   			          ]
-   			        ] 
-   			      ] 
+   			      ]
+   			      [.RC
+   			        [.Comp who ]
+   			        [.VP
+   			          [.$V_{tr}$ likes ]
+   			          [.DP Mozart ] 
+   			        ]
+   			      ]  
    			    ]
    			  ]
    			  [.VP
@@ -151,7 +151,7 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
          \end{tikzpicture}
          
 		\begin{tikzpicture}[scale=0.8]
-		\Tree [.\node {S $\ast$};
+		\Tree [.\node [label={right: $t$ \space $(\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \rightarrow likes'(h)(x))$}] {S $\ast$};
 		        [.\node(site){$DP_3 \star$}; ]
 		        [.\node [label={right: $<$e,t$>$ \space $\lambda v_3. likes'(h)(v_3)$}]{}; 
 		          [.3 ]
@@ -173,14 +173,10 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
 		\end{tikzpicture}
 		
 		\begin{tikzpicture}[scale=0.8]
-		\tikzset{level 1+/.style={level distance=30pt}}
-		\tikzset{every tree node/.style={align=left,anchor=north}}
 		\begin{scope}
-		\Tree [.\node [label={right: $<<$e,t$>$,t$>$ \space $(\lambda Q. (\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \& Q(x)))$ }] {$DP_3 \star$}; 
-		        [.\node [label={below right: $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. (\forall x)(P(x) \& Q(x))$ }] {DP}; every ]
-		        [.\node [label={left: $<$e,t$>$ \space $\lambda x. sensible'(x) \& person'(x) \& likes'(m)(x)$}] {NP};
-		          [.\node(empty){NP $\delta$}; ]
-		          [.\node [label={below left: $<$e,t$>$ \space $sensible'$}] {AP}; sensible ]
+		\Tree [.\node [label={left: $<<$e,t$>$,t$>$ \space $\lambda Q. (\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \rightarrow Q(x))$ }] {$DP_3 \star$}; 
+		        [.\node [label={below left: $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. (\forall x)(P(x) \rightarrow Q(x))$ }] {DP}; every ]
+		        [.\node (empty) {~};		          
 %		          [.\node [label={right: $<$e,t$>$ \space $\lambda y. (person'(y) \& likes'(m)(y))$}] {NP};
 %		            [.\node [label={below right: $<$e,t$>$ \space $person'$}] {$NP_2$}; person ]
 %		            [.\node [label={right: $<$e,t$>$ \space $\lambda v_2. likes'(m)(v_2)$}] {RC}; 
@@ -203,11 +199,14 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
 		        ]
 		      ]
 		\end{scope}
-		\begin{scope}[shift=({-2cm, -8cm})]
-        \Tree [.\node (root) [label={left: $<$e,t$>$ \space $\lambda y. (person'(y) \& likes'(m)(y))$}] {NP $\delta$};
-        		            [.\node [label={below left: $<$e,t$>$ \space $\lambda z. person'(z)$}] {$DP_2$}; person ]
+		\begin{scope}[shift=({-2cm, -5cm}), scale=0.75]
+        \Tree [.\node (root) [label={left: $<$e,t$>$ \space $\lambda y. (sensible'(y) \& person'(y) \& likes'(m)(y))$}] {NP $\delta$};
+        		            [.\node [label={left: $<$e,t$>$ \space $\lambda x. (sensible'(x) \& person'(x))$}] {NP};
+        		              [.\node [label={below left: $<<$e,t$>$,$<$e,t$>>$ \space $\lambda P. \lambda x. (P(x) \& sensible'(x))$}] {AP}; sensible ]
+        		              [.\node [label={below left: $<$e,t$>$ \space $person'$}] {NP}; person ]
+        		            ]
         		            [.\node [label={right: $<$e,t$>$ \space $\lambda v_2. likes'(m)(v_2)$}] {RC}; 
-        		              [.COMP who ]
+        		              [.COMP $who_2$ ]
         		              [.\node [label={right: $<$t$>$ \space $likes'(m)(v_2)$}] {S};
         		                [.\node [label={below right: $<<$e,t$>$,t$>$ \space $\lambda P. P(m)$}] {$DP_1$}; Mozart ]
         		                [.\node [label={right: $<$e,t$>$ \space $\lambda v_1. likes'(v_1)(v_2)$}] {};
@@ -224,24 +223,24 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
         		            ]
         		          ]
 		\end{scope}
-		\draw[semithick,->] (root) to [out=0, in=180] (empty);
+		\draw[semithick,->] (root) to [out=0, in=0] (empty);
 		\end{tikzpicture}
 		
 		\begin{align*}
-		\delta & = (\lambda P. \lambda Q. \lambda y. (P(y) \& Q(y)))(\lambda v_2. likes'(m)(v_2))(\lambda z. person'(z)) \\
-		& = (\lambda Q. \lambda y. ((\lambda z. person'(z))(y) \& Q(y)))(\lambda v_2. likes'(m)(v_2)) \\
-		& = (\lambda Q. \lambda y. (person'(y) \& Q(y)))(\lambda v_2. likes'(m)(v_2)) \\
-		& = \lambda y. (person'(y) \& (\lambda v_2. likes'(m)(v_2))(y)) \\
-		& = \lambda y. (person'(y) \& likes'(m)(y))
+		\delta & = \lambda y. ((\lambda x. (sensible'(x) \& person'(x)))(y) \& (\lambda v_2. likes'(m)(v_2))(y))\\
+		& = \lambda y. ((sensible'(y) \& person'(y)) \& (likes'(m)(y))) \\
+		& = \lambda y. (sensible'(y) \& person'(y) \& likes'(m)(y))
 		\end{align*}
+		
 		\begin{align*}
- 		\star & =\lambda P. \lambda Q. (\forall x)(P(x) \& Q(x)))(\lambda x. sensible'(x) \& person'(x) \& likes'(m)(x) \\
- 		& =  \lambda Q. (\forall x)((\lambda x. sensible'(x) \& person'(x) \& likes'(m)(x))(x) \& Q(x))\\
- 		& = \lambda Q. (\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \& Q(x)) \\
+ 		\star & =\lambda P. \lambda Q. (\forall x)(P(x) \rightarrow Q(x)))(\lambda x. sensible'(x) \& person'(x) \& likes'(m)(x)) \\
+ 		& =  \lambda Q. (\forall x)((\lambda x. sensible'(x) \& person'(x) \& likes'(m)(x))(x) \rightarrow Q(x))\\
+ 		& = \lambda Q. (\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \rightarrow Q(x)) \\
  		\end{align*}
+ 		
  		\begin{align*}
- 		\ast & =\lambda Q. (\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \& Q(x)))(\lambda v_3. likes'(h)(v_3)) \\
- 		& =  (\forall x)(sensible'(x) \& person'(x) \& likes'(m)(x) \& likes'(h)(x))\\
+ 		\ast & =\lambda Q. (\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \rightarrow Q(x))(\lambda v_3. likes'(h)(v_3)) \\
+ 		& =  (\forall x)((sensible'(x) \& person'(x) \& likes'(m)(x)) \rightarrow likes'(h)(x))\\
 		\end{align*}
          
          \end{answered}
