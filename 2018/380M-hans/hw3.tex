@@ -319,37 +319,49 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
     	 \end{align*}
 
         \end{answered}
-   \item Not everybody who likes somebody likes everybody. (N.B. In (5) treat ‘not everybody’ as an unanalyzed determiner with the semantics:
-   $\lambda P. \lambda Q. \neg (\forall x)(P(x)\rightarrow Q(x))$)
+   \item Not everybody who likes somebody likes everybody. (N.B. In (5) treat `not everybody' as consisting of the complex determiner `not every' and the noun `body'. Treat `not every' as an unanalyzed determiner with the semantics:
+   $\lambda P. \lambda Q. \neg (\forall x)(P(x)\rightarrow Q(x))$) and treat `body' as an NP to which the relative clause `who likes somebody' can be adjoined.)
          \begin{answered}
          \begin{tikzpicture}[scale=1]
    			\tikzset{level 1+/.style={level distance=30pt}}
    			\tikzset{every tree node/.style={align=left,anchor=north}}
    			\Tree [.S
    			  [.DP 
-   			    [.Det {not everybody} ]
-   			    [.RC
-   			      [.Comp who ]
-   			      [.VP
-   			        [.{$V_{tr}$} likes ]
-   			        [.DP Somebody ]
-   			      ] 
-   			    ] 
+   			    [.Det {not every} ]
+   			    [.NP 
+   			      [.NP body ]
+   			      [.RC
+   			        [.Comp who ]
+   			        [.VP
+   			          [.{$V_{tr}$} likes ]
+   			          [.DP  
+   			            [.DP some ]
+   			            [.NP body ]
+   			          ]
+   			        ] 
+   			      ]    			      
+   			    ]
    			  ]
    			  [.VP
    			    [.$V_{tr}$ likes ]
-   			    [.DP everybody ]  
+   			    [.DP 
+   			      [.Det every ]
+   			      [.NP body ]
+   			    ]  
    			  ] 
    			]
          \end{tikzpicture}
          
          \begin{tikzpicture}[scale=0.6]
-         \Tree [.\node [label={right: $t$ \space $\neg (\forall y)((\exists x) (likes'(x)(y) \rightarrow Q(x))\rightarrow (\lambda Q. (\forall x)(likes'(x)(y)\rightarrow Q(x))))$}] {S $\star$}; 
+         \Tree [.\node [label={right: $t$ \space $\neg (\forall y)((\exists x) (person'(x) \& likes'(y,x)) \rightarrow (\forall z)(person'(z) \rightarrow likes'(y,z)))$}] {S $\star$}; 
                  [.\node(dp2-o) {$DP_2$}; ]
-                 [.\node [label={right: $<$e,t$>$ \space $\lambda v_2. \lambda Q. (\forall x)(likes'(x)(v_2)\rightarrow Q(x))$}] {};
+                 [.\node [label={right: $<$e,t$>$ \space $\lambda v_2. (\forall x)(person'(x) \rightarrow likes'(x)(v_2))$}] {};
                    [.2 ]
-                   [.\node [label={right: $t$ \space $\lambda Q. (\forall x)(likes'(x)(v_2)\rightarrow Q(x))$}] {S};
-                     [.\node [label={right: $<<$e,t$>$,t$>$ \space $\lambda P. \lambda Q. (\forall x)(P(x)\rightarrow Q(x))$}] {$DP_1$}; everybody ]
+                   [.\node [label={right: $t$ \space $(\forall x)(person'(x) \rightarrow likes'(x)(v_2))$}] {S};
+                     [.\node [label={left: $<<$e,t$>$,t$>$ \space $\lambda Q. (\forall x)(person'(x)\rightarrow Q(x))$}] {$DP_1$};  
+                       [.\node [label={below left: $<<$e,t$>$, $<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. (\forall x)(P(x) \rightarrow Q(x))$}] {Det}; every ]
+                       [.\node [label={below right: $<$e,t$>$ \space $person'$}] {NP}; body ]
+                     ]
                      [.\node [label={right: $<$e,t$>$ \space $\lambda v_1. likes'(v_1)(v_2)$}] {};
                        [.1 ]
                        [.\node [label={right: $t$ \space $likes'(v_1)(v_2)$}] {S}; 
@@ -363,13 +375,16 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
                    ]
                  ]
                ]
-         \begin{scope}[shift=({-2cm, -8cm})]
-         \Tree [.\node (dp2) [label={left: $<<$e,t$>$,t$>$ \space $\lambda Q. \neg (\forall y)(\lambda Q. (\exists x) (likes'(x)(y) \rightarrow Q(x))\rightarrow Q(y))$}] {$DP_2$}; 
-                 [.\node [label={below left: $<<$e,t$>$, $<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. \neg (\forall y)(P(y)\rightarrow Q(y))$}] {Det}; {not everybody} ]
-                 [.\node [label={right: $<$e,t$>$ \space $\lambda v_4. \lambda Q. (\exists x) (likes'(x)(v_4) \rightarrow Q(x))$}] {RC}; 
-                   [.\node {Comp}; who ] 
-                   [.\node [label={right: $t$ \space $\lambda Q. (\exists x) (likes'(x)(v_4) \rightarrow Q(x))$}] {S}; 
-                       [.\node [label={right: $<<$e,t$>$,t$>$ \space $\lambda P. \lambda Q. (\exists x) (P(x) \rightarrow Q(x))$}] {$DP_3$}; somebody ]
+         \begin{scope}[shift=({1cm, -8cm}), scale=0.8]
+         \Tree [.\node (dp2) [label={left: $<<$e,t$>$,t$>$ \space $\lambda Q. \neg (\forall y)((\exists x) (person'(x) \& likes'(x)(y)) \rightarrow Q(y))$}] {$DP_2$}; 
+                 [.\node [label={below left: $<<$e,t$>$, $<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. \neg (\forall y)(P(y)\rightarrow Q(y))$}] {Det}; {not every} ]
+                 [.\node [label={right: $<$e,t$>$ \space $\lambda v_4. (\exists x) (person'(x) \& likes'(x)(v_4))$}] {RC}; 
+                   [.\node {Comp}; $who_4$ ] 
+                   [.\node [label={right: $t$ \space $(\exists x) (person'(x) \& likes'(x)(v_4))$}] {S}; 
+                       [.\node [label={right: $<<$e,t$>$,t$>$ \space $\lambda Q. (\exists x) (person'(x) \& Q(x))$}] {$DP_3$}; 
+                         [.\node [label={below left: $<<$e,t$>$, $<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. (\exists x)(P(x) \& Q(x))$}] {Det}; some ]
+                         [.\node [label={below right: $<$e,t$>$ \space $person'$}] {NP}; body ]
+                       ]
                        [.\node [label={right: $<$e,t$>$ \space $\lambda v_3. likes'(v_3)(v_4)$}] {}; 
                          [.3 ]
                          [.\node [label={right: $t$ \space $likes'(v_3)(v_4)$}]{S};
@@ -384,13 +399,13 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
                  ]
                ]
          \end{scope}
-         \draw[semithick,->] (dp2) to [out=0, in=180] (dp2-o);
+         \draw[semithick,->] (dp2) to [out=140, in=180] (dp2-o);
          \end{tikzpicture}
          
          \begin{align*}
-       	 \star & =(\lambda Q. \neg (\forall y)(\lambda Q. (\exists x) (likes'(x)(y) \rightarrow Q(x))\rightarrow Q(y)))(\lambda v_2. \lambda Q. (\forall x)(likes'(x)(v_2)\rightarrow Q(x))) \\
-       	 & = \neg (\forall y)((\exists x) (likes'(x)(y) \rightarrow Q(x))\rightarrow (\lambda Q. (\forall x)(likes'(x)(v_2)\rightarrow Q(x)))(y)) \\
-       	 & = \neg (\forall y)((\exists x) (likes'(x)(y) \rightarrow Q(x))\rightarrow (\lambda Q. (\forall x)(likes'(x)(y)\rightarrow Q(x))))
+       	 \star & =(\lambda Q. \neg (\forall y)((\exists x) (person'(x) \& likes'(x)(y)) \rightarrow Q(y)))(\lambda v_2. (\forall z)(person'(z) \rightarrow likes'(z)(v_2))) \\
+       	 & =  \neg (\forall y)((\exists x) (person'(x) \& likes'(x)(y)) \rightarrow (\forall z)(person'(z) \rightarrow likes'(z)(y)))\\
+       	 & = \neg (\forall y)((\exists x) (person'(x) \& likes'(y,x)) \rightarrow (\forall z)(person'(z) \rightarrow likes'(y,z)))
        	 \end{align*}
          \end{answered}
 \end{QandA}
