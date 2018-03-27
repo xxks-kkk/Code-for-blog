@@ -23,22 +23,22 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
 			\begin{tikzpicture}[scale=0.7]
 			\tikzset{level 1+/.style={level distance=30pt}}
 			\tikzset{every tree node/.style={align=left,anchor=north}}
-			\Tree [. \node[label={right:{\textit{\footnotesize t \space;\space $(\exists x)(donkey'(x) \& owns'(j,x))$}}}]{$S \star$};
-			  [. \node[label={below left:\textit{ \footnotesize $<<$e,t$>$,t$>$ \space\space $\lambda Q. Q(j)$}}]{$DP_2$}; Pedro ]
-			     [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $\lambda v_2. (\exists x)(donkey'(x) \& owns'(x)(v_2))$}}]{}; 
+			\Tree [. \node[label={right:{\textit{\footnotesize t \space $(\exists x)(donkey'(x) \& owns'(p,x))$}}}]{$S \star$};
+			  [. \node[label={below left:\textit{ \footnotesize $<<$e,t$>$,t$>$ \space $\lambda Q. Q(p)$}}]{$DP_2$}; Pedro ]
+			     [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space $\lambda v_2. (\exists x)(donkey'(x) \& owns'(x)(v_2))$}}]{}; 
 			       [.2 ] 
-			       [.\node[label={left:\textit{\footnotesize t \space\space $(\exists x)(donkey'(x) \& owns'(x)(v_2))$}}]{$S \ast$};
-			         [.\node[label={left:\textit{\footnotesize $<<$e,t$>$,t$>$ \space\space $\lambda Q. (\exists x)(donkey'(x) \& Q(x))$}}]{$DP_1$}; 
-			           [.\node[label={below left:\textit{\footnotesize $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space\space $\lambda P. \lambda Q. (\exists x)(P(x) \& Q(x))$ }}]{Det}; a ]
-			           [.\node[label={below right:\textit{\footnotesize $<$e,t$>$ \space\space $donkey'$}}]{NP}; donkey ]
+			       [.\node[label={left:\textit{\footnotesize t \space $(\exists x)(donkey'(x) \& owns'(x)(v_2))$}}]{$S \ast$};
+			         [.\node[label={left:\textit{\footnotesize $<<$e,t$>$,t$>$ \space $\lambda Q. (\exists x)(donkey'(x) \& Q(x))$}}]{$DP_1$}; 
+			           [.\node[label={below left:\textit{\footnotesize $<<$e,t$>$,$<<$e,t$>$,t$>>$ \space $\lambda P. \lambda Q. (\exists x)(P(x) \& Q(x))$ }}]{Det}; a ]
+			           [.\node[label={below right:\textit{\footnotesize $<$e,t$>$ \space $donkey'$}}]{NP}; donkey ]
 			         ]
-			         [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $\lambda v_1 . owns'(v_1)(v_2)$}}]{};
+			         [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space $\lambda v_1 . owns'(v_1)(v_2)$}}]{};
 			           [.1 ]
-			           [.\node[label={right:\textit{\footnotesize $t$ \space\space $owns'(v_1)(v_2)$}}]{S};
-			             [.\node[label={right:\textit{\footnotesize $v_2$ }}]{$t_2$};]
-			             [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space\space $owns'(v_1)$ }}]{VP};
-			               [.\node[label={below right:\textit{\footnotesize $<$e, $<$e,t$>$$>$} \space\space $owns'$}]{$V_{tr}$}; owns ]
-			               [.\node[label={below right:\textit{\footnotesize $v_1$ }}]{$t_1$};]
+			           [.\node[label={right:\textit{\footnotesize $t$ \space $owns'(v_1)(v_2)$}}]{S};
+			             [.\node[label={right:\textit{\footnotesize $e$ \space $v_2$ }}]{$t_2$};]
+			             [.\node[label={right:\textit{\footnotesize $<$e,t$>$ \space $owns'(v_1)$ }}]{VP};
+			               [.\node[label={below right:\textit{\footnotesize $<$e, $<$e,t$>$$>$} \space $owns'$}]{$V_{tr}$}; owns ]
+			               [.\node[label={below right:\textit{\footnotesize $e$ \space $v_1$ }}]{$t_1$};]
 			             ]
 			           ]
 			         ]
@@ -51,9 +51,9 @@ In (2) and (5) only choose an LF for what you take to be the most plausible scop
  		 & = (\exists x)(donkey'(x) \& (\lambda v_1 owns'(v_1)(v_2))(x)) \\
  		 & = (\exists x)(donkey'(x) \& owns'(x)(v_2)) \\ \\
  		 \star & =(\lambda Q. Q(j))(\lambda v_2. (\exists x)(donkey'(x) \& owns'(x)(v_2))) \\
- 		 & = (\lambda v_2.(\exists x)(donkey'(x) \& owns'(x)(v_2)))(j) \\
- 		 & = (\exists x)(donkey'(x) \& owns'(x)(j)) \\
- 		 & = (\exists x)(donkey'(x) \& owns'(j,x))
+ 		 & = (\lambda v_2.(\exists x)(donkey'(x) \& owns'(x)(v_2)))(p) \\
+ 		 & = (\exists x)(donkey'(x) \& owns'(x)(p)) \\
+ 		 & = (\exists x)(donkey'(x) \& owns'(p,x))
  		 \end{align*}
 
          \end{answered}
