@@ -1,0 +1,29 @@
+\section{Mar 30 Review Questions}
+\begin{QandA}
+   \item How do Byzantine failures break a previous algorithm we've looked at (you pick another algorithm and compare)?
+         \begin{answered}
+         For example, server with Byzantine failure can make the fake vote to other servers during the leader election phase of the RAFT.
+         Thus, there can be multiple leaders to send out commit request, which may lead to serious consensus problem. Another
+         example is chord. Byzantine failure can make a server mistakenly states that the key is not located in it or the server
+         can give wrong information in the finger table that breaks $O(\log N)$ lookup guarantee.
+         \end{answered}
+
+   \item  What assumptions does Coda make about system behavior that allow it to be effective?
+         \begin{answered}
+         Coda assumes that at certain times, a client may be temporarily unable to communicate with some or all
+         of the servers and thus, coda uses to cache to allow users to read and write files even they are disconnected.
+         In addition, Coda assumes access and sharing patterns typical of academic and research environment. In other words,
+         Coda is not built for applications that need highly concurrent, fine granularity data access. This assumption
+         makes Coda to adopt Optimistic Replica Control, which provides high availability by permitting reads and writes 
+         everywhere. Since the concurrent access is low (i.e., the low degree of write-sharing typical of Unix), modification
+         conflicts for one file by many users may be low and thus, the chance that Coda has to notify the users to resolve
+         conflicts is small, which does not impact usability much. 
+		 Furthermore, Coda assumes clients can communicate with the servers over a high bandwidth network. As the result, the 
+		 process of reconnecting and propagting changes can be done about a minute. Also, the small amount of data makes
+		 the storage requirement on clients low as well (e.g., 100MB), which helps with the fast propagation after the reconnection.
+         \end{answered}
+\end{QandA}
+
+
+
+
