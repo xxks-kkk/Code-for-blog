@@ -1,8 +1,16 @@
+import edu.stanford.nlp.io.IOUtilsTest;
+import edu.stanford.nlp.io.RuntimeIOException;
 import edu.stanford.nlp.parser.nndep.DependencyParser;
 import edu.stanford.nlp.parser.nndep.DependencyTree;
 import edu.stanford.nlp.util.ScoredObject;
 import edu.stanford.nlp.util.ScoredComparator;
+import edu.stanford.nlp.io.IOUtils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Properties;
 import java.util.List;
 
@@ -14,7 +22,100 @@ import org.apache.commons.cli.*;
  * Modified by Zeyuan Hu on 4/9/18.
  */
 public class DependencyParserAPIUsage {
+    public static int generateTrainingFile(String unlabeldTrainingPool) {
+        int NUM_WORDS_PER_BATCH = 1500;
+        List<String> sents = new ArrayList<>();
+        List<Integer> wordCnts = new ArrayList<>();
+        int totalCnt = 0;
+        try (BufferedReader reader = IOUtils.readerFromString(unlabeldTrainingPool)) {
+            String sentBuffer = "";
+            int wordCnt = 0;
+            for (String line : IOUtils.getLineIterable(reader, false)) {
+                if (line.isEmpty()) {
+                    totalCnt += 1;
+                    sents.add(sentBuffer);
+                    wordCnts.add(wordCnt);
+                    sentBuffer = "";
+                    wordCnt = 0;
+                    continue;
+                }
+                sentBuffer = sentBuffer + line + "\n";
+                wordCnt += 1;
+            }
+            System.out.println(totalCnt);
+            assert sents.size() == totalCnt;
+            assert wordCnts.size() == totalCnt;
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+        // We shuffle the training sentences
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < totalCnt; i++) list.add(i);
+        Collections.shuffle(list);
+        //System.out.println(list.toString());
+        // We create the training batches
+        int currCnt = 0;
+        int batchNum = 0;
+        String batchStr = "";
+        for (int i = 0; i < totalCnt; i++) {
+            if (currCnt > NUM_WORDS_PER_BATCH) {
+                String filename = unlabeldTrainingPool + Integer.toString(batchNum);
+                try {
+                    Writer output = IOUtils.getPrintWriter(filename);
+                    output.write(batchStr);
+                    output.close();
+                } catch (IOException e) {
+                    throw new RuntimeIOException(e);
+                }
+                batchStr = "";
+                batchNum += 1;
+                currCnt = 0;
+            }
+            currCnt += wordCnts.get(list.get(i));
+            batchStr = batchStr + sents.get(list.get(i)) + "\n";
+        }
+        return batchNum;
+    }
+
+    public static String mergeTrainFiles(String file1, String file2, int i) {
+        String OUTPUT_FILENAME = "accum.conllx" + Integer.toString(i);
+        try {
+            Writer output = IOUtils.getPrintWriter(OUTPUT_FILENAME);
+            try (BufferedReader reader = IOUtils.readerFromString(file1)) {
+                output.write(IOUtils.slurpReader(reader));
+            } catch (IOException e) {
+                throw new RuntimeIOException(e);
+            }
+            try (BufferedReader reader = IOUtils.readerFromString(file2)) {
+                output.write(IOUtils.slurpReader(reader));
+            } catch (IOException e) {
+                throw new RuntimeIOException(e);
+            }
+            output.close();
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+        return OUTPUT_FILENAME;
+    }
+
+    public static int countWords(String file1){
+        int wordCnt = 0;
+        try (BufferedReader reader = IOUtils.readerFromString(file1)) {
+            for (String line : IOUtils.getLineIterable(reader, false)) {
+                if(!line.isEmpty()){
+                    wordCnt += 1;
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+        System.out.println(wordCnt);
+        return wordCnt;
+    }
+
     public static void main(String[] args) {
+        String RESULT_FILENAME = "result.txt";
+
         Options options = new Options();
 
         Option trainPath = new Option(
@@ -65,11 +166,19 @@ public class DependencyParserAPIUsage {
         maxIter.setRequired(true);
         options.addOption(maxIter);
 
+        Option unlabelTrain = new Option(
+                "unlabelTrain",
+                true,
+                "Path to unlabeled training instances"
+        );
+        unlabelTrain.setRequired(true);
+        options.addOption(unlabelTrain);
+
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd;
 
-        try{
+        try {
             cmd = parser.parse(options, args);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
@@ -98,6 +207,13 @@ public class DependencyParserAPIUsage {
         String testAnnotationsPath = cmd.getOptionValue("outFile", "outputs/test_annotation.conllx");
         System.out.println(testAnnotationsPath);
 
+        // Path to "unlabeled" training pool
+        String unlabeldTrainingPool = cmd.getOptionValue("unlabelTrain", "unlabeled_train.conllx");
+        System.out.println(unlabeldTrainingPool);
+
+        // Create the training batches
+        int batchNum = generateTrainingFile(unlabeldTrainingPool);
+
         // Configuring propreties for the parser. A full list of properties can be found
         // here https://nlp.stanford.edu/software/nndep.shtml
         // Alternative view of list of properties:
@@ -110,7 +226,7 @@ public class DependencyParserAPIUsage {
         // (Only valid if a development treebank is provided with ‑devFile.)
         // We set this property because of "the accuracy of the current learned model is tested on the test set
         // after every batch of labeled data is selected and the model is retrained" from project spec.
-        prop.setProperty("evalPerIter", "10");
+        //prop.setProperty("evalPerIter", "10");
         DependencyParser p = new DependencyParser(prop);
 
         // Argument 1 - Training Path
@@ -120,13 +236,26 @@ public class DependencyParserAPIUsage {
         // We use "test set" as the dev set in the code because of
         // "the accuracy of the current learned model is tested on the test set
         // after every batch of labeled data is selected and the model is retrained" from project spec.
-        p.train(trainFilePath, testFilePath, modelPath, embeddingPath);
-
-        // Load a saved path
-        DependencyParser model = DependencyParser.loadFromModelFile(modelPath);
-
-        // Test model on test data, write annotations to testAnnotationsPath
-        System.out.println(model.testCoNLL(testFilePath, testAnnotationsPath));
+        DependencyParser model = null;
+        try {
+            Writer result = IOUtils.getPrintWriter(RESULT_FILENAME);
+            for (int i = 0; i < Math.min(batchNum, 20); i++) {
+                result.write("Iteration: " + Integer.toString(i) + "\n");
+                result.write("Number of words: " + Integer.toString(countWords(trainFilePath)) + "\n");
+                p.train(trainFilePath, null, modelPath, embeddingPath);
+                // Load a saved path
+                model = DependencyParser.loadFromModelFile(modelPath);
+                // Test model on test data, write annotations to testAnnotationsPath
+                double lasScore = model.testCoNLL(testFilePath, testAnnotationsPath);
+                System.out.println(lasScore);
+                result.write("LAS score: " + Double.toString(lasScore) + "\n");
+                String filename = unlabeldTrainingPool + Integer.toString(i);
+                trainFilePath = mergeTrainFiles(trainFilePath, filename, i);
+            }
+            result.close();
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
 
         // returns parse trees for all the sentences in test data using model,
         // this function does not come with default parser and has been written for you
@@ -140,8 +269,8 @@ public class DependencyParserAPIUsage {
         // For Margin Probability score we sum the log of margin between probabilities assigned to two top transitions at every step
         // Following line prints that probability metrics for 12-th sentence in test data
         // all probabilities in log space to reduce numerical errors. Adjust your code accordingly!
-        System.out.printf("Raw Probability: %f\n",predictedParses.get(12).RawScore);
-        System.out.printf("Margin Probability: %f\n",predictedParses.get(12).MarginScore);
+        System.out.printf("Raw Probability: %f\n", predictedParses.get(12).RawScore);
+        System.out.printf("Margin Probability: %f\n", predictedParses.get(12).MarginScore);
 
 
         // You probably want to use the ScoredObject and scoredComparator classes for this assignment
