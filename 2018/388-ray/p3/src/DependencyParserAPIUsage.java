@@ -1,32 +1,28 @@
-import edu.stanford.nlp.io.IOUtilsTest;
 import edu.stanford.nlp.io.RuntimeIOException;
 import edu.stanford.nlp.parser.nndep.DependencyParser;
 import edu.stanford.nlp.parser.nndep.DependencyTree;
-import edu.stanford.nlp.util.ScoredObject;
-import edu.stanford.nlp.util.ScoredComparator;
 import edu.stanford.nlp.io.IOUtils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.Writer;
-import java.sql.SQLSyntaxErrorException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
 import java.util.List;
 import java.util.Comparator;
-import java.util.Arrays;
+import java.util.Random;
 
 import org.apache.commons.cli.*;
 
+@SuppressWarnings("Duplicates")
 
 /**
  * Created by abhisheksinha on 3/20/17.
  * Modified by Zeyuan Hu on 4/9/18.
  */
 public class DependencyParserAPIUsage {
+    public static int NUM_WORDS_PER_BATCH = 1500;
+
     public static int generateTrainingFile(String unlabeledTrainingPool, PolicyType policy) {
-        int NUM_WORDS_PER_BATCH = 1500;
         List<String> sents = new ArrayList<>();
         List<Integer> wordCnts = new ArrayList<>();
         int totalCnt = 0;
@@ -56,10 +52,11 @@ public class DependencyParserAPIUsage {
 
         if (policy == PolicyType.RANDOM) {
             // We shuffle the training sentences
+            //Collections.shuffle(list, new Random(System.currentTimeMillis()));
             Collections.shuffle(list);
         }
 
-        if (policy == PolicyType.LENGTH){
+        if (policy == PolicyType.LENGTH) {
             CustomComparator comparator = new CustomComparator(wordCnts);
             list = comparator.createIndexArray();
             Collections.sort(list, comparator);
@@ -90,6 +87,93 @@ public class DependencyParserAPIUsage {
         return batchNum;
     }
 
+    public static String[] generateTrainingFile2(DependencyParser model,
+                                                 String trainFilePath,
+                                                 String unlabeledTrainingPool,
+                                                 PolicyType policy) {
+        List<String> sents = new ArrayList<>();
+        List<Integer> wordCnts = new ArrayList<>();
+        List<Integer> list;
+        String[] result = {"", ""};
+
+        int totalCnt = 0;
+        try (BufferedReader reader = IOUtils.readerFromString(unlabeledTrainingPool)) {
+            String sentBuffer = "";
+            int wordCnt = 0;
+            for (String line : IOUtils.getLineIterable(reader, false)) {
+                if (line.isEmpty()) {
+                    totalCnt += 1;
+                    sents.add(sentBuffer);
+                    wordCnts.add(wordCnt);
+                    sentBuffer = "";
+                    wordCnt = 0;
+                    continue;
+                }
+                sentBuffer = sentBuffer + line + "\n";
+                wordCnt += 1;
+            }
+            System.out.printf("sentences remaining in unlabeledTrainingPool: %d\n", totalCnt);
+            int sum = 0;
+            for(Integer d: wordCnts)
+                sum += d;
+            System.out.printf("words in unlabeledTrainingPool: %d\n", sum);
+            assert sents.size() == totalCnt;
+            assert wordCnts.size() == totalCnt;
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+
+        List<DependencyTree> predictedParses = model.testCoNLLProb(unlabeledTrainingPool);
+
+        List<Double> scores = new ArrayList<>();
+
+        for (int i = 0; i < totalCnt; i++) {
+            if (policy == PolicyType.RAW) {
+                scores.add(predictedParses.get(i).RawScore / wordCnts.get(i));
+            }
+            else if (policy == PolicyType.MARGIN) {
+                scores.add(predictedParses.get(i).MarginScore /wordCnts.get(i));
+            }
+        }
+        CustomComparator2 comparator = new CustomComparator2(scores);
+        list = comparator.createIndexArray();
+        Collections.sort(list, comparator);
+
+        int currCnt = 0;
+        String batchStr = "";
+
+        int i = 0;
+        for (; i < totalCnt; i++) {
+            if (currCnt > NUM_WORDS_PER_BATCH) {
+                try {
+                    PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(trainFilePath, true)));
+                    output.write(batchStr);
+                    output.close();
+                } catch (IOException e) {
+                    throw new RuntimeIOException(e);
+                }
+                batchStr = "";
+                break;
+            }
+            currCnt += wordCnts.get(list.get(i));
+            batchStr = batchStr + sents.get(list.get(i)) + "\n";
+        }
+        try{
+            Writer output = IOUtils.getPrintWriter(unlabeledTrainingPool);
+            for (; i < totalCnt; i++){
+                batchStr = batchStr + sents.get(list.get(i)) + "\n";
+            }
+            output.write(batchStr);
+            output.close();
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+        result[0] = trainFilePath;
+        result[1] = unlabeledTrainingPool;
+
+        return result;
+    }
+
     public static String mergeTrainFiles(String file1, String file2, int i) {
         String OUTPUT_FILENAME = "accum.conllx" + Integer.toString(i);
         try {
@@ -111,18 +195,18 @@ public class DependencyParserAPIUsage {
         return OUTPUT_FILENAME;
     }
 
-    public static int countWords(String file1){
+    public static int countWords(String file1) {
         int wordCnt = 0;
         try (BufferedReader reader = IOUtils.readerFromString(file1)) {
             for (String line : IOUtils.getLineIterable(reader, false)) {
-                if(!line.isEmpty()){
+                if (!line.isEmpty()) {
                     wordCnt += 1;
                 }
             }
         } catch (IOException e) {
             throw new RuntimeIOException(e);
         }
-        System.out.println(wordCnt);
+        System.out.printf("words in trainFilePath: %d\n", wordCnt);
         return wordCnt;
     }
 
@@ -198,14 +282,22 @@ public class DependencyParserAPIUsage {
 
         options.addOption("h", "help", false, "Print out help manual");
 
+        Option resultFileName = new Option(
+                "result",
+                true,
+                "name of the file that the result is to be saved"
+        );
+        policy.setRequired(false);
+        options.addOption(resultFileName);
+
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd;
 
         try {
             cmd = parser.parse(options, args);
-            if (cmd.hasOption("policy")){
-                switch (cmd.getOptionValue("policy")){
+            if (cmd.hasOption("policy")) {
+                switch (cmd.getOptionValue("policy")) {
                     case "random":
                         POLICY_OPT = PolicyType.RANDOM;
                         break;
@@ -254,6 +346,9 @@ public class DependencyParserAPIUsage {
         String unlabeledTrainingPool = cmd.getOptionValue("unlabelTrain", "unlabeled_train.conllx");
         System.out.println(unlabeledTrainingPool);
 
+        RESULT_FILENAME = cmd.getOptionValue("result", "result.txt");
+        System.out.println(RESULT_FILENAME);
+
         // Create the training batches
         int batchNum = 0;
         if (POLICY_OPT == PolicyType.RANDOM)
@@ -261,82 +356,63 @@ public class DependencyParserAPIUsage {
         if (POLICY_OPT == PolicyType.LENGTH)
             batchNum = generateTrainingFile(unlabeledTrainingPool, POLICY_OPT);
 
-        // Configuring propreties for the parser. A full list of properties can be found
-        // here https://nlp.stanford.edu/software/nndep.shtml
-        // Alternative view of list of properties:
-        // https://nlp.stanford.edu/nlp/javadoc/javanlp-3.5.0/edu/stanford/nlp/parser/nndep/DependencyParser.html
         String maxIterVal = cmd.getOptionValue("maxIter", "50");
-        System.out.println(maxIterVal);
         Properties prop = new Properties();
         prop.setProperty("maxIter", maxIterVal);
-        // Run full UAS (unlabeled attachment score) evaluation every time we finish this number of iterations.
-        // (Only valid if a development treebank is provided with ‑devFile.)
-        // We set this property because of "the accuracy of the current learned model is tested on the test set
-        // after every batch of labeled data is selected and the model is retrained" from project spec.
-        //prop.setProperty("evalPerIter", "10");
-        DependencyParser p = new DependencyParser(prop);
 
-        // Argument 1 - Training Path
-        // Argument 2 - Dev Path (can be null)
-        // Argument 3 - Path where model is saved
-        // Argument 4 - Path to embedding vectors (can be null)
-        // We use "test set" as the dev set in the code because of
-        // "the accuracy of the current learned model is tested on the test set
-        // after every batch of labeled data is selected and the model is retrained" from project spec.
-        DependencyParser model = null;
-        try {
-            Writer result = IOUtils.getPrintWriter(RESULT_FILENAME);
-            for (int i = 0; i < Math.min(batchNum, 20); i++) {
-                result.write("Iteration: " + Integer.toString(i) + "\n");
-                result.write("Number of words: " + Integer.toString(countWords(trainFilePath)) + "\n");
-                p.train(trainFilePath, null, modelPath, embeddingPath);
-                // Load a saved path
-                model = DependencyParser.loadFromModelFile(modelPath);
-                // Test model on test data, write annotations to testAnnotationsPath
-                double lasScore = model.testCoNLL(testFilePath, testAnnotationsPath);
-                result.write("LAS score: " + Double.toString(lasScore) + "\n");
-                if (POLICY_OPT == PolicyType.RANDOM || POLICY_OPT == PolicyType.LENGTH) {
+        DependencyParser p = new DependencyParser(prop);
+        if (POLICY_OPT == PolicyType.RANDOM || POLICY_OPT == PolicyType.LENGTH) {
+            try {
+                Writer result = IOUtils.getPrintWriter(RESULT_FILENAME);
+                for (int i = 0; i < Math.min(batchNum, 20); i++) {
+                    result.write("Iteration: " + Integer.toString(i) + "\n");
+                    result.write("Number of words: " + Integer.toString(countWords(trainFilePath)) + "\n");
+                    p.train(trainFilePath, null, modelPath, embeddingPath);
+                    // Test model on test data, write annotations to testAnnotationsPath
+                    double lasScore = p.testCoNLL(testFilePath, testAnnotationsPath);
+                    result.write("LAS score: " + Double.toString(lasScore) + "\n");
                     String filename = unlabeledTrainingPool + Integer.toString(i);
                     trainFilePath = mergeTrainFiles(trainFilePath, filename, i);
                 }
+                result.close();
+            } catch (IOException e) {
+                throw new RuntimeIOException(e);
             }
-            result.close();
-        } catch (IOException e) {
-            throw new RuntimeIOException(e);
         }
 
-        // returns parse trees for all the sentences in test data using model,
-        // this function does not come with default parser and has been written for you
-        List<DependencyTree> predictedParses = model.testCoNLLProb(testFilePath);
-
-        // By default NN parser does not give you any probability 
-        // https://cs.stanford.edu/~danqi/papers/emnlp2014.pdf explains that
-        // the parsing is performed by picking the transition with the highest output in the final layer
-        // To get a certainty measure from the final layer output layer, we take use a softmax function.
-        // For Raw Probability score We sum the logs of probability of every transition taken in the parse tree to get the following metric
-        // For Margin Probability score we sum the log of margin between probabilities assigned to two top transitions at every step
-        // Following line prints that probability metrics for 12-th sentence in test data
-        // all probabilities in log space to reduce numerical errors. Adjust your code accordingly!
-        System.out.printf("Raw Probability: %f\n", predictedParses.get(12).RawScore);
-        System.out.printf("Margin Probability: %f\n", predictedParses.get(12).MarginScore);
-
-
-        // You probably want to use the ScoredObject and scoredComparator classes for this assignment
-        // https://nlp.stanford.edu/nlp/javadoc/javanlp-3.6.0/edu/stanford/nlp/util/ScoredObject.html
-        // https://nlp.stanford.edu/nlp/javadoc/javanlp/edu/stanford/nlp/util/ScoredComparator.html
+        if (POLICY_OPT == PolicyType.RAW || POLICY_OPT == PolicyType.MARGIN) {
+            try {
+                Writer result = IOUtils.getPrintWriter(RESULT_FILENAME);
+                for (int i = 0; i < 20; i++) {
+                    result.write("Iteration: " + Integer.toString(i) + "\n");
+                    result.write("Number of words: " + Integer.toString(countWords(trainFilePath)) + "\n");
+                    p.train(trainFilePath, null, modelPath, embeddingPath);
+                    String[] files = generateTrainingFile2(p, trainFilePath, unlabeledTrainingPool, POLICY_OPT);
+                    trainFilePath = files[0];
+                    System.out.printf("trainFilePath: %s\n", trainFilePath);
+                    unlabeledTrainingPool = files[1];
+                    System.out.printf("unlabeledTrainingPool: %s\n", unlabeledTrainingPool);
+                    double lasScore = p.testCoNLL(testFilePath, testAnnotationsPath);
+                    result.write("LAS score: " + Double.toString(lasScore) + "\n");
+                }
+                result.close();
+            } catch (IOException e) {
+                throw new RuntimeIOException(e);
+            }
+        }
     }
 }
 
 // https://stackoverflow.com/questions/2784514/sort-arraylist-of-custom-objects-by-property
 // https://stackoverflow.com/questions/4859261/get-the-indices-of-an-array-after-sorting
-class CustomComparator implements Comparator<Integer>{
+class CustomComparator implements Comparator<Integer> {
     private final List<Integer> wordCnts;
 
-    public CustomComparator(List<Integer> wordCnts){
+    public CustomComparator(List<Integer> wordCnts) {
         this.wordCnts = wordCnts;
     }
 
-    public List<Integer> createIndexArray(){
+    public List<Integer> createIndexArray() {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < wordCnts.size(); i++)
             list.add(i);
@@ -344,11 +420,32 @@ class CustomComparator implements Comparator<Integer>{
     }
 
     @Override
-    public int compare(Integer index1, Integer index2){
+    public int compare(Integer index1, Integer index2) {
         return wordCnts.get(index2) - wordCnts.get(index1);
     }
 }
 
-enum PolicyType{
+
+class CustomComparator2 implements Comparator<Integer> {
+    private final List<Double> scores;
+
+    public CustomComparator2(List<Double> scores) {
+        this.scores = scores;
+    }
+
+    public List<Integer> createIndexArray() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < scores.size(); i++)
+            list.add(i);
+        return list;
+    }
+
+    @Override
+    public int compare(Integer index1, Integer index2) {
+        return scores.get(index1).compareTo(scores.get(index2));
+    }
+}
+
+enum PolicyType {
     RANDOM, LENGTH, RAW, MARGIN
 }
