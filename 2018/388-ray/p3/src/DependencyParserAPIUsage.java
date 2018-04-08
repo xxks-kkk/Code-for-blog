@@ -9,7 +9,6 @@ import java.util.Collections;
 import java.util.Properties;
 import java.util.List;
 import java.util.Comparator;
-import java.util.Random;
 
 import org.apache.commons.cli.*;
 
@@ -210,7 +209,23 @@ public class DependencyParserAPIUsage {
         return wordCnt;
     }
 
+    public static PrintStream outputFile(String name) {
+        FileOutputStream out;
+        PrintStream p  = null;
+        try{
+            out = new FileOutputStream(name);
+            p = new PrintStream(new BufferedOutputStream(out), true);
+            return p;
+        } catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return p;
+    }
+
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
+
         String RESULT_FILENAME = "result.txt";
         PolicyType POLICY_OPT = PolicyType.RANDOM;
 
@@ -285,10 +300,20 @@ public class DependencyParserAPIUsage {
         Option resultFileName = new Option(
                 "result",
                 true,
-                "name of the file that the result is to be saved"
+                "Name of the file that the result is to be saved"
         );
         policy.setRequired(false);
         options.addOption(resultFileName);
+
+        // @Deprecated
+        // We want to log the output of the train(...) method but this option is not helpful.
+        Option outputFileName = new Option(
+                "output",
+                true,
+                "Name of the file that you want to save the stdout to"
+        );
+        policy.setRequired(false);
+        options.addOption(outputFileName);
 
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
@@ -314,6 +339,12 @@ public class DependencyParserAPIUsage {
                         POLICY_OPT = PolicyType.RANDOM;
                 }
             }
+            if (cmd.getOptionValue("output") != null){
+                // We redirect all the stdout to a file
+                // https://stackoverflow.com/questions/2851234/system-out-to-a-file-in-java
+                System.setOut(outputFile(cmd.getOptionValue("output")));
+            }
+
         } catch (ParseException e) {
             System.out.println(e.getMessage());
             formatter.printHelp("java -cp stanford-corenlp-jar/*:src/* DependencyParserAPIUsage.java", options);
@@ -356,9 +387,10 @@ public class DependencyParserAPIUsage {
         if (POLICY_OPT == PolicyType.LENGTH)
             batchNum = generateTrainingFile(unlabeledTrainingPool, POLICY_OPT);
 
-        String maxIterVal = cmd.getOptionValue("maxIter", "50");
+        String maxIterVal = cmd.getOptionValue("maxIter", "500");
         Properties prop = new Properties();
         prop.setProperty("maxIter", maxIterVal);
+        prop.setProperty("trainingThreads", "1");
 
         DependencyParser p = new DependencyParser(prop);
         if (POLICY_OPT == PolicyType.RANDOM || POLICY_OPT == PolicyType.LENGTH) {
@@ -400,6 +432,8 @@ public class DependencyParserAPIUsage {
                 throw new RuntimeIOException(e);
             }
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Takes: " + (endTime - startTime)/1000.0 + " seconds");
     }
 }
 
