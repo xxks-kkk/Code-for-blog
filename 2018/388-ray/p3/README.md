@@ -51,7 +51,7 @@ For example, if I want to run the program with initial training set file path `i
 to use in the inital training set `2`, and number of sentences to use in the "unlabeled" training set
 `1`, I would run:
     
-    ```
+    
     cp src/DependencyParserAPIUsage.java . ; \
     javac -cp jars/*:src/*:. DependencyParserAPIUsage.java; \
     java -cp jars/*:src/*:. DependencyParserAPIUsage \
@@ -66,7 +66,7 @@ to use in the inital training set `2`, and number of sentences to use in the "un
                             -numSentInPool 1 \
                             -numSentInInit 2 \
                             -result results/result-500-random.txt &> results/result-random-500.log
-    ```
+    
 
 ## Note
 
