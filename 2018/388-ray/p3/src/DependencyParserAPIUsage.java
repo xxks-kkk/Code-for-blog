@@ -18,6 +18,8 @@ import org.apache.commons.cli.*;
  * Created by abhisheksinha on 3/20/17.
  * Modified by Zeyuan Hu on 4/9/18.
  */
+
+//TODO: Make the whole program async to reduce I/O time
 public class DependencyParserAPIUsage {
     public static int NUM_WORDS_PER_BATCH = 1500;
 

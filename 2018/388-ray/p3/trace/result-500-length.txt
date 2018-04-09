@@ -1,0 +1,60 @@
+Iteration: 0
+Number of words: 1179
+LAS score: 43.65308115576094
+Iteration: 1
+Number of words: 2716
+LAS score: 57.37833781948977
+Iteration: 2
+Number of words: 4246
+LAS score: 63.43345799290155
+Iteration: 3
+Number of words: 5792
+LAS score: 67.27567232795789
+Iteration: 4
+Number of words: 7301
+LAS score: 68.69298015769039
+Iteration: 5
+Number of words: 8807
+LAS score: 69.7696577022939
+Iteration: 6
+Number of words: 10309
+LAS score: 71.98732760058121
+Iteration: 7
+Number of words: 11850
+LAS score: 72.70193659036231
+Iteration: 8
+Number of words: 13393
+LAS score: 74.4860770348491
+Iteration: 9
+Number of words: 14894
+LAS score: 74.9696291179343
+Iteration: 10
+Number of words: 16406
+LAS score: 76.31309401872275
+Iteration: 11
+Number of words: 17926
+LAS score: 76.05107072246969
+Iteration: 12
+Number of words: 19451
+LAS score: 76.8895452704795
+Iteration: 13
+Number of words: 20979
+LAS score: 77.22064743574474
+Iteration: 14
+Number of words: 22499
+LAS score: 77.64703079964745
+Iteration: 15
+Number of words: 24003
+LAS score: 78.5641123365332
+Iteration: 16
+Number of words: 25519
+LAS score: 77.97098687501489
+Iteration: 17
+Number of words: 27031
+LAS score: 77.4040637431219
+Iteration: 18
+Number of words: 28542
+LAS score: 78.31161716014387
+Iteration: 19
+Number of words: 30047
+LAS score: 78.66415759510255
