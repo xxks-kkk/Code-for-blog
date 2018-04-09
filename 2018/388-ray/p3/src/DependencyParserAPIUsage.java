@@ -223,6 +223,58 @@ public class DependencyParserAPIUsage {
         return p;
     }
 
+    public static int constructNumWordsPerBatch(String unlabeledTrainingPool, int numSents){
+        int wordCnt = 0;
+        try (BufferedReader reader = IOUtils.readerFromString(unlabeledTrainingPool)) {
+            int totalCnt = 0;
+            for (String line : IOUtils.getLineIterable(reader, false)) {
+                if (line.isEmpty()) {
+                    totalCnt += 1;
+                    if (totalCnt > numSents)
+                        break;
+                    continue;
+                }
+                wordCnt += 1;
+            }
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+        return wordCnt;
+    }
+
+    public static String constructNewInitTrainFile(String trainFilePath, int numSents){
+        String newTrainFilePath = trainFilePath + "2";
+        List<String> sents = new ArrayList<>();
+        int totalCnt = 0;
+        try (BufferedReader reader = IOUtils.readerFromString(trainFilePath)) {
+            String sentBuffer = "";
+            for (String line : IOUtils.getLineIterable(reader, false)) {
+                if (line.isEmpty()) {
+                    totalCnt += 1;
+                    if (totalCnt > numSents){
+                        break;
+                    } else{
+                        sents.add(sentBuffer);
+                    }
+                    sentBuffer = "";
+                    continue;
+                }
+                sentBuffer = sentBuffer + line + "\n";
+            }
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+        try{
+            Writer output = IOUtils.getPrintWriter(newTrainFilePath);
+            for (String sent : sents)
+                output.write(sent + "\n");
+            output.close();
+        } catch (IOException e) {
+            throw new RuntimeIOException(e);
+        }
+        return newTrainFilePath;
+    }
+
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
 
@@ -315,12 +367,64 @@ public class DependencyParserAPIUsage {
         policy.setRequired(false);
         options.addOption(outputFileName);
 
+        // Number of sentences to use in the "unlabeled" training pool
+        Option numSentInPool = new Option(
+                "numSentInPool",
+                true,
+                "Number of sentences you want to pick from \"unlabeled\" training pool in each iteration"
+        );
+        numSentInPool.setRequired(false);
+        options.addOption(numSentInPool);
+
+        // Number of sentences to use in the inital training set
+        Option numSentInInit = new Option(
+                "numSentInInit",
+                true,
+                "Number of sentences you want to use from initial training set"
+        );
+        numSentInInit.setRequired(false);
+        options.addOption(numSentInInit);
+
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd;
 
+        String trainFilePath,
+                testFilePath,
+                embeddingPath,
+                modelPath,
+                testAnnotationsPath,
+                unlabeledTrainingPool;
         try {
             cmd = parser.parse(options, args);
+
+            // Training Data path
+            trainFilePath = cmd.getOptionValue("trainFile");
+            System.out.println(trainFilePath);
+
+            // Test Data Path
+            testFilePath = cmd.getOptionValue("testFile");
+            System.out.println(testFilePath);
+
+            // Path to embedding vectors file
+            embeddingPath = cmd.getOptionValue("embedFile");
+            System.out.println(embeddingPath);
+
+            // Path where model is to be saved
+            modelPath = cmd.getOptionValue("model", "outputs/model1");
+            System.out.println(modelPath);
+
+            // Path where test data annotations are stored
+            testAnnotationsPath = cmd.getOptionValue("outFile", "outputs/test_annotation.conllx");
+            System.out.println(testAnnotationsPath);
+
+            // Path to "unlabeled" training pool
+            unlabeledTrainingPool = cmd.getOptionValue("unlabelTrain", "unlabeled_train.conllx");
+            System.out.println(unlabeledTrainingPool);
+
+            RESULT_FILENAME = cmd.getOptionValue("result", "result.txt");
+            System.out.println(RESULT_FILENAME);
+
             if (cmd.hasOption("policy")) {
                 switch (cmd.getOptionValue("policy")) {
                     case "random":
@@ -344,6 +448,15 @@ public class DependencyParserAPIUsage {
                 // https://stackoverflow.com/questions/2851234/system-out-to-a-file-in-java
                 System.setOut(outputFile(cmd.getOptionValue("output")));
             }
+            if (cmd.getOptionValue("numSentInPool") != null){
+                NUM_WORDS_PER_BATCH = constructNumWordsPerBatch(unlabeledTrainingPool,
+                        Integer.parseInt(cmd.getOptionValue("numSentInPool")));
+            }
+            if (cmd.getOptionValue("numSentInInit") != null){
+                trainFilePath = constructNewInitTrainFile(trainFilePath,
+                        Integer.parseInt(cmd.getOptionValue("numSentInInit")));
+                System.out.println(trainFilePath);
+            }
 
         } catch (ParseException e) {
             System.out.println(e.getMessage());
@@ -352,33 +465,6 @@ public class DependencyParserAPIUsage {
             System.exit(1);
             return;
         }
-
-        // Training Data path
-        String trainFilePath = cmd.getOptionValue("trainFile");
-        System.out.println(trainFilePath);
-
-        // Test Data Path
-        String testFilePath = cmd.getOptionValue("testFile");
-        System.out.println(testFilePath);
-
-        // Path to embedding vectors file
-        String embeddingPath = cmd.getOptionValue("embedFile");
-        System.out.println(embeddingPath);
-
-        // Path where model is to be saved
-        String modelPath = cmd.getOptionValue("model", "outputs/model1");
-        System.out.println(modelPath);
-
-        // Path where test data annotations are stored
-        String testAnnotationsPath = cmd.getOptionValue("outFile", "outputs/test_annotation.conllx");
-        System.out.println(testAnnotationsPath);
-
-        // Path to "unlabeled" training pool
-        String unlabeledTrainingPool = cmd.getOptionValue("unlabelTrain", "unlabeled_train.conllx");
-        System.out.println(unlabeledTrainingPool);
-
-        RESULT_FILENAME = cmd.getOptionValue("result", "result.txt");
-        System.out.println(RESULT_FILENAME);
 
         // Create the training batches
         int batchNum = 0;
