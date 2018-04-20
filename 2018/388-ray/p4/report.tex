@@ -1,0 +1,180 @@
+\documentclass[11pt,fleqn]{article}
+%\usepackage{CJK}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage{graphicx, float}\usepackage{graphicx}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[colorlinks]{hyperref}
+\usepackage[toc,page]{appendix}
+\usepackage{bm}
+\setlength{\oddsidemargin}{-0.0in}
+\setlength{\evensidemargin}{-0.0in} \setlength{\textwidth}{6.0in}
+\setlength{\textheight}{9.0in} \setlength{\topmargin}{-0.2in}
+%\usepackage[boxruled]{algorithm2e}
+
+%\setlength{\leftmargin}{0.7in}
+\usepackage{amssymb, graphicx, amsmath}  %  fancyheadings,
+\usepackage{setspace}
+\newcommand\qed{\qquad $\square$}
+\newcommand{\nn}{\nonumber}
+
+\usepackage{lipsum}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frameround=fttt,
+  breaklines=true,
+  %postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+\def \[{\begin{equation}}
+\def \]{\end{equation}}
+\def\proof{{\bf Proof:\quad}}
+\def \endzm {\quad $\Box$}
+\def\dist{\hbox{dist}}
+
+\usepackage{tabularx,booktabs}
+\newcolumntype{C}{>{\centering\arraybackslash\hsize=.5\hsize}X} % centered version of "X" type
+\setlength{\extrarowheight}{1pt}
+\usepackage{caption}% <-- added
+
+
+\newcommand{\R}{\mathbb{R}}
+%\newtheorem{yinli}{ТэАн}[section]
+\newcommand{\D}{\displaystyle}
+\newcommand{\T}{\textstyle}
+\newcommand{\SC}{\scriptstyle}
+\newcommand{\FT}{\footnotesize}
+
+\usepackage{hyperref}
+\newcommand\fnurl[2]{%
+  \href{#2}{#1}\footnote{\url{#2}}%
+}
+
+
+%\newtheorem{theorem}{Theorem}[section]
+%\renewcommand{\thetheorem}{\arabic{section}.\arabic{theorem}}
+\newtheorem{definition}{Definition}
+\renewcommand{\thedefinition}{\arabic{section}.\arabic{definition}}
+\newtheorem{lemma}{Lemma}[section]
+\renewcommand{\thelemma}{\arabic{section}.\arabic{lemma}}
+\newtheorem{remark}{Remark}
+\renewcommand{\theremark}{\arabic{section}.\arabic{remark}}
+\newtheorem{proposition}{Proposition}[section]
+\renewcommand{\theproposition}{\arabic{section}.\arabic{proposition}}
+\newtheorem{corollary}{Corollary }[section]
+\renewcommand{\thecorollary}{\arabic{section}.\arabic{corollary}}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\baselinestretch}{1.35}
+\newtheorem{exam}{Example}[section]
+\renewcommand{\theexam}{\arabic{section}.\arabic{exam}}
+\newtheorem{theo}{Theorem}[section]
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+
+% Define a \HEADER{Title} ... \ENDHEADER block
+\makeatletter
+\newcommand{\HEADER}[1]{\ALC@it\underline{\textsc{#1}}\begin{ALC@g}}
+\newcommand{\ENDHEADER}{\end{ALC@g}}
+\makeatother
+
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\usepackage{url} % to make url in bibtex shows up
+
+\begin{document}
+%\begin{CJK*}{GBK}{song}
+
+\begin{center}
+
+{\LARGE \bf Project-Related Paper Report}\\
+
+\vskip 25pt
+ {Zeyuan Hu, iamzeyuanhu@utexas.edu }\\
+\vskip 5pt
+{\small EID:zh4378 Spring 2018 }
+
+\end{center}
+
+\begin{spacing}{1.5}
+
+\begin{abstract}
+	In this writeup, we first summarize a CVPR 2018 paper ``Bottom-Up and Top-Down Attention for Image Captioning and Visual Question Answering" \cite{Anderson2017up-down}. We then discuss the limitation of the paper and extension of the paper's model in our project.
+\end{abstract}
+
+\section{Summarization}
+
+% The first page of the report should briefly summarize the paper.
+For visual question answering (VQA) and image captioning, top-down visual attention mechanisms have been widely used. Usually, the attention
+is trained to predict the weight for each spatial location in the Convolutional Neural Network (CNN) output and then the model incoporates the weights  and the representation of VQA questions into a recurrent neural network (RNN) to generate the answers for the questions. 
+However, the authors think that this top-down approach fails to consider how the image regions that are subject to attention are determined.
+Specifically, the authors argue that attention models should not be agnostic to the content of the image: attention models should operate on objects
+in the image instead of on CNN features that correspond to a uniform grid of equally-sized image regions. The authors
+think that the top-down attention mechanism cannot attain both coarse and fine levels of details due to the fixed number of image regions. 
+In addition, they find it is hard for top-down attention model to detect the objects that are poorly aligned to the equally-sized image regions and bind visual concepts with those objects. 
+
+The authors propse a bottom-up attention mechanism to fix those issues. Specifically, the bottom-up mechanism, implemented using
+an object detection model Faster R-CNN \cite{Ren:2015:FRT:2969239.2969250}, proposes a set of salient image 
+regions, with each region represented by a pooled convolutional feature vector. The authors use the combination of top-down and bottom-up
+attention mechanism in both captioning model and VQA model. For captioning model, the authors use two layer LSTMs with both the partially-generated
+captions and the mean-pooled image features proposed by Faster R-CNN as input. For VQA model, the authors implement a deep neural network with
+joint embedding of the question and the image features, which is followed by a prediction of regression of scores over a set of candidate answers.
+
+Authors' Up-Down model provides a significant improvement over the best ResNet baseline across all question types in 2017 VQA challenge. In addition,
+the model also achieves a state-of-the-art results on MSCOCO test server.
+
+\section{Discussion}
+
+% The second page should discuss limitations of this existing work that your final project will address and/or how your own project relates to this existing work by extending or replicating it in some way. 
+The paper uses two attention mechanisms in VQA task. Bottom-up attention weights the importance of salient
+image regions (i.e., objects in image) without considering the task-specific context (e.g., questions in VQA). Top-down attention takes the
+task-specific context into account and re-weights the set of image regions proposed by bottom-up attention model before producing the answers.
+In our project, we build our model based on the bottom-up attention mechanism proposed in the paper to have all the benefits mentioned in the previous section. 
+
+The paper's main contribution is the integration of bottom-up and top-down attention models. But, the authors consider image captioning 
+and VQA as two separate tasks. However, we think that two tasks are closely related to each other: captions provide hint for the questions and questions provide more context for captioning. Thus, we propose to solve two tasks simultaneously with one model. There are several limitations in the paper when they consider two tasks separately. For VQA task, for example, answers can be easily learned from training set questions
+without looking at image features at all (e.g., answers to most question which starts with `is there? are `yes'). The paper does not have a detailed error analysis of the model each question category in the VQA v2.0 dataset (i.e., Yes/No, Number, Other). Thus, in our project, we want to make sure that both language features and image features are considered equally before answering the questions. In addition, how the
+system reaches the answer is unaddressed in the paper. In our project, we use the question specific captions that are generated from both question
+and image features as explanations to the VQA answers.
+
+For the image captioning task, since the VQA model and captioning model are separate in the paper, authors' captioning model cannot integrate both the questions and the answers from VQA, which may be helpful for the captioning task. Furthermore,
+the impact of bottom-up attention mechanism on the captioning is not fully explored in the paper. For example, captioning model may easily focus
+on the most significant visual content and ignores others due to the bottom-up attention model, which may lead to a simple and short caption that reflects one object.
+
+\end{spacing}
+
+\bibliographystyle{ieeetr}
+\bibliography{report}
+
+
+\end{document}
+
