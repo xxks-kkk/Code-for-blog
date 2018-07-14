@@ -1,0 +1,24 @@
+\section{April 13 Review Questions}
+\begin{QandA}
+   \item  In Dynamo, Table 1 lists several approaches that the designers used to address their challenges and provides an advantage for each. Pick two techniques and list a disadvantage for each.
+         \begin{answered}
+         Consistent hashing has its own two problems: 1. random position assignment of each node on the ring leads to non-uniform data and load
+         distribution; 2. the algorithm is oblivious to the heterogeneity in the performance of nodes. Dynamo tends to fix this problem by introducing
+         ``virtual nodes". However, by using virtual nodes, the system complexity increases as virtual nodes need to maintain extra information
+         about whether they are in the same physical node. In addition, when we add nodes into the ring, we need to assign the tokens such that
+         the load can be distributed uniformly, which further increases the system complexity. Furthermore, the gossip-based membership protocol
+         and failure detection adds extra burden to each individual node and it can hardly scale to more 1000 servers.
+         \end{answered}
+
+   \item  How is RAMCloud's design affected by keeping all data in DRAM?
+         \begin{answered}
+         RAMCloud requires all data in DRAM. Due to this requirement, RAMCloud requires all the DRAM has an auxiliary power source, which ensures
+         that buffers can be written to stable storage after a power failure. In addition, since all data has to be in DRAM, during the recovery,
+         all the data has to be recovered into DRAM instead of on the SSD or hard disk, which leads to the unwanted disk I/O and the recovery scheme
+         complexity.
+         \end{answered}
+\end{QandA}
+
+
+
+

@@ -1,0 +1,24 @@
+\section{April 27 Review Questions}
+\begin{QandA}
+\item What's a tradeoff mentioned in Tensorflow between synchronous and asynchronous coordination?
+\begin{answered}
+Synchronous coordination never has stale parameter values in training steps. However, this comes with the cost of 
+limited throughput. On the other hand, asynchronous coordination may have stale parameter values and additional training 
+steps but we can have increased throughput. Machine learning algorithm like SGD and neural network is robust to stragglers
+and thus, asynchronous coordination is considered to be the better coordination protocol.
+\footnote{We can asychronously write to files because we don't care about synchronous because machine learning algorithmcan afford the cost to 
+compute one more training iteration}
+\end{answered}
+
+\item How does the parameter server model reduce network usage?
+\begin{answered}
+Parameter server uses \texttt{push} and \texttt{pull} operations to push its entire local gradient into the servers, and
+then pull the updated weights back. By updating parameters in batch, parameter server avoids the network overhead of each individual
+parameter update. This updating scheme naturally fits with the batch update form of machine learning algorithms. In addition,
+parameter server compresses the messages sent across the nodes, which further reduces network usage.
+\end{answered}
+\end{QandA}
+
+
+
+

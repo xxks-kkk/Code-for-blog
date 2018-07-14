@@ -1,0 +1,34 @@
+\section{April 06 Review Questions}
+\begin{QandA}
+   \item  What does Petal sacrifice in order to achieve its high consistency and low latency? (Hint: Look at the performance test setup.)
+         \begin{answered}
+		 Petal relies on the ATM hardware to achieve its high consistency and low latency. However, due to the characterstics of ATM hardware,
+		 which is used for voice and video, Petal is vlunerable to network partition. If the data is large, there might be network congestion,
+		 which fails the high consistency and low latency provided by Petal.
+         \end{answered}
+
+   \item  Frangipani was written about 20 years ago. How would you expect the design decisions in this system to hold up to today's needs?
+         \begin{answered}
+		 Frangipani uses multiple-reader/single-writer locks to coordinate the access to the virtual disk and to keep the buffer caches
+		 coherent across the multiple servers. However, when compared with modern system like GFS, the lock service might be the bottleneck
+		 for the system performance because it does not allow the concurrent write, which is a critical factor for modern system
+		 high performance (i.e., high throughput).		 
+         \end{answered}
+   \item How does the Google File System's relaxed consistency model benefit the system design?
+         \begin{answered}
+         GFS's relaxed consistency model greatly simplfies the file system design without imposing large burden on the application.
+         In addition, relaxed consistency model allows each machine forwards the data to the ``closest" machine in the network topology
+         that has not received it, which avoids the network bottlenecks and high-latency links as much as possible. Furthermore, relaxed
+         consistency model decouples the data flow from the control flow, which improve performance by scheduling the expensive data 
+         flow based on the network topology regardless of which chunkserver is the primary. Lastly, a strict consistency model
+         may bring complex implementation of the file system. However, with a few simple techniques (e.g., relying on appends rather than overwrites, checkpointing, and writing self-validating, self-identifying records) on applications, we can much reduce implementation complexity.
+         \end{answered}
+   \item How is BigTable able to avoid having the master be a bottleneck?
+         \begin{answered}
+         Client library caches tablet locations, which avoids much traffic to visit master querying the tablet locations.
+         \end{answered}
+\end{QandA}
+
+
+
+

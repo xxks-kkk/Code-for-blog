@@ -1,0 +1,31 @@
+\section{April 20 Review Questions}
+\begin{QandA}
+   \item How does the size of a task affect MapReduce?
+         \begin{answered}
+         MapReduce takes a user-submitted job and maps to $M$ tasks and then reduce to $R$ tasks. As shown in the paper, the master
+         must make $O(M + R)$ scheduling decisions and keeps $O(M \ast R)$ state in memory. Thus, given the job size fixed, the smaller
+         the task in each phase (map phase or reduce phase), the larger the variable is ($M$ or $R$). Accordingly, the master will have
+         more scheduling decisions to make and keep more state in memory. However, if the task size is too big, then the advantage of 
+         parallel execution on a large cluster offered by MapReduce goes in vain.
+         \end{answered}
+
+   \item Spark uses a very different mechanism for fault tolerance than most systems we've studied so far. What's one assumption that allows Spark to use this method?
+         \begin{answered}
+         Spark uses a distributed memory abstraction called Resilient Distributed Datasets (RDDs), which is a read-only, partitioned collections
+         of records to achieve the fault tolerance. Since RDDs are immutable, then we can effectively recompute the faulty RDDs given the initial
+         RDDs and the lineage graph that is from initial RDDs to the faulty one.
+         \end{answered}
+   \item Describe one way in which a datacenter has different needs or limitations than a single machine or small cluster.
+         \begin{answered}
+         Compared to a single machine, datacenter has disadvantage in terms of both latency and bandwidth. Usually, a single machine can 
+         access its DRAM in 100 ns. However, for machines on rack to access other machine's DRAM in the same rack, the latency can take
+         300 $\mu$s. Similarly, machine that accesses its local DRAM has bandwidth 20 GB/s. However, for the same machine to access other
+         machine's DRAM within the same rack, bandwidth drops to 100 MB/s. When compared to small cluster, datacenter has to worry about
+         the enery consumption, indoor humidity, and indoor temperature. In addition, the probability of a single machine failure at any time
+         can become more noticeable in a datacenter than in a small cluster.
+         \end{answered}
+\end{QandA}
+
+
+
+

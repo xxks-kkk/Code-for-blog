@@ -19,3 +19,4 @@ log*
 cmake-build-debug/
 out/
 *.class
+*.DS_Store
