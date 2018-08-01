@@ -18,6 +18,8 @@
 #include <errno.h>
 #include "util.h"
 #include "jobs.h"
+#include "log.h"
+#include "assert.h"
 
 
 /* Global variables */
@@ -45,13 +47,26 @@ void sigint_handler(int sig);
 void usage(void);
 void sigquit_handler(int sig);
 
-
+/**
+ * We setup logger
+ */
+void setupLogger()
+{
+    FILE *fp;
+    char *mode = "w";
+    char* logFilename = "/tmp/msh.log";
+    fp = fopen(logFilename, mode);
+    assert(fp);
+    log_set_fp(fp);
+    log_set_quiet(1);
+}
 
 /*
  * main - The shell's main routine
  */
 int main(int argc, char **argv)
 {
+    setupLogger();
     char c;
     char cmdline[MAXLINE];
     int emit_prompt = 1; /* emit prompt (default) */
@@ -203,8 +218,6 @@ int builtin_cmd(char **argv)
 
     /* bg<job> command */
     if (!strcmp(argv[0], "bg")){
-
-
         ssize_t bytes;
         const int STDOUT = 1;
 
@@ -222,11 +235,12 @@ int builtin_cmd(char **argv)
 
     /* fg<job> command */
     if (!strcmp(argv[0], "fg")){
-
+        log_trace("fg command");
         ssize_t bytes;
         const int STDOUT = 1;
 
-        if(argv[1] == NULL){
+        log_trace("argv[1]: %s", argv[1]);
+        if(argv[1] == NULL || !isdigit(argv[1])){
             bytes = write(STDOUT, "requires PID or \%jobbid argument\n", 34);
             if(bytes != 34)
                 exit(-999);

@@ -3,6 +3,9 @@ project(p0)
 
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2")
+if (DEBUG)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -g")
+endif ()
 
 message(STATUS "PROJECT_SOURCE_DIR: " ${PROJECT_SOURCE_DIR})
 
@@ -18,7 +21,7 @@ add_executable(fib fib.c)
 add_executable(psh psh.c util.c)
 add_executable(handle util.c handle.c)
 add_executable(mykill mykill.c util.c)
-add_executable(msh msh.c util.c jobs.c)
+add_executable(msh msh.c util.c jobs.c log.c)
 
 if (SHELL_TESTS)
     enable_testing()
