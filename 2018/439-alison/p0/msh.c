@@ -240,7 +240,7 @@ int builtin_cmd(char **argv)
         const int STDOUT = 1;
 
         log_trace("argv[1]: %s", argv[1]);
-        if(argv[1] == NULL || !isdigit(argv[1])){
+        if(argv[1] == NULL){
             bytes = write(STDOUT, "requires PID or \%jobbid argument\n", 34);
             if(bytes != 34)
                 exit(-999);
