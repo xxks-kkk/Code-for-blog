@@ -13,7 +13,7 @@ FILES = $(MSH) ./myspin ./mysplit ./mystop ./myint ./fib ./handle ./mykill ./psh
 all: $(FILES)
 
 msh: msh.o util.o jobs.o
-	$(CC) $(CFLAGS) msh.o util.o jobs.o -o msh
+	$(CC) $(CFLAGS) msh.o util.o jobs.o log.c -o msh
 
 
 psh: psh.o util.o 

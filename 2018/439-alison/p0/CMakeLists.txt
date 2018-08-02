@@ -3,7 +3,7 @@ project(p0)
 
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2")
-if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -g")
 endif ()
 
@@ -30,9 +30,11 @@ if (SHELL_TESTS)
         set(test_name "${PROJECT_SOURCE_DIR}/${trace_file}.txt")
         add_test(NAME "${trace_file}"
                 COMMAND sh -c "${DRIVER} -t ${test_name} -s $<TARGET_FILE:msh> -a ${MSHARGS}"
+                WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
                 )
         add_test(NAME "r${trace_file}"
                 COMMAND sh -c "${DRIVER} -t ${test_name} -s ${MSHREF} -a ${MSHARGS}"
+                WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
                 )
     endfunction(shell_test)
 
