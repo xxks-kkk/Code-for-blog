@@ -1,0 +1,275 @@
+./sdriver.pl -t trace01.txt -s ./msh -a "-p"
+#
+# trace01.txt - Properly terminate on EOF.
+#
+./sdriver.pl -t trace02.txt -s ./msh -a "-p"
+#
+# trace02.txt - Process builtin quit command.
+#
+./sdriver.pl -t trace03.txt -s ./msh -a "-p"
+#
+# trace03.txt - Run a foreground job.
+#
+msh> quit
+./sdriver.pl -t trace04.txt -s ./msh -a "-p"
+#
+# trace04.txt - Run a background job.
+#
+msh> ./myspin 1 &
+[1] (26843) ./myspin 1 &
+./sdriver.pl -t trace05.txt -s ./msh -a "-p"
+#
+# trace05.txt - Process jobs builtin command.
+#
+msh> ./myspin 2 &
+[1] (26848) ./myspin 2 &
+msh> ./myspin 3 &
+[2] (26850) ./myspin 3 &
+msh> jobs
+[1] (26848) Running ./myspin 2 &
+[2] (26850) Running ./myspin 3 &
+./sdriver.pl -t trace06.txt -s ./msh -a "-p"
+#
+# trace06.txt - Forward SIGINT to foreground job.
+#
+msh> ./myspin 4
+Job [1] (26858) terminated by signal 2
+./sdriver.pl -t trace07.txt -s ./msh -a "-p"
+#
+# trace07.txt - Forward SIGINT only to foreground job.
+#
+msh> ./myspin 4 &
+[1] (26864) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (26866) terminated by signal 2
+msh> jobs
+[1] (26864) Running ./myspin 4 &
+./sdriver.pl -t trace08.txt -s ./msh -a "-p"
+#
+# trace08.txt - Forward SIGTSTP only to foreground job.
+#
+msh> ./myspin 4 &
+[1] (26874) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (26876) stopped by signal 20
+msh> jobs
+[1] (26874) Running ./myspin 4 &
+[2] (26876) Stopped ./myspin 5 
+./sdriver.pl -t trace09.txt -s ./msh -a "-p"
+#
+# trace09.txt - Process bg builtin command
+#
+msh> ./myspin 4 &
+[1] (26884) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (26886) stopped by signal 20
+msh> jobs
+[1] (26884) Running ./myspin 4 &
+[2] (26886) Stopped ./myspin 5 
+msh> bg %2
+[2] (26886) ./myspin 5 
+msh> jobs
+[1] (26884) Running ./myspin 4 &
+[2] (26886) Running ./myspin 5 
+./sdriver.pl -t trace10.txt -s ./msh -a "-p"
+#
+# trace10.txt - Process fg builtin command. 
+#
+msh> ./myspin 4 &
+[1] (26897) ./myspin 4 &
+msh> fg %1
+Job [1] (26897) stopped by signal 20
+msh> jobs
+[1] (26897) Stopped ./myspin 4 &
+msh> fg %1
+msh> jobs
+./sdriver.pl -t trace11.txt -s ./msh -a "-p"
+#
+# trace11.txt - Forward SIGINT to every process in foreground process group
+#
+msh> ./mysplit 4
+Job [1] (26906) terminated by signal 2
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+  941 tty7     Ss+    0:05 /usr/bin/X :0 -nr -verbose -auth /var/run/gdm/auth-for-gdm-kYMTVN/database -nolisten tcp vt7
+ 1021 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1026 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1031 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1032 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1034 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 1556 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+11961 pts/0    Ss+    0:00 -bash
+11999 pts/0    S      0:08 contest.pl
+12013 pts/0    S      0:00 contest-requestd.pl
+12018 pts/0    S      0:00 contest-resultd.pl
+12023 pts/0    S      0:00 /usr/bin/perl ./contest-reportd.pl -q
+15960 pts/1    Ss+    0:00 -bash
+20611 pts/2    Ss     0:00 -bash
+26826 pts/2    S+     0:00 make mshrefout
+26827 pts/2    S+     0:00 /bin/sh -c make tests > mshref.out 2>&1
+26828 pts/2    S+     0:00 make tests
+26902 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./msh -a "-p"
+26903 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./msh -a -p
+26904 pts/2    S+     0:00 ./msh -p
+26911 pts/2    R      0:00 /bin/ps a
+./sdriver.pl -t trace12.txt -s ./msh -a "-p"
+#
+# trace12.txt - Forward SIGTSTP to every process in foreground process group
+#
+msh> ./mysplit 4
+Job [1] (26916) stopped by signal 20
+msh> jobs
+[1] (26916) Stopped ./mysplit 4 
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+  941 tty7     Ss+    0:05 /usr/bin/X :0 -nr -verbose -auth /var/run/gdm/auth-for-gdm-kYMTVN/database -nolisten tcp vt7
+ 1021 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1026 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1031 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1032 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1034 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 1556 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+11961 pts/0    Ss+    0:00 -bash
+11999 pts/0    S      0:08 contest.pl
+12013 pts/0    S      0:00 contest-requestd.pl
+12018 pts/0    S      0:00 contest-resultd.pl
+12023 pts/0    S      0:00 /usr/bin/perl ./contest-reportd.pl -q
+15960 pts/1    Ss+    0:00 -bash
+20611 pts/2    Ss     0:00 -bash
+26826 pts/2    S+     0:00 make mshrefout
+26827 pts/2    S+     0:00 /bin/sh -c make tests > mshref.out 2>&1
+26828 pts/2    S+     0:00 make tests
+26912 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./msh -a "-p"
+26913 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./msh -a -p
+26914 pts/2    S+     0:00 ./msh -p
+26916 pts/2    T      0:00 ./mysplit 4
+26917 pts/2    T      0:00 ./mysplit 4
+26920 pts/2    R      0:00 /bin/ps a
+./sdriver.pl -t trace13.txt -s ./msh -a "-p"
+#
+# trace13.txt - Restart every stopped process in process group
+#
+msh> ./mysplit 4
+Job [1] (26925) stopped by signal 20
+msh> jobs
+[1] (26925) Stopped ./mysplit 4 
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+  941 tty7     Ss+    0:05 /usr/bin/X :0 -nr -verbose -auth /var/run/gdm/auth-for-gdm-kYMTVN/database -nolisten tcp vt7
+ 1021 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1026 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1031 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1032 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1034 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 1556 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+11961 pts/0    Ss+    0:00 -bash
+11999 pts/0    S      0:08 contest.pl
+12013 pts/0    S      0:00 contest-requestd.pl
+12018 pts/0    S      0:00 contest-resultd.pl
+12023 pts/0    S      0:00 /usr/bin/perl ./contest-reportd.pl -q
+15960 pts/1    Ss+    0:00 -bash
+20611 pts/2    Ss     0:00 -bash
+26826 pts/2    S+     0:00 make mshrefout
+26827 pts/2    S+     0:00 /bin/sh -c make tests > mshref.out 2>&1
+26828 pts/2    S+     0:00 make tests
+26921 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./msh -a "-p"
+26922 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./msh -a -p
+26923 pts/2    S+     0:00 ./msh -p
+26925 pts/2    T      0:00 ./mysplit 4
+26926 pts/2    T      0:00 ./mysplit 4
+26931 pts/2    R      0:00 /bin/ps a
+msh> fg %1
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+  941 tty7     Ss+    0:05 /usr/bin/X :0 -nr -verbose -auth /var/run/gdm/auth-for-gdm-kYMTVN/database -nolisten tcp vt7
+ 1021 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1026 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1031 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1032 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1034 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 1556 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+11961 pts/0    Ss+    0:00 -bash
+11999 pts/0    S      0:08 contest.pl
+12013 pts/0    S      0:00 contest-requestd.pl
+12018 pts/0    S      0:00 contest-resultd.pl
+12023 pts/0    S      0:00 /usr/bin/perl ./contest-reportd.pl -q
+15960 pts/1    Ss+    0:00 -bash
+20611 pts/2    Ss     0:00 -bash
+26826 pts/2    S+     0:00 make mshrefout
+26827 pts/2    S+     0:00 /bin/sh -c make tests > mshref.out 2>&1
+26828 pts/2    S+     0:00 make tests
+26921 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./msh -a "-p"
+26922 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./msh -a -p
+26923 pts/2    S+     0:00 ./msh -p
+26934 pts/2    R      0:00 /bin/ps a
+./sdriver.pl -t trace14.txt -s ./msh -a "-p"
+#
+# trace14.txt - Simple error handling
+#
+msh> ./bogus
+./bogus: Command not found
+msh> ./myspin 4 &
+[1] (26941) ./myspin 4 &
+msh> fg
+fg command requires PID or %jobid argument
+msh> bg
+bg command requires PID or %jobid argument
+msh> fg a
+fg: argument must be a PID or %jobid
+msh> bg a
+bg: argument must be a PID or %jobid
+msh> fg 9999999
+(9999999): No such process
+msh> bg 9999999
+(9999999): No such process
+msh> fg %2
+%2: No such job
+msh> fg %1
+Job [1] (26941) stopped by signal 20
+msh> bg %2
+%2: No such job
+msh> bg %1
+[1] (26941) ./myspin 4 &
+msh> jobs
+[1] (26941) Running ./myspin 4 &
+./sdriver.pl -t trace15.txt -s ./msh -a "-p"
+#
+# trace15.txt - Putting it all together
+#
+msh> ./bogus
+./bogus: Command not found
+msh> ./myspin 10
+Job [1] (26961) terminated by signal 2
+msh> ./myspin 3 &
+[1] (26963) ./myspin 3 &
+msh> ./myspin 4 &
+[2] (26965) ./myspin 4 &
+msh> jobs
+[1] (26963) Running ./myspin 3 &
+[2] (26965) Running ./myspin 4 &
+msh> fg %1
+Job [1] (26963) stopped by signal 20
+msh> jobs
+[1] (26963) Stopped ./myspin 3 &
+[2] (26965) Running ./myspin 4 &
+msh> bg %3
+%3: No such job
+msh> bg %1
+[1] (26963) ./myspin 3 &
+msh> jobs
+[1] (26963) Running ./myspin 3 &
+[2] (26965) Running ./myspin 4 &
+msh> fg %1
+msh> quit
+./sdriver.pl -t trace16.txt -s ./msh -a "-p"
+#
+# trace16.txt - Tests whether the shell can handle SIGTSTP and SIGINT
+#     signals that come from other processes instead of the terminal.
+#
+msh> ./mystop 2
+Job [1] (26986) stopped by signal 20
+msh> jobs
+[1] (26986) Stopped ./mystop 2
+msh> ./myint 2
+Job [2] (26994) terminated by signal 2
+make[1]: Leaving directory `/v/filer4b/v21q001/ans/classes/cs439/projects/shproj-refsoln'

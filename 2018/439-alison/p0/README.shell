@@ -7,10 +7,6 @@ EID1: zh4378
 CS login: zeyuanhu
 Email: iamzeyuanhu@utexas.edu
 Unique Number:
-################
-
-
-
 
 ################
 CS:APP Shell Lab
@@ -50,3 +46,9 @@ Remarks
 ################
 
 - 'doFib' in fib.c demonstrates how we can get value from child process
+- We can use `CMake` to build the program:
+
+  - `mkdir build; cd build; cmake ..; make all` to make binary
+  - To enable debug build, we use `cmake .. -DCMAKE_BUILD_TYPE=debug`
+  - To enable the test cases, we use `cmake .. -DSHELL_TESTS=1; make test`
+  - Put everything together for dev purpose, we do `cmake .. -DCMAKE_BUILD_TYPE=debug -DSHELL_TESTS=1; make test`
