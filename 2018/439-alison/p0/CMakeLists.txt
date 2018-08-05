@@ -8,6 +8,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif ()
 
 message(STATUS "PROJECT_SOURCE_DIR: " ${PROJECT_SOURCE_DIR})
+message(STATUS "PROJECT_BINARY_DIR: " ${PROJECT_BINARY_DIR})
 
 set(DRIVER ${PROJECT_SOURCE_DIR}/sdriver.pl)
 set(MSHREF ${PROJECT_SOURCE_DIR}/mshref)
@@ -25,6 +26,9 @@ add_executable(msh msh.c util.c jobs.c log.c)
 
 if (SHELL_TESTS)
     enable_testing()
+
+    # Move `myspin` to build directory to aid tests
+    configure_file(${PROJECT_SOURCE_DIR}/myspin ${PROJECT_BINARY_DIR}/myspin COPYONLY)
 
     function(shell_test trace_file)
         set(test_name "${PROJECT_SOURCE_DIR}/${trace_file}.txt")
