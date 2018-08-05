@@ -13,7 +13,7 @@ const int MAX = 13;
 static void
 doFib( int n, int doPrint );
 static void
-doFibHelper( int n, int doPrint, int depth );
+doFibHelper( int n, int doPrint, int *fd, int depth );
 static pid_t
 Fork( void );
 
@@ -61,57 +61,46 @@ main( int argc, char **argv )
  * a new child for each call. Each process should call
  * doFib() exactly once.
  *
- * doPrint = 2 will print out the process numbering and its return value
- * doPrint = 1 will only print out the final result
+ * Here, we doesn't follow the output format exactly. However, the functionality is the same
+ * We use pipe to print out (pid, return val) pair required by (1) in design_doc.txt
  */
 static void
 doFib( int n, int doPrint )
 {
     int fd[2];
-    int depth = 0;
     pipe( fd );
-    doFibHelper( n, doPrint, depth );
+    int depth = 0;
+    doFibHelper( n, doPrint, fd, depth );
 }
 
 
 void
-doFibHelper( int n, int doPrint, int depth )
+doFibHelper( int n, int doPrint, int *fd, int depth )
 {
+//    printf( "Child with id: %d and its Parent id: %d \n", getpid(), getppid());
     pid_t pid1, pid2;
     int res = 0, status;
     //Base case, return n if n<2
     if ( n <= 1 )
     {
+        char buffer[100];
+        snprintf( buffer, 100, "(%d,%d)\n", getpid(), res );
+        write( fd[1], buffer, strlen( buffer ));
         exit( n );
     }
-    printf( "Child with id: %d and its Parent id: %d \n", getpid(), getppid());
     pid1 = Fork();
     /* Code executed by first child */
     if ( pid1 == 0 )
     {
-        printf( "Child with id: %d and its Parent id: %d \n", getpid(), getppid());
-        if ( doPrint == 2 )
-        {
-            doFibHelper( n - 1, doPrint, depth + 1 );
-        }
-        else
-        {
-            doFibHelper( n - 1, 0, depth + 1 );
-        }
+        doFibHelper( n - 1, doPrint, fd, depth + 1 );
+
     }
     /* Code executed by second child */
     pid2 = Fork();
     if ( pid2 == 0 )
     {
-        printf( "Child with id: %d and its Parent id: %d \n", getpid(), getppid());
-        if ( doPrint == 2 )
-        {
-            doFibHelper( n - 2, doPrint, depth + 1 );
-        }
-        else
-        {
-            doFibHelper( n - 2, 0, depth + 1 );
-        }
+        doFibHelper( n - 2, doPrint, fd, depth + 1 );
+
     }
     //Reap first Child
     while ( waitpid( pid1, &status, 0 ) > 0 )
@@ -121,13 +110,21 @@ doFibHelper( int n, int doPrint, int depth )
     while ( waitpid( pid2, &status, 0 ) > 0 )
         if ( WIFEXITED( status ))
             res += WEXITSTATUS( status );
-    if ( depth == 0 )
+    if ( doPrint )
     {
-        printf( "process numbering: %d \t return val: %d\n", depth, res );
-    }
-    else if ( doPrint == 1 )
-    {
+        char buffer[100];
+        snprintf( buffer, 100, "(%d,%d)\n", getpid(), res );
+        write( fd[1], buffer, strlen( buffer ));
         printf( "%d\n", res );
+    }
+    if (depth == 0)
+    {
+        close(fd[1]);
+        char buffer[100];
+        while ( read( fd[0], buffer, 1 ) != 0 )
+        {
+            printf( "%s", buffer );
+        }
     }
     exit( res );
 }

@@ -27,10 +27,10 @@ text files.)
 ################
 YOUR INFO
 ################
-Name1:
-EID1:
-CS login:
-Email:
+Name1: Zeyuan Hu
+EID1:  zh4378
+CS login: zeyuanhu
+Email: iamzeyuanhu@utexas.edu
 Unique Number:
 
 Slip days used:
@@ -80,6 +80,10 @@ Preliminaries
   preparing your submission, other than the Linux documentation,
   course text, and lecture notes.
 
+- Use logging infrastructure found: https://github.com/rxi/log.c
+- https://stackoverflow.com/questions/29244170/display-number-of-processes-in-loop-with-fork
+- https://stackoverflow.com/questions/40954399/given-a-printf-statement-in-c-how-do-i-construct-a-char-buffer-and-know-its/40954567
+- https://stackoverflow.com/questions/5769734/what-are-the-different-versions-of-exec-used-for-in-c-and-c
 
 ################
 Questions regarding Part 0
@@ -89,7 +93,29 @@ Questions regarding Part 0
   the processes beginning with 0 (the original process) and incrementing for
   each child process.
 
+There are 15 child processes are created.
+
+(12837,0)
+(12838,0)
+(12839,0)
+(12840,0)
+(12841,0)
+(12842,0)
+(12834,1)
+(12843,0)
+(12835,1)
+(12832,2)
+(12844,0)
+(12836,1)
+(12833,2)
+(12831,3)
+(12830,5)
+
+
 (2) In part 0.3, which flavor of exec did you choose to use?  Why?
+
+I use `execve` because it allows me to pass array of char* as argument and in addition,
+the environment variables before the spawned child process execute the program.
 
 
 ################
@@ -98,9 +124,13 @@ Questions regarding Part 1
 (1) In the provided utility function Signal(), what does the call to
   sigaction() do?  Why was sigaction() used instead of signal()?
 
+
+
 (2) What is the last assembly language instruction executed by the
   signal handler function that you write?  (You may choose either signal
   handler.)
+
+
 
 (3) After the instruction identified in the previous question executes, 
   what is the next assembly language instruction executed in the application 
@@ -112,6 +142,7 @@ Questions regarding Part 2
 ################
 (1) Describe your implementation of waitfg().  How did you avoid race
   conditions with the SIGCHLD handler?  How did you avoid busy waiting?
+
 
 (2) In msh.c, we use three separate signal handlers to catch our signals. 
   You can also use a single signal handler to catch all three signals.  Is
