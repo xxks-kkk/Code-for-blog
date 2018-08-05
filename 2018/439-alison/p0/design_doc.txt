@@ -124,11 +124,14 @@ Questions regarding Part 1
 (1) In the provided utility function Signal(), what does the call to
   sigaction() do?  Why was sigaction() used instead of signal()?
 
-
+The sigaction() system call is used to change the action taken by a process on receipt of a specific signal.
+`sigaction()` is portable whereas `signal()` has different semantics across system
+when using it to establish a signal handler.
 
 (2) What is the last assembly language instruction executed by the
   signal handler function that you write?  (You may choose either signal
   handler.)
+
 
 
 
