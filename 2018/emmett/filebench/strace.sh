@@ -2,24 +2,27 @@
 
 # This script is used to measure the space/write amplification reported in the writeup
 
+# root path
+ROOT_PATH=/home/iamzeyuanhu/hzy
 # The location of the filebench binary
-FILEBENC_BIN=$HOME/filebench_install_custom_latest/bin/filebench
+FILEBENC_BIN=$ROOT_PATH/filebench_install_custom_latest/bin/filebench
 # The path the workload. In our case, we use varmail.f
-WORKLOAD_PATH=$HOME/varmail.f
+WORKLOAD_PATH=$ROOT_PATH/varmail.f
+#WORKLOAD_PATH=$ROOT_PATH/varmail-2.f
 # The directory to save the reuslt
-RES_PATH=$HOME/filebench_res
+RES_PATH=$ROOT_PATH/filebench_res
 # The directory to save filebench generated files
 # WARNING: don't modify this value. The modified filebench hardcode this value
-FILEBENC_FILE_PATH=empty
+FILEBENC_FILE_PATH=$ROOT_PATH/empty
 
 gather_data() {
     # We get the file system type
-    fs_type=`df -Th | awk '$1 ~ /\dev\/sda1/ {print $2}'`
+    fs_type=`df -Th | awk '$1 ~ /\dev\/sdb1/ {print $2}'`
     
     # We use this variable to keep track of the `kB_wrtn' number before we run the
     # the workload
     # Unit: KB
-    kB_wrtn_before=`iostat -d /dev/sda1 | awk '$1 ~ /sda1/ {print $6}'`
+    kB_wrtn_before=`iostat -d /dev/sdb1 | awk '$1 ~ /sdb1/ {print $6}'`
 
     # We get the space of the device before running the workload
     # Unit: KB
@@ -30,11 +33,12 @@ gather_data() {
 
     # We run the filebench varmail workload with strace
     printf "==== Executing filebench: $WORKLOAD_PATH ====\n"
-    sudo strace -e trace=write -o strace.txt "$FILEBENC_BIN" -f "$WORKLOAD_PATH"
+    #sudo strace -e trace=write -o strace.txt "$FILEBENC_BIN" -f "$WORKLOAD_PATH"
+    sudo strace -f -e trace=write -o strace.txt "$FILEBENC_BIN" -f "$WORKLOAD_PATH"
 
     # We use now track the `kB_wrtn` number after we run the workload
     # Unit: KB
-    kB_wrtn_after=`iostat -d /dev/sda1 | awk '$1 ~ /sda1/ {print $6}'`
+    kB_wrtn_after=`iostat -d /dev/sdb1 | awk '$1 ~ /sdb1/ {print $6}'`
 
     # After the workload, the space difference
     # Unit: KB
@@ -46,8 +50,11 @@ gather_data() {
 
     # We get the number of bytes written during the preallocation phase of 
     # the fileset of the filebench (i.e., `prealloc=80` in `define fileset` command)
+    # If we use strace with -f, there can be multiple of outputs of our command
+    # Since the marker is unique (:diff:), all the output should be the same. We
+    # use the last one (END).
     # Unit: KB
-    kB_wrtn_preallocation=`grep 'diff' strace.txt | awk -F ':' '{print $3}'`
+    kB_wrtn_preallocation=`grep 'diff' strace.txt | awk -F ':' 'END {print $3}'`
 
     # We calculate the space difference
     # Unit: KB
