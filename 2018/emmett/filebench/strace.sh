@@ -24,25 +24,16 @@ gather_data() {
     # Unit: KB
     kB_wrtn_before=`iostat -d /dev/sdb1 | awk '$1 ~ /sdb1/ {print $6}'`
 
-    # We get the space of the device before running the workload
-    # Unit: KB
-    space_before=`du -k "$FILEBENC_FILE_PATH" | awk 'END {print $1}'`
-
     # We set the filebench output file name
     filebench_output=$RES_PATH/varmail_$fs_type
 
     # We run the filebench varmail workload with strace
     printf "==== Executing filebench: $WORKLOAD_PATH ====\n"
-    #sudo strace -e trace=write -o strace.txt "$FILEBENC_BIN" -f "$WORKLOAD_PATH"
     sudo strace -f -e trace=write -o strace.txt "$FILEBENC_BIN" -f "$WORKLOAD_PATH"
 
     # We use now track the `kB_wrtn` number after we run the workload
     # Unit: KB
     kB_wrtn_after=`iostat -d /dev/sdb1 | awk '$1 ~ /sdb1/ {print $6}'`
-
-    # After the workload, the space difference
-    # Unit: KB
-    space_after=`du -k "$FILEBENC_FILE_PATH" | awk 'END {print $1}'`
 
     # We caclulate the difference between two kB_wrtn values
     # Unit: KB
@@ -55,14 +46,6 @@ gather_data() {
     # use the last one (END).
     # Unit: KB
     kB_wrtn_preallocation=`grep 'diff' strace.txt | awk -F ':' 'END {print $3}'`
-
-    # We calculate the space difference
-    # Unit: KB
-    space_diff=`echo "$space_after - $space_before" | bc`
-
-    # We calculate how much space taken is due to the preallocation
-    # Unit: KB
-    space_preallocation=`grep 'spd' strace.txt | awk -F ':' '{print $3}'`
 
     # We parse the strace output and get the number of bytes written from
     # write() syscall. We exclude all the write() to fd=1
@@ -90,18 +73,8 @@ gather_data() {
     # Unit: KB
     kB_wrtn_workload=`echo "$kB_wrtn_diff - $kB_wrtn_preallocation" | bc`
 
-    # We calculate similarly for space
-    # Unit: KB
-    space_workload=`echo "$space_diff - $space_preallocation" | bc`
-
     # We calculate the write amplification
     write_amplification=`echo "$kB_wrtn_workload / $actual_write" | bc -l`
-
-    # We calculate the space amplfication (we use the space change during the workload)
-    space_amplification=`echo "$space_workload / $actual_write" | bc -l`
-
-    # We also calculate the space amplification only use the space_diff
-    space_amplification2=`echo "$space_diff / $actual_write" | bc -l`
 
     # Now we have everything we need, let's construct the result printout string
     printf "==== Resulting Statistics  ====\n"
@@ -112,14 +85,7 @@ gather_data() {
     printf "%s : %s\n" "kB_wrtn_preallocation (kb):" "$kB_wrtn_preallocation"
     printf "%s : %s\n" "kB_wrtn_workload (kb):" "$kB_wrtn_workload"
     printf "%s : %s\n" "actual_write (kb):" "$actual_write"
-    printf "%s : %s\n" "space_before (kb)" "$space_before" 
-    printf "%s : %s\n" "space_after (kb)" "$space_after"
-    printf "%s : %s\n" "space_diff (kb):" "$space_diff" 
-    printf "%s : %s\n" "space_preallocation (kb):" "$space_preallocation" 
-    printf "%s : %s\n" "space_workload (kb):" "$space_workload" 
     printf "%s : %s\n" "write_amplification:" "$write_amplification" 
-    printf "%s : %s\n" "space_amplification:" "$space_amplification"
-    printf "%s : %s\n" "space_amplification2:" "$space_amplification2"
 }
 
 main(){
