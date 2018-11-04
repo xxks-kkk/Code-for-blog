@@ -276,7 +276,7 @@ Betrfs \cite{jannen2015betrfs} uses a Git benchmark, which is described in the `
 the Linux repository and perform \texttt{git pull} to patch the code for a fixed amount of times. We're interested to see the amount of data written to the disk shown by the \texttt{iostat}. 
 
 We modified the Git benchmark to include \texttt{sync} after each pull and use \texttt{fstrim} to trim SSD during the inital file system setup. 
-We perform 20 pulls for the experiment. The result is shown in Table \ref{result2}.
+We perform 20 pulls for the experiment \footnote{Code: https://github.com/xxks-kkk/Code-for-blog/tree/filebench/2018/emmett/filebench/benchmarks/git-benchmark}. The result is shown in Table \ref{result2}.
 
 \begin{table}[]
 \centering
