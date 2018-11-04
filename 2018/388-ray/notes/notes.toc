@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Perplexity}{1}{section.1}
+\contentsline {section}{\numberline {2}Precision \& Recall}{2}{section.2}
+\contentsline {section}{\numberline {3}Meta knowledge}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Type of ambiguity in language}{2}{subsection.3.1}
+\contentsline {section}{\numberline {4}How do we evaluate the caption in VQA?}{2}{section.4}
+\contentsline {subsection}{\numberline {4.1}Accuracy}{2}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}\texttt {BLEU@N}}{2}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}\texttt {ROUGE-L}}{3}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Relevance}{3}{subsection.4.2}

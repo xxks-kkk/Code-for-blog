@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,graphicx,mathtools,tikz,hyperref}
+\usetikzlibrary{positioning}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\cx}{\mathbb{C}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\field}{\mathbb{F}}
+\newcommand{\ita}[1]{\textit{#1}}
+\newcommand{\com}[2]{#1\backslash#2}
+\newcommand{\oneton}{\{1,2,3,...,n\}}
+\newcommand\idea[1]{\begin{gather*}#1\end{gather*}}
+\newcommand\ef{\ita{f} }
+\newcommand\eff{\ita{f}}
+\newcommand\proofs[1]{\begin{proof}#1\end{proof}}
+\newcommand\inv[1]{#1^{-1}}
+\newcommand\setb[1]{\{#1\}}
+\newcommand\en{\ita{n }}
+\newcommand{\vbrack}[1]{\langle #1\rangle}
+
+\usepackage{enumitem}
+\newenvironment{QandA}{\begin{enumerate}\bfseries}
+                      {\end{enumerate}}
+\newenvironment{answered}{\par\normalfont}{}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ \hypersetup{
+ colorlinks,
+ linkcolor=blue
+ }
+\begin{document}
+\date{}
+
+ 
+\title{CS388 Notes}
+\author{Zeyuan Hu\\
+Department of Computer Science\\
+University of Texas at Austin} 
+ 
+\maketitle
+\tableofcontents
+\setcounter{secnumdepth}{3}
+\section{Perplexity}
+
+In the lecture slide, the perplexity is calculated as follows
+given a test set $\textbf{W} = w_1w_2 \dots w_N$:
+
+\begin{equation}
+PP(W) = \sqrt[N]{\frac{1}{P(w_1w_2\dots w_N)}}
+\end{equation}
+
+However, in Ray's code of P1 (i.e., \texttt{public void test(List<List<String>> sentences)}),
+the perplexity is calculated as:
+
+\begin{equation} \label{eq:1}
+PP(W) = \exp \left\{-\frac{\sum_{d=1}^{M}\log P(W_d)}{\sum_{d=1}^{M}N_d}\right\}
+\end{equation}
+
+
+Here, $M$ represent the number of sentences in the test set and $N_d$ represents the number of
+words in sentence $d$ \footnote{The above formula takes from \cite{blei2003latent}}. We can 
+manually verify that those two formulas are equivalent \footnote{Use the fact that $p_1 \times p_2 \times p_3 \times p_4 = \exp(\log p_1 + \log p_2 + \log p_3 + \log p_4)$} but equation \ref{eq:1} is actually what we
+used in the implementation.
+
+\section{Precision \& Recall}
+
+Precision \& recall are hard to remember about the exact formula. So, I list out two examples:
+
+\begin{itemize}
+\item In statistical parsing, if $P$ is the system's parse tree and $T$ is the human parse tree (the ``gold standard"):
+	\begin{itemize}
+	\item $Recall = (\# \text{ correct constituents in }P) / (\# \text{ constituents in }T)$
+	\item $Precision = (\# \text{ correct constituents in }P) / (\# \text{ constituents in }P)$
+	\end{itemize}
+\item In machine translation, 
+$$
+Precision = \frac{\# \text{ candidate translation words (unigrams) which occur in any reference translation}}{
+{\text{the total number of words in the candidate translation}}}
+$$
+\end{itemize}
+
+\section{Meta knowledge}
+
+\subsection{Type of ambiguity in language}
+
+\noindent\textbf{lexical ambiguity (word sense ambiguity)}.The lexical ambiguity of a word or phrase pertains to its having more than one meaning in the language to which the word belongs. "Meaning" here refers to whatever should be captured by a good dictionary. One example would be:
+
+\begin{QandA}
+\item Consider the following joke: There are two fish in a tank.  One says to the other, ``How do you drive this thing?'' Explain what specific type of ambiguity in language understanding makes this humorous.
+	\begin{answered}
+	Word sense ambiguity, first you think the sense of "tank" is "large container of water" and the the punch line makes you realize it could also mean "armored military vehicle."
+	\end{answered}
+\end{QandA}
+
+\noindent\textbf{co-reference ambiguity (anaphora ambiguity)}.
+
+\section{How do we evaluate the caption in VQA?}
+
+In ``Sentence Quality Evaluation" section \cite{Li2018TellandAnswerTE}, the caption is evaluated from two perspectives:
+
+\subsection{Accuracy}
+
+An average fusion of four widely used metrics: \texttt{BLEU@N}, \texttt{METEOR},
+\texttt{ROUGE-L}, \texttt{CIDEr-D}, which try to consider the accuracy of the generated sentence from different perspectives \cite{Chen2015MicrosoftCC}:
+
+\subsubsection{\texttt{BLEU@N}} 
+
+See my post \cite{bleu-post} on BLEU \cite{Papineni:2002:BMA:1073083.1073135}.
+
+\subsubsection{\texttt{ROUGE-L}}
+
+\texttt{ROUGE-L} 
+
+\subsection{Relevance}
+
+
+
+
+\bibliographystyle{ieeetr}
+\bibliography{report}
+
+\end{document}
