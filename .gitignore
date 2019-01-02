@@ -20,3 +20,6 @@ cmake-build-debug/
 out/
 *.class
 *.DS_Store
+GPATH
+GRTAGS
+GTAGS
