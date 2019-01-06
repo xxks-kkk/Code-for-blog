@@ -135,8 +135,3 @@ Then, we can walk through the entries of the table and read each segment from di
 of the segment resides.
 
 Thus, the boot loader decide how many sectors it must read in order to fetch the entire kernel from disk based on ELF header (i.e., first 8 sectors of the disk).
-
-# Reference
-
-- [You ji's post](https://jiyou.github.io/blog/2018/04/15/mit.6.828/jos-lab1/)
-- [Lequn's post](https://abcdabcd987.com/6.828-lab1/)
