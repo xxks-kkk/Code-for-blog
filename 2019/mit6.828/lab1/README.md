@@ -130,8 +130,39 @@ Then, the end of the table is pointed by `eph`. `e_phnum` holds the number of en
 to a memory segment in the binary image. More information about ELF, see [wiki](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) and
 [ELF specification](https://pdos.csail.mit.edu/6.828/2018/readings/elf.pdf).
 
-Then, we can walk through the entries of the table and read each segment from disk to memory. `p_pa` refers to the segment's physical address,
+Then, we can walk through the entries of the table (i.e., program header) and read each segment from disk to memory. `p_pa` refers to the segment's destination physical address,
 `p_memsz` gives number of bytes in the memory image of the segment, and `p_offset` gives he offset from the beginning of the file at which the first byte 
 of the segment resides.
 
 Thus, the boot loader decide how many sectors it must read in order to fetch the entire kernel from disk based on ELF header (i.e., first 8 sectors of the disk).
+
+## Exercise 5
+
+> Trace through the first few instructions of the boot loader again and identify the first instruction that would "break" or otherwise do the wrong thing if you were to get the boot loader's link address wrong. Then change the link address in boot/Makefrag to something wrong, run make clean, recompile the lab with make, and trace into the boot loader again to see what happens. Don't forget to change the link address back and make clean again afterward! 
+
+Let's modify the link address from `0x7c00` into `0x7c0d` and see what's going on. We still break `0x7c00` as it is hardwired physical address of the sector that BIOS will load from disk into memory. 
+We hit `c` for multiple times and we see that we are essentially trapped inside a infinite loop (i.e., beginning part of `boot.asm` will get executed repeatedly). If we compare `boot.asm` with correct link address with our incorrect one, the first instruction is different is following (e.g., we ignore the instructions are different only due to the address differences)
+
+``` assembly
+ 7c21:	64 7c 0f             	fs jl  7c33 <protcseg+0x1>
+```
+
+This line happens immediately after `lgdtl (%esi)`. Let's compare two `boot.asm` in this area:
+
+``` assembly
+# boot.asm with correct link address
+lgdt    gdtdesc
+    7c1e:	0f 01 16             	lgdtl  (%esi)
+    7c21:	64 7c 0f             	fs jl  7c33 <protcseg+0x1>
+```
+
+``` assembly
+# boot.asm with incorrect link address
+lgdt    gdtdesc
+    7c2e:	0f 01 16             	lgdtl  (%esi)
+    7c31:	74 7c                	je     7caf <readsect+0x23>
+```
+
+Thus, the first instruction would break is `lgdt gdtdesc`.
+
+
