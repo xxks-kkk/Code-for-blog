@@ -141,7 +141,7 @@ Thus, the boot loader decide how many sectors it must read in order to fetch the
 > Trace through the first few instructions of the boot loader again and identify the first instruction that would "break" or otherwise do the wrong thing if you were to get the boot loader's link address wrong. Then change the link address in boot/Makefrag to something wrong, run make clean, recompile the lab with make, and trace into the boot loader again to see what happens. Don't forget to change the link address back and make clean again afterward! 
 
 Let's modify the link address from `0x7c00` into `0x7c0d` and see what's going on. We still break `0x7c00` as it is hardwired physical address of the sector that BIOS will load from disk into memory. 
-We hit `c` for multiple times and we see that we are essentially trapped inside a infinite loop (i.e., beginning part of `boot.asm` will get executed repeatedly). If we compare `boot.asm` with correct link address with our incorrect one, the first instruction is different is following (e.g., we ignore the instructions are different only due to the address differences)
+We hit `c` for multiple times and we see that we are essentially trapped inside a infinite loop (i.e., beginning part of `boot.asm` will get executed repeatedly). If we compare `boot.asm` with correct link address with our incorrect one, the first instruction that is different is following (e.g., we ignore the instructions are different only due to the address differences)
 
 ``` assembly
  7c21:	64 7c 0f             	fs jl  7c33 <protcseg+0x1>
@@ -165,4 +165,46 @@ lgdt    gdtdesc
 
 Thus, the first instruction would break is `lgdt gdtdesc`.
 
+
+## Exercise 6
+
+> Reset the machine (exit QEMU/GDB and start them again). Examine the 8 words of memory at 0x00100000 at the point the BIOS enters the boot loader, and then again at the point the boot loader enters the kernel. Why are they different? What is there at the second breakpoint? (You do not really need to use QEMU to answer this question. Just think.) 
+
+We first break `0x7c00`, which is the memory address of the first instruction of the bootloader (i.e., BIOS loads the 512-byte boot sector into memory at physical address 0x7c00 through 0x7dff,
+and then use `jmp` instruction to set the CS:IP to 0000:7c00, passing control to the boot loader.). Using `objdump -f kern/kernel`, we can obtain the memory address of the first instruction of kenrel
+(e.g., `start address 0x0010000c`) and we set breakpoints at these two memory addresses and examine the values:
+
+``` assembly
+(gdb) b *0x7c00
+Breakpoint 1 at 0x7c00
+(gdb) c
+Continuing.
+[   0:7c00] => 0x7c00:  cli
+
+Breakpoint 1, 0x00007c00 in ?? ()
+(gdb) x/8x 0x00100000
+0x100000:       0x00    0x00    0x00    0x00    0x00    0x00    0x00    0x00
+(gdb) b *0x0010000c
+Breakpoint 2 at 0x10000c
+(gdb) c
+Continuing.
+The target architecture is assumed to be i386
+=> 0x10000c:    movw   $0x1234,0x472
+
+Breakpoint 2, 0x0010000c in ?? ()
+(gdb) x/8x 0x00100000
+(gdb) x/8x 0x00100000
+0x100000:       0x1badb002      0x00000000      0xe4524ffe      0x7205c766
+0x100010:       0x34000004      0x2000b812      0x220f0011      0xc0200fd8
+```
+
+`0x00100000` corresponds to 1MB of the physical memory address. Before the bootloader loads kernel, all the memory in the physical memory address beyond 1MB is initialized to 0 (i.e., kernel hasn't been loaded and nothing there). However, once the bootloader loads the kernel, the kernel images is loaded starting at the `0x00100000` and if we take a look at `entry.S`, we find
+
+``` c
+#define MULTIBOOT_HEADER_MAGIC (0x1BADB002)
+#define MULTIBOOT_HEADER_FLAGS (0)
+#define CHECKSUM (-(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS))
+```
+
+`0x1badb002` matches exactly with `#define MULTIBOOT_HEADER_MAGIC (0x1BADB002)`.
 
