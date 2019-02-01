@@ -327,9 +327,9 @@ To trace the kernel, we need to make a debug build of the kernel by modifying se
 Make a new directory \texttt{debug\_bld2} for holding the debug build. In the created directory, run
 
 \begin{lstlisting}
-make -C ../linux-4.15.9 O=$(pwd) x86_64_defconfig
-make -C ../linux-4.15.9 O=$(pwd) kvmconfig
-make -C ../linux-4.15.9 O=$(pwd) menuconfig
+make -C ../linux-4.20.4 O=$(pwd) x86_64_defconfig
+make -C ../linux-4.20.4 O=$(pwd) kvmconfig
+make -C ../linux-4.20.4 O=$(pwd) menuconfig
 \end{lstlisting}
 
 The last command will bring up a configuration menu and we change the options as follow \cite{lab0}:
@@ -350,9 +350,6 @@ The last command will bring up a configuration menu and we change the options as
 \item General setup
 	\begin{itemize}
 	\item Configure standard kernel features (expert users) (check this)
-		\begin{itemize}
-		\item Configure standard kernel features (expert users) (check this)
-		\end{itemize}
 	\end{itemize}
 \item Processor type and features
 	\begin{itemize}
@@ -364,12 +361,7 @@ We also want to explict set \lstinline|CONFIG_DEBUG_INFO_REDUCED=n| explicitly i
 Then we compile the kernel \lstinline|make -j16| and start the VM as
 
 \begin{lstlisting}
-sudo qemu-system-x86_64 \
-> -enable-kvm -nographic \
-> -m 512 -smp 4 -redir tcp:4444::22 -s \
-> -hda my-disk.img -hdb my-seed.img \
-> -kernel ~/debug_bld2/arch/x86_64/boot/bzImage \
-> -append "root=/dev/sda1"
+sudo qemu-system-x86_64 -enable-kvm -nographic -m 512 -smp 4 -redir tcp:4444::22 -s -hda my-disk.img -hdb my-seed.img -kernel ~/380l-lab0/debug_bld2/arch/x86_64/boot/bzImage -append "root=/dev/sda1" -cpu hos
 \end{lstlisting}
 
 Note that we add an option \texttt{-s}, which tells QEMU to start a GDB server on port 1234 for debugging \cite{debug}
@@ -387,6 +379,8 @@ the kernel.
 \caption{Fire up GDB and be ready to debug kernel}
 \label{gdb}
 \end{figure}
+
+\subsection{Tracing the kernel}
 
 Next, we create a program \texttt{testprog.c} on the guest system like the following
 \footnote{We modify the program by appending extra line \lstinline|while (1) \{\}|. Doing so make sure that the 
@@ -452,89 +446,126 @@ Specifically, \lstinline|$lx_current().pid| gives the PID of the current running
 %\end{lstlisting}
 
 
-The command we run is following 
+The command we run is the following, where \texttt{2297} is the pid of the program. \footnote{Alternatively, we can \lstinline|b __raw_spin_lock if $_streq($lx_current().comm, "testprog")|. This command directly compares the process name with the target program, which has more overhead than comparing process id. This is quite noticeable for a frequently-used function like spin lock in this case and for a machine with less powerful CPU. The detailed steps of using the comparing-process-id approach can be found in Appendix.}
 
 \begin{lstlisting}
-b __raw_spin_lock if $_streq($lx_current().comm, "testprog")
+b __raw_spin_lock if $lx_current().pid == 2297
 \end{lstlisting}
 
-Figure \ref{breakpoint} shows the result of \texttt{testprog} hits the breakpoint for the first time. From the figure we can see that 
-\lstinline|$lx current().pid| gives 2442 and \lstinline|$lx current().comm| gives \lstinline|"testprog\000\000\000\000\000\000\000"|, which confirm
+Figure \ref{breakpoint} shows the result of \texttt{testprog} hits the breakpoint. From the figure we can see that 
+\lstinline|$lx current().pid| gives 2297 and \lstinline|$lx current().comm| gives \lstinline|"testprog\000\000\000\000\000\000\000"|, which confirm
 that we are in \texttt{testprog} process when we hit \lstinline|spin_lock| breakpoint. Then, we use \lstinline|bt| to examine the call stack.
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{breakpoint.png} 
-\caption{The first time that \texttt{testprog} hits breakpoint }
+\includegraphics[scale=0.4]{breakpoint.png} 
+\caption{ \texttt{testprog} hits breakpoint }
 \label{breakpoint}
 \end{figure}
 
-In the first time the breakpoint is triggered, the stack looks like:
+The kernel backtrace of the first instance we find looks like below:
 
 \begin{lstlisting}
-#0  _raw_spin_lock (lock=0xffff88001fc1bbc0) at /home/zeyuanhu/linux-4.15.9/kernel/locking/spinlock.c:144
-#1  0xffffffff810bd8d0 in hrtimer_interrupt (dev=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/time/hrtimer.c:1303
-...
+#0  _raw_spin_lock (lock=0xffff88801f2a0a80) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/locking/spinlock.c:144
+#1  0xffffffff8108cbf7 in rq_lock (rf=<optimized out>, rq=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/sched/sched.h:1124
+#2  scheduler_tick () at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/sched/core.c:3045
+#3  0xffffffff810ceb0b in update_process_times (user_tick=0) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/time/timer.c:1641
+#4  0xffffffff810dea7f in tick_sched_handle (ts=<optimized out>, regs=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/time/tick-sched.c:164
+#5  0xffffffff810debc2 in tick_sched_timer (timer=0xffff88801f29bfc0) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/time/tick-sched.c:1274
+#6  0xffffffff810cf6d3 in __run_hrtimer (flags=<optimized out>, now=<optimized out>, timer=<optimized out>, base=<optimized out>, cpu_base=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/time/hrtimer.c:1398
+#7  __hrtimer_run_queues (cpu_base=0xffff88801f29ba80, now=<optimized out>, flags=<optimized out>, active_mask=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/time/hrtimer.c:1460
+#8  0xffffffff810cfe10 in hrtimer_interrupt (dev=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/time/hrtimer.c:1518
+#9  0xffffffff81c01e1d in local_apic_timer_interrupt () at /home/zeyuanhu/380l-lab0/linux-4.20.4/arch/x86/kernel/apic/apic.c:1034
+#10 smp_apic_timer_interrupt (regs=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/arch/x86/kernel/apic/apic.c:1059
+#11 0xffffffff81c0152f in apic_timer_interrupt () at /home/zeyuanhu/380l-lab0/linux-4.20.4/arch/x86/entry/entry_64.S:807
+<-- snip -->
 \end{lstlisting}
 
-From the tace, we see the kernel is running handler for the timer interrupt.If we take a look at function \texttt{hrtimer\_interrupt} in 
+Here, the kernel acquires a lock on the run queue and charge one tick to the current process (\lstinline|update_process_time|).
+Then, the kernel runs handler for the timer interrupt. If we take a look at function \texttt{hrtimer\_interrupt} in 
 \texttt{kernel/time/hrtimer.c}, we know the \texttt{hrtimer\_bases}, a per-CPU variable \cite{cpu}, acquired a lock
 \footnote{In GDB, the helper script also provides a function \lstinline|$lx_per_cpu| to obtain per-CPU variables (actually 
 \lstinline|$lx_current()| is a shorthand to \lstinline|$lx_per_cpu("current task")|)}.
 
-We continue the kernel tracing and the stack looks like below when we hit the breakpoint for the second time:
+The second instance that we take a look at is the following:
 
 \begin{lstlisting}
-#0  _raw_spin_lock (lock=0xffffffff82206a04 <jiffies_lock+4>) at /home/zeyuanhu/linux-4.15.9/kernel/locking/spinlock.c:144
-...
-#4  0xffffffff810cb57f in tick_sched_timer (timer=0xffff88001fc1bfe0) at /home/zeyuanhu/linux-4.15.9/kernel/time/tick-sched.c:1187
-...
-#9  smp_apic_timer_interrupt (regs=<optimized out>) at /home/zeyuanhu/linux-4.15.9/arch/x86/kernel/apic/apic.c:1050
+#0  _raw_spin_lock (lock=0xffff88801f2a0a80) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/locking/spinlock.c:144
+#1  0xffffffff8108bb81 in rq_lock (rf=<optimized out>, rq=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/sched/sched.h:1124
+#2  ttwu_queue (wake_flags=<optimized out>, cpu=<optimized out>, p=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/sched/core.c:1845
+#3  try_to_wake_up (p=0xffff88801eddd780, state=<optimized out>, wake_flags=0) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/sched/core.c:2057
+#4  0xffffffff8108bcbc in wake_up_process (p=<optimized out>) at /home/zeyuanhu/380l-lab0/linux-4.20.4/kernel/sched/core.c:2129
 \end{lstlisting}
 
-It is still inside the handler for timer interrupt, and \lstinline|jiffies_lock| is acquired, which is a global variable. 
-Function \lstinline|tick_do_update_jiffies64| updates current jiffies.
+Here, kernel tries to awaken a sleeping process through calling \lstinline|try_to_wake_up()|.
 
-The breakpoint is hit in a different context happens inside function \texttt{update\_process\_times}, still during handler for timer interrupt:
+The third instance is the following:
 
 \begin{lstlisting}
-(gdb) bt
-#0  _raw_spin_lock (lock=0xffff88001fc207c0) at /home/zeyuanhu/linux-4.15.9/kernel/locking/spinlock.c:144
-...
-#3  0xffffffff810bc9ab in update_process_times (user_tick=0) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1633
-...
-#8  0xffffffff810bd90d in hrtimer_interrupt (dev=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/time/hrtimer.c:1316
+#0  _raw_spin_lock (lock=0xffff88001cc1ec6c) at /home/zeyuanhu/linux-4.20.4/kernel/locking/spinlock.c:144
+<-- snip -->
+#3  0xffffffff81167316 in pud_alloc (address=<optimized out>, p4d=<optimized out>, mm=<optimized out>) at /home/zeyuanhu/linux-4.20.4/include/linux/mm.h:1733
+#4  __handle_mm_fault (vma=<optimized out>, address=6295640, flags=<optimized out>) at /home/zeyuanhu/linux-4.20.4/mm/memory.c:4008
+#5  0xffffffff811678ad in handle_mm_fault (vma=<optimized out>, address=<optimized out>, flags=<optimized out>) at /home/zeyuanhu/linux-4.20.4/mm/memory.c:4104
+#6  0xffffffff8104bede in __do_page_fault (regs=0xffffc90000317ce8, error_code=2, address=6295640) at /home/zeyuanhu/linux-4.20.4/arch/x86/mm/fault.c:1426
+#7  0xffffffff81a0168b in async_page_fault () at /home/zeyuanhu/linux-4.20.4/arch/x86/entry/entry_64.S:1118
 \end{lstlisting}
 
-Here the lock for per-CPU variable \texttt{runqueues} is acquired.
+At this place, kernel tries to handle the page fault.
 
-Continuing trace will let us see something out of timer interrupt. One example is breakpoint hit during the page fault:
-
-\begin{lstlisting}
-0  _raw_spin_lock (lock=0xffff88001cc1ec6c) at /home/zeyuanhu/linux-4.15.9/kernel/locking/spinlock.c:144
-...
-#3  0xffffffff81167316 in pud_alloc (address=<optimized out>, p4d=<optimized out>, mm=<optimized out>) at /home/zeyuanhu/linux-4.15.9/include/linux/mm.h:1733
-#4  __handle_mm_fault (vma=<optimized out>, address=6295640, flags=<optimized out>) at /home/zeyuanhu/linux-4.15.9/mm/memory.c:4008
-#5  0xffffffff811678ad in handle_mm_fault (vma=<optimized out>, address=<optimized out>, flags=<optimized out>) at /home/zeyuanhu/linux-4.15.9/mm/memory.c:4104
-#6  0xffffffff8104bede in __do_page_fault (regs=0xffffc90000317ce8, error_code=2, address=6295640) at /home/zeyuanhu/linux-4.15.9/arch/x86/mm/fault.c:1426
-#7  0xffffffff81a0168b in async_page_fault () at /home/zeyuanhu/linux-4.15.9/arch/x86/entry/entry_64.S:1118
-\end{lstlisting}
-
-Another one is the scheduler wakes up process and queues the process:
-
-\begin{lstlisting}
-...
-#2  ttwu_queue (wake_flags=<optimized out>, cpu=<optimized out>, p=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/sched/core.c:1863
-#3  try_to_wake_up (p=0xffff88001cf9a4c0, state=<optimized out>, wake_flags=0) at /home/zeyuanhu/linux-4.15.9/kernel/sched/core.c:2078
-#4  0xffffffff8107cebc in wake_up_process (p=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/sched/core.c:2151
-#5  0xffffffff8106d0e3 in wake_up_worker (pool=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/workqueue.c:840
-#6  insert_work (pwq=<optimized out>, work=<optimized out>, head=<optimized out>, extra_flags=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/workqueue.c:1313
-#7  0xffffffff8106d212 in __queue_work (cpu=<optimized out>, wq=0x0 <irq_stack_union>, work=0xffff88001fc00000) at /home/zeyuanhu/linux-4.15.9/kernel/workqueue.c:1463
-#8  0xffffffff810bad36 in call_timer_fn (timer=0xffff88001fc207c0, fn=0x0 <irq_stack_union>) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1318
-#9  0xffffffff810bb209 in expire_timers (head=<optimized out>, base=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1351
-#10 __run_timers (base=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1658
-...
-\end{lstlisting}
+%We continue the kernel tracing and the stack looks like below when we hit the breakpoint for the second time:
+%
+%\begin{lstlisting}
+%#0  _raw_spin_lock (lock=0xffffffff82206a04 <jiffies_lock+4>) at /home/zeyuanhu/linux-4.15.9/kernel/locking/spinlock.c:144
+%...
+%#4  0xffffffff810cb57f in tick_sched_timer (timer=0xffff88001fc1bfe0) at /home/zeyuanhu/linux-4.15.9/kernel/time/tick-sched.c:1187
+%...
+%#9  smp_apic_timer_interrupt (regs=<optimized out>) at /home/zeyuanhu/linux-4.15.9/arch/x86/kernel/apic/apic.c:1050
+%\end{lstlisting}
+%
+%It is still inside the handler for timer interrupt, and \lstinline|jiffies_lock| is acquired, which is a global variable. 
+%Function \lstinline|tick_do_update_jiffies64| updates current jiffies.
+%
+%The breakpoint is hit in a different context happens inside function \texttt{update\_process\_times}, still during handler for timer interrupt:
+%
+%\begin{lstlisting}
+%(gdb) bt
+%#0  _raw_spin_lock (lock=0xffff88001fc207c0) at /home/zeyuanhu/linux-4.15.9/kernel/locking/spinlock.c:144
+%...
+%#3  0xffffffff810bc9ab in update_process_times (user_tick=0) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1633
+%...
+%#8  0xffffffff810bd90d in hrtimer_interrupt (dev=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/time/hrtimer.c:1316
+%\end{lstlisting}
+%
+%Here the lock for per-CPU variable \texttt{runqueues} is acquired.
+%
+%Continuing trace will let us see something out of timer interrupt. One example is breakpoint hit during the page fault:
+%
+%\begin{lstlisting}
+%0  _raw_spin_lock (lock=0xffff88001cc1ec6c) at /home/zeyuanhu/linux-4.15.9/kernel/locking/spinlock.c:144
+%...
+%#3  0xffffffff81167316 in pud_alloc (address=<optimized out>, p4d=<optimized out>, mm=<optimized out>) at /home/zeyuanhu/linux-4.15.9/include/linux/mm.h:1733
+%#4  __handle_mm_fault (vma=<optimized out>, address=6295640, flags=<optimized out>) at /home/zeyuanhu/linux-4.15.9/mm/memory.c:4008
+%#5  0xffffffff811678ad in handle_mm_fault (vma=<optimized out>, address=<optimized out>, flags=<optimized out>) at /home/zeyuanhu/linux-4.15.9/mm/memory.c:4104
+%#6  0xffffffff8104bede in __do_page_fault (regs=0xffffc90000317ce8, error_code=2, address=6295640) at /home/zeyuanhu/linux-4.15.9/arch/x86/mm/fault.c:1426
+%#7  0xffffffff81a0168b in async_page_fault () at /home/zeyuanhu/linux-4.15.9/arch/x86/entry/entry_64.S:1118
+%\end{lstlisting}
+%
+%Another one is the scheduler wakes up process and queues the process:
+%
+%\begin{lstlisting}
+%...
+%#2  ttwu_queue (wake_flags=<optimized out>, cpu=<optimized out>, p=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/sched/core.c:1863
+%#3  try_to_wake_up (p=0xffff88001cf9a4c0, state=<optimized out>, wake_flags=0) at /home/zeyuanhu/linux-4.15.9/kernel/sched/core.c:2078
+%#4  0xffffffff8107cebc in wake_up_process (p=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/sched/core.c:2151
+%#5  0xffffffff8106d0e3 in wake_up_worker (pool=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/workqueue.c:840
+%#6  insert_work (pwq=<optimized out>, work=<optimized out>, head=<optimized out>, extra_flags=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/workqueue.c:1313
+%#7  0xffffffff8106d212 in __queue_work (cpu=<optimized out>, wq=0x0 <irq_stack_union>, work=0xffff88001fc00000) at /home/zeyuanhu/linux-4.15.9/kernel/workqueue.c:1463
+%#8  0xffffffff810bad36 in call_timer_fn (timer=0xffff88001fc207c0, fn=0x0 <irq_stack_union>) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1318
+%#9  0xffffffff810bb209 in expire_timers (head=<optimized out>, base=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1351
+%#10 __run_timers (base=<optimized out>) at /home/zeyuanhu/linux-4.15.9/kernel/time/timer.c:1658
+%...
+%\end{lstlisting}
 
 \section{Differences between \lstinline|/dev/random| and \lstinline|/dev/urandom|}
 
@@ -552,6 +583,27 @@ it is a case-by-case situation \cite{man}.
 
 \bibliographystyle{ieeetr}
 \bibliography{report}
+
+\begin{appendices}
+\section{Detailed steps to let program hit breakpoint}
+Let $T1$ denotes the tab with \lstinline|gdb vmlinux|, let $T1$ and $T2$ denote the tabs that we ssh into the guest system. Then we proceed as the following:
+
+\begin{enumerate}
+	\item \lstinline|gdb vmlinux| ($T1$)
+	\item \lstinline|target remote :1234| ($T1$)
+	\item \lstinline|c| ($T1$)
+	\item \lstinline|gdb testprog| ($T2$)
+	\item \lstinline|b main| ($T2$)
+	\item \lstinline|r| ($T2$)
+	\item \lstinline!ps aux | grep test! ($T3$) to obtain pid of $testprog$
+	\item \lstinline|b __raw_spin_lock if $lx_current().pid == 2297| (\texttt{2297} is the pid we find out in the earlier step) ($T1$)
+	\item \lstinline|c| ($T1$)
+	\item \lstinline|c| ($T2$)
+\end{enumerate}
+
+Now, at some point, $T1$ will show that the breakpoint is hit.
+
+\end{appendices}
 
 
 \end{document}
