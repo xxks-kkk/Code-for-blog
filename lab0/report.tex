@@ -498,6 +498,7 @@ The second instance that we take a look at is the following:
 \end{lstlisting}
 
 Here, kernel tries to awaken a sleeping process through calling \lstinline|try_to_wake_up()|.
+\lstinline|try_to_wake_up()| function wakes a sleeping or stopped process by setting its state to \lstinline|TASK_RUNNING| and inserting it into the runqueue of the local CPU \cite{Bovet:2000:ULK:557706}.
 
 The third instance is the following:
 
@@ -511,7 +512,11 @@ The third instance is the following:
 #7  0xffffffff81a0168b in async_page_fault () at /home/zeyuanhu/linux-4.20.4/arch/x86/entry/entry_64.S:1118
 \end{lstlisting}
 
-At this place, kernel tries to handle the page fault.
+At this place, kernel tries to handle the page fault.	In \lstinline|/arch/x86/entry/entry_64.S|, we can see
+\lstinline|async_page_fault()| is invoked when we're in the KVM guest environment (i.e., QEMU this case).
+\lstinline|do_page_fault()| function, which is the Page Fault interrupt service routine for the x86 architecture, compares the linear address that caused the Page Fault against the memory regions
+of the current process and determines the proper way to handle the exception. In this case, 
+\lstinline|handle_mm_fault()| is invoked to allocate a new page frame \cite{Bovet:2000:ULK:557706}.
 
 %We continue the kernel tracing and the stack looks like below when we hit the breakpoint for the second time:
 %
