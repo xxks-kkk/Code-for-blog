@@ -110,7 +110,7 @@ escapeinside={(*@}{@*)},
 
 \begin{center}
 
-{\LARGE \bf CS380L: Advanced Operating Systems Lab \#0}\\
+{\LARGE \bf CS380L: Advanced Operating Systems Lab \#1}\\
 
 \vskip 25pt
  {Zeyuan Hu \footnote{20 hours spent on this lab.}, iamzeyuanhu@utexas.edu }\\
@@ -120,23 +120,11 @@ escapeinside={(*@}{@*)},
 \end{center}
 
 \begin{spacing}{1.5}
-\section{Introduction}
-
-\noindent In this writeup, we demonstrate the steps to compile and boot the Linux 
-kernel on the KVM-qemu virtual machine. We time the OS bootup time using both timer
-and RTC, real-time clock in Linux and explain the value difference using the 
-difference between system time and RTC. We also trace the kernel during the execution
-of a test program \texttt{testprog} and we explain the difference between 
-\lstinline|/dev/random| and \lstinline|/dev/urandom|.
-
 \section{Environment}
 
-We use a machine that has 2 Intel(R) Core(TM)2 Duo CPU @ 3.00GHz processors and 8GB of memory. The machine runs 
-Ubuntu 18.04.1 LTS (kernel version 4.15.0-43-generic).
+We use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R) CPU E3-1220 v5 @ 3.00GHz processors and 16GB of memory, and runs Ubuntu 16.04.2 LTS (kernel version 4.11.0). The CPU has 32KB of L1 data cache per core (8-way set associative) (found through \lstinline!getconf -a | grep CACHE!). In addition, it has two-level TLBs. The first level (data TLB) has 64 entries (4-way set associative), and the second level has 1536 entries for both instructions and data (6-way set associative) (found through \lstinline!cpuid | grep -i tlb!).
 
-KVM is enabled on the machine, and we use QEMU (version 2.11.1) \footnote{\lstinline|qemu-system-x86_64 --version|} to create and run a VM for the lab. The VM runs a Ubuntu 18.04 LTS with the kernel we built (version 4.20.4).
-
-\section{Getting a VM running in KVM}
+\section{Memory map}
 
 We use the Ubuntu cloud image to setup the VM. The image for QEMU can be downloaded from 
 \url{https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64.img}. We 
