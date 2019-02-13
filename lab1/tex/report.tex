@@ -162,28 +162,45 @@ To locate the start of the text section of the executable, we invoke \texttt{obj
 
 One interesting thing happens between runs of the executable: the content of \texttt{/proc/self/maps} is different. Addresses of all mapped memory regions are different except for the regions mapped to the executable and \texttt{[vsyscall]}. The root cause behind this phenomenon is Address Space Layout Randomization (ASLR) \cite{aslr} for programs in user space. This feature is enabled by default and can be seen via the content of \lstinline|/proc/sys/kernel/randomize_va_space| file. In our case, the value is 2, which means the positions of stack itself, virtual dynamic shared object (VDSO) page, shared memory regions, and data segments are randomized \cite{aslr2}.
 
+\section{Getrusage}
 
-\section{Obtaining and building the kernel}
+To get resource usage of the current process, we use \texttt{getrusage} \cite{getrusage_man}. The result is stored in \texttt{rusage} struct. Not all fields of the struct
+are completed: unmaintained fields are set to zero by the kernel. Those fields exist for compatibility with other systems purpose. The following code instantiates \texttt{rusage} struct and print all the maintained fields \footnote{complete code can be seen in \texttt{getrusage.c}}:
 
-We first obtain the Linux Kernel source via \lstinline|wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.4.tar.xz|.
-Then, we extract the files using \lstinline|tar -xJf linux-4.20.4.tar.xz|. We make a new directory \texttt{kbuild} as the build
-directory for kernel and \lstinline|cd kbuild|, we generate \texttt{.config} file using \lstinline!yes "" | make -C ../linux-4.20.4/ O=$(pwd) x86_64_defconfig!.
-Note that generating the \texttt{.config} file like this automatically set \texttt{CONFIG\_SATA\_AHCI=y}.
-We run \lstinline|make -j4| \footnote{\texttt{-j4} means 4 threads are used, which can speed up the build process}to build the kernel.
+\begin{lstlisting}[style=CStyle]
+struct rusage usage;
+if (getrusage(RUSAGE_SELF, &usage) != 0) {
+    perror("getrusage");
+    return 0;
+}
 
-\section{Installing and Copying Kernel Modules} 
+// user CPU time used
+printf("utime = %ld.%06ld s\n", usage.ru_utime.tv_sec,
+usage.ru_utime.tv_usec);
+// system CPU time used
+printf("stime = %ld.%06ld s\n", usage.ru_stime.tv_sec,
+usage.ru_stime.tv_usec);
+// maximum resident set size
+printf("maxrss = %ld KB\n", usage.ru_maxrss);
+// page reclaims (soft page faults)
+printf("minflt = %ld\n", usage.ru_minflt);
+// page faults (hard page faults)
+printf("majflt = %ld\n", usage.ru_majflt);
+// block input operations
+printf("inblock = %ld\n", usage.ru_inblock);
+// block output operations
+printf("oublock = %ld\n", usage.ru_oublock);
+// voluntary context switches
+printf("nvcsw = %ld\n", usage.ru_nvcsw);
+// involuntary context switches
+printf("nivcsw = %ld\n", usage.ru_nivcsw);
+\end{lstlisting}
 
-We install the newly-built kernel by first making a new directory called \texttt{kinstall} as a sibling of 
-\texttt{kbuild}. \texttt{kinstall} will contain the built kernel modules. Inside \texttt{kbuild}, we run
-\lstinline|make INSTALL_MOD_PATH=../kinstall modules_install|.
+man page of \texttt{getrusage} explains the meaning of each field \cite{getrusage_man} in details. \texttt{utime} and \texttt{stime} are about CPU time usage; \texttt{minflt} and \texttt{majflt} are related to page faults; \texttt{maxrss} represents the maximum size of working set; \texttt{inblock} and \texttt{oublock} are about file system I/O. 
 
-We can see \texttt{lib} directory inside \texttt{kinstall}, which has to be copied to the root file system of the VM. 
-We notice there are two symbolic links \texttt{build} and \texttt{source} inside \texttt{kinstall/lib/modules/4.20.4}, 
-which links to the built kernel image and the source of the kernel. 
-They are useless and may cause problems when copying files to the VM. Thus we just delete them. Next, we copy
-the entire \text{4.20.4} directory to \texttt{/lib/modules} in the guest system by doing
-\lstinline|scp -P 4444 -r 4.20.4/ ubuntu@localhost:/home/ubuntu| and inside the guest sytem, do 
-\lstinline|sudo mv 4.20.4/ /lib/modules/|. 
+\section{perf\_event\_open} 
+
+
 
 \section{Booting KVM with your new Kernel}
 
