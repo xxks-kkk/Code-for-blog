@@ -14,7 +14,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-#define CHAR_LEN 101
+#define CHAR_LEN 255
 
 char filepath[CHAR_LEN];
 char line[CHAR_LEN];
@@ -45,16 +45,25 @@ int main() {
     return 0;
   }
 
+  // user CPU time used
   printf("utime = %ld.%06ld s\n", usage.ru_utime.tv_sec,
          usage.ru_utime.tv_usec);
+  // system CPU time used
   printf("stime = %ld.%06ld s\n", usage.ru_stime.tv_sec,
          usage.ru_stime.tv_usec);
+  // maximum resident set size
   printf("maxrss = %ld KB\n", usage.ru_maxrss);
+  // page reclaims (soft page faults)
   printf("minflt = %ld\n", usage.ru_minflt);
+  // page faults (hard page faults)
   printf("majflt = %ld\n", usage.ru_majflt);
+  // block input operations
   printf("inblock = %ld\n", usage.ru_inblock);
+  // block output operations
   printf("oublock = %ld\n", usage.ru_oublock);
+  // voluntary context switches
   printf("nvcsw = %ld\n", usage.ru_nvcsw);
+  // involuntary context switches
   printf("nivcsw = %ld\n", usage.ru_nivcsw);
 
   return 0;
