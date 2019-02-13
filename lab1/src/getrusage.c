@@ -5,6 +5,7 @@
   > Created Time:    02/12/19
   > Description:
 
+    Get resource usage of the current process.
 
  ************************************************************************/
 
