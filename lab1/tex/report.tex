@@ -1,4 +1,4 @@
-\documentclass[11pt,fleqn]{article}
+\documentclass[a4paper, margin=1in]{article}
 %\usepackage{CJK}
 \usepackage{latexsym}
 \usepackage{color}
@@ -105,6 +105,9 @@ escapeinside={(*@}{@*)},
 
 \usepackage{url} % to make url in bibtex shows up
 
+% Create a command to cleanly insert a snippet with the style above anywhere in the document
+\newcommand{\insertcode}[2]{\begin{itemize}\item[]\lstinputlisting[caption=#2,label=#1,style=CStyle]{#1}\end{itemize}} % The first argument is the script location/filename and the second is a caption for the listing
+
 \begin{document}
 %\begin{CJK*}{GBK}{song}
 
@@ -113,7 +116,7 @@ escapeinside={(*@}{@*)},
 {\LARGE \bf CS380L: Advanced Operating Systems Lab \#1}\\
 
 \vskip 25pt
- {Zeyuan Hu \footnote{20 hours spent on this lab.}, iamzeyuanhu@utexas.edu }\\
+ {Zeyuan Hu \footnote{30 hours spent on this lab.}, iamzeyuanhu@utexas.edu }\\
 \vskip 5pt
 {\small EID:zh4378 Spring 2019 }
 
@@ -126,58 +129,39 @@ We use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R)
 
 \section{Memory map}
 
-We use the Ubuntu cloud image to setup the VM. The image for QEMU can be downloaded from 
-\url{https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64.img}. We 
-use the cloud image instead of the regular desktop image to save space (e.g., We do not need to have GUI installed).
+\lstinline|/proc/[pid]/maps| file contains process \lstinline|[pid]|'s mapped memory regions and their access permissions \cite{proc_man}. We use
+the following code to read content of \lstinline|/proc/self/maps| file \footnote{see \texttt{memory\_map.c} for complete code}:
 
-Ubuntu cloud image needs additional metadata to boot (mainly containing the login password). 
-The metadata can be provided via a seed image \cite{cloud}. To create a seed image, 
-we first create a file \texttt{my-user-data} with contents:
+%\insertcode{"../src/memory_map.c"}{Code for memory map task}
+\begin{lstlisting}[style=CStyle]
+sprintf(filepath, "/proc/%u/maps", (unsigned)getpid());
+FILE *f = fopen(filepath, "r");
 
-\begin{lstlisting}
-#cloud-config
-password: passw0rd
-chpasswd: { expire: False }
-ssh_pwauth: True
+printf("%-32s %-8s %-10s %-8s %-10s %s\n", "address", "perms", "offset", "dev", "inode", "pathname");
+while (fgets(line, sizeof(line), f) != NULL) {
+     sscanf(line, "%s%s%s%s%s%s", address, perms, offset, dev, inode, pathname);
+     printf("%-32s %-8s %-10s %-8s %-10s %s\n", address, perms, offset, dev, inode, pathname);
+}
+fclose(f);
 \end{lstlisting}
 
-Then we create the seed image by running:
-
-\begin{lstlisting}
-sudo apt-get install cloud-utils
-cloud-localds my-seed.img my-user-data
-\end{lstlisting}
-
-We then use the downloaded Ubuntu cloud image to create root disk image for the VM 
-\footnote{The default virtual size is 2G, we can resize the image via \lstinline|qemu-img resize my-disk.img +10G|. We add additional
-10G in this case.}:
-
-\begin{lstlisting}
-qemu-img create -f qcow2 \
--b ubuntu-18.04-server-cloudimg-amd64-disk1.img \
-my-disk.img 15G
-\end{lstlisting}
-
-Now, we are ready to boot up our VM:
-
-\begin{lstlisting}
-qemu-system-x86_64 \
--enable-kvm -curses \
--m 512 -smp 4 -redir tcp:4444::22 \
--hda my-disk.img -hdb my-seed.img \
--cpu host
-\end{lstlisting}
-
-This will start a VM with 4 CPU cores and 512MB of memory. We redirect port 4444 of local machine to port 22 of the VM in order to login the VM via 
-SSH. The VM will run in the terminal, and login with user name \texttt{ubuntu} and \texttt{passw0rd} set in \texttt{my-user-data}. The login screen
-of VM is shown in Figure \ref{login}. Once we have our VM boot up, we can remote access it via SSH from host \lstinline|ssh -p 4444 ubuntu@localhost|.
+In the file, each line corresponds to a mapped memory region. There are six columns of each line, which represent six properties of the mapped memory region: \texttt{address}, \texttt{perms}, \texttt{offset}, \texttt{dev}, \texttt{inode}, and \texttt{pathname}. The result of running \texttt{memory\_map.c} is below:
 
 \begin{figure}
-\centering
-\includegraphics[scale=0.4]{bootup.png} 
-\caption{Login screen of our VM}
-\label{login}
+	\centering
+	\includegraphics[scale=0.5]{memory_map.png} 
+	\caption{Output of memory\_map.c}
+	\label{memory_map}
 \end{figure}
+
+The \texttt{address} field gives range of virtual memory address of the mapped memory region. Access permission of each memory region is indicated by \texttt{perms} field. 
+There are four bits in the field: \texttt{rwx} represents read, write, and executable respectively; the last bit (\texttt{p} or \texttt{s}) represents whether the region is private or shared. \texttt{offset} field represents the offset in the mapped file. \texttt{dev} field indicates the device (represented with format of \texttt{major:minor}) that the mapped file resides . There are two kinds of value in this column for our case: \texttt{fd:01} and \texttt{00:00}. The former one is the device id (in hex) of \texttt{/} (checked with \lstinline|mountpoint -d /|) and the latter one represents no device associated with the file.
+\texttt{inode} field represents the inode number of the file on the device. \texttt{0} means no file is associated with the mapped memory region. \texttt{pathname} field gives the absolute path to the file associated with the mapped memory region. It can be some special values like \texttt{[heap]}, \texttt{[stack]}, \texttt{[vdso]}, etc.
+
+To locate the start of the text section of the executable, we invoke \texttt{objdump -h} on the binary and get \texttt{0000000000400600}.  Output of \texttt{/proc/self/maps} shows that the start address of \texttt{libc} is \texttt{7fea45315000}. The reason for these two addresses are different is \texttt{libc} is dynamic loaded library, which is loaded during the runtime of executable, which is not compiled and linked as part of executable. The code segment contains the executable instruction, not the dynamic loaded library.
+
+One interesting thing happens between runs of the executable: the content of \texttt{/proc/self/maps} is different. Addresses of all mapped memory regions are different except for the regions mapped to the executable and \texttt{[vsyscall]}. The root cause behind this phenomenon is Address Space Layout Randomization (ASLR) \cite{aslr} for programs in user space. This feature is enabled by default and can be seen via the content of \lstinline|/proc/sys/kernel/randomize_va_space| file. In our case, the value is 2, which means the positions of stack itself, virtual dynamic shared object (VDSO) page, shared memory regions, and data segments are randomized \cite{aslr2}.
+
 
 \section{Obtaining and building the kernel}
 
