@@ -15,7 +15,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-#define CHAR_LEN 101
+#define CHAR_LEN 255
 
 char filepath[CHAR_LEN];
 char line[CHAR_LEN];
