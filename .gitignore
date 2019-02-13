@@ -242,3 +242,4 @@ TSWLatexianTemp*
 *.spl
 
 .DS_Store
+a.out
