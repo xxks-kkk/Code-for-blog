@@ -125,7 +125,7 @@ escapeinside={(*@}{@*)},
 \begin{spacing}{1.5}
 \section{Environment} \label{environment}
 
-We use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R) CPU E3-1220 v5 @ 3.00GHz processors and 16GB of memory, and runs Ubuntu 16.04.2 LTS (kernel version 4.11.0). The CPU has 32KB of L1 data cache per core (8-way set associative) (found through \lstinline!getconf -a | grep CACHE!). In addition, it has two-level TLBs. The first level (data TLB) has 64 entries (4-way set associative), and the second level has 1536 entries for both instructions and data (6-way set associative) (found through \lstinline!cpuid | grep -i tlb!).
+Unless otherwise noted, we use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R) CPU E3-1220 v5 @ 3.00GHz processors and 16GB of memory, and runs Ubuntu 16.04.2 LTS (kernel version 4.11.0). The CPU has 32KB of L1 data cache per core (8-way set associative) (found through \lstinline!getconf -a | grep CACHE!). In addition, it has two-level TLBs. The first level (data TLB) has 64 entries (4-way set associative), and the second level has 1536 entries for both instructions and data (6-way set associative) (found through \lstinline!cpuid | grep -i tlb!).
 
 \section{Memory map}
 
@@ -210,6 +210,58 @@ various events (i.e., events counted by performance counters \cite{hardware_coun
 	\caption{Part of output of \texttt{perf list} related to cache}
 	\label{counters}
 \end{figure}
+
+According to man page \cite{perf_event_open_man}, there is no glibc wrapper for 
+\lstinline|perf_event_open| system call. However, we can wrap it on our own as the following:
+
+\begin{lstlisting}[style=CStyle]
+static long perf_event_open(struct perf_event_attr *hw_event, pid_t pid, int cpu, int group_fd, unsigned long flags) {
+  return syscall(__NR_perf_event_open, hw_event, pid, cpu, group_fd, flags);
+}
+\end{lstlisting}
+
+Using the \texttt{syscall} does not mean there is a syscall opcode in the program. Figure \ref{perf_event_open_dump} shows \texttt{perf\_event\_open} section of 
+\texttt{objdump -d}. Using \texttt{syscall} function will have \texttt{perf\_event\_open} system call number compiled in the program. In this case, the system call number 
+of \texttt{perf\_event\_open} is 298 (can be checked in \texttt{arch/x86/entry/syscalls/syscall\_64.tbl} of the Linux kernel source tree), which is \texttt{\$0x12a} in hex.
+
+\begin{figure}	
+	\centering
+	\includegraphics[scale=0.5]{perf_event_open_dump.png} 
+	\caption{\texttt{perf\_event\_open} section of \texttt{objdump -d} output}
+	\label{perf_event_open_dump}
+\end{figure}
+
+We want to monitor the following events: read, write, read miss for level 1 data cache and
+read miss, write miss for data TLB. A call to \lstinline|perf_event_open| gives a file descriptor that corresponds to one event being measured.  We can use \texttt{ioctl} interface to control the counters and read file descriptors to obtain counter vales. The following code highlights the usage of \lstinline|perf_event_open| interface to measure
+level 1 data cache accesses and misses for trivial \texttt{printf}.
+
+\begin{lstlisting}[style=CStyle]
+int hw_cache_perf_event_open(int group_fd, int cache_id, int cache_op_id,
+int cache_op_result_id) {
+  struct perf_event_attr pe;
+  memset(&pe, 0, sizeof(struct perf_event_attr));
+  pe.type = PERF_TYPE_HW_CACHE;
+  pe.size = sizeof(struct perf_event_attr);
+  pe.config = cache_id | (cache_op_id << 8) | (cache_op_result_id << 16);
+  pe.disabled = 0;
+  if (group_fd == -1) {
+    pe.disabled = 1;
+  }
+  pe.exclude_kernel = 1;
+  pe.exclude_hv = 1;
+  int fd = perf_event_open(&pe, 0, cpu_id, group_fd, 0);
+  if (fd == -1) {
+    perror("perf_event_open");
+    exit(EXIT_FAILURE);
+  }
+  return fd;
+}
+\end{lstlisting}
+
+
+
+file descriptors can be 
+grouped together so that we can measure corresponding events simultaneously. There are five events we want to measure and ideally, we want to group them together and measure them at the same time. However, CPU only has limited amount of registers that can be used as performance counters. 
 
 
 \end{spacing}
