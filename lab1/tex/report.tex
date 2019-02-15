@@ -233,7 +233,7 @@ of \texttt{perf\_event\_open} is 298 (can be checked in \texttt{arch/x86/entry/s
 
 We want to monitor the following events: read, write, read miss for level 1 data cache and
 read miss, write miss for data TLB. A call to \lstinline|perf_event_open| gives a file descriptor that corresponds to one event being measured.  We can use \texttt{ioctl} interface to control the counters and read file descriptors to obtain counter vales. The following code highlights the usage of \lstinline|perf_event_open| interface to measure
-level 1 data cache accesses and misses for trivial \texttt{printf}.
+all five events for trivial \texttt{printf}.
 
 \begin{lstlisting}[style=CStyle]
 int hw_cache_perf_event_open(int group_fd, int cache_id, int cache_op_id,
@@ -318,11 +318,23 @@ int main(int argc, char **argv) {
 }
 \end{lstlisting}
 
+File descriptors returned from calling \lstinline|perf_event_open| can be 
+grouped together so that we can measure corresponding events simultaneously. There are five events we want to measure and as shown in the code above, we group them together and measure them at the same time. However, measuring all five events at the same time may not possible for some machine as CPU only has limited amount of machine specific registers (MSRs) for low-level performance counting. In our environment, this number is 8 \footnote{check via \lstinline!cpuid|grep 'number of counters per logical processor'!}. For the following experiment, we also want to lock our 
+process onto a single processor. To achieve it, we use the following code:
 
+\begin{lstlisting}[style=CStyle]
+cpu_set_t set;
+CPU_ZERO(&set);
+CPU_SET(cpu_id, &set);
+if (sched_setaffinity(0, sizeof(cpu_set_t), &set) == -1) {
+	perror("sched_setaffinity");
+	exit(EXIT_FAILURE);
+}
+\end{lstlisting}
 
-file descriptors can be 
-grouped together so that we can measure corresponding events simultaneously. There are five events we want to measure and ideally, we want to group them together and measure them at the same time. However, CPU only has limited amount of registers that can be used as performance counters. 
+Here, all counters we setup are associated with CPU specified by \lstinline|cpu_id|. We use \lstinline|sched_setaffinity| system call to set the CPU affinity of current process and ensure that it runs on CPU of \texttt{cpu\_id} only.
 
+\section{Measuring memory access behavior}
 
 \end{spacing}
 \bibliographystyle{ieeetr}
