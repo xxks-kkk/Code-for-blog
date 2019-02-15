@@ -200,7 +200,7 @@ man page of \texttt{getrusage} explains the meaning of each field \cite{getrusag
 
 \section{perf\_event\_open} 
 
-We use the machine specified in the \ref{environment}, which is a physical server (i.e., not VM). We first check the support of \lstinline|perf_event_open| interface by checking the existence of \lstinline|/proc/sys/kernel/perf_event_paranoid|, which is true in our case (value is set to \texttt{2}). In Linux, \lstinline|perf_event_open| interface \cite{perf_event_open_man} is used to setup performance monitoring. Specifically, it provides an interface that allows user to access 
+We first check the support of \lstinline|perf_event_open| interface by checking the existence of \lstinline|/proc/sys/kernel/perf_event_paranoid|, which is true in our case (value is set to \texttt{2}). In Linux, \lstinline|perf_event_open| interface \cite{perf_event_open_man} is used to setup performance monitoring. Specifically, it provides an interface that allows user to access 
 various events (i.e., events counted by performance counters \cite{hardware_counter}). \lstinline|perf list| gives available events on current machine. Counters related to cache in our machine is shown in Figure \ref{counters}. We are interested in counters related to L1 data cache and data TLB. As shown in Figure \ref{counters}, we have counters for number of times the L1 cache was accessed for data (\texttt{L1-dcache-loads}), the number of those access that resulted in a cache miss (\texttt{L1-dcache-load-misses}), and write access of L1 data cache (\texttt{L1-dcache-stores}). Similarly, for data TLB, we have read access (\lstinline|dTLB-loads|), read miss (\lstinline|dTLB-load-misses|), write access (\lstinline|dTLB-stores|), and write miss (\lstinline|dTLB-store-misses|).
 
 
@@ -233,7 +233,7 @@ of \texttt{perf\_event\_open} is 298 (can be checked in \texttt{arch/x86/entry/s
 
 We want to monitor the following events: read, write, read miss for level 1 data cache and
 read miss, write miss for data TLB. A call to \lstinline|perf_event_open| gives a file descriptor that corresponds to one event being measured.  We can use \texttt{ioctl} interface to control the counters and read file descriptors to obtain counter vales. The following code highlights the usage of \lstinline|perf_event_open| interface to measure
-all five events for trivial \texttt{printf}.
+all five events for trivial \texttt{printf} \footnote{complete code can be seen in \texttt{perf\_event\_open\_usage.c}}.
 
 \begin{lstlisting}[style=CStyle]
 int hw_cache_perf_event_open(int group_fd, int cache_id, int cache_op_id,
@@ -335,6 +335,16 @@ if (sched_setaffinity(0, sizeof(cpu_set_t), &set) == -1) {
 Here, all counters we setup are associated with CPU specified by \lstinline|cpu_id|. We use \lstinline|sched_setaffinity| system call to set the CPU affinity of current process and ensure that it runs on CPU of \texttt{cpu\_id} only.
 
 \section{Measuring memory access behavior}
+
+\texttt{mmap} system call maps files or devices into memory. The created mapping can be file-backed or anonymous. File-backed mapping maps an area of the process's virtual memory to files (i.e., an area of the process's virtual memory is mapped to file-backed memory); reading those areas of memory causes the file read. Anonymous mapping is the opposite of file-backed mapping (i.e., not backed by file; an area of the process's virtual memory is mapped to anonymous memory). In this section, we experiment with both types of mappings. Since file-backed mapping can be shared or private, we have three memory mappings setup in our experiment: anonymous, file-based (private) and file-based (share).
+In this experiment, we use \lstinline|MAP_POPULATE| flag. \lstinline|MAP_POPULATE| populates page tables for a mapping. For file-backed mapping, this means read-ahead on file, which reduce blocking on page faults later. In addition, we use \texttt{memset} to initialize the mapped region and \texttt{msync} to flush the change made to the file-backed memory back to file system whenever possible. 
+
+We study the following code, which is used to access the mapped region:
+
+\begin{lstlisting}[style=CStyle]
+
+\end{lstlisting}
+
 
 \end{spacing}
 \bibliographystyle{ieeetr}
