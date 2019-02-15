@@ -6,12 +6,18 @@
   > Description:
 
     Demonstrate the usage of `perf_event_open` interface to measure
-    L1 data cache read, write, read misses for printf(). printf() can be
-    replaced as any work you want to measure.
+    L1 data cache read, write, read misses, data TLB misses for printf().
+    printf() can be replaced as any work you want to measure.
 
     Note, there may exist some extra work need to be done for measuring
     L1 data cache (e.g., flush L1 data cache first). This file simply for
     demonstration of `perf_event_open` interface usage.
+
+    CPU have limit number of counters (can be checked via
+    `cpuid|grep 'number of counters per logical processor'`).
+    This number determine how many events you can track at the same time (i.e.,
+    number of events with the same group). I can track 5 events here because
+    there are 8 counters, which may not be the case for other machines.
 
  ************************************************************************/
 
@@ -76,6 +82,12 @@ int main(int argc, char **argv) {
   int l1_write_access_fd = hw_cache_perf_event_open(
       leader_fd, PERF_COUNT_HW_CACHE_L1D, PERF_COUNT_HW_CACHE_OP_WRITE,
       PERF_COUNT_HW_CACHE_RESULT_ACCESS);
+  int tlb_read_miss_fd = hw_cache_perf_event_open(
+      leader_fd, PERF_COUNT_HW_CACHE_DTLB, PERF_COUNT_HW_CACHE_OP_READ,
+      PERF_COUNT_HW_CACHE_RESULT_MISS);
+  int tlb_write_miss_fd = hw_cache_perf_event_open(
+      leader_fd, PERF_COUNT_HW_CACHE_DTLB, PERF_COUNT_HW_CACHE_OP_WRITE,
+      PERF_COUNT_HW_CACHE_RESULT_MISS);
 
   ioctl(leader_fd, PERF_EVENT_IOC_RESET, PERF_IOC_FLAG_GROUP);
   ioctl(leader_fd, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP);
@@ -88,14 +100,20 @@ int main(int argc, char **argv) {
   uint64_t l1_read_miss = 0;
   uint64_t l1_read_access = 0;
   uint64_t l1_write_access = 0;
+  uint64_t tlb_read_miss = 0;
+  uint64_t tlb_write_miss = 0;
 
   read(l1_read_access_fd, &l1_read_access, sizeof(uint64_t));
   read(l1_read_miss_fd, &l1_read_miss, sizeof(uint64_t));
   read(l1_write_access_fd, &l1_write_access, sizeof(uint64_t));
+  read(tlb_read_miss_fd, &tlb_read_miss, sizeof(uint64_t));
+  read(tlb_write_miss_fd, &tlb_write_miss, sizeof(uint64_t));
 
   close(l1_read_access_fd);
   close(l1_read_miss_fd);
   close(l1_write_access_fd);
+  close(tlb_read_miss_fd);
+  close(tlb_write_miss_fd);
 
   printf("[Performance counters]\n");
   printf("Data L1 read access: %" PRIu64 "\n", l1_read_access);
@@ -103,6 +121,8 @@ int main(int argc, char **argv) {
   printf("Data L1 read miss: %" PRIu64 "\n", l1_read_miss);
   printf("Data L1 read miss rate: %.5f\n",
          (double)l1_read_miss / l1_read_access);
+  printf("Data TLB read miss: %" PRIu64 "\n", tlb_read_miss);
+  printf("Data TLB write miss: %" PRIu64 "\n", tlb_write_miss);
 
   fflush(stdout);
 
