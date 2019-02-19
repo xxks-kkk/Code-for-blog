@@ -387,7 +387,19 @@ the repeatable result, we flush the level 1 data cache by accessing a 16MB buffe
 
 We first compare sequential access and random access (indicated by \lstinline|opt_random_access|). We use anonymous mapped memory regions. The following is statistics for both cases \footnote{\texttt{majflt}, \texttt{inblock}, \texttt{oublock} are omitted because they are all 0}.
 
-
+\begin{lstlisting}
+                            [sequential access]                 [random access]
+  Data L1 read access:      67720193933.000 (std 1053.649)      67718098686.000 (std 357.497)
+  Data L1 write access:     25818038312.000 (std 0.000)         25818038280.000 (std 0.000)
+  Data L1 read miss:        280717387.000 (std 79886958.759)    703562350.600 (std 55571736.486)
+  Data L1 read miss rate:   0.004 (std 0.001)                   0.010 (std 0.001)
+  Data TLB read miss:       29989.600 (std 850.057)             1655156.000 (std 49723.739)
+  Data TLB write miss:      26168.800 (std 61.278)              565627.800 (std 46667.526)
+  utime:                    17.497 (std 0.022) s                18.484 (std 0.010) s
+  stime:                    0.006 (std 0.007) s                 0.005 (std 0.002) s
+  minflt:                   4113.400 (std 1.020)                7336.200 (std 1.166)
+  maxrss:                   16648.000 (std 69.971) KB           16720.000 (std 82.598)
+\end{lstlisting}
 
 \end{spacing}
 \bibliographystyle{ieeetr}
