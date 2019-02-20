@@ -383,23 +383,48 @@ are 512 cache lines of a set). In random access case, the start(i.e., base) of w
 experiment results difference only due to the memory access pattern difference. In other words, we want to have both memory access patterns have the same function call and context switch overheads (caused by calling \lstinline|simplerand()|).
 
 We study \lstinline|db_mem_access()| behavior on a VM with 2GB of memory and 4 virtual CPU cores. The VM runs Ubuntu 18.10 with kernel version 4.19.6. \lstinline|-cpu host| is added as part of QEMU option to ensure our VM can access performance counters. We allocate 1GB buffer via \texttt{mmap} as input for \lstinline|do_mem_access|.  To ensure 
-the repeatable result, we flush the level 1 data cache by accessing a 16MB buffer before calling \lstinline|do_mem_access|. We invoke \texttt{getrusage}  just before and after \lstinline|do_mem_access| to collect resource usage statistics of initialization code and \lstinline|do_mem_access|. We run the program 5 times and calculate mean and stand deviation of statistics. We also submit the raw results along with this report.
+the repeatable result, we flush the level 1 data cache by accessing a 16MB buffer before calling \lstinline|do_mem_access|. We invoke \texttt{getrusage}  just before and after \lstinline|do_mem_access| to collect resource usage statistics of initialization code and \lstinline|do_mem_access|. We run the program 5 times and calculate mean and stand deviation of statistics \footnote{We compile our program with \texttt{-O2} to prevent any unwanted memory access from the generated executable}. We also submit the raw results along with this report.
 
-We first compare sequential access and random access (indicated by \lstinline|opt_random_access|). We use anonymous mapped memory regions. The following is statistics for both cases \footnote{\texttt{majflt}, \texttt{inblock}, \texttt{oublock} are omitted because they are all 0}.
+\begin{figure}	
+	\centering
+	\includegraphics[scale=0.65]{sequential_random_anonymous} 
+	\caption{The statistics of sequential and random memory accesses with anonymous mapped memory regions}
+	\label{sequential_random_anonymous}
+\end{figure}
 
-\begin{lstlisting}
-                            [sequential access]                 [random access]
-  Data L1 read access:      67720193933.000 (std 1053.649)      67718098686.000 (std 357.497)
-  Data L1 write access:     25818038312.000 (std 0.000)         25818038280.000 (std 0.000)
-  Data L1 read miss:        280717387.000 (std 79886958.759)    703562350.600 (std 55571736.486)
-  Data L1 read miss rate:   0.004 (std 0.001)                   0.010 (std 0.001)
-  Data TLB read miss:       29989.600 (std 850.057)             1655156.000 (std 49723.739)
-  Data TLB write miss:      26168.800 (std 61.278)              565627.800 (std 46667.526)
-  utime:                    17.497 (std 0.022) s                18.484 (std 0.010) s
-  stime:                    0.006 (std 0.007) s                 0.005 (std 0.002) s
-  minflt:                   4113.400 (std 1.020)                7336.200 (std 1.166)
-  maxrss:                   16648.000 (std 69.971) KB           16720.000 (std 82.598)
-\end{lstlisting}
+We first compare sequential access and random access (indicated by \lstinline|opt_random_access|). We use anonymous mapped memory regions. Figure \ref{sequential_random_anonymous} shows  statistics for both cases \footnote{\texttt{majflt}, \texttt{inblock}, \texttt{oublock} are omitted because they are all 0}.  As shown in the figure, the ratio between read and write access is 7:1 for data L1 cache for both cases, which is as expected. The read miss rate in random access case is 3x higher than sequential access. For data TLB, read miss and write miss of random access is 15.6X and 23x higher than sequential access respectively. Random access runs 1.46x slower than sequential access. From those statistics, we can see that there is no significant difference in terms of runtime and miss rate of data L1 cache between random access and sequential access (e.g., miss rate for random access is around 0.1). In the case of sequential access, the number of data TLB read miss is about 99193, which is
+396MB for 4KB page size. 396MB is smaller than the size of our buffer. If we take a look at the code, we notice \lstinline|max_base| in \lstinline|do_mem_access| restricts the maximum base address of the working set. If we take a look at how \lstinline|max_base| is initialized and the line we initialize \texttt{a}, we can see that the working set is essentially the first $\frac{1}{64}$ of the given buffer, which is 16MB, which matches with the value of \texttt{maxrss} we observed and is much lower than 1GB. Realizing this fact also explains why TLB miss count is lower than the total number of data pages \footnote{If we want to access all the allocated buffer (1GB), we should replace line 21 (\texttt{a} initialization) with \lstinline|a = p + (ws_base + i) * CACHE_LINE_SIZE;| }.
+
+\begin{figure}	
+	\centering
+	\includegraphics[scale=0.5]{share_private} 
+	\caption{The statistics of sequential and random memory accesses with file-backed mapping with \lstinline|MAP_PRIVATE| and \lstinline|MAP_SHARED|. \texttt{fun} is a shorthand for \lstinline|do_mem_access|.}
+	\label{share_private}
+\end{figure}
+
+In the next step, we experiment with file-based memory mappings.  In this part,
+we only concern \texttt{maxrss}, \texttt{inblock}, and \texttt{oublock} because
+the statistics related to data L1 cache and data TLB are generated with the same setup as anonymous mappings. In addition, statistics related to memory cache is not affected by the file-backed mapping. The statistics we have is shown in Figure \ref{share_private}. Compare to previous result, we notice there are 
+large amount of \texttt{oublock} during \lstinline|do_mem_access| for file-backed mapping with \lstinline|MAP_SHARED|. This is intuitive as the changes to the file
+have to be saved in shared mode. We notice that there is \texttt{inblock} is zero, 
+which is due to the internal cache in Linux kernel for reading file.  \texttt{oublock} for both random access and sequential access under shared mode are exactly the same.  This may due to the fact that access pattern is not
+significant for the shared mode as synchronization for internal file cache is needed no matter what memory access pattern we may encounter.
+
+\begin{figure}	
+	\centering
+	\includegraphics[scale=0.5]{populate_memset} 
+	\caption{The statistics of file-backed mapping for \lstinline|MAP_POPULATE| and memset after buffer allocation. \texttt{fun} is a shorthand for \lstinline|do_mem_access|.}
+	\label{populate_memset}
+\end{figure}
+
+In this experiment, we further examine \lstinline{MAP_POPULATE} flag and \texttt{memset} the mapped memory for initialization. Figure \ref{populate_memset} shows the statistics. Note that all the columns are from
+the sequential memory access. With \lstinline|MAP_POPULATE| flag, the mapped memory will be populate page tables at the very beginning and perform read-ahead on the file. Thus we see the \texttt{maxrss} will match the allocated buffer size, which is around 1GB during the initialization. If the mapped memory 
+is initialized with \texttt{memset} and then perform synchronization to the file system via \texttt{msync}, then there will be large amount of \texttt{oublock} during the initialization.
+
+We also using \texttt{strace} to trace our program \footnote{we trace our program as \lstinline|strace ./memory_access 0 0 0 0 0 0|, where \lstinline|memory_access| is the executable from \lstinline|memory_access.c|}.  We find a system call \lstinline|arch_prctl(ARCH_SET_FS, 0x7f83a006d540) | in the printout. The system call means setting FS register to \texttt{0x7f83a006d540} \cite{arch_prctl_man}. FS register is a segment register with no specific processor-defined purpose and is given purpose by the OS. In Linux, FS register is for thread local storage. We can also see the system call \lstinline|access("/etc/ld.so.preload", R_OK)|, which tries to access \lstinline|/etc/ld.so.preload| file. This file contains ELF shared
+objects, which are loaded before the execution of the program \cite{ld.so_man}. From the printout, we can see that this file is accessed before \texttt{libc.so} is loaded.
+
+\section{Measuring memory access behavior with background activity}
 
 \end{spacing}
 \bibliographystyle{ieeetr}
