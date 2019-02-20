@@ -1,0 +1,11 @@
+                        [sequential access]              [random access]
+Data L1 read access:    7521439271.600 (std 227.930)     7521442554.200 (std 142.106)
+Data L1 write access:   1077936131.000 (std 0.000)       1077936131.000 (std 0.000)
+Data L1 read miss:      289466866.800 (std 198047.028)   826536782.800 (std 393229.625)
+Data L1 read miss rate: 0.038 (std 0.000)                0.110 (std 0.000)
+Data TLB read miss:     99193.400 (std 717.220)          1551880.800 (std 1346.083)
+Data TLB write miss:    32087.400 (std 433.014)          737437.800 (std 736.102)
+utime                   3.317 (std 0.005) s              4.827 (std 0.003) s
+stime                   0.006 (std 0.005) s              0.008 (std 0.001) s
+minflt                  4113.600 (std 0.490)             7336.600 (std 0.490)
+maxrss                  16637.600 (std 42.828) KB        16744.000 (std 41.800)
