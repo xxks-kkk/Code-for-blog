@@ -121,6 +121,7 @@ void do_mem_access(char *p, int size) {
       volatile char *a;
       char c;
       for (i = 0; i < 512; i++) {
+        //a = p + (ws_base + i) * CACHE_LINE_SIZE;
         a = p + ws_base + i * CACHE_LINE_SIZE;
         if (i % 8 == 0) {
           *a = 1;

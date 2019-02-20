@@ -1,7 +1,13 @@
 #!/bin/bash
-gcc -g -Wall memory_access.c -o memory_access
+gcc -O2 memory_access.c -o memory_access
 dd if=/dev/zero of=tmp bs=1 count=0 seek=2G
 
+# arguments: 1. cpu_id
+#            2. opt_random_access
+#            3. mmap_type
+#            4. mmap_populate
+#            5. init_memset
+#            6. bg_compete
 python3 run.py "./memory_access 0 0 0 0 0 0" 5 > results/anonymous_sequential.txt
 python3 run.py "./memory_access 0 1 0 0 0 0" 5 > results/anonymous_random.txt
 
