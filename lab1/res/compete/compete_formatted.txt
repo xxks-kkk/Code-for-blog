@@ -1,0 +1,14 @@
+                        [with compete_for_memory]            [no compete_for_memory]
+utime:                  6.811 (std 0.164) s                  4.790 (std 0.047) s
+stime:                  0.101 (std 0.130) s                  0.000 (std 0.001) s
+minflt:                 19.800 (std 3.059)                   10.200 (std 0.980)
+majflt:                 16.200 (std 2.482)                   0.000 (std 0.000)
+inblock:                1737.600 (std 734.998)               0.000 (std 0.000)
+oublock:                0.000 (std 0.000)                    0.000 (std 0.000)
+maxrss:                 674.400 (std 121.342)                0.000 (std 0.000)
+Data L1 read access:    7521457650.400 (std 3348.175)        7521437569.600 (std 343.389)
+Data L1 write access:   1077936131.000 (std 0.000)           1077936131.000 (std 0.000)
+Data L1 read miss:      849878078.000 (std 3046793.999)      816180244.600 (std 1026125.094)
+Data L1 read miss rate: 0.113 (std 0.000)                    0.109 (std 0.000)
+Data TLB read miss:     1660888.600 (std 24995.351)          1495066.600 (std 3024.350)
+Data TLB write miss:    779031.000 (std 11851.924)           715924.000 (std 1492.899)
