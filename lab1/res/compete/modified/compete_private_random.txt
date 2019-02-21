@@ -1,0 +1,32 @@
+Total memsize is 1.950 (std 0.000) GBs
+[Before do_mem_access]
+utime = 0.014 (std 0.001) s
+stime = 0.361 (std 0.003) s
+maxrss = 1064978.400 (std 45.368) KB
+minflt = 274477.600 (std 15.487)
+majflt = 3.400 (std 1.020)
+inblock = 2097715.200 (std 126.248)
+oublock = 0.000 (std 0.000)
+[After do_mem_access]
+utime = 4.857 (std 0.005) s
+stime = 0.361 (std 0.003) s
+maxrss = 1065128.000 (std 258.698) KB
+minflt = 274495.800 (std 14.757)
+majflt = 14.000 (std 0.632)
+inblock = 2099928.000 (std 172.844)
+oublock = 0.000 (std 0.000)
+[Delta]
+utime = 4.844 (std 0.005) s
+stime = 0.000 (std 0.001) s
+minflt = 18.200 (std 1.470)
+majflt = 10.600 (std 0.800)
+inblock = 2212.800 (std 250.930)
+oublock = 0.000 (std 0.000)
+maxrss = 149.600 (std 299.200)
+[Performance counters]
+Data L1 read access: 7521438566.000 (std 368.873)
+Data L1 write access: 1077936131.000 (std 0.000)
+Data L1 read miss: 828836805.000 (std 987778.815)
+Data L1 read miss rate: 0.110 (std 0.000)
+Data TLB read miss: 1521589.600 (std 2499.976)
+Data TLB write miss: 729151.200 (std 1631.806)

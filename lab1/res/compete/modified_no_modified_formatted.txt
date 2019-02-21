@@ -1,0 +1,50 @@
+[Anonymous mapping]
+-------------------------------------------------------------------------------
+                        [modified kenrel]                [no modified kernel]
+utime:                  4.824 (std 0.007) s              4.773 (std 0.009) s
+stime:                  0.001 (std 0.001) s              0.001 (std 0.001) s
+minflt:                 24.200 (std 1.600)               22.600 (std 1.020)
+majflt:                 3.400 (std 1.744)                4.200 (std 0.400)
+inblock:                500.800 (std 250.879)            624.000 (std 16.000)
+oublock:                0.000 (std 0.000)                0.000 (std 0.000)
+maxrss:                 0.000 (std 0.000)                0.000 (std 0.000)
+Data L1 read access:    7521438898.800 (std 127.804)     7521437634.000 (std 211.443)
+Data L1 write access:   1077936131.000 (std 0.000)       1077936131.000 (std 0.000)
+Data L1 read miss:      825365597.800 (std 1754742.247)  819683681.600 (std 381926.508)
+Data L1 read miss rate: 0.110 (std 0.000)                0.109 (std 0.000)
+Data TLB read miss:     1509795.600 (std 4720.234)       1482084.800 (std 822.343)
+Data TLB write miss:    723814.600 (std 2037.219)        712125.200 (std 1102.349)
+
+[File-based mapping (private)]
+-------------------------------------------------------------------------------
+                        [modified kenrel]                [no modified kernel]
+utime:                  4.844 (std 0.005) s              4.784 (std 0.008) s
+stime:                  0.000 (std 0.001) s              0.001 (std 0.001) s
+minflt:                 18.200 (std 1.470)               22.000 (std 1.549)
+majflt:                 10.600 (std 0.800)               4.200 (std 1.600)
+inblock:                2212.800 (std 250.930)           606.400 (std 291.200)
+oublock:                0.000 (std 0.000)                0.000 (std 0.000)
+maxrss:                 149.600 (std 299.200)            170.400 (std 340.800)
+Data L1 read access:    7521438566.000 (std 368.873)     7521437760.800 (std 346.232)
+Data L1 write access:   1077936131.000 (std 0.000)       1077936131.000 (std 0.000)
+Data L1 read miss:      828836805.000 (std 987778.815)   822928672.600 (std 1469473.160)
+Data L1 read miss rate: 0.110 (std 0.000)                0.109 (std 0.000)
+Data TLB read miss:     1521589.600 (std 2499.976)       1493323.200 (std 2975.783)
+Data TLB write miss:    729151.200 (std 1631.806)        718707.400 (std 1034.893)
+
+[File-based mapping (shared)]
+-------------------------------------------------------------------------------
+                        [modified kenrel]                [no modified kernel]
+utime:                  4.868 (std 0.032) s              4.792 (std 0.019) s
+stime:                  0.015 (std 0.015) s              0.014 (std 0.013) s
+minflt:                 4125.800 (std 1.166)             4126.000 (std 1.265)
+majflt:                 3.800 (std 0.400)                4.000 (std 0.000)
+inblock:                593.600 (std 44.800)             616.000 (std 0.000)
+oublock:                32832.000 (std 0.000)            32832.000 (std 0.000)
+maxrss:                 2843.200 (std 167.033)           2466.400 (std 726.388)
+Data L1 read access:    7521441059.200 (std 1197.569)    7521440534.000 (std 760.447)
+Data L1 write access:   1077936131.000 (std 0.000)       1077936131.000 (std 0.000)
+Data L1 read miss:      829703258.400 (std 2059767.610)  823238818.400 (std 691773.770)
+Data L1 read miss rate: 0.110 (std 0.000)                0.109 (std 0.000)
+Data TLB read miss:     1545167.800 (std 7327.071)       1494720.400 (std 1412.020)
+Data TLB write miss:    744986.600 (std 3014.310)        718793.000 (std 1569.477)
