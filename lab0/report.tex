@@ -202,7 +202,7 @@ of VM is shown in Figure \ref{login}. Once we have our VM boot up, we can remote
 We first obtain the Linux Kernel source via \lstinline|wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.4.tar.xz|.
 Then, we extract the files using \lstinline|tar -xJf linux-4.20.4.tar.xz|. We make a new directory \texttt{kbuild} as the build
 directory for kernel and \lstinline|cd kbuild|, we generate \texttt{.config} file using \lstinline!yes "" | make -C ../linux-4.20.4/ O=$(pwd) x86_64_defconfig!.
-Note that generating the \texttt{.config} file like this automatically set \texttt{CONFIG\_SATA\_AHCI=y}.
+Note that generating the \texttt{.config} file like this automatically set \texttt{CONFIG\_SATA\_AHCI=y} \footnote{We also disable \lstinline|CONFIG_RETPOLINE| in \texttt{.config} since our compiler is not retpoline-capable.}.
 We run \lstinline|make -j4| \footnote{\texttt{-j4} means 4 threads are used, which can speed up the build process}to build the kernel.
 
 \section{Installing and Copying Kernel Modules} 

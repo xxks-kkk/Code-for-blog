@@ -426,10 +426,10 @@ objects, which are loaded before the execution of the program \cite{ld.so_man}. 
 
 \section{Measuring memory access behavior with background activity}
 
-In this section, we study the memory access behavior when there is a background activity. We use another process to allocate and access a large amount of memory to simulate background activity.
+In this section, we study the memory access behavior when there is a background activity. We use another process to allocate and access a large amount of memory to simulate background activity. We use \lstinline|compete_for_memory| function for this purpose.
 
-\begin{lstlisting}}[style=CStyle]
-    int background_activity(void *unused) {
+\begin{lstlisting}[style=CStyle]
+int compete_for_memory(void *unused) {
       long mem_size = get_mem_size();
       int page_sz = sysconf(_SC_PAGE_SIZE);
       printf(``Total memsize is %3.2f GBs\n'',
@@ -459,8 +459,46 @@ In this section, we study the memory access behavior when there is a background 
         i++;
       }
       return 0;
-    }
+}
 \end{lstlisting}
+
+\lstinline|get_mem_size| is used to obtain the total amount of RAM of current system in bytes by reading from \texttt{/proc/meminfo} file. In the function above,
+\lstinline|fflush(stdout)| is invoked after printing total memory. This is necessary because otherwise we cannot see the total memory message.  However, flush to stderr is not necessary because each print call to stderr will be automatically followed by a flush. Since \lstinline|compete_for_memory| function will try to allocate a memory region equals to the size of RAM, we need to setup swap file for the system because otherwise, the process will be killed due to oversubscribe of the memory. In the experiment, we setup a swap file of 2GB in the VM. \lstinline|compete_for_memory| is called by a separate child process via \texttt{fork}. The child process will be killed when the main process exits. After forking the child process, the main process will sleep for 5 seconds to wait for child process to allocate memory. The statistics is shown in Figure \ref{compete}. 
+Note that the statistics is for anonymous mapping with random memory access. For other mapping and access behaviors, we submit the raw data along with the report. With memory pressure in the system, we expect the program takes more time to finish and encounters more page faults. From the statistics, we see that the program with memory pressure takes more time to finish and page faults are significantly higher than the no-compete case (shown both from \texttt{minflt} and \texttt{majflt}). However, read miss for both L1 cache and data TLB in compete case is slightly higher than the no-compete case.  We also see there are non-zero values of \texttt{inblock} in the case of memory pressure. This is another indicator that more page faults happened.  Other mappings (file-backed in shared and private mode) has similar statistics with slight higher page faults.
+
+\begin{figure*}[!b]	
+	\centering
+	\includegraphics[scale=0.5]{compete} 
+	\caption{The statistics of anonymous mapping for random memory access both with and without memory pressure}
+	\label{compete}
+\end{figure*}
+
+Next, we modify the page replacement policy of Linux kernel. Linux kernel uses LRU to reclaim pages. We modify \lstinline|shrink_page_list| function in \lstinline|mm/vmscan.c| file. The target code block looks like below:
+
+\begin{lstlisting}[style=CStyle]
+switch (references) {
+case PAGEREF_ACTIVATE:
+                goto activate_locked;
+case PAGEREF_KEEP:
+                nr_ref_keep++;
+                goto keep_locked;
+case PAGEREF_RECLAIM:
+case PAGEREF_RECLAIM_CLEAN:
+                 ; /* try to reclaim the page below */
+}
+\end{lstlisting}
+
+\begin{figure*}
+	\centering
+	\includegraphics[scale=0.6]{modified} 
+	\caption{The statistics of memory random access behavior under different mappings before and after the modification of the kernel}
+	\label{modified}
+\end{figure*}
+
+We modify the \lstinline|PAGEREF_ACTIVATE| case to behave the same as \lstinline|PAGEREF_RECLAIM| case. Before the modification, \lstinline|PAGEREF_ACTIVATE| represents the case where the kernel sees the page has been recently accessed. Thus, the page will  not be swapped out of RAM. If we change this case to behave the same as \lstinline|PAGEREF_RECLAIM|, there is no LRU in the page replacement process. 
+We conduct our experiment for memory random access under memory pressure for all possible mappings. The statistics is shown in Figure \ref{modified}. As one can see, since we disable the LRU replacement policy, the page faults increase in the modified kernel case. This is intuitive as the kernel might swap out pages that are frequently accessed.  However, we should note that the page faults do not increase dramatically as in theory LRU can behave worse than the no replacement policy at all especially when the memory access pattern is random. This is because random memory access may create some access pattern that is in favor of no replacement policy at all case. For example, there is a clear page faults increase for file-backed mapping in private mode. However, for anonymous mapping, page faults actually decrease after the modification. In addition, since the \lstinline|do_mem_access| frequently accesses around 16MB of memory, while the competing process uniformly accesses  its 2GB memory, the chance that a hot page being swapped out is relative small.
+
+
 
 \end{spacing}
 \bibliographystyle{ieeetr}
