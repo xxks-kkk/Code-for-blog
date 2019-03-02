@@ -243,3 +243,7 @@ TSWLatexianTemp*
 
 .DS_Store
 a.out
+GPATH
+GRTAGS
+GSYMS
+GTAGS
