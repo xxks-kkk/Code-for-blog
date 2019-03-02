@@ -167,15 +167,14 @@ The result is shown in Figure \ref{session_processed} \footnote{raw output and c
 
 \texttt{ifconfig} command lists all the network interfaces the machine is using to communicate externally. On our machine, interface for Ethernet is \texttt{eno1}. We can find IP address, gateway address, and subnet mask from the output.
 
-\texttt{tcpdump} command can dump traffic on a network interface.  We follow the instruction and use two packets to capture packets. On one terminal, we run 
-\lstinline|sudo tcpdump -i eno1 -w tcpdump.out.1| and on the other terminal, we first release our machine's current DHCP lease by executing \lstinline|dhclient -r| and recontact DHCP server via \lstinline|sudo dhclient eno1|. We stop capturing once \lstinline|sudo dhclient eno1| finishes.  We answer the following questions based on the packets we record.
+\texttt{tcpdump} command can dump traffic on a network interface.  We use the \texttt{tcpdump} output provided by the lab instruction to answer the questions below.
 
 \begin{QandA}
 	\item Are DHCP messages sent over UDP or TCP?
 	\begin{answered}
 	We use \lstinline!tcpdump -nn -r tcpdump.out.1 | grep -i dhcp! to filter out the DHCP messages from the dump. \lstinline|-nn| ensures that we can see the actual port number instead of the port name. One line of the output is: 
 	\begin{lstlisting}
-19:07:21.409099 IP 0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 10:98:36:ac:9d:45, length 300
+10:19:24.525962 IP 0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from a8:20:66:3b:66:51, length 300
 	\end{lstlisting}
 	The first field shows the time that the packet was traveling. The second field shows the source host address and port, followed by the destination host address and port. The third field shows the protocl the packet was using. From DHCP \cite{dhcp}, we know DHCP messages sent over UDP. As shown by the printout, the messages are sent between port 68 (client) and port 67 (server).
 	\end{answered}
@@ -184,168 +183,36 @@ The result is shown in Figure \ref{session_processed} \footnote{raw output and c
 	\begin{answered}
 	We use the same \texttt{tcpdump} command as above with extra \texttt{-e} option to show linke-layer header. The following printout contains DHCP messages for acquiring IP address:
 	\begin{lstlisting}
-19:07:41.375989 10:98:36:ac:9d:45 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 342: 0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 10:98:36:ac:9d:45, length 300
-19:07:44.654365 d4:ae:52:e8:4e:85 > 10:98:36:ac:9d:47, ethertype IPv4 (0x0800), length 342: 192.168.1.1.67 > 192.168.1.221.68: BOOTP/DHCP, Reply, length 300
+10:19:24.525962 a8:20:66:3b:66:51 > ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 342: 0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from a8:20:66:3b:66:51, length 300
+10:19:24.566258 00:21:9b:fb:61:0c > a8:20:66:3b:66:51, ethertype IPv4 (0x0800), length 342: 128.83.158.2.67 > 128.83.158.160.68: BOOTP/DHCP, Reply, length 30
 	\end{lstlisting}
-	From the printout we can see that the link-layer address (MAC address) of the host is \texttt{10:98:36:ac:9d:45}.
+	From the printout we can see that the link-layer address (MAC address) of the host is \texttt{a8:20:66:3b:66:51}.
 	\end{answered}
 
 	\item What is the IP address of your DHCP server?
 	\begin{answered}
-		\lipsum[2]
+		From the printout above, we can see the IP address of DHCP server is 
+		\lstinline|128.83.158.2| and the new IP address acquired from DHCP server is \lstinline|128.83.158.160|.
 	\end{answered}
 
-	\item What is the purpose of the DHCP release message?  What would happen if the client's DHCP release message is lost?
+	\item What is the purpose of the DHCP release message? 
 	\begin{answered}
-		\lipsum[2]
+		DHCP release message is used to release IP address.
 	\end{answered}
 
 	\item Does the DHCP server issue an acknowledgment of receipt of the client's DHCP request?
 	\begin{answered}
-		\lipsum[2]
+		DHCP server does not issue an acknowledgment of receipt of the client?s release message.
 	\end{answered}
 
 	\item What would happen if the client's DHCP release message is lost?
 	\begin{answered}
-		\lipsum[2]
+		 If DHCP release message is lost, the DHCP server has to wait for the lease to timeout before assigning it to other clients.
 	\end{answered}
 \end{QandA}
 
-\section{perf\_event\_open} 
+\section{User-level File System} 
 
-We first check the support of \lstinline|perf_event_open| interface by checking the existence of \lstinline|/proc/sys/kernel/perf_event_paranoid|, which is true in our case (value is set to \texttt{2}). In Linux, \lstinline|perf_event_open| interface \cite{perf_event_open_man} is used to setup performance monitoring. Specifically, it provides an interface that allows user to access 
-various events (i.e., events counted by performance counters \cite{hardware_counter}). \lstinline|perf list| gives available events on current machine. Counters related to cache in our machine is shown in Figure \ref{counters}. We are interested in counters related to L1 data cache and data TLB. As shown in Figure \ref{counters}, we have counters for number of times the L1 cache was accessed for data (\texttt{L1-dcache-loads}), the number of those access that resulted in a cache miss (\texttt{L1-dcache-load-misses}), and write access of L1 data cache (\texttt{L1-dcache-stores}). Similarly, for data TLB, we have read access (\lstinline|dTLB-loads|), read miss (\lstinline|dTLB-load-misses|), write access (\lstinline|dTLB-stores|), and write miss (\lstinline|dTLB-store-misses|).
-
-
-\begin{figure}	
-	\centering
-	\includegraphics[scale=0.5]{counters.png} 
-	\caption{Part of output of \texttt{perf list} related to cache}
-	\label{counters}
-\end{figure}
-
-According to man page \cite{perf_event_open_man}, there is no glibc wrapper for 
-\lstinline|perf_event_open| system call. However, we can wrap it on our own as the following:
-
-\begin{lstlisting}[style=CStyle]
-static long perf_event_open(struct perf_event_attr *hw_event, pid_t pid, int cpu, int group_fd, unsigned long flags) {
-  return syscall(__NR_perf_event_open, hw_event, pid, cpu, group_fd, flags);
-}
-\end{lstlisting}
-
-Using the \texttt{syscall} does not mean there is a syscall opcode in the program. Figure \ref{perf_event_open_dump} shows \texttt{perf\_event\_open} section of 
-\texttt{objdump -d}. Using \texttt{syscall} function will have \texttt{perf\_event\_open} system call number compiled in the program. In this case, the system call number 
-of \texttt{perf\_event\_open} is 298 (can be checked in \texttt{arch/x86/entry/syscalls/syscall\_64.tbl} of the Linux kernel source tree), which is \texttt{\$0x12a} in hex.
-
-\begin{figure}	
-	\centering
-	\includegraphics[scale=0.5]{perf_event_open_dump.png} 
-	\caption{\texttt{perf\_event\_open} section of \texttt{objdump -d} output}
-	\label{perf_event_open_dump}
-\end{figure}
-
-We want to monitor the following events: read, write, read miss for level 1 data cache and
-read miss, write miss for data TLB. A call to \lstinline|perf_event_open| gives a file descriptor that corresponds to one event being measured.  We can use \texttt{ioctl} interface to control the counters and read file descriptors to obtain counter vales. The following code highlights the usage of \lstinline|perf_event_open| interface to measure
-all five events for trivial \texttt{printf} \footnote{complete code can be seen in \texttt{perf\_event\_open\_usage.c}}.
-
-\begin{lstlisting}[style=CStyle]
-int hw_cache_perf_event_open(int group_fd, int cache_id, int cache_op_id,
-int cache_op_result_id) {
-  struct perf_event_attr pe;
-  memset(&pe, 0, sizeof(struct perf_event_attr));
-  pe.type = PERF_TYPE_HW_CACHE;
-  pe.size = sizeof(struct perf_event_attr);
-  pe.config = cache_id | (cache_op_id << 8) | (cache_op_result_id << 16);
-  pe.disabled = 0;
-  if (group_fd == -1) {
-    pe.disabled = 1;
-  }
-  pe.exclude_kernel = 1;
-  pe.exclude_hv = 1;
-  int fd = perf_event_open(&pe, 0, cpu_id, group_fd, 0);
-  if (fd == -1) {
-    perror("perf_event_open");
-    exit(EXIT_FAILURE);
-  }
-  return fd;
-}
-
-int main(int argc, char **argv) {
-
-  int l1_read_access_fd = hw_cache_perf_event_open(
-      -1, PERF_COUNT_HW_CACHE_L1D, PERF_COUNT_HW_CACHE_OP_READ,
-      PERF_COUNT_HW_CACHE_RESULT_ACCESS);
-  int leader_fd = l1_read_access_fd;
-
-  int l1_read_miss_fd = hw_cache_perf_event_open(
-      leader_fd, PERF_COUNT_HW_CACHE_L1D, PERF_COUNT_HW_CACHE_OP_READ,
-      PERF_COUNT_HW_CACHE_RESULT_MISS);
-  int l1_write_access_fd = hw_cache_perf_event_open(
-      leader_fd, PERF_COUNT_HW_CACHE_L1D, PERF_COUNT_HW_CACHE_OP_WRITE,
-      PERF_COUNT_HW_CACHE_RESULT_ACCESS);
-  int tlb_read_miss_fd = hw_cache_perf_event_open(
-      leader_fd, PERF_COUNT_HW_CACHE_DTLB, PERF_COUNT_HW_CACHE_OP_READ,
-      PERF_COUNT_HW_CACHE_RESULT_MISS);
-  int tlb_write_miss_fd = hw_cache_perf_event_open(
-      leader_fd, PERF_COUNT_HW_CACHE_DTLB, PERF_COUNT_HW_CACHE_OP_WRITE,
-      PERF_COUNT_HW_CACHE_RESULT_MISS);
-
-  ioctl(leader_fd, PERF_EVENT_IOC_RESET, PERF_IOC_FLAG_GROUP);
-  ioctl(leader_fd, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP);
-
-  // Do the work that we want to analyze
-  printf("Do some work that we want to measure here\n");
-
-  ioctl(leader_fd, PERF_EVENT_IOC_DISABLE, PERF_IOC_FLAG_GROUP);
-
-  uint64_t l1_read_miss = 0;
-  uint64_t l1_read_access = 0;
-  uint64_t l1_write_access = 0;
-  uint64_t tlb_read_miss = 0;
-  uint64_t tlb_write_miss = 0;
-
-  read(l1_read_access_fd, &l1_read_access, sizeof(uint64_t));
-  read(l1_read_miss_fd, &l1_read_miss, sizeof(uint64_t));
-  read(l1_write_access_fd, &l1_write_access, sizeof(uint64_t));
-  read(tlb_read_miss_fd, &tlb_read_miss, sizeof(uint64_t));
-  read(tlb_write_miss_fd, &tlb_write_miss, sizeof(uint64_t));
-
-  close(l1_read_access_fd);
-  close(l1_read_miss_fd);
-  close(l1_write_access_fd);
-  close(tlb_read_miss_fd);
-  close(tlb_write_miss_fd);
-
-  printf("[Performance counters]\n");
-  printf("Data L1 read access: %" PRIu64 "\n", l1_read_access);
-  printf("Data L1 write access: %" PRIu64 "\n", l1_write_access);
-  printf("Data L1 read miss: %" PRIu64 "\n", l1_read_miss);
-  printf("Data L1 read miss rate: %.5f\n",
-         (double)l1_read_miss / l1_read_access);
-  printf("Data TLB read miss: %" PRIu64 "\n", tlb_read_miss);
-  printf("Data TLB write miss: %" PRIu64 "\n", tlb_write_miss);
-
-  fflush(stdout);
-
-  return 0;
-}
-\end{lstlisting}
-
-File descriptors returned from calling \lstinline|perf_event_open| can be 
-grouped together so that we can measure corresponding events simultaneously. There are five events we want to measure and as shown in the code above, we group them together and measure them at the same time. However, measuring all five events at the same time may not possible for some machine as CPU only has limited amount of machine specific registers (MSRs) for low-level performance counting. In our environment, this number is 8 \footnote{check via \lstinline!cpuid|grep 'number of counters per logical processor'!}. For the following experiment, we also want to lock our 
-process onto a single processor. To achieve it, we use the following code:
-
-\begin{lstlisting}[style=CStyle]
-cpu_set_t set;
-CPU_ZERO(&set);
-CPU_SET(cpu_id, &set);
-if (sched_setaffinity(0, sizeof(cpu_set_t), &set) == -1) {
-	perror("sched_setaffinity");
-	exit(EXIT_FAILURE);
-}
-\end{lstlisting}
-
-Here, all counters we setup are associated with CPU specified by \lstinline|cpu_id|. We use \lstinline|sched_setaffinity| system call to set the CPU affinity of current process and ensure that it runs on CPU of \texttt{cpu\_id} only.
 
 \section{Measuring memory access behavior}
 
