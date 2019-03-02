@@ -313,7 +313,7 @@ char *consume_str(char *str, const char *pattern) {
   }
 }
 
-static int foofs_getattr(const char *path, struct stat *stbuf) {
+static int barfs_getattr(const char *path, struct stat *stbuf) {
   LOG("Get attributes of path: %s", path);
 
   sprintf(command, "stat \"%s%s\"", remote_path, path);
@@ -383,12 +383,12 @@ static int foofs_getattr(const char *path, struct stat *stbuf) {
   return 0;
 }
 
-static int foofs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
+static int barfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
                          off_t offset, struct fuse_file_info *fi) {
   LOG("Read directory: %s", path);
 
   struct stat st;
-  int ret = foofs_getattr(path, &st);
+  int ret = barfs_getattr(path, &st);
   if (ret != 0) {
     return ret;
   }
@@ -447,12 +447,12 @@ int flags_contain_write(int flags) {
   return 0;
 }
 
-static int foofs_create(const char *path, mode_t mode,
+static int barfs_create(const char *path, mode_t mode,
                         struct fuse_file_info *fi) {
   LOG("Create file: %s", path);
 
   struct stat st;
-  int ret = foofs_getattr(path, &st);
+  int ret = barfs_getattr(path, &st);
   if ((fi->flags | O_EXCL) != 0 && ret == 0) {
     return -EEXIST;
   }
@@ -480,7 +480,7 @@ static int foofs_create(const char *path, mode_t mode,
   return 0;
 }
 
-static int foofs_open(const char *path, struct fuse_file_info *fi) {
+static int barfs_open(const char *path, struct fuse_file_info *fi) {
   LOG("Open file: %s", path);
   if (remote_download_file(path) != 0) {
     return -ENOENT;
@@ -496,7 +496,7 @@ static int foofs_open(const char *path, struct fuse_file_info *fi) {
   return 0;
 }
 
-static int foofs_read(const char *path, char *buf, size_t size, off_t offset,
+static int barfs_read(const char *path, char *buf, size_t size, off_t offset,
                       struct fuse_file_info *fi) {
   LOG("Read file: %s", path);
   int ret = pread(fi->fh, buf, size, offset);
@@ -507,7 +507,7 @@ static int foofs_read(const char *path, char *buf, size_t size, off_t offset,
   return ret;
 }
 
-static int foofs_write(const char *path, const char *buf, size_t size,
+static int barfs_write(const char *path, const char *buf, size_t size,
                        off_t offset, struct fuse_file_info *fi) {
   LOG("Write file: %s", path);
   int ret = pwrite(fi->fh, buf, size, offset);
@@ -518,14 +518,14 @@ static int foofs_write(const char *path, const char *buf, size_t size,
   return ret;
 }
 
-static int foofs_release(const char *path, struct fuse_file_info *fi) {
+static int barfs_release(const char *path, struct fuse_file_info *fi) {
   LOG("Release file: %s", path);
   close(fi->fh);
   remote_upload_file(path);
   return 0;
 }
 
-static int foofs_fsync(const char *path, int datasync,
+static int barfs_fsync(const char *path, int datasync,
                        struct fuse_file_info *fi) {
   LOG("Fsync file: %s", path);
   if (fsync(fi->fh) != 0) {
@@ -535,7 +535,7 @@ static int foofs_fsync(const char *path, int datasync,
   return 0;
 }
 
-static int foofs_mkdir(const char *path, mode_t mode) {
+static int barfs_mkdir(const char *path, mode_t mode) {
   LOG("Create directory: %s", path);
 
   sprintf(command, "mkdir -m 0%o \"%s%s\"", DEFAULT_DIRECTORY_MODE, remote_path,
@@ -548,7 +548,7 @@ static int foofs_mkdir(const char *path, mode_t mode) {
   return 0;
 }
 
-static int foofs_unlink(const char *path) {
+static int barfs_unlink(const char *path) {
   LOG("Remove file: %s", path);
 
   sprintf(command, "rm \"%s%s\"", remote_path, path);
@@ -560,7 +560,7 @@ static int foofs_unlink(const char *path) {
   return 0;
 }
 
-static int foofs_rmdir(const char *path) {
+static int barfs_rmdir(const char *path) {
   LOG("Remove directory: %s", path);
 
   sprintf(command, "rm -d \"%s%s\"", remote_path, path);
@@ -572,18 +572,18 @@ static int foofs_rmdir(const char *path) {
   return 0;
 }
 
-static struct fuse_operations foofs_oper = {
-    .getattr = foofs_getattr,
-    .readdir = foofs_readdir,
-    .create = foofs_create,
-    .open = foofs_open,
-    .read = foofs_read,
-    .write = foofs_write,
-    .release = foofs_release,
-    .fsync = foofs_fsync,
-    .mkdir = foofs_mkdir,
-    .unlink = foofs_unlink,
-    .rmdir = foofs_rmdir,
+static struct fuse_operations barfs_oper = {
+    .getattr = barfs_getattr,
+    .readdir = barfs_readdir,
+    .create = barfs_create,
+    .open = barfs_open,
+    .read = barfs_read,
+    .write = barfs_write,
+    .release = barfs_release,
+    .fsync = barfs_fsync,
+    .mkdir = barfs_mkdir,
+    .unlink = barfs_unlink,
+    .rmdir = barfs_rmdir,
 };
 
 int main(int argc, char *argv[]) {
@@ -598,8 +598,7 @@ int main(int argc, char *argv[]) {
   const char *remote_host = argv[2];
   strcpy(remote_path, argv[3]);
   strcpy(local_cache_path, argv[4]);
-  int i;
-  for (i = 5; i < argc; i++) {
+  for (int i = 5; i < argc; i++) {
     argv[i - 4] = argv[i];
   }
   argc -= 4;
@@ -615,5 +614,5 @@ int main(int argc, char *argv[]) {
             SSH_AUTH_SUCCESS,
         "Failed to authenticate user %s", remote_user);
 
-  return fuse_main(argc, argv, &foofs_oper, NULL);
+  return fuse_main(argc, argv, &barfs_oper, NULL);
 }
