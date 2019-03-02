@@ -1,35 +1,38 @@
-// vim: ts=2 sw=2 et
+#define _XOPEN_SOURCE 500
 
 #define FUSE_USE_VERSION 26
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include <errno.h>
 #include <libgen.h>
 #include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
-#include <libssh/libssh.h>
 #include <fuse.h>
+#include <libssh/libssh.h>
 
 #if defined(DEBUG) || defined(_DEBUG)
-#define LOG(M, ...) \
-  do { \
-    fprintf(stderr, "[%s (%s:%d)]  " M "\n", __func__, __FILE__, __LINE__, ##__VA_ARGS__); \
+#define LOG(M, ...)                                                            \
+  do {                                                                         \
+    fprintf(stderr, "[%s (%s:%d)]  " M "\n", __func__, __FILE__, __LINE__,     \
+            ##__VA_ARGS__);                                                    \
   } while (0)
 #else
-#define LOG(M, ...) do {} while (0)
+#define LOG(M, ...)                                                            \
+  do {                                                                         \
+  } while (0)
 #endif
 
-#define CHECK(EXPR, M, ...) \
-  do { \
-    if (!(EXPR)) { \
-      fprintf(stderr, "[%s (%s:%d)] ERROR  " M "\n", __func__, __FILE__, __LINE__, ##__VA_ARGS__); \
-      exit(EXIT_FAILURE); \
-    } \
+#define CHECK(EXPR, M, ...)                                                    \
+  do {                                                                         \
+    if (!(EXPR)) {                                                             \
+      fprintf(stderr, "[%s (%s:%d)] ERROR  " M "\n", __func__, __FILE__,       \
+              __LINE__, ##__VA_ARGS__);                                        \
+      exit(EXIT_FAILURE);                                                      \
+    }                                                                          \
   } while (0)
-
 
 #define DEFAULT_FILE_MODE 0644
 #define DEFAULT_DIRECTORY_MODE 0755
@@ -45,7 +48,7 @@ __thread char command[1024];
 ssh_session session;
 pthread_mutex_t session_mutex;
 
-int remote_exec(const char* command, char* buf, int len) {
+int remote_exec(const char *command, char *buf, int len) {
   LOG("Execute remote command: %s", command);
 
   if (pthread_mutex_lock(&session_mutex) != 0) {
@@ -105,7 +108,7 @@ error:
   return -1;
 }
 
-int mkpath(char* dir, mode_t mode) {
+int mkpath(char *dir, mode_t mode) {
   struct stat sb;
   if (stat(dir, &sb) == 0) {
     return 0;
@@ -114,7 +117,7 @@ int mkpath(char* dir, mode_t mode) {
   return mkdir(dir, mode);
 }
 
-int remote_download_file(const char* path) {
+int remote_download_file(const char *path) {
   if (pthread_mutex_lock(&session_mutex) != 0) {
     LOG("Failed to acquire mutex");
     return -1;
@@ -138,7 +141,7 @@ int remote_download_file(const char* path) {
   }
 
   sprintf(buffer, "%s%s", local_cache_path, path);
-  char* local_path = strdupa(buffer);
+  char *local_path = strdupa(buffer);
   mkpath(dirname(strdupa(local_path)), DEFAULT_DIRECTORY_MODE);
   int fd = creat(local_path, DEFAULT_FILE_MODE);
   if (fd == -1) {
@@ -187,15 +190,16 @@ error:
   return -1;
 }
 
-int remote_upload_file(const char* path) {
+int remote_upload_file(const char *path) {
   if (pthread_mutex_lock(&session_mutex) != 0) {
     LOG("Failed to acquire mutex");
     return -1;
   }
 
   sprintf(buffer, "%s%s", remote_path, path);
-  char* remote_path = strdupa(buffer);
-  ssh_scp scp = ssh_scp_new(session, SSH_SCP_WRITE, dirname(strdupa(remote_path)));
+  char *remote_path = strdupa(buffer);
+  ssh_scp scp =
+      ssh_scp_new(session, SSH_SCP_WRITE, dirname(strdupa(remote_path)));
   if (scp == NULL) {
     LOG("Failed to create SCP session");
     goto error;
@@ -207,14 +211,14 @@ int remote_upload_file(const char* path) {
   }
 
   sprintf(buffer, "%s%s", local_cache_path, path);
-  char* local_path = strdupa(buffer);
+  char *local_path = strdupa(buffer);
   struct stat st;
   if (stat(local_path, &st) != 0) {
     LOG("Failed to get stat of local file");
     goto error;
   }
-  if (ssh_scp_push_file(scp, basename(strdupa(local_path)),
-                        st.st_size, DEFAULT_FILE_MODE) != SSH_OK) {
+  if (ssh_scp_push_file(scp, basename(strdupa(local_path)), st.st_size,
+                        DEFAULT_FILE_MODE) != SSH_OK) {
     LOG("Failed to open remote file");
     goto error;
   }
@@ -257,15 +261,16 @@ error:
   return -1;
 }
 
-int remote_create_file(const char* path) {
+int remote_create_file(const char *path) {
   if (pthread_mutex_lock(&session_mutex) != 0) {
     LOG("Failed to acquire mutex");
     return -1;
   }
 
   sprintf(buffer, "%s%s", remote_path, path);
-  char* remote_path = strdupa(buffer);
-  ssh_scp scp = ssh_scp_new(session, SSH_SCP_WRITE, dirname(strdupa(remote_path)));
+  char *remote_path = strdupa(buffer);
+  ssh_scp scp =
+      ssh_scp_new(session, SSH_SCP_WRITE, dirname(strdupa(remote_path)));
   if (scp == NULL) {
     LOG("Failed to create SCP session");
     goto error;
@@ -276,7 +281,8 @@ int remote_create_file(const char* path) {
     goto error;
   }
 
-  if (ssh_scp_push_file(scp, basename(strdupa(remote_path)), 0, DEFAULT_FILE_MODE) != SSH_OK) {
+  if (ssh_scp_push_file(scp, basename(strdupa(remote_path)), 0,
+                        DEFAULT_FILE_MODE) != SSH_OK) {
     LOG("Failed to open remote file");
     goto error;
   }
@@ -298,8 +304,8 @@ error:
   return -1;
 }
 
-char* consume_str(char* str, const char* pattern) {
-  char* p = strstr(str, pattern);
+char *consume_str(char *str, const char *pattern) {
+  char *p = strstr(str, pattern);
   if (p == NULL) {
     return NULL;
   } else {
@@ -307,7 +313,7 @@ char* consume_str(char* str, const char* pattern) {
   }
 }
 
-static int foofs_getattr(const char* path, struct stat* stbuf) {
+static int foofs_getattr(const char *path, struct stat *stbuf) {
   LOG("Get attributes of path: %s", path);
 
   sprintf(command, "stat \"%s%s\"", remote_path, path);
@@ -323,8 +329,8 @@ static int foofs_getattr(const char* path, struct stat* stbuf) {
   stbuf->st_uid = current_uid;
   stbuf->st_gid = current_gid;
 
-  char* p = buffer;
-  char* np;
+  char *p = buffer;
+  char *np;
 
   np = consume_str(p, "Size:");
   if (np != NULL) {
@@ -377,8 +383,8 @@ static int foofs_getattr(const char* path, struct stat* stbuf) {
   return 0;
 }
 
-static int foofs_readdir(const char* path, void* buf, fuse_fill_dir_t filler,
-                         off_t offset, struct fuse_file_info* fi) {
+static int foofs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
+                         off_t offset, struct fuse_file_info *fi) {
   LOG("Read directory: %s", path);
 
   struct stat st;
@@ -399,8 +405,8 @@ static int foofs_readdir(const char* path, void* buf, fuse_fill_dir_t filler,
   buffer[nbytes] = '\0';
   LOG("Execution result: %s", buffer);
 
-  char* p = buffer;
-  char* np;
+  char *p = buffer;
+  char *np;
   while (1) {
     np = strchr(p, '\n');
     if (np == NULL) {
@@ -441,7 +447,8 @@ int flags_contain_write(int flags) {
   return 0;
 }
 
-static int foofs_create(const char* path, mode_t mode, struct fuse_file_info* fi) {
+static int foofs_create(const char *path, mode_t mode,
+                        struct fuse_file_info *fi) {
   LOG("Create file: %s", path);
 
   struct stat st;
@@ -461,7 +468,7 @@ static int foofs_create(const char* path, mode_t mode, struct fuse_file_info* fi
   }
 
   sprintf(buffer, "%s%s", local_cache_path, path);
-  char* local_path = strdupa(buffer);
+  char *local_path = strdupa(buffer);
   LOG("Original flags: %x", fi->flags);
   LOG("Processed flags: %x", process_flags(fi->flags));
   int fd = open(local_path, process_flags(fi->flags));
@@ -473,13 +480,13 @@ static int foofs_create(const char* path, mode_t mode, struct fuse_file_info* fi
   return 0;
 }
 
-static int foofs_open(const char* path, struct fuse_file_info* fi) {
+static int foofs_open(const char *path, struct fuse_file_info *fi) {
   LOG("Open file: %s", path);
   if (remote_download_file(path) != 0) {
     return -ENOENT;
   }
   sprintf(buffer, "%s%s", local_cache_path, path);
-  char* local_path = strdupa(buffer);
+  char *local_path = strdupa(buffer);
   int fd = open(local_path, process_flags(fi->flags));
   if (fd == -1) {
     LOG("Failed to open local file");
@@ -489,8 +496,8 @@ static int foofs_open(const char* path, struct fuse_file_info* fi) {
   return 0;
 }
 
-static int foofs_read(const char* path, char* buf, size_t size, off_t offset,
-                      struct fuse_file_info* fi) {
+static int foofs_read(const char *path, char *buf, size_t size, off_t offset,
+                      struct fuse_file_info *fi) {
   LOG("Read file: %s", path);
   int ret = pread(fi->fh, buf, size, offset);
   if (ret == -1) {
@@ -500,8 +507,8 @@ static int foofs_read(const char* path, char* buf, size_t size, off_t offset,
   return ret;
 }
 
-static int foofs_write(const char* path, const char* buf, size_t size, off_t offset,
-                       struct fuse_file_info* fi) {
+static int foofs_write(const char *path, const char *buf, size_t size,
+                       off_t offset, struct fuse_file_info *fi) {
   LOG("Write file: %s", path);
   int ret = pwrite(fi->fh, buf, size, offset);
   if (ret == -1) {
@@ -511,14 +518,15 @@ static int foofs_write(const char* path, const char* buf, size_t size, off_t off
   return ret;
 }
 
-static int foofs_release(const char* path, struct fuse_file_info* fi) {
+static int foofs_release(const char *path, struct fuse_file_info *fi) {
   LOG("Release file: %s", path);
   close(fi->fh);
   remote_upload_file(path);
   return 0;
 }
 
-static int foofs_fsync(const char* path, int datasync, struct fuse_file_info* fi) {
+static int foofs_fsync(const char *path, int datasync,
+                       struct fuse_file_info *fi) {
   LOG("Fsync file: %s", path);
   if (fsync(fi->fh) != 0) {
     LOG("Failed to fsync local file");
@@ -527,10 +535,11 @@ static int foofs_fsync(const char* path, int datasync, struct fuse_file_info* fi
   return 0;
 }
 
-static int foofs_mkdir(const char* path, mode_t mode) {
+static int foofs_mkdir(const char *path, mode_t mode) {
   LOG("Create directory: %s", path);
 
-  sprintf(command, "mkdir -m 0%o \"%s%s\"", DEFAULT_DIRECTORY_MODE, remote_path, path);
+  sprintf(command, "mkdir -m 0%o \"%s%s\"", DEFAULT_DIRECTORY_MODE, remote_path,
+          path);
   int nbytes = remote_exec(command, buffer, sizeof(buffer));
   if (nbytes == -1) {
     return -1;
@@ -539,7 +548,7 @@ static int foofs_mkdir(const char* path, mode_t mode) {
   return 0;
 }
 
-static int foofs_unlink(const char* path) {
+static int foofs_unlink(const char *path) {
   LOG("Remove file: %s", path);
 
   sprintf(command, "rm \"%s%s\"", remote_path, path);
@@ -551,7 +560,7 @@ static int foofs_unlink(const char* path) {
   return 0;
 }
 
-static int foofs_rmdir(const char* path) {
+static int foofs_rmdir(const char *path) {
   LOG("Remove directory: %s", path);
 
   sprintf(command, "rm -d \"%s%s\"", remote_path, path);
@@ -564,43 +573,46 @@ static int foofs_rmdir(const char* path) {
 }
 
 static struct fuse_operations foofs_oper = {
-  .getattr = foofs_getattr,
-  .readdir = foofs_readdir,
-  .create = foofs_create,
-  .open = foofs_open,
-  .read = foofs_read,
-  .write = foofs_write,
-  .release = foofs_release,
-  .fsync = foofs_fsync,
-  .mkdir = foofs_mkdir,
-  .unlink = foofs_unlink,
-  .rmdir = foofs_rmdir,
+    .getattr = foofs_getattr,
+    .readdir = foofs_readdir,
+    .create = foofs_create,
+    .open = foofs_open,
+    .read = foofs_read,
+    .write = foofs_write,
+    .release = foofs_release,
+    .fsync = foofs_fsync,
+    .mkdir = foofs_mkdir,
+    .unlink = foofs_unlink,
+    .rmdir = foofs_rmdir,
 };
 
-int main(int argc, char* argv[]) {
-  CHECK(argc >= 5, "The first four arguments should be remote_user, remote_host, "
-                   "remote_path and local_cache_path.");
+int main(int argc, char *argv[]) {
+  CHECK(argc >= 5,
+        "The first four arguments should be remote_user, remote_host, "
+        "remote_path and local_cache_path.");
 
   current_uid = geteuid();
   current_gid = getegid();
 
-  const char* remote_user = argv[1];
-  const char* remote_host = argv[2];
+  const char *remote_user = argv[1];
+  const char *remote_host = argv[2];
   strcpy(remote_path, argv[3]);
   strcpy(local_cache_path, argv[4]);
   int i;
   for (i = 5; i < argc; i++) {
-    argv[i-4] = argv[i];
+    argv[i - 4] = argv[i];
   }
   argc -= 4;
 
-  CHECK(pthread_mutex_init(&session_mutex, NULL) == 0, "Failed to create mutex for SSH session");
+  CHECK(pthread_mutex_init(&session_mutex, NULL) == 0,
+        "Failed to create mutex for SSH session");
 
   session = ssh_new();
   ssh_options_set(session, SSH_OPTIONS_HOST, remote_host);
   CHECK(ssh_connect(session) == SSH_OK, "Failed to connect to %s", remote_host);
 
-  CHECK(ssh_userauth_publickey_auto(session, remote_user, NULL) == SSH_AUTH_SUCCESS,
+  CHECK(ssh_userauth_publickey_auto(session, remote_user, NULL) ==
+            SSH_AUTH_SUCCESS,
         "Failed to authenticate user %s", remote_user);
 
   return fuse_main(argc, argv, &foofs_oper, NULL);
