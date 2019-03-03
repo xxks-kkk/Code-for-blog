@@ -17,10 +17,9 @@ barfs_bench() {
 }
 
 nfs_bench() {
-    echo "benchmark NFS"    
-    # rm -rf ./bench
-    # mkdir ./bench
-    # ./benchmark ./bench > nfs.txt
+    echo "benchmark NFS"
+    # We assume NFS shared directory is mounted on /home/zeyuanhu/lab2_nfs
+    ./benchmark /home/zeyuanhu/lab2_nfs > ../res/nfs.txt
 }
 
 if [ $mode = barfs ]; then
