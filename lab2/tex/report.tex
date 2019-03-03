@@ -132,6 +132,25 @@ escapeinside={(*@}{@*)},
 
 We have two Linux machines for experiments: \texttt{erode-lom} and \texttt{thoothukudi-lom}. Both of them run Ubuntu 16.04 LTS. \footnote{\texttt{erode-lom} with ip address: \lstinline|192.168.1.120| and \texttt{thoothukudi-lom} with ip address: \texttt{192.168.1.121}. Due to the network setup, those two machines are not properly registered in the department DNS server. We use ip address instead host names to logon these two machines.}
 
+\section{User-level File System} 
+
+\subsection{Implementation}
+
+We leverage \texttt{libfuse} and \texttt{libssh} to implement a network file system. Filesystem in Userspace (FUSE) is a user-space file system framework.  FUSE consists of a Linux kernel module and a user-level daemon. When a user application performs operations on a mounted FUSE file system, the operation will be routed to FUSE's kernel driver by VFS. The operations as requests will be maintained by a queue and user-level daemon will pick a request from the kernel queue and process the request. Daemon will write response back to kernel once it is done with processing.  More information about FUSE can be seen in \cite{vangoor2017fuse}.
+
+\subsubsection{System Architecture}
+
+We implement a network file system. Like NFS, it supports a server with multiple clients. On the client side, the FUSE client program will mount a user-space file system with remote user, remote host, remote path, local cache path, and local mount point provided by the user. Remote user and remote host specify the server that our network file system want to contact. Remote path specifies the location on the server we want to store and fetch files for the clients. Our system requires user to specify a path for local cache as we serve clients' requests from local cache as much as we can. In other words, some file operations are directly served by the local cache without further contact with server. Communications between clients and the server are done via SSH protocol. Thus, there is no server-side implementation in our system. 
+
+\subsubsection{FUSE Calls Implemented}
+
+We implement the following operations: \texttt{getattr}, \texttt{readdir}, \texttt{create}, \texttt{open}, \texttt{read}, \texttt{write}, \texttt{release}, \texttt{fsync}, \texttt{mkdir}, \texttt{unlink}, and \texttt{rmdir} in our system. 
+Our operation implementation is based on \texttt{libfuse} version is 2.9.4 \footnote{check via \lstinline|fusermount -V|} API. In \texttt{libfuse}, there are two sets of APIs: a "high-level", synchronous API, and a "low-level" asynchronous API. 
+The key difference between "high-level" and "low-level" API is that "high-level" allows us to work with file names and path instead of inodes in synchronous fashion.
+Thus, for the simplicity, our implementation adopts the "high-level" API.
+
+\texttt{getattr} operation is used to get attributes of a file or a directory. Function signature of \texttt{libfuse}'s \texttt{getattr} operation is \lstinline|int getattr(const char * path, struct stat * stbuf);|. Our implementation should fill \texttt{stbuf} to contain attributes of file or directory indicated by \texttt{path}. Since \texttt{struct stat} is the same structure used in \texttt{stat} call \cite{stat_man}, we can leverage \texttt{stat} command \cite{stat1_man}.  Specifically, in our implementation, we execute \texttt{stat} command remotely via SSH to collect attributes of the desired target (specified by \texttt{path}). The output of the \texttt{stat} command is parsed on the client side of the file system.  We fill \texttt{st\_size}, \texttt{st\_blocks}, \texttt{st\_mode}, and \texttt{st\_nlink} fields of \texttt{struct stat} from the parse result. \texttt{st\_uid} and \texttt{st\_gid} are filled with UID and GID of the file system client process. \lstinline|st_mode| is filled with \lstinline|644| (i.e., \lstinline|rw-r--r--|) if the target is file and  \lstinline|755| (i.e., \lstinline|rwxr-xr-x|) if the target is directory.
+
 \section{System Tools Exercise}
 
 \subsection{strace}
@@ -210,174 +229,6 @@ The result is shown in Figure \ref{session_processed} \footnote{raw output and c
 		 If DHCP release message is lost, the DHCP server has to wait for the lease to timeout before assigning it to other clients.
 	\end{answered}
 \end{QandA}
-
-\section{User-level File System} 
-
-
-\section{Measuring memory access behavior}
-
-\texttt{mmap} system call maps files or devices into memory. The created mapping can be file-backed or anonymous. File-backed mapping maps an area of the process's virtual memory to files (i.e., an area of the process's virtual memory is mapped to file-backed memory); reading those areas of memory causes the file read. Anonymous mapping is the opposite of file-backed mapping (i.e., not backed by file; an area of the process's virtual memory is mapped to anonymous memory). In this section, we experiment with both types of mappings. Since file-backed mapping can be shared or private, we have three memory mappings setup in our experiment: anonymous, file-based (private) and file-based (share).
-In this experiment, we use \lstinline|MAP_POPULATE| flag. \lstinline|MAP_POPULATE| populates page tables for a mapping. For file-backed mapping, this means read-ahead on file, which reduce blocking on page faults later. In addition, we use \texttt{memset} to initialize the mapped region and \texttt{msync} to flush the change made to the file-backed memory back to file system whenever possible. 
-
-We study the following code, which is used to access the mapped region:
-
-\begin{lstlisting}[style=CStyle]
-#define CACHE_LINE_SIZE 64
-int opt_random_access;  
-void do_mem_access(char *p, int size) {
-  int outer, locality, i;
-  int ws_base = 0;
-  int max_base = size / CACHE_LINE_SIZE - 512;
-  for (outer = 0; outer < (1 << 20); outer++) {
-    long r = simplerand() % max_base;
-    if (opt_random_access) {
-      ws_base = r;
-    } else {
-      ws_base += 512;
-      if (ws_base >= max_base) {
-        ws_base = 0;
-      }
-    }
-    for (locality = 0; locality < 16; locality++) {
-      volatile char *a;
-      char c;
-      for (i = 0; i < 512; i++) {
-        a = p + ws_base + i * CACHE_LINE_SIZE;
-        if (i % 8 == 0) {
-          *a = 1;
-        } else {
-          c = *a;
-        }
-      }
-    }
-  }
-}
-\end{lstlisting}
-
-\lstinline|simplerand()| is a function generates random number. A global variable \lstinline|opt_random_access| is used to specify the
-memory access to be sequential or random. Specifically, \lstinline|db_mem_access()| routine will access a working set consists of
-512 consecutive cache lines. Among those 512 cache lines, $\frac{1}{8}$ will be write access and $\frac{7}{8}$ will be read access. The
-same working set is accessed 16 times. The whole routine will work on $2^{20}$ working sets. Working sets are selected either sequentially
-or in random (specified by \lstinline|opt_random_access|). In sequential access case, offset between working sets is 512 (e.g., since there
-are 512 cache lines of a set). In random access case, the start(i.e., base) of working set is selected randomly based on the number generated by \lstinline|simplerand()|. \lstinline|simplerand()| is called no matter the sequential memory access or random access because we want to keep the
-experiment results difference only due to the memory access pattern difference. In other words, we want to have both memory access patterns have the same function call and context switch overheads (caused by calling \lstinline|simplerand()|).
-
-We study \lstinline|db_mem_access()| behavior on a VM with 2GB of memory and 4 virtual CPU cores. The VM runs Ubuntu 18.10 with kernel version 4.19.6. \lstinline|-cpu host| is added as part of QEMU option to ensure our VM can access performance counters. We allocate 1GB buffer via \texttt{mmap} as input for \lstinline|do_mem_access|.  To ensure 
-the repeatable result, we flush the level 1 data cache by accessing a 16MB buffer before calling \lstinline|do_mem_access|. We invoke \texttt{getrusage}  just before and after \lstinline|do_mem_access| to collect resource usage statistics of initialization code and \lstinline|do_mem_access|. We run the program 5 times and calculate mean and stand deviation of statistics \footnote{We compile our program with \texttt{-O2} to prevent any unwanted memory access from the generated executable}. We also submit the raw results along with this report.
-
-\begin{figure}	
-	\centering
-	\includegraphics[scale=0.65]{sequential_random_anonymous} 
-	\caption{The statistics of sequential and random memory accesses with anonymous mapped memory regions}
-	\label{sequential_random_anonymous}
-\end{figure}
-
-We first compare sequential access and random access (indicated by \lstinline|opt_random_access|). We use anonymous mapped memory regions. Figure \ref{sequential_random_anonymous} shows  statistics for both cases \footnote{\texttt{majflt}, \texttt{inblock}, \texttt{oublock} are omitted because they are all 0}.  As shown in the figure, the ratio between read and write access is 7:1 for data L1 cache for both cases, which is as expected. The read miss rate in random access case is 3x higher than sequential access. For data TLB, read miss and write miss of random access is 15.6X and 23x higher than sequential access respectively. Random access runs 1.46x slower than sequential access. From those statistics, we can see that there is no significant difference in terms of runtime and miss rate of data L1 cache between random access and sequential access (e.g., miss rate for random access is around 0.1). In the case of sequential access, the number of data TLB read miss is about 99193, which is
-396MB for 4KB page size. 396MB is smaller than the size of our buffer. If we take a look at the code, we notice \lstinline|max_base| in \lstinline|do_mem_access| restricts the maximum base address of the working set. If we take a look at how \lstinline|max_base| is initialized and the line we initialize \texttt{a}, we can see that the working set is essentially the first $\frac{1}{64}$ of the given buffer, which is 16MB, which matches with the value of \texttt{maxrss} we observed and is much lower than 1GB. Realizing this fact also explains why TLB miss count is lower than the total number of data pages \footnote{If we want to access all the allocated buffer (1GB), we should replace line 21 (\texttt{a} initialization) with \lstinline|a = p + (ws_base + i) * CACHE_LINE_SIZE;| }.
-
-\begin{figure}	
-	\centering
-	\includegraphics[scale=0.5]{share_private} 
-	\caption{The statistics of sequential and random memory accesses with file-backed mapping with \lstinline|MAP_PRIVATE| and \lstinline|MAP_SHARED|. \texttt{fun} is a shorthand for \lstinline|do_mem_access|.}
-	\label{share_private}
-\end{figure}
-
-In the next step, we experiment with file-based memory mappings.  In this part,
-we only concern \texttt{maxrss}, \texttt{inblock}, and \texttt{oublock} because
-the statistics related to data L1 cache and data TLB are generated with the same setup as anonymous mappings. In addition, statistics related to memory cache is not affected by the file-backed mapping. The statistics we have is shown in Figure \ref{share_private}. Compare to previous result, we notice there are 
-large amount of \texttt{oublock} during \lstinline|do_mem_access| for file-backed mapping with \lstinline|MAP_SHARED|. This is intuitive as the changes to the file
-have to be saved in shared mode. We notice that there is \texttt{inblock} is zero, 
-which is due to the internal cache in Linux kernel for reading file.  \texttt{oublock} for both random access and sequential access under shared mode are exactly the same.  This may due to the fact that access pattern is not
-significant for the shared mode as synchronization for internal file cache is needed no matter what memory access pattern we may encounter.
-
-\begin{figure}	
-	\centering
-	\includegraphics[scale=0.5]{populate_memset} 
-	\caption{The statistics of file-backed mapping for \lstinline|MAP_POPULATE| and memset after buffer allocation. \texttt{fun} is a shorthand for \lstinline|do_mem_access|.}
-	\label{populate_memset}
-\end{figure}
-
-In this experiment, we further examine \lstinline{MAP_POPULATE} flag and \texttt{memset} the mapped memory for initialization. Figure \ref{populate_memset} shows the statistics. Note that all the columns are from
-the sequential memory access. With \lstinline|MAP_POPULATE| flag, the mapped memory will be populate page tables at the very beginning and perform read-ahead on the file. Thus we see the \texttt{maxrss} will match the allocated buffer size, which is around 1GB during the initialization. If the mapped memory 
-is initialized with \texttt{memset} and then perform synchronization to the file system via \texttt{msync}, then there will be large amount of \texttt{oublock} during the initialization.
-
-We also using \texttt{strace} to trace our program \footnote{we trace our program as \lstinline|strace ./memory_access 0 0 0 0 0 0|, where \lstinline|memory_access| is the executable from \lstinline|memory_access.c|}.  We find a system call \lstinline|arch_prctl(ARCH_SET_FS, 0x7f83a006d540) | in the printout. The system call means setting FS register to \texttt{0x7f83a006d540} \cite{arch_prctl_man}. FS register is a segment register with no specific processor-defined purpose and is given purpose by the OS. In Linux, FS register is for thread local storage. We can also see the system call \lstinline|access("/etc/ld.so.preload", R_OK)|, which tries to access \lstinline|/etc/ld.so.preload| file. This file contains ELF shared
-objects, which are loaded before the execution of the program \cite{ld.so_man}. From the printout, we can see that this file is accessed before \texttt{libc.so} is loaded.
-
-\section{Measuring memory access behavior with background activity}
-
-In this section, we study the memory access behavior when there is a background activity. We use another process to allocate and access a large amount of memory to simulate background activity. We use \lstinline|compete_for_memory| function for this purpose.
-
-\begin{lstlisting}[style=CStyle]
-int compete_for_memory(void *unused) {
-      long mem_size = get_mem_size();
-      int page_sz = sysconf(_SC_PAGE_SIZE);
-      printf(``Total memsize is %3.2f GBs\n'',
-      (double)mem_size / (1024 * 1024 * 1024));
-      fflush(stdout);
-      char *p = mmap(NULL, mem_size, PROT_READ | PROT_WRITE,
-      MAP_NORESERVE | MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-      if (p == MAP_FAILED) {
-        perror(``Failed anon MMAP competition'');
-        fflush(stdout);
-        exit(EXIT_FAILURE);
-      }
-
-      int i = 0;
-      while (1) {
-        volatile char *a;
-        long r = simplerand() % (mem_size / page_sz);
-        char c;
-        if (i >= mem_size / page_sz) {
-          i = 0;
-        }
-        a = p + r * page_sz;
-        c += *a;
-        if (i % 8 == 0) {
-          *a = 1;
-        }
-        i++;
-      }
-      return 0;
-}
-\end{lstlisting}
-
-\lstinline|get_mem_size| is used to obtain the total amount of RAM of current system in bytes by reading from \texttt{/proc/meminfo} file. In the function above,
-\lstinline|fflush(stdout)| is invoked after printing total memory. This is necessary because otherwise we cannot see the total memory message.  However, flush to stderr is not necessary because each print call to stderr will be automatically followed by a flush. Since \lstinline|compete_for_memory| function will try to allocate a memory region equals to the size of RAM, we need to setup swap file for the system because otherwise, the process will be killed due to oversubscribe of the memory. In the experiment, we setup a swap file of 2GB in the VM. \lstinline|compete_for_memory| is called by a separate child process via \texttt{fork}. The child process will be killed when the main process exits. After forking the child process, the main process will sleep for 5 seconds to wait for child process to allocate memory. The statistics is shown in Figure \ref{compete}. 
-Note that the statistics is for anonymous mapping with random memory access. For other mapping and access behaviors, we submit the raw data along with the report. With memory pressure in the system, we expect the program takes more time to finish and encounters more page faults. From the statistics, we see that the program with memory pressure takes more time to finish and page faults are significantly higher than the no-compete case (shown both from \texttt{minflt} and \texttt{majflt}). However, read miss for both L1 cache and data TLB in compete case is slightly higher than the no-compete case.  We also see there are non-zero values of \texttt{inblock} in the case of memory pressure. This is another indicator that more page faults happened.  Other mappings (file-backed in shared and private mode) has similar statistics with slight higher page faults.
-
-\begin{figure*}[!b]	
-	\centering
-	\includegraphics[scale=0.5]{compete} 
-	\caption{The statistics of anonymous mapping for random memory access both with and without memory pressure}
-	\label{compete}
-\end{figure*}
-
-Next, we modify the page replacement policy of Linux kernel. Linux kernel uses LRU to reclaim pages. We modify \lstinline|shrink_page_list| function in \lstinline|mm/vmscan.c| file. The target code block looks like below:
-
-\begin{lstlisting}[style=CStyle]
-switch (references) {
-case PAGEREF_ACTIVATE:
-                goto activate_locked;
-case PAGEREF_KEEP:
-                nr_ref_keep++;
-                goto keep_locked;
-case PAGEREF_RECLAIM:
-case PAGEREF_RECLAIM_CLEAN:
-                 ; /* try to reclaim the page below */
-}
-\end{lstlisting}
-
-\begin{figure*}
-	\centering
-	\includegraphics[scale=0.6]{modified} 
-	\caption{The statistics of memory random access behavior under different mappings before and after the modification of the kernel}
-	\label{modified}
-\end{figure*}
-
-We modify the \lstinline|PAGEREF_ACTIVATE| case to behave the same as \lstinline|PAGEREF_RECLAIM| case. Before the modification, \lstinline|PAGEREF_ACTIVATE| represents the case where the kernel sees the page has been recently accessed. Thus, the page will  not be swapped out of RAM. If we change this case to behave the same as \lstinline|PAGEREF_RECLAIM|, there is no LRU in the page replacement process. 
-We conduct our experiment for memory random access under memory pressure for all possible mappings. The statistics is shown in Figure \ref{modified}. As one can see, since we disable the LRU replacement policy, the page faults increase in the modified kernel case. This is intuitive as the kernel might swap out pages that are frequently accessed.  However, we should note that the page faults do not increase dramatically as in theory LRU can behave worse than the no replacement policy at all especially when the memory access pattern is random. This is because random memory access may create some access pattern that is in favor of no replacement policy at all case. For example, there is a clear page faults increase for file-backed mapping in private mode. However, for anonymous mapping, page faults actually decrease after the modification. In addition, since the \lstinline|do_mem_access| frequently accesses around 16MB of memory, while the competing process uniformly accesses  its 2GB memory, the chance that a hot page being swapped out is relative small.
-
 
 
 \end{spacing}
