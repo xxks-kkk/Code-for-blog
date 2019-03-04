@@ -130,7 +130,7 @@ escapeinside={(*@}{@*)},
 \begin{spacing}{1.5}
 \section{Environment} \label{environment}
 
-We have two Linux machines for experiments: \texttt{erode-lom} and \texttt{thoothukudi-lom}. Both of them run Ubuntu 16.04 LTS. \footnote{\texttt{erode-lom} with ip address: \lstinline|192.168.1.120| and \texttt{thoothukudi-lom} with ip address: \texttt{192.168.1.121}. Due to the network setup, those two machines are not properly registered in the department DNS server. We use ip address instead host names to logon these two machines.}
+We have two Linux machines for experiments: \texttt{erode-lom} and \texttt{thoothukudi-lom}. Both of them run Ubuntu 16.04 LTS. \footnote{\texttt{erode-lom} with ip address: \lstinline|192.168.1.120| and \texttt{thoothukudi-lom} with ip address: \texttt{192.168.1.121}. Due to the network setup, those two machines are not properly registered in the department DNS server. We use ip address instead host names to logon these two machines.} Both machines are located in the same rack and connected via Ethernet.
 
 \section{User-level File System} 
 
@@ -144,12 +144,25 @@ We implement a network file system. Like NFS, it supports a server with multiple
 
 \subsubsection{FUSE Calls Implemented}
 
-We implement the following operations: \texttt{getattr}, \texttt{readdir}, \texttt{create}, \texttt{open}, \texttt{read}, \texttt{write}, \texttt{release}, \texttt{fsync}, \texttt{mkdir}, \texttt{unlink}, and \texttt{rmdir} in our system. 
+We implement the following operations: \texttt{getattr}, \texttt{readdir}, \texttt{create}, \texttt{open}, \texttt{read}, \texttt{write}, \texttt{fsync}, \texttt{release}, \texttt{mkdir}, \texttt{unlink}, and \texttt{rmdir} in our system. 
 Our operation implementation is based on \texttt{libfuse} version is 2.9.4 \footnote{check via \lstinline|fusermount -V|} API. In \texttt{libfuse}, there are two sets of APIs: a "high-level", synchronous API, and a "low-level" asynchronous API. 
 The key difference between "high-level" and "low-level" API is that "high-level" allows us to work with file names and path instead of inodes in synchronous fashion.
 Thus, for the simplicity, our implementation adopts the "high-level" API.
 
 \texttt{getattr} operation is used to get attributes of a file or a directory. Function signature of \texttt{libfuse}'s \texttt{getattr} operation is \lstinline|int getattr(const char * path, struct stat * stbuf);|. Our implementation should fill \texttt{stbuf} to contain attributes of file or directory indicated by \texttt{path}. Since \texttt{struct stat} is the same structure used in \texttt{stat} call \cite{stat_man}, we can leverage \texttt{stat} command \cite{stat1_man}.  Specifically, in our implementation, we execute \texttt{stat} command remotely via SSH to collect attributes of the desired target (specified by \texttt{path}). The output of the \texttt{stat} command is parsed on the client side of the file system.  We fill \texttt{st\_size}, \texttt{st\_blocks}, \texttt{st\_mode}, and \texttt{st\_nlink} fields of \texttt{struct stat} from the parse result. \texttt{st\_uid} and \texttt{st\_gid} are filled with UID and GID of the file system client process. \lstinline|st_mode| is filled with \lstinline|644| (i.e., \lstinline|rw-r--r--|) if the target is file and  \lstinline|755| (i.e., \lstinline|rwxr-xr-x|) if the target is directory.
+
+\texttt{readdir} operation is used to get entries in a directory (i.e., read directory). There are two modes
+of operation for the implementation: whether we keep track of offset provided as one of function signature argument. If we ignore the offset, the content of whole directory will be read in a single operation. For the simplicity, we ignore the offset in our implementation. This can be troublesome if the content of directory is greater than the supplied buffer size. The key to our implementation is the implementation of filler (with type \lstinline{fuse_fill_dir_t}), which is used to add directory entry to the supplied buffer. In our case, \texttt{getattr} is invoked whenever filler is called. 
+
+\texttt{create} and \texttt{open} operations correspond to \texttt{creat} and \texttt{open} system calls. libfuse's \texttt{open} operation has signature \lstinline|int open(const char* path, struct fuse_file_info* fi);|. \texttt{path} specifies the file to be opened and \texttt{fi->flags} indicates the open flags (same as \texttt{flags} in \texttt{open} system call \cite{open_man}). \texttt{fi->fh} represents file handle, which may be filled for future usage.  In our implementation, when \texttt{open} is invoked, the target file will be downloaded from server via SCP and saved in the local cache path. Operations like \texttt{read}, \texttt{write}, and \texttt{fsync} will be served from local cache copy. The local cache copy is opened with the same flags and corresponding \texttt{fd} is saved in \texttt{fi->fh} for future use. \texttt{create} operation is similar to \texttt{open} except it will first create the file remotely if the file does not exist.
+
+\texttt{read}, \texttt{write}, and \texttt{fsync} operations are served by local cache file copy via \texttt{fi->fh}. Same as NFSv2, we implement flush-on-close semantic for update visibility. Specifically, we do not upload the file to the server on \texttt{write} and \texttt{fsync}, instead we update server's copy when the file is closed. Doing so removes network communication overhead between each file update, but we may face file inconsistency if there are multiple clients updating the same file competitively. 
+
+\texttt{release} operation is invoked by \texttt{libfuse} when closing a file descriptor. This is the place where we implement flush-on-close semantic. We first close \texttt{fi->fh}, which is the file descriptor the local cache copy. Then, we upload the local cache copy to the server via SCP.
+
+\texttt{mkdir}, \texttt{rmdir}, and \texttt{unlink} operations are performed by executing \texttt{mkdir} and \texttt{rm} command remotely via SSH.
+
+\subsubsection{Limitation}
 
 \section{System Tools Exercise}
 
