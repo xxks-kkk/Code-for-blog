@@ -164,6 +164,16 @@ of operation for the implementation: whether we keep track of offset provided as
 
 \subsubsection{Limitation}
 
+Our implementation has coarse-grained access control in the sense that all the files and directories have the same UID, GID, and permission mask. To enable a more fine-grained access control, we could use a file similar to \texttt{/etc/exports} in NFS to indicate what ip address can have what access (read, write, or both) to what directories and files. Doing so requires us to implement a server-side code as a guard to perform identity check. However, access control is orthogonal to our experiment goal and we left this feature as future work.
+
+Incomplete file metadata also impacts how we implement the file consistency mechanism. In our implementation, we do not keep creation time, access time, and modification time of directories and files. As a result, we cannot selectively perform SCP on \texttt{open}: if we maintain file stats, we can perform stats comparison between remote copy and cached copy to see whether we need to perform expensive data transmission over the network. In addition, since we only SCP file during \texttt{open}, file can change between \texttt{open} and \texttt{read}. NFS periodically issues \texttt{getattr} to server to ensure cache consistency. Since we do not support file timestamp, we cannot issue \texttt{getattr} periodically and let \texttt{read} directly read from server when the local cache is invalidated.  
+
+Some other issue might exist regarding file consistency. For example, we implement the last-writer-wins policy: if a file is updated by the multiple users, the last one who close the file will keep its change to the file on server. However, this might be troublesome. A more sophisticated method is to automatically merge change to the file whenever possible and maintain multiple versions of files on the server with each version associated with its owner. Other versions may not be visible the user and only a specific system command issued will make those versions visible. We also allows a file can be opened multiple times. This is troublesome as later open operations can overwrite changes made by previous file descriptors. One possible fix is to only download copy file from server when there is no local cache copy or implement a copy-on-write mechanism: each open will lead to a unique version of the file and it is up to user to resolve potential conflicts. 
+
+\subsubsection{Comparison vs. NFS}
+
+
+
 \section{System Tools Exercise}
 
 \subsection{strace}
