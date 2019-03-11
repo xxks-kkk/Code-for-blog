@@ -1,41 +1,4 @@
-#define _XOPEN_SOURCE 500
-
-#define FUSE_USE_VERSION 26
-
-#include <errno.h>
-#include <libgen.h>
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
-#include <fuse.h>
-#include <libssh/libssh.h>
-
-#if defined(DEBUG) || defined(_DEBUG)
-#define LOG(M, ...)                                                            \
-  do {                                                                         \
-    fprintf(stderr, "[%s (%s:%d)]  " M "\n", __func__, __FILE__, __LINE__,     \
-            ##__VA_ARGS__);                                                    \
-  } while (0)
-#else
-#define LOG(M, ...)                                                            \
-  do {                                                                         \
-  } while (0)
-#endif
-
-#define CHECK(EXPR, M, ...)                                                    \
-  do {                                                                         \
-    if (!(EXPR)) {                                                             \
-      fprintf(stderr, "[%s (%s:%d)] ERROR  " M "\n", __func__, __FILE__,       \
-              __LINE__, ##__VA_ARGS__);                                        \
-      exit(EXIT_FAILURE);                                                      \
-    }                                                                          \
-  } while (0)
-
-#define DEFAULT_FILE_MODE 0644
-#define DEFAULT_DIRECTORY_MODE 0755
+#include "barfs.h"
 
 uid_t current_uid;
 gid_t current_gid;
@@ -304,7 +267,7 @@ error:
   return -1;
 }
 
-char *consume_str(char *str, const char *pattern) {
+char *parse_str(char *str, const char *pattern) {
   char *p = strstr(str, pattern);
   if (p == NULL) {
     return NULL;
@@ -332,7 +295,7 @@ static int barfs_getattr(const char *path, struct stat *stbuf) {
   char *p = buffer;
   char *np;
 
-  np = consume_str(p, "Size:");
+  np = parse_str(p, "Size:");
   if (np != NULL) {
     p = np;
     long size;
@@ -341,7 +304,7 @@ static int barfs_getattr(const char *path, struct stat *stbuf) {
     LOG("size = %ld", size);
   }
 
-  np = consume_str(p, "Blocks:");
+  np = parse_str(p, "Blocks:");
   if (np != NULL) {
     p = np;
     long blocks;
@@ -350,28 +313,28 @@ static int barfs_getattr(const char *path, struct stat *stbuf) {
     LOG("blocks = %ld", blocks);
   }
 
-  np = consume_str(p, "directory");
+  np = parse_str(p, "directory");
   if (np != NULL) {
     p = np;
     stbuf->st_mode = S_IFDIR | DEFAULT_DIRECTORY_MODE;
     LOG("Current file is directory");
   }
 
-  np = consume_str(p, "regular file");
+  np = parse_str(p, "regular file");
   if (np != NULL) {
     p = np;
     stbuf->st_mode = S_IFREG | DEFAULT_FILE_MODE;
     LOG("Current file is regular file");
   }
 
-  np = consume_str(p, "regular empty file");
+  np = parse_str(p, "regular empty file");
   if (np != NULL) {
     p = np;
     stbuf->st_mode = S_IFREG | DEFAULT_FILE_MODE;
     LOG("Current file is regular empty file");
   }
 
-  np = consume_str(p, "Links:");
+  np = parse_str(p, "Links:");
   if (np != NULL) {
     p = np;
     long nlink;

@@ -3,7 +3,7 @@
 rm -rf /tmp/barfs_cache
 mkdir /tmp/barfs_cache
 if mount | grep /tmp/barfs > /dev/null; then
-    fusermount -u /tmp/barfs
+    fusermount -u -z /tmp/barfs
 fi
 rm -rf /tmp/barfs
 mkdir /tmp/barfs
@@ -22,3 +22,4 @@ make barfs
 # you can add -d -s options to ./barfs like below
 # ./barfs zeyuanhu 192.168.1.120 /tmp/barfs /tmp/foofs_cache /tmp/barfs -o default_permissions,auto_unmount -d -s
 # More info: https://www.cs.hmc.edu/~geoff/classes/hmc.cs135.201001/homework/fuse/fuse_doc.html#compiling
+echo $?

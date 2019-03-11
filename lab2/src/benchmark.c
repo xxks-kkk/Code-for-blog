@@ -114,8 +114,8 @@ const char *bench_dir;
 char filename[512];
 char filepath[512];
 
-// Round 1: 10^5 4K random writes
-void round1() {
+// Experiment 1: 10^5 4K random writes
+void exp_1() {
   struct timer_t timer;
   printf("[4K random writes]\n");
 
@@ -154,8 +154,8 @@ void round1() {
   printf("\n");
 }
 
-// Round 2: 4KB sequential writes with fsync
-void round2() {
+// Experiment 2: 4KB sequential writes with fsync
+void exp_2() {
   struct timer_t timer;
   printf("[4KB sequential writes with fsync]\n");
 
@@ -191,8 +191,8 @@ void round2() {
   printf("\n");
 }
 
-// Round 3: create 100 4K random files
-void round3() {
+// Experiment 3: create 100 4K random files
+void exp_3() {
   printf("[create 4K random files]\n");
 
   int n_files = 100;
@@ -238,9 +238,9 @@ int main(int argc, char *argv[]) {
   CHECK(argc >= 2, "The first argument should be bench_dir");
   bench_dir = argv[1];
 
-  round1();
-  round2();
-  round3();
+  exp_1();
+  exp_2();
+  exp_3();
 
   return 0;
 }
