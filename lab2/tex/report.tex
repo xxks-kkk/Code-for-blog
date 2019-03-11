@@ -130,7 +130,7 @@ escapeinside={(*@}{@*)},
 \begin{spacing}{1.5}
 \section{Environment} \label{environment}
 
-We have two Linux machines for experiments: \texttt{erode-lom} and \texttt{thoothukudi-lom}. Both of them run Ubuntu 16.04 LTS. \footnote{\texttt{erode-lom} with ip address: \lstinline|192.168.1.120| and \texttt{thoothukudi-lom} with ip address: \texttt{192.168.1.121}. Due to the network setup, those two machines are not properly registered in the department DNS server. We use ip address instead host names to logon these two machines.} Both machines are located in the same rack and connected via Ethernet.
+We have two Linux machines for experiments: \texttt{erode-lom} and \texttt{thoothukudi-lom}. Both of them run Ubuntu 16.04 LTS. \footnote{\texttt{erode-lom} with ip address: \lstinline|192.168.1.120| and \texttt{thoothukudi-lom} with ip address: \texttt{192.168.1.121}. Due to the network setup, those two machines are not properly registered in the department DNS server. We use ip address instead of host names to logon these two machines.} Both machines are located in the same rack and connected via Ethernet.
 
 \section{User-level File System} 
 
@@ -170,15 +170,77 @@ Incomplete file metadata also impacts how we implement the file consistency mech
 
 Some other issue might exist regarding file consistency. For example, we implement the last-writer-wins policy: if a file is updated by the multiple users, the last one who close the file will keep its change to the file on server. However, this might be troublesome. A more sophisticated method is to automatically merge change to the file whenever possible and maintain multiple versions of files on the server with each version associated with its owner. Other versions may not be visible the user and only a specific system command issued will make those versions visible. We also allows a file can be opened multiple times. This is troublesome as later open operations can overwrite changes made by previous file descriptors. One possible fix is to only download copy file from server when there is no local cache copy or implement a copy-on-write mechanism: each open will lead to a unique version of the file and it is up to user to resolve potential conflicts. 
 
-\subsubsection{Comparison vs. NFS}
+\subsection{Evaluation}
 
+In this section, we compare our network file system with NFS under three workloads.
 
+\subsubsection{Experiment Setup}
+
+For our network file system, we use \lstinline|thoothukudi-lom| as client and \lstinline|erode-lom| as server. On the client side, our system is mounted under \lstinline|/tmp/barfs| and the local cache is under \lstinline|/tmp/barfs_cache|. For NFS, to make a fair comparison, we also use memory as storage location for NFS server and we require the NFS to reply requests only after changes have been committed to stable storage (\lstinline|sync|) \cite{exports_man}. Our \lstinline|/etc/exports| looks like below:
+
+\begin{lstlisting}[style=CStyle]
+/tmp/nfs *(rw,sync,no_subtree_check,no_root_squash)
+\end{lstlisting}
+
+On the client side, we mount our NFS client under \lstinline|/home/zeyuanhu/lab2_nfs| as following:
+
+\begin{lstlisting}[style=CStyle]
+sudo mount -t nfs -o sync 192.168.1.120:/tmp/nfs /home/zeyuanhu/lab2_nfs
+\end{lstlisting}
+
+As pointed out earlier, \lstinline|192.168.1.120| refers to \lstinline|thoothukudi-lom|.
+
+\subsubsection{Workloads and Results}
+
+We use three workloads to compare our network file system with NFS. We measure the total amount of time spent on file creation (\texttt{creation}), file open (\texttt{open}), file write (\texttt{write}), and file close (\texttt{close}). The detailed description of workloads and corresponding results follow:
+
+\textbf{1. Random writes.} We create a 100MB file with random bytes in it. Then, we perform $10^5$ 4KB random writes to the created file. Note that by random writes, we mean the offset of the file is chosen randomly when write. The performance of our network file system and NFS is shown in Figure \ref{random_writes}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{random_writes.png} 
+	\caption{Performance of NFS and our network file system under random writes workload}
+	\label{random_writes}
+\end{figure}
+
+As shown in the figure, we observe our networked file system spent more time when open the file (3 seconds vs. almost instant in NFS). This is expected as we download file from remote each time we open a file. In contrast, NFS seems to only create local copy on open when there is no modification to the file yet. There is a dramatic performance difference when come to write. Compared to our network file system, NFS spent around 440 seconds to finish writes. This difference is reasonable as we require NFS to synchronously update the local change with the remote server whereas ours only performs write into local copy. Our network file system also performs well on close due to the synchronization work need to be done by NFS.
+
+\textbf{2. Sequential writes.} In this workload, we first create an empty file. Then we we repeatedly append 4KB data to file (i.e., sequential writes) until the file size reaches 500MB. The performance of two systems is shown in Figure \ref{sequential_writes}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{sequential_writes.png} 
+	\caption{Performance of NFS and our network file system under sequential writes workload}
+	\label{sequential_writes}
+\end{figure}
+
+Since we create an empty file, there is no noticeable difference between NFS and our network file system on \texttt{open}. In addition, since the major performance bottleneck \texttt{release} is called after \texttt{close}, our network file system \texttt{close} is done almost immediately. For NFS close case, since the write is already synchronized to the server, there is no much work need to be done. The major difference between two systems under this workload is the \texttt{write} part. NFS takes much more time finish writing than our networked file system (4880 seconds vs. 4080 seconds). This is because \texttt{fsync} after each write forces NFS to synchronize with the remote server. However, in our system, we only synchronize to the remote on \texttt{close}. This is a tradeoff we play when we design our system: we trade file availability with the performance. Unlike NFS, when \texttt{fsync} is called, our system only synchronizes writes to local disk storage. In other words, without closing file, there is only one copy sitting on the client side. If client is crashed and un-recoverable, the file is gone. However, for NFS, the file is still safe as it already synchronizes with the server. Another motivation for our design of \texttt{fsync} is to reduce conflict in the concurrent writes. we think all the writes before \texttt{close} are "unofficial" and should not become visible to other users by uploading it to the server.
+
+\textbf{3. File creation.} In this workload, we create 100 4KB files. The performance of two systems is shown in Figure \ref{file_creation}. 
+As shown by the figure, our system takes much more timer creating file than NFS does (48 seconds vs. almost 0 seconds). This meets our expectation because of overhead imposed by the remote file downloading. However, NFS will only create files in local cache and synchronize changes at the background.
+When file is closed, NFS will initiate the synchronization to the remote.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{file_creation.png} 
+	\caption{Performance of NFS and our network file system under file creation workload}
+	\label{file_creation}
+\end{figure}
+
+As we can see from workloads, our network file system has performance advantage over NFS when write to the file at the sacrifice of potential file loss.
+However, our network file system performs poorly when \texttt{open} operation is involved as remotely downloading file from server is inevitable.
+
+\subsubsection{vs. NFS}
+
+From the design and actual experiment, our network file system shares great similarities with NFS: both of them are stateless and are designed under the assumption of not many concurrent accesses in a one-server-multiple-clients setting. Both of systems implement last-writer-wins policy.
+
+NFS has advantage in terms of file consistency and expensive remote file downloading is avoided with the help of attibute cache and file cache. Attributes cache periodically checks with remote and ensure the file cache is valid at the best effort (client can still with stale copy if the file is changed during the interval between attribute check). In addition, NFS consistently synchronize local writes to the remote to avoid serious consequence of local client power loss. On the other hand, since we follow the principle of frugality (use the least powerful solution to a given problem) \cite{massalin1989threads}, our network file system can reap some performance gain during read and write. Specifically, we only synchronize local copy with remote on close and work with local cache most of time, we avoid overhead during the basic I/O operations.
 
 \section{System Tools Exercise}
 
 \subsection{strace}
 
-\texttt{script} command allows user to record terminal printout into a file \cite{script_man}. Per the lab instruction, we use \texttt{strace} to trace the syscalls and signals of a target process \cite{strace_man}. In our case, we trace the process involving \texttt{cat}. One thing I notice is that \texttt{script} contains some unicode as shown in Figure \ref{session}. Thus, we use the following code to clean up the output:
+\texttt{script} command allows user to record terminal printout into a file \cite{script_man}. Per the lab instruction, we use \texttt{strace} to trace the syscalls and signals of a target process \cite{strace_man}. In our case, we trace the process involving \texttt{cat}. One thing I notice is that \texttt{script} contains some unicode as shown in Figure \ref{session_processed}. Thus, we use the following code to clean up the output:
 
 \begin{lstlisting}[style=CStyle]
 cat $FILE | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > $FILE-processed
