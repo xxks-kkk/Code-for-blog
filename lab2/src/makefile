@@ -2,7 +2,7 @@ C_COMPILER = gcc
 CFLAGS = -Wall -g -O2 -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -std=c11 -DDEBUG
 MAIN_OUTPUT_FILE = barfs
 BENCHMARK_OUTPUT_FILE = benchmark
-MAIN_SRC_FILES = main.c
+MAIN_SRC_FILES = barfs.c
 BENCHMARK_SRC_FILES = benchmark.c
 LIBS= -lfuse -lssh -pthread
 
