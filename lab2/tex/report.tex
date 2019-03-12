@@ -182,10 +182,10 @@ For our network file system, we use \lstinline|thoothukudi-lom| as client and \l
 /tmp/nfs *(rw,sync,no_subtree_check,no_root_squash)
 \end{lstlisting}
 
-On the client side, we mount our NFS client under \lstinline|/home/zeyuanhu/lab2_nfs| as following:
+On the client side, we mount our NFS client under \lstinline|/tmp/nfs| as following:
 
 \begin{lstlisting}[style=CStyle]
-sudo mount -t nfs -o sync 192.168.1.120:/tmp/nfs /home/zeyuanhu/lab2_nfs
+sudo mount -t nfs -o sync 192.168.1.120:/tmp/nfs /tmp/nfs
 \end{lstlisting}
 
 As pointed out earlier, \lstinline|192.168.1.120| refers to \lstinline|thoothukudi-lom|.
@@ -214,7 +214,7 @@ As shown in the figure, we observe our networked file system spent more time whe
 	\label{sequential_writes}
 \end{figure}
 
-Since we create an empty file, there is no noticeable difference between NFS and our network file system on \texttt{open}. In addition, since the major performance bottleneck \texttt{release} is called after \texttt{close}, our network file system \texttt{close} is done almost immediately. For NFS close case, since the write is already synchronized to the server, there is no much work need to be done. The major difference between two systems under this workload is the \texttt{write} part. NFS takes much more time finish writing than our networked file system (4880 seconds vs. 4080 seconds). This is because \texttt{fsync} after each write forces NFS to synchronize with the remote server. However, in our system, we only synchronize to the remote on \texttt{close}. This is a tradeoff we play when we design our system: we trade file availability with the performance. Unlike NFS, when \texttt{fsync} is called, our system only synchronizes writes to local disk storage. In other words, without closing file, there is only one copy sitting on the client side. If client is crashed and un-recoverable, the file is gone. However, for NFS, the file is still safe as it already synchronizes with the server. Another motivation for our design of \texttt{fsync} is to reduce conflict in the concurrent writes. we think all the writes before \texttt{close} are "unofficial" and should not become visible to other users by uploading it to the server.
+Since we create an empty file, there is no noticeable difference between NFS and our network file system on \texttt{open}. In addition, since the major performance bottleneck \texttt{release} is called after \texttt{close}, our network file system \texttt{close} is done almost immediately. For NFS close case, since the write is already synchronized to the server, there is no much work need to be done. The major difference between two systems under this workload is the \texttt{write} part. NFS takes less time finish writing than our networked file system (4660 seconds vs. 4966 seconds). The major overhead from our network file system is the FUSE framework which cross kernel boundary twice whereas NFS performs actual writes in the kernel space. However, the gap is offset by our design: \texttt{fsync} after each write forces NFS to synchronize with the remote server. However, in our system, we only synchronize to the remote on \texttt{close}. This is a tradeoff we play when we design our system: we trade file availability with the performance. Unlike NFS, when \texttt{fsync} is called, our system only synchronizes writes to local disk storage. In other words, without closing file, there is only one copy sitting on the client side. If client is crashed and un-recoverable, the file is gone. However, for NFS, the file is still safe as it already synchronizes with the server. Another motivation for our design of \texttt{fsync} is to reduce conflict in the concurrent writes. we think all the writes before \texttt{close} are "unofficial" and should not become visible to other users by uploading it to the server.
 
 \textbf{3. File creation.} In this workload, we create 100 4KB files. The performance of two systems is shown in Figure \ref{file_creation}. 
 As shown by the figure, our system takes much more timer creating file than NFS does (48 seconds vs. almost 0 seconds). This meets our expectation because of overhead imposed by the remote file downloading. However, NFS will only create files in local cache and synchronize changes at the background.
