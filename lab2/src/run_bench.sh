@@ -18,8 +18,8 @@ barfs_bench() {
 
 nfs_bench() {
     echo "benchmark NFS"
-    # We assume NFS shared directory is mounted on /home/zeyuanhu/lab2_nfs
-    ./benchmark /home/zeyuanhu/lab2_nfs > ../res/nfs.txt
+    # We assume NFS shared directory is mounted on /tmp/nfs
+    ./benchmark /tmp/nfs > ../res/nfs.txt
 }
 
 if [ $mode = barfs ]; then
