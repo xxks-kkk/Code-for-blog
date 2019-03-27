@@ -1,6 +1,6 @@
-CC = musl-gcc
+CC = gcc
 LOADER_CFLAGS = -static -Wall -Wl,--script=loader.lds
-TEST_PROGS_CFLAGS = -static -O0 -g
+TEST_PROGS_CFLAGS = -static -O0 -g -std=c11
 TEST_PROGS_LDFLAGS = -lpthread
 BENCH_PROGS_CFLAGS = -static -O2
 
@@ -34,6 +34,12 @@ $(LOADER_DEPS): %.o: %.c
 $(LOADERS): % : %.c $(LOADER_DEPS)
 	$(CC) $(LOADER_CFLAGS) -o $@ $^
 
+# '$@' is a [automatic variable](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables), which is
+# the filename of the target of the rule (e.g., test_helloworld). '$^' represents the names of all the prerequisites, with spaces between them.
+# '%' is part of [pattern rules](https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html). '%' matches any nonempty substring, which other
+# characters match only themselves (e.g., '%.c' as a pattern matches any file name that ends in '.c'.
+# The following usage explains: for each target defined in TEST_PROGS, we use '%' to match such target and we use '%.c' to represent the corresponding
+# source file name. For example, test_helloworld is part of TEST_PROGS, '%' matches 'test_helloworld' and '%.c" represents 'test_helloworld.c'
 $(TEST_PROGS): % : %.c
 	$(CC) $(TEST_PROGS_CFLAGS) -o $@ $^ $(TEST_PROGS_LDFLAGS)
 
