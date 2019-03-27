@@ -130,9 +130,41 @@ escapeinside={(*@}{@*)},
 \begin{spacing}{1.5}
 \section{Environment} \label{environment}
 
-We have two Linux machines for experiments: \texttt{erode-lom.csres} and \texttt{thoothukudi-lom.csres}. Both of them run Ubuntu 16.04 LTS. \footnote{\texttt{erode-lom} with ip address: \lstinline|192.168.1.120| and \texttt{thoothukudi-lom} with ip address: \texttt{192.168.1.121}. Due to the network setup, those two machines are not properly registered in the department DNS server. We use ip address instead of host names to logon these two machines.} Both machines are located in the same rack and connected via Ethernet.
+Unless otherwise noted, we use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R) CPU E3-1220 v5 @ 3.00GHz processors and 16GB of memory, and runs Ubuntu 16.04.2 LTS (kernel version 4.11.0).
 
-\section{User-level File System} 
+\section{\texttt{execve} implementation}
+
+To write our own loader program, we first need to understand how \texttt{execve} system call is implemented in Linux kernel \footnote{we study the source code of Linux 4.8.12}. Essentially, \texttt{execve} performs the heavylifting work of loading a program into memory and start the execution of program as a process in Linux. The main logic of \texttt{execve} is implemented in \lstinline|do_execveat_common| in \texttt{fs/exec.c}. Inside \lstinline|do_execveat_common|, we see the critical function call stack looks like below:
+
+\begin{lstlisting}[style=CStyle]
+do_execveat_common
+|- exec_binprm
+   |- search_binary_handler
+       |- load_binary
+\end{lstlisting}
+
+For binary with ELF format, \lstinline|load_elf_binary| is registered with \lstinline|load_binary| in \texttt{fs/binfmt\_elf.c}. Thus, we locate the core function \lstinline|load_elf_binary| to load binary with ELF format in the Linux kernel. Further study of the function reveals that the following critical steps are performed in order to load the program into memory and start execution:
+
+\begin{itemize}
+	\item Read the ELF header and perform some simple consistency checks. For example, the function checks whether the binary file is executable file (\lstinline|ET_EXEC|) or shared object file (\lstinline|ET_DYN|).
+	\item Read the program header table by calling \lstinline|load_elf_phdrs|.
+	\item Walk through the entries of the program header table and perform specific actions based on program header table entry type (e.g., \texttt{p\_type}). Note that \lstinline|e_phnum| holds the number of entries in the program header table. Each entry of the table corresponds to a memory segment in the binary file. Kernel is only interested in three types of program header entries during the walk through of the program header table:
+	\begin{itemize}
+		\item \lstinline|PT_INTERP| entry, which identifies the run-time linker needed to assemble the complete program \cite{oracle_linker}.
+		\item \lstinline|PT_GNU_STACK| entry, which determines whether the program's stack should be executable \cite{lwn}.
+		\item \lstinline|PT_LOPROC ... PT_HIPROC|, which are values reserved for processor-specific semantics \cite{oracle_linker}.
+	\end{itemize}
+	\item Once all the program header table entries have been processed, the function performs some checks based on \lstinline|p_type| value it obtained from the previous step (e.g., check for interpreter, check for specific processor architecture).
+	\item The function now is ready to set up the new program. The very first step is to call \lstinline|flush_old_exec|, which clears up state in the kernel that refers to the previous program. Some minor setups (e.g., set up program's personality \cite{personality_man}) are performed immediately after. 
+	\item \lstinline|setup_new_exec| is called to set up the kernel's internal state for the new program and new credentials for this executable is installed via calling \lstinline|install_exec_creds|.
+	\item \lstinline|setup_arg_pages| is invoked to set up kernel's memory tracking structures (e.g., stack \lstinline|vm_area_struct|). This step is part of the goal to set up virtual memory for the new program.
+	\item The function now traverse the program header table again and look for entries with type \lstinline|PT_LOAD|, which indicates loadable segments (i.e., areas of the new program's running memory). The entries contain code and data sections that come from the executable file and the size of a \texttt{BSS} section. For each \lstinline|PT_LOAD| entry, the function maps it into the process' address space via \lstinline|elf_map| call and sets up the new program's memory layout accordingly.
+	\item \lstinline|set_brk| is invoked to set up zero-filled pages that correspond to the program's BSS \cite{bss} segment.
+	\item \lstinline|create_elf_tables| is called to set up the rest of the new program's stack.
+	\item \lstinline|start_thread| is invoked to start the execution of the new program.
+\end{itemize}
+ 
+We dive into \lstinline|create_elf_tables| a bit more to see how stack is set up. 
 
 \subsection{Implementation}
 
