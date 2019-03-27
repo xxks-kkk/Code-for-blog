@@ -130,11 +130,55 @@ escapeinside={(*@}{@*)},
 \begin{spacing}{1.5}
 \section{Environment} \label{environment}
 
-We have two Linux machines for experiments: \texttt{erode-lom.csres} and \texttt{thoothukudi-lom.csres}. Both of them run Ubuntu 16.04 LTS. \footnote{\texttt{erode-lom} with ip address: \lstinline|192.168.1.120| and \texttt{thoothukudi-lom} with ip address: \texttt{192.168.1.121}. Due to the network setup, those two machines are not properly registered in the department DNS server. We use ip address instead of host names to logon these two machines.} Both machines are located in the same rack and connected via Ethernet.
+Unless otherwise noted, we use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R) CPU E3-1220 v5 @ 3.00GHz processors and 16GB of memory, and runs Ubuntu 16.04.2 LTS (kernel version 4.11.0).
 
-\section{User-level File System} 
+\section{ELF Format}
 
-\subsection{Implementation}
+Executable and Linkable Format (ELF) is a file format for executable, object code, shared libraries, and core dump on UNIX-like systems  \cite{elf_wiki}. ELF format taken from \cite{elf_doc} is shown in Figure \ref{elf_format}. An ELF binary 
+starts with a fixed-length \textit{ELF header}, which holds a ``road map" describing the file's organization (e.g., instruction set architecture, endianness, system ABI, entry point of the program). A \textit{program header table}, if present, tells the system how to create a process image (i.e., execute a program). Each entry of program header table corresponds to a segment in the virtual address space. Part of the segment contents can be loaded from the executable file, which is also defined in the program header table. A \textit{section header table} contains information describing the file's sections (e.g., \texttt{.text}, \texttt{.data}, \texttt{.rodata}, \texttt{.bss}). Some of them will be loaded into virtual address space as part of segments indicated by program header table. Each entry gives information such as section name, the section size, etc. Program header table is required for to-be-run file and optional for relocatable file; section header table is required for file used during linking and optional for others.
+
+There are some special sections we care about in ELF. \texttt{.text} section contains the program's executable instructions; \texttt{.rodata} represents read-only data, such as ASCII string constants produced by the C compiler; \texttt{.data} holds the program's initialized data, such as global variables declared with initializers like \lstinline|int x = 5;|; \texttt{.bss} section holds uninitialized data (e.g., uninitialized global variables such as \texttt{int x};) that contribute to the program?s memory image. \texttt{.bss} immediately follows \texttt{.data} in memory. C requires that ``uninitialized" global variables start with a value of zero. Thus, the system initializes the data with zeros when the program begins to run. The section occupies no file space (linker records just the address and size of the \texttt{.bss} section). The loader or the program itself must arrange to zero the \texttt{.bss} section.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{elf_format.png} 
+	\caption{ELF format. There are two views of ELF binary: linking view and execution view. Linking view is used during the dynamic linking, whereas execution view is needed when load the program into memory for the program to run.}
+	\label{elf_format}
+\end{figure}
+
+\section{\texttt{execve} Implementation}
+
+To write our own loader program, we first need to understand how \texttt{execve} system call is implemented in Linux kernel \footnote{we study the source code of Linux 4.8.12}. Essentially, \texttt{execve} performs the heavylifting work of loading a program into memory and start the execution of program as a process in Linux. The main logic of \texttt{execve} is implemented in \lstinline|do_execveat_common| in \texttt{fs/exec.c}. Inside \lstinline|do_execveat_common|, we see the critical function call stack looks like below:
+
+\begin{lstlisting}[style=CStyle]
+do_execveat_common
+|- exec_binprm
+   |- search_binary_handler
+      |- load_binary
+\end{lstlisting}
+
+For binary with ELF format, \lstinline|load_elf_binary| is registered with \lstinline|load_binary| in \texttt{fs/binfmt\_elf.c}. Thus, we locate the core function \lstinline|load_elf_binary|, which is responsible to load binary with ELF format in the Linux kernel. Further study of the function reveals that the following critical steps are performed in order to load the program into memory and start execution:
+
+\begin{itemize}
+	\item Read the ELF header and perform some simple consistency checks. For example, the function checks whether the binary file is executable file (\lstinline|ET_EXEC|) or shared object file (\lstinline|ET_DYN|).
+	\item Read the program header table by calling \lstinline|load_elf_phdrs|.
+	\item Walk through the entries of the program header table and perform specific actions based on program header table entry type (e.g., \texttt{p\_type}). Note that \lstinline|e_phnum| holds the number of entries in the program header table. Each entry of the table corresponds to a memory segment in the binary file. Kernel is only interested in three types of program header entries during the walk through of the program header table:
+	\begin{itemize}
+		\item \lstinline|PT_INTERP| entry, which identifies the run-time linker needed to assemble the complete program \cite{oracle_linker}.
+		\item \lstinline|PT_GNU_STACK| entry, which determines whether the program's stack should be executable \cite{lwn}.
+		\item \lstinline|PT_LOPROC ... PT_HIPROC|, which are values reserved for processor-specific semantics \cite{oracle_linker}.
+	\end{itemize}
+	\item Once all the program header table entries have been processed, the function performs some checks based on \lstinline|p_type| value it obtained from the previous step (e.g., check for interpreter, check for specific processor architecture).
+	\item The function now is ready to set up the new program. The very first step is to call \lstinline|flush_old_exec|, which clears up state in the kernel that refers to the previous program. Some minor setups (e.g., set up program's personality \cite{personality_man}) are performed immediately after. 
+	\item \lstinline|setup_new_exec| is called to set up the kernel's internal state for the new program and new credentials for this executable is installed via calling \lstinline|install_exec_creds|.
+	\item \lstinline|setup_arg_pages| is invoked to set up kernel's memory tracking structures (e.g., stack \lstinline|vm_area_struct|). This step is part of the goal to set up virtual memory for the new program.
+	\item The function now traverse the program header table again and look for entries with type \lstinline|PT_LOAD|, which indicates loadable segments (i.e., areas of the new program's running memory). The entries contain code and data sections that come from the executable file and the size of a \texttt{BSS} section. For each \lstinline|PT_LOAD| entry, the function maps it into the process' address space via \lstinline|elf_map| call and sets up the new program's memory layout accordingly.
+	\item \lstinline|set_brk| is invoked to set up zero-filled pages that correspond to the program's BSS \cite{bss} segment.
+	\item \lstinline|create_elf_tables| is called to set up the rest of the new program's stack. Basically, the function puts \texttt{argc}, \texttt{argv}, \texttt{envp}, and auxiliary vectors. LWN article \cite{lwn} provides an illustration of the content of the stack set up by the kernel. In addition, Figure 3.11 of System V ABI for \lstinline|x86_64| manual \cite{abi} provides what initial process stack looks like.
+	\item \lstinline|start_thread| is invoked to start the execution of the new program.
+\end{itemize}
+ 
+\section{User-space Loader}
 
 We leverage \texttt{libfuse} and \texttt{libssh} to implement a network file system. Filesystem in Userspace (FUSE) is a user-space file system framework.  FUSE consists of a Linux kernel module and a user-level daemon. When a user application performs operations on a mounted FUSE file system, the operation will be routed to FUSE's kernel driver by VFS. The operations as requests will be maintained by a queue and user-level daemon will pick a request from the kernel queue and process the request. Daemon will write response back to kernel once it is done with processing.  More information about FUSE can be seen in \cite{vangoor2017fuse}.
 
@@ -194,14 +238,8 @@ As pointed out earlier, \lstinline|192.168.1.120| refers to \lstinline|thoothuku
 
 We use three workloads to compare our network file system with NFS. We measure the total amount of time spent on file creation (\texttt{creation}), file open (\texttt{open}), file write (\texttt{write}), and file close (\texttt{close}). The detailed description of workloads and corresponding results follow:
 
-\textbf{1. Random writes.} We create a 100MB file with random bytes in it. Then, we perform $10^5$ 4KB random writes to the created file. Note that by random writes, we mean the offset of the file is chosen randomly when write. The performance of our network file system and NFS is shown in Figure \ref{random_writes}.
+\textbf{1. Random writes.} We create a 100MB file with random bytes in it. Then, we perform $10^5$ 4KB random writes to the created file. Note that by random writes, we mean the offset of the file is chosen randomly when write. The performance of our network file system and NFS is shown in Figure
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.6]{random_writes.png} 
-	\caption{Performance of NFS and our network file system under random writes workload}
-	\label{random_writes}
-\end{figure}
 
 As shown in the figure, we observe our networked file system spent more time when open the file (3 seconds vs. almost instant in NFS). This is expected as we download file from remote each time we open a file. In contrast, NFS seems to only create local copy on open when there is no modification to the file yet. There is a dramatic performance difference when come to write. Compared to our network file system, NFS spent around 440 seconds to finish writes. This difference is reasonable as we require NFS to synchronously update the local change with the remote server whereas ours only performs write into local copy. Our network file system also performs well on close due to the synchronization work need to be done by NFS.
 
