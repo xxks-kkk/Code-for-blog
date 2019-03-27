@@ -132,6 +132,11 @@ escapeinside={(*@}{@*)},
 
 Unless otherwise noted, we use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R) CPU E3-1220 v5 @ 3.00GHz processors and 16GB of memory, and runs Ubuntu 16.04.2 LTS (kernel version 4.11.0).
 
+\section{ELF format}
+
+
+
+
 \section{\texttt{execve} implementation}
 
 To write our own loader program, we first need to understand how \texttt{execve} system call is implemented in Linux kernel \footnote{we study the source code of Linux 4.8.12}. Essentially, \texttt{execve} performs the heavylifting work of loading a program into memory and start the execution of program as a process in Linux. The main logic of \texttt{execve} is implemented in \lstinline|do_execveat_common| in \texttt{fs/exec.c}. Inside \lstinline|do_execveat_common|, we see the critical function call stack looks like below:
@@ -160,13 +165,11 @@ For binary with ELF format, \lstinline|load_elf_binary| is registered with \lsti
 	\item \lstinline|setup_arg_pages| is invoked to set up kernel's memory tracking structures (e.g., stack \lstinline|vm_area_struct|). This step is part of the goal to set up virtual memory for the new program.
 	\item The function now traverse the program header table again and look for entries with type \lstinline|PT_LOAD|, which indicates loadable segments (i.e., areas of the new program's running memory). The entries contain code and data sections that come from the executable file and the size of a \texttt{BSS} section. For each \lstinline|PT_LOAD| entry, the function maps it into the process' address space via \lstinline|elf_map| call and sets up the new program's memory layout accordingly.
 	\item \lstinline|set_brk| is invoked to set up zero-filled pages that correspond to the program's BSS \cite{bss} segment.
-	\item \lstinline|create_elf_tables| is called to set up the rest of the new program's stack.
+	\item \lstinline|create_elf_tables| is called to set up the rest of the new program's stack. Basically, the function puts \texttt{argc}, \texttt{argv}, \texttt{envp}, and auxiliary vectors. LWN article \cite{lwn} provides an illustration of the content of the stack set up by the kernel. In addition, Figure 3.11 of System V ABI for \lstinline|x86_64| manual \cite{abi} provides what initial process stack looks like.
 	\item \lstinline|start_thread| is invoked to start the execution of the new program.
 \end{itemize}
  
-We dive into \lstinline|create_elf_tables| a bit more to see how stack is set up. 
-
-\subsection{Implementation}
+\section{User-space Loader}
 
 We leverage \texttt{libfuse} and \texttt{libssh} to implement a network file system. Filesystem in Userspace (FUSE) is a user-space file system framework.  FUSE consists of a Linux kernel module and a user-level daemon. When a user application performs operations on a mounted FUSE file system, the operation will be routed to FUSE's kernel driver by VFS. The operations as requests will be maintained by a queue and user-level daemon will pick a request from the kernel queue and process the request. Daemon will write response back to kernel once it is done with processing.  More information about FUSE can be seen in \cite{vangoor2017fuse}.
 
