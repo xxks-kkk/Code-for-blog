@@ -1,8 +1,8 @@
 CC = gcc
-LOADER_CFLAGS = -static -Wall -Wl,--script=loader.lds
-TEST_PROGS_CFLAGS = -static -O0 -g -std=c11
+LOADER_CFLAGS = -static -Wall -Wl,--script=linker.lds -std=gnu11
+TEST_PROGS_CFLAGS = -static -O0 -g -std=gnu11
 TEST_PROGS_LDFLAGS = -lpthread
-BENCH_PROGS_CFLAGS = -static -O2
+BENCH_PROGS_CFLAGS = -static -O2 -std=gnu11
 
 LOADER_DEPS = alloc.o elf.o stack.o
 LOADERS = apager dpager hpager
