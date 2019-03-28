@@ -132,9 +132,9 @@ escapeinside={(*@}{@*)},
 
 Unless otherwise noted, we use a Linux server for all the experiments. The server has 4 Intel(R) Xeon(R) CPU E3-1220 v5 @ 3.00GHz processors and 16GB of memory, and runs Ubuntu 16.04.2 LTS (kernel version 4.11.0).
 
-\section{ELF Format}
+\section{ELF}
 
-Executable and Linkable Format (ELF) is a file format for executable, object code, shared libraries, and core dump on UNIX-like systems  \cite{elf_wiki}. ELF format taken from \cite{elf_doc} is shown in Figure \ref{elf_format}. An ELF binary 
+Executable and Linkable Format (ELF) is a file format for executable, object code, shared libraries, and core dump on UNIX-like systems  \cite{elf_wiki}. ELF format is shown in Figure \ref{elf_format}, which is taken from \cite{elf_doc}. An ELF binary 
 starts with a fixed-length \textit{ELF header}, which holds a ``road map" describing the file's organization (e.g., instruction set architecture, endianness, system ABI, entry point of the program). A \textit{program header table}, if present, tells the system how to create a process image (i.e., execute a program). Each entry of program header table corresponds to a segment in the virtual address space. Part of the segment contents can be loaded from the executable file, which is also defined in the program header table. A \textit{section header table} contains information describing the file's sections (e.g., \texttt{.text}, \texttt{.data}, \texttt{.rodata}, \texttt{.bss}). Some of them will be loaded into virtual address space as part of segments indicated by program header table. Each entry gives information such as section name, the section size, etc. Program header table is required for to-be-run file and optional for relocatable file; section header table is required for file used during linking and optional for others.
 
 There are some special sections we care about in ELF. \texttt{.text} section contains the program's executable instructions; \texttt{.rodata} represents read-only data, such as ASCII string constants produced by the C compiler; \texttt{.data} holds the program's initialized data, such as global variables declared with initializers like \lstinline|int x = 5;|; \texttt{.bss} section holds uninitialized data (e.g., uninitialized global variables such as \texttt{int x};) that contribute to the program?s memory image. \texttt{.bss} immediately follows \texttt{.data} in memory. C requires that ``uninitialized" global variables start with a value of zero. Thus, the system initializes the data with zeros when the program begins to run. The section occupies no file space (linker records just the address and size of the \texttt{.bss} section). The loader or the program itself must arrange to zero the \texttt{.bss} section.
@@ -144,6 +144,28 @@ There are some special sections we care about in ELF. \texttt{.text} section con
 	\includegraphics[scale=0.6]{elf_format.png} 
 	\caption{ELF format. There are two views of ELF binary: linking view and execution view. Linking view is used during the dynamic linking, whereas execution view is needed when load the program into memory for the program to run.}
 	\label{elf_format}
+\end{figure}
+
+To gather better sense of ELF, we write a simple ``Hello World" program (\lstinline|test_helloworld.c|) shown below to study its ELF content.
+
+\begin{lstlisting}[style=CStyle]
+#include <stdio.h>
+
+int main() {
+  printf("Hello world.\n");
+  return 0;
+}
+\end{lstlisting}
+
+We compile the program via \lstinline|gcc -static -O0 -g -std=c11 -o test_helloworld test_helloworld.c -lpthread| and then inspect its ELF content via \lstinline|readelf -l test_helloworld|. The printout of the \texttt{readelf} is shown in Figure \ref{helloworld_elf}. We see there are six segments with five kinds of \lstinline|p_type|: \lstinline|PT_LOAD|, \lstinline|PT_NOTE|, \lstinline|PT_TLS|, \lstinline|PT_GNU_STACK|, and \lstinline|PT_GNU_RELRO|. \lstinline|PT_LOAD| indicates loadable segments; \lstinline|PT_NOTE| specifies the location and size of auxiliary information; \lstinline|PT_TLS| specifies the thread-local storage template \cite{program_header}. \lstinline|PT_GNU_STACK| and \lstinline|PT_GNU_RELRO| are linux-specific \lstinline|p_type| values \cite{lsb}: \lstinline|PT_GNU_STACK| indicates whether stack is executable and \lstinline|PT_GNU_RELRO| specifies the location and size of a segment which may be made read-only after relocation shave been processed. As we will see in the following section, linux \texttt{execve} implementation mainly concerns about program header table entry with type \lstinline|PT_LOAD|.
+
+\lstinline|readelf -l| also gives section to segment mapping. As we can see, multiple sections can be contained within the same segment. For example, the first segment contains sections like \texttt{.init} (contains the process initialization code, which is executed before calling the main program entry point), \texttt{.text}, \texttt{.rodata} and the second segment contains sections like \texttt{.data}, \texttt{.bss}. Note the second segment also contains \lstinline|.init_array| and \lstinline|.fini_array|, which are pointers to functions that will be executed when program starts and ends respectively \cite{acron}. In addition, we see the memory layout starts from address \texttt{0x400000}, which is configured by linker. We need to change this address in some way for our loader program.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{helloworld_elf.png} 
+	\caption{\texttt{readelf -l} printout of the \texttt{test\_helloworld} executable.}
+	\label{helloworld_elf}
 \end{figure}
 
 \section{\texttt{execve} Implementation}
