@@ -3,7 +3,9 @@
 import os
 import subprocess as sp
 
-output_dir = 'results'
+output_dir = '../res'
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 run_times = 10
 
 bench_progs = ['bench_seq', 'bench_matrix', 'bench_revseq', 'bench_revmatrix', 'bench_random']
