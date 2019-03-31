@@ -39,10 +39,12 @@ int main(int argc, char **argv) {
       size_t length = (size_t)segment->p_memsz;
       size_t filesz = (size_t)segment->p_filesz;
       size_t offset = (size_t)segment->p_offset;
+      LOG("init: length = 0x%zx, filesz = 0x%zx, offset = 0x%zx", length,
+          filesz, offset);
       length += align_delta;
       filesz += align_delta;
       CHECK(offset >= align_delta, "Invalid ph_align");
-      offset -= align_delta;
+      offset -= align_delta; // ?
       LOG("length = 0x%zx, filesz = 0x%zx, offset = 0x%zx", length, filesz,
           offset);
       CHECK(aligned_vaddr + length <= LOADER_START_ADDRESS,
@@ -53,7 +55,8 @@ int main(int argc, char **argv) {
       int flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED;
       CHECK(mmap(addr, length, PROT_WRITE, flags, -1, 0) == addr,
             "mmap failed: %s", strerror(errno));
-      memcpy(addr, elf_file->content + offset, filesz);
+      CHECK(memcpy(addr, elf_file->content + offset, filesz) == addr,
+            "Memcpy failed\n");
       CHECK(mprotect(addr, length, prot) == 0, "mprotect failed");
     }
   }
