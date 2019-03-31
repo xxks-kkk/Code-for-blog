@@ -1,5 +1,5 @@
 #include "common.h"
-#include "elf.h"
+#include "elf_file.h"
 #include "stack.h"
 
 #include <errno.h>
@@ -21,24 +21,24 @@ int main(int argc, char **argv) {
   struct elf_file_t *elf_file = elf_read(argv[1]);
   CHECK(elf_file != NULL, "elf_read failed");
 
-  for (int i = 0; i < elf_file->n_program_headers; i++) {
-    struct elf_program_header_t *segment = elf_file->program_headers + i;
+  for (int i = 0; i < elf_file->file_header->e_phnum; i++) {
+    Elf64_Phdr *segment = elf_file->program_header_table + i;
 
-    CHECK(segment->type != PT_DYNAMIC && segment->type != PT_INTERP,
+    CHECK(segment->p_type != PT_DYNAMIC && segment->p_type != PT_INTERP,
           "No support for dynamic loading");
 
-    if (segment->type == PT_LOAD) {
-      size_t vaddr = (size_t)segment->vaddr;
-      size_t align = (size_t)segment->align;
+    if (segment->p_type == PT_LOAD) {
+      size_t vaddr = (size_t)segment->p_vaddr;
+      size_t align = (size_t)segment->p_align;
       CHECK(align % page_size == 0, "align should be multiple of page size");
       size_t aligned_vaddr = vaddr & ~(align - 1);
       size_t align_delta = vaddr - aligned_vaddr;
       LOG("vaddr = 0x%zx, align = 0x%zx, aligned_vaddr = 0x%zx", vaddr, align,
           aligned_vaddr);
 
-      size_t length = (size_t)segment->memsz;
-      size_t filesz = (size_t)segment->filesz;
-      size_t offset = (size_t)segment->offset;
+      size_t length = (size_t)segment->p_memsz;
+      size_t filesz = (size_t)segment->p_filesz;
+      size_t offset = (size_t)segment->p_offset;
       length += align_delta;
       filesz += align_delta;
       CHECK(offset >= align_delta, "Invalid ph_align");
@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
             "Overlapped with loader segments");
 
       void *addr = (void *)aligned_vaddr;
-      int prot = ph_flags_to_prot(segment->flags);
+      int prot = ph_flags_to_prot(segment->p_flags);
       int flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED;
       CHECK(mmap(addr, length, PROT_WRITE, flags, -1, 0) == addr,
             "mmap failed: %s", strerror(errno));
@@ -60,10 +60,10 @@ int main(int argc, char **argv) {
 
   size_t stack_size = DEFAULT_STACK_SIZE;
   uint8_t *ptr = mmap(NULL, stack_size, PROT_READ | PROT_WRITE,
-                      MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+                      MAP_PRIVATE | MAP_ANONYMOUS | MAP_GROWSDOWN, -1, 0);
   CHECK(ptr != MAP_FAILED, "mmap failed");
   void *rsp = build_stack(ptr + stack_size, elf_file, argc - 1, argv + 1);
-  void *entry = (void *)elf_file->file_header->entry;
+  void *entry = (void *)elf_file->file_header->e_entry;
   go(entry, rsp);
 
   return 0;
