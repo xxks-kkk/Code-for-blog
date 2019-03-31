@@ -4,7 +4,7 @@ TEST_PROGS_CFLAGS = -static -O0 -g -std=gnu11
 TEST_PROGS_LDFLAGS = -lpthread
 BENCH_PROGS_CFLAGS = -static -O2 -std=gnu11
 
-LOADER_DEPS = alloc.o elf.o stack.o
+LOADER_DEPS = alloc.o elf_file.o stack.o
 LOADERS = apager dpager hpager
 TEST_PROGS = test_helloworld \
 	test_args_env \
@@ -12,19 +12,22 @@ TEST_PROGS = test_helloworld \
 	test_malloc \
 	test_time \
 	test_pthread \
-	test_helloworld_memory_map
+	test_helloworld_memory_map \
 BENCH_PROGS = bench_seq \
 	bench_revseq \
 	bench_matrix \
 	bench_revmatrix \
 	bench_random
+ELF_TEST_DEPS = alloc.o elf_file.o
+ELF_TEST = elf_test
 
-all: release test bench
+all: release test bench elf_test
 
 release: $(LOADERS)
 debug: $(LOADERS)
 test: $(TEST_PROGS)
 bench: $(BENCH_PROGS)
+elf_test: $(ELF_TEST)
 
 release: LOADER_CFLAGS += -O2
 debug: LOADER_CFLAGS += -DPRINT_LOG -g
@@ -47,5 +50,11 @@ $(TEST_PROGS): % : %.c
 $(BENCH_PROGS): % : %.c
 	$(CC) $(BENCH_PROGS_CFLAGS) -o $@ $^
 
+$(ELF_TEST_DEPS): %.o: %.c
+	$(CC) $(TEST_PROGS_CFLAGS) -o $@ -c $<
+
+$(ELF_TEST): % : %.c $(ELF_TEST_DEPS)
+	$(CC) $(TEST_PROGS_CFLAGS) -o $@ $^ $(TEST_PROGS_LDFLAGS)
+
 clean:
-	rm -f *.o $(LOADERS) $(TEST_PROGS) $(BENCH_PROGS)
+	rm -f *.o $(LOADERS) $(TEST_PROGS) $(BENCH_PROGS) $(ELF_TEST)
