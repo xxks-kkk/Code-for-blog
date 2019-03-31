@@ -41,10 +41,10 @@ struct elf_file_t *elf_read(const char *filepath) {
   CHECK(elf_file->file_header->e_shentsize == 0x40, "Invalid ELF file");
 
   void *ph_addr = elf_file->content + elf_file->file_header->e_phoff;
-  elf_file->program_header = (Elf64_Phdr *)ph_addr;
+  elf_file->program_header_table = (Elf64_Phdr *)ph_addr;
 
   void *sh_addr = elf_file->content + elf_file->file_header->e_shoff;
-  elf_file->section_header = (Elf64_Shdr *)sh_addr;
+  elf_file->section_header_table = (Elf64_Shdr *)sh_addr;
 
   return elf_file;
 }
