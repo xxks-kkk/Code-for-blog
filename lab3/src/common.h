@@ -26,6 +26,6 @@
   } while (0)
 
 #define LOADER_START_ADDRESS 0x7f400000
-#define DEFAULT_STACK_SIZE 8388608
+#define DEFAULT_STACK_SIZE 81920
 
 #endif // COMMON_H

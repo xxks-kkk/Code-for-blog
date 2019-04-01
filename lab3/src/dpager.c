@@ -66,9 +66,9 @@ void sigsegv_handler(int sig, siginfo_t *info, void *ucontext) {
 }
 
 void __attribute__((noinline)) go(void *entry, void *rsp) {
-  asm("movq $0, %rdx;"
-      "movq %rsi, %rsp;"
-      "jmp *%rdi;");
+  __asm__("movq $0, %rdx;"
+          "movq %rsi, %rsp;"
+          "jmp *%rdi;");
 }
 
 int main(int argc, char **argv) {
