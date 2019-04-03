@@ -1,3 +1,3 @@
-real: 2.304 s (std 0.021)
-user: 1.683 s (std 0.065)
-sys: 0.615 s (std 0.061)
+real: 2.306 s (std 0.017)
+user: 1.704 s (std 0.018)
+sys: 0.594 s (std 0.019)
