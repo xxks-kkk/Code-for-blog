@@ -23,6 +23,7 @@ struct elf_file_t *elf_read(const char *filepath) {
   CHECK(fread(elf_file->content, length, 1, fp) == 1, "fread failed");
   CHECK(fclose(fp) == 0, "fclose failed");
 
+  elf_file->file = filepath;
   elf_file->file_header = (Elf64_Ehdr *)elf_file->content;
 
   CHECK(elf_file->file_header->e_ident[EI_MAG0] == 0x7f, "Invalid ELF file");

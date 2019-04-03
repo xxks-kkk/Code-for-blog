@@ -28,4 +28,8 @@
 #define LOADER_START_ADDRESS 0x7f400000
 #define DEFAULT_STACK_SIZE 81920
 
+#define PAGE_START(x, a) ((x) & ~((a)-1))
+#define PAGE_ALIGN(x, a) (((x) + (a)-1) & ~((a)-1))
+#define PAGE_OFFSET(x, a) (x & (a - 1))
+
 #endif // COMMON_H

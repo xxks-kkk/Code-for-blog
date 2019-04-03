@@ -7,6 +7,7 @@
 #include <sys/mman.h>
 
 struct elf_file_t {
+  char *file;
   uint8_t *content;
   Elf64_Ehdr *file_header;
   Elf64_Phdr *program_header_table;

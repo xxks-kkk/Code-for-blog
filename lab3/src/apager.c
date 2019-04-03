@@ -3,9 +3,12 @@
 #include "stack.h"
 
 #include <errno.h>
+#include <fcntl.h>
 #include <stdint.h>
 #include <string.h>
 #include <sys/mman.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <unistd.h>
 
 void __attribute__((noinline)) go(void *entry, void *rsp) {
@@ -20,8 +23,12 @@ int main(int argc, char **argv) {
   size_t page_size = sysconf(_SC_PAGESIZE);
   struct elf_file_t *elf_file = elf_read(argv[1]);
   CHECK(elf_file != NULL, "elf_read failed");
+  int fd = open(elf_file->file, O_RDONLY);
+  LOG("executable: %s\n", elf_file->file);
+  CHECK(fd > 0, "Open file: %s failed\n", elf_file->file);
 
   for (int i = 0; i < elf_file->file_header->e_phnum; i++) {
+    LOG("iteration: %d\n", i);
     Elf64_Phdr *segment = elf_file->program_header_table + i;
 
     CHECK(segment->p_type != PT_DYNAMIC && segment->p_type != PT_INTERP,
@@ -30,34 +37,41 @@ int main(int argc, char **argv) {
     if (segment->p_type == PT_LOAD) {
       size_t vaddr = (size_t)segment->p_vaddr;
       size_t align = (size_t)segment->p_align;
-      CHECK(align % page_size == 0, "align should be multiple of page size");
-      size_t aligned_vaddr = vaddr & ~(align - 1);
-      size_t align_delta = vaddr - aligned_vaddr;
-      LOG("vaddr = 0x%zx, align = 0x%zx, aligned_vaddr = 0x%zx", vaddr, align,
-          aligned_vaddr);
-
-      size_t length = (size_t)segment->p_memsz;
+      size_t memsz = (size_t)segment->p_memsz;
       size_t filesz = (size_t)segment->p_filesz;
       size_t offset = (size_t)segment->p_offset;
-      LOG("init: length = 0x%zx, filesz = 0x%zx, offset = 0x%zx", length,
-          filesz, offset);
-      length += align_delta;
-      filesz += align_delta;
-      CHECK(offset >= align_delta, "Invalid ph_align");
-      offset -= align_delta; // ?
-      LOG("length = 0x%zx, filesz = 0x%zx, offset = 0x%zx", length, filesz,
-          offset);
-      CHECK(aligned_vaddr + length <= LOADER_START_ADDRESS,
+
+      CHECK(align % page_size == 0, "align should be multiple of page size");
+      LOG("vaddr = 0x%zx, align = 0x%zx, memsz = 0x%zx, "
+          "filesz = 0x%zx, offset = 0x%zx",
+          vaddr, align, memsz, filesz, offset);
+
+      size_t size = filesz + PAGE_OFFSET(vaddr, page_size);
+      size_t off = offset - PAGE_OFFSET(vaddr, page_size);
+      size = PAGE_ALIGN(size, page_size);
+      size_t addr = PAGE_START(vaddr, page_size);
+      CHECK(addr % page_size == 0, "addr should be multiple of page size");
+      CHECK(addr + memsz <= LOADER_START_ADDRESS,
             "Overlapped with loader segments");
 
-      void *addr = (void *)aligned_vaddr;
       int prot = ph_flags_to_prot(segment->p_flags);
-      int flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED;
-      CHECK(mmap(addr, length, PROT_WRITE, flags, -1, 0) == addr,
-            "mmap failed: %s", strerror(errno));
-      CHECK(memcpy(addr, elf_file->content + offset, filesz) == addr,
-            "Memcpy failed\n");
-      CHECK(mprotect(addr, length, prot) == 0, "mprotect failed");
+      int flags;
+      if (filesz != 0) {
+        flags = MAP_PRIVATE | MAP_FIXED;
+        CHECK(mmap((void *)addr, size, PROT_EXEC | PROT_READ, flags, fd, off) ==
+                  (void *)addr,
+              "mmap failed: %s", strerror(errno));
+        CHECK(mprotect((void *)addr, size, prot) == 0, "mprotect failed");
+      }
+
+      if (memsz > filesz) {
+        size_t diff =
+            PAGE_ALIGN(memsz, page_size) - PAGE_ALIGN(filesz, page_size);
+        flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED;
+        CHECK(mmap((void *)addr + size, diff, PROT_WRITE, flags, -1, 0) ==
+                  (void *)addr + size,
+              "mmap failed: %d, %s", errno, strerror(errno));
+      }
     }
   }
 

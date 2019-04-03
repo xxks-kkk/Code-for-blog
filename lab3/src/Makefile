@@ -12,7 +12,8 @@ TEST_PROGS = test_helloworld \
 	test_malloc \
 	test_time \
 	test_pthread \
-	test_helloworld_memory_map
+	test_helloworld_memory_map \
+	test_error
 BENCH_PROGS = bench_seq \
 	bench_revseq \
 	bench_matrix \
