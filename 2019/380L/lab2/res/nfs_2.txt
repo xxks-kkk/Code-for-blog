@@ -1,0 +1,16 @@
+[4K random writes]
+creation: 3.055084 s
+open: 0.000362 s
+write: 440.225266 s
+close: 23.137404 s
+
+[4KB sequential writes with fsync]
+open: 0.000684 s
+write: 4879.614879 s
+close: 0.000331 s
+
+[create 4K random files]
+creat: 0.077777 s
+write: 0.001312 s
+close: 3.623888 s
+

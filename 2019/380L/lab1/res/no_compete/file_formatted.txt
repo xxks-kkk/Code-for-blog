@@ -1,0 +1,7 @@
+                 [private, seq]             [private,rand]             [share, seq]               [share, rand]
+maxrss  (init)   17540.800 (std 17.046) KB  17545.600 (std 18.693) KB  17550.400 (std 23.269) KB  17516.800 (std 15.052) KB
+inblock (init)   0.000 (std 0.000)          0.000 (std 0.000)          0.000 (std 0.000)          0.000 (std 0.000)
+oublock (init)   0.000 (std 0.000)          0.000 (std 0.000)          0.000 (std 0.000)          0.000 (std 0.000)
+maxrss  (fun)    16658.400 (std 45.789) KB  16816.000 (std 52.642) KB  16630.400 (std 45.438) KB  16839.200 (std 19.823) KB
+inblock (fun)    0.000 (std 0.000)          0.000 (std 0.000)          0.000 (std 0.000)          0.000 (std 0.000)
+oublock (fun)    0.000 (std 0.000)          0.000 (std 0.000)          6566.400 (std 13132.800)   6566.400 (std 13132.800)

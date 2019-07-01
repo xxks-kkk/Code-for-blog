@@ -1,0 +1,31 @@
+[Before do_mem_access]
+utime = 0.011 (std 0.002) s
+stime = 0.003 (std 0.002) s
+maxrss = 17525.600 (std 23.542) KB
+minflt = 4156.800 (std 1.327)
+majflt = 0.000 (std 0.000)
+inblock = 0.000 (std 0.000)
+oublock = 0.000 (std 0.000)
+[After do_mem_access]
+utime = 4.839 (std 0.005) s
+stime = 0.011 (std 0.002) s
+maxrss = 34269.600 (std 44.871) KB
+minflt = 11493.400 (std 1.020)
+majflt = 0.000 (std 0.000)
+inblock = 0.000 (std 0.000)
+oublock = 0.000 (std 0.000)
+[Delta]
+utime = 4.827 (std 0.003) s
+stime = 0.008 (std 0.001) s
+minflt = 7336.600 (std 0.490)
+majflt = 0.000 (std 0.000)
+inblock = 0.000 (std 0.000)
+oublock = 0.000 (std 0.000)
+maxrss = 16744.000 (std 41.800)
+[Performance counters]
+Data L1 read access: 7521442554.200 (std 142.106)
+Data L1 write access: 1077936131.000 (std 0.000)
+Data L1 read miss: 826536782.800 (std 393229.625)
+Data L1 read miss rate: 0.110 (std 0.000)
+Data TLB read miss: 1551880.800 (std 1346.083)
+Data TLB write miss: 737437.800 (std 736.102)
