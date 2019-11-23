@@ -1,7 +1,6 @@
 package token
 
 type TokenType string
-type TokenLiteral string
 
 const (
 	ILLEGAL = "ILLEGAL"
@@ -31,5 +30,5 @@ const (
 
 type Token struct {
 	Type    TokenType
-	Literal TokenLiteral
+	Literal string
 }
