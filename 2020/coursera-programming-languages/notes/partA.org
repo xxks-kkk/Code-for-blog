@@ -1,3 +1,67 @@
 * Part A
 
+Notes of [[https://www.coursera.org/learn/programming-languages/home/welcome][Programming Languages,Part A]].
 
+** Work with SML in Emacs
+
+- To create the =*sml*= buffer (which holds the REPL), type ~C-c C-s~
+  (and then Return/Enter) in the buffer with the ~.sml~ file. (Note:
+  This will not work in the =*scratch*= buffer that Emacs starts in
+  because this buffer is not in SML Mode.)
+
+- Keep the ~.sml~ file(s) you are working with for a particular
+  assignment in the same folder. When you type ~C-c C-s~ to start the
+  REPL from a buffer for ~foo.sml~, the REPL will look in the right
+  folder for ~foo.sml~ when you type ~use "foo.sml";~ and will look in
+  the same folder for any other file you use such as
+  ~foo_tests.sml~. This is less confusing than trying to keep track of
+  different folders and paths while using the REPL although that is
+  possible.
+
+- To end and restart a REPL session, type ~C-d~ (to end it) and ~C-c
+  C-s~ (and then Return/Enter) (to restart it). You must type ~C-d~
+  while in the =*sml*= buffer; you can type ~C-c C-s~ from the =*sml*=
+  buffer or a buffer with a .sml file.
+
+- By ending and restarting a session, the new session has an empty
+  environment. Your earlier interactions are still in the =*sml*=
+  buffer, so you can save them, cut-paste them, etc., but they have no
+  effect on the evaluation in the restarted REPL session.
+
+- Evaluation can go into an infinite loop. ~C-c C-c~ will interrupt
+  evaluation and get you your prompt back.
+
+- Two keyboard commands are particularly useful in the REPL: ~M-p~ will
+  print the previous line you used in the REPL, which you can then run
+  again or edit before running. Repeating ~M-p~ will cycle through
+  previous REPL lines, allowing you to bring back up any of your
+  previous REPL expressions. The ~p~ stands for previous. ~M-n~
+  (repeatedly) does the same thing in the opposite direction, with the
+  ~n~ standing for next.
+
+- In each REPL session, follow this pattern:
+
+  1. First type ~use "foo.sml";~ for any SML files you want to use.
+  2. Then use the REPL manually as long as you wish.
+  3. After using the REPL to test something, do /not/ use ~use~ to load (or reload) any more files.
+  4. When tempted to violate the previous point, end and restart your REPL session before continuing.
+
+  The reason for not ~use~ to load more files is that ~use"foo.sml";~
+  has a very simple semantics: it adds the ML bindings in the file to
+  the environment in order. These may or may not shadow ML bindings
+  from the last time you typed ~use "foo.sml";~ depending on how
+  ~foo.sml~ changed. This confuses even expert programmers until they
+  train themselves to follow the pattern above.
+
+- If you find yourself typing the same non-trivial things repeatedly in the REPL, stop wasting your time.
+
+  - Move the repeated parts to a second file, (e.g., ~test.sml~).
+  - Then, when you restart your session, begin with ~use "foo.sml"; use "test.sml";~.
+    In fact, there is an even faster way:
+
+    - Begin ~test.sml~ with the expression ~use "foo.sml";~
+    - Then begin your session with ~use "test.sml";~
+
+  Note: Do /not/ put ~use "foo.sml";~ in ~test.sml~ /and/ begin your
+  session with ~use "foo.sml"; use "test.sml";~. That will evaluate
+  the ML bindings in ~foo.sml~ twice, which is confusing.
