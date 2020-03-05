@@ -18,8 +18,18 @@ fun number_in_month(dates : (int*int*int) list, month : int) =
         number_in_month_helper(dates, month, 0)
     end
 
-                    
-                
+(* takes a list of dates and a list of months (i.e., an int list) and returns
+   the number of dates in the list of dates that are in any of the months in the list of months.
+   Assume the list of months has no number repeated. *)
+fun number_in_months(dates: (int*int*int) list, months: int list) =
+    let fun number_in_months_helper(dates: (int*int*int) list, months: int list, acc : int) =
+            if null months
+            then acc
+            else number_in_months_helper(dates, tl months, number_in_month(dates, hd months) + acc)
+    in
+        number_in_months_helper(dates, months, 0)
+    end
+        
         
             
         
