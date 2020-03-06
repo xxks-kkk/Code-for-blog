@@ -58,7 +58,22 @@ fun dates_in_months(dates: (int*int*int) list, months: int list) =
     in
         dates_in_months_helper(dates, months, [])
     end
+
+(* takes a list of strings and an int n and returns the n th element of
+the list where the head of the list is 1st.  Do not worry about the
+case where the list has too few elements:your function may
+applyhdortlto the empty list in this case, which is okay *)
+fun get_nth(xs: string list, n: int) =
+    let fun get_nth_helper(xs: string list, n: int, cur: int) =
+            if cur = n
+            then hd xs
+            else get_nth_helper(tl xs, n, cur + 1)
+    in
+        get_nth_helper(xs, n, 1)
+    end
+
         
+                
         
 
                             

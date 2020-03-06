@@ -14,3 +14,5 @@ val test_dates_in_month1 = dates_in_month([(2011,1,12),(2011,3,10),(2012,2,14),(
                                                                                                   
 val test_dates_in_months1 = dates_in_months([(2011,1,12), (2011,3,10), (2012,2,14), (1992,3,1)],[1,2,3]) =
                             [(2011,1,12),(2012,2,14), (2011,3,10), (1992,3,1)]
+
+val test_get_nth1 = get_nth(["abc","cde","fg"],2) = "cde"
