@@ -21,3 +21,6 @@ val test_date_to_string1 = date_to_string((2012,1,12)) = "January 12, 2012"
 
 val test_number_before_reaching_sum1 = number_before_reaching_sum(3,[1,2,3]) = 1
 val test_number_before_reaching_sum2 = number_before_reaching_sum(20,[1,2,3,4]) = 4
+
+val test_what_month1 = what_month(21) = 1
+val test_what_month2 = what_month(64) = 3
