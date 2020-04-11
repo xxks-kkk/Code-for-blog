@@ -24,3 +24,5 @@ val test_number_before_reaching_sum2 = number_before_reaching_sum(20,[1,2,3,4]) 
 
 val test_what_month1 = what_month(21) = 1
 val test_what_month2 = what_month(64) = 3
+
+val test_month_range1 = month_range((21,22)) = [1,1]                                            

@@ -109,8 +109,15 @@ fun what_month(day: int) =
     in
         1 + number_before_reaching_sum(day, days_in_month)
     end
-                            
-                      
+
+(* takes two days of the year day1 and day2 and returns an int list
+   [m1,m2,...,mn] where m1 is the month of day1, m2 is the month of
+   day1+1, ..., and mn is the month of day day2. Note the result will
+   have length day2 - day1 + 1 or length 0 if day1>day2 *)
+fun month_range(days: int*int) =
+    if #1 days = #2 days
+    then what_month(#1 days)::[]
+    else what_month(#1 days)::month_range((#1 days + 1, #2 days))
         
               
 
