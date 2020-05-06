@@ -25,6 +25,42 @@ We use PostgreSQL 12 for our experiment.
 
 We use [DrRacket](https://docs.racket-lang.org/datalog/Tutorial.html?q=datalog) for this section.
 
+1. Create the table:
+
+    ```racket-lang
+    assembly(trike, wheel, 3).
+    assembly(trike, frame, 1).
+    assembly(frame, seat, 1).
+    assembly(frame, pedal, 1).
+    assembly(wheel, spoke, 2).
+    assembly(wheel, tire, 1).
+    assembly(tire, rim, 1).
+    assembly(tire, tube, 1).
+    ```
+    
+1. Create datalog rules to get all the components of "trike":
+
+    ```racket-lang
+    comp(Part, Subpt) :- assembly(Part, Subpt, Qty).
+    comp(Part, Subpt) :- assembly(Part, Part2, Qty), comp(Part2, Subpt).
+    comp(trike, Subpt)?
+    ```
+    
+   ![result](img/assembly_comp_datalog.png)
+
+
+1. Get the components at the same level as "spoke":
+
+    ```racket-lang
+    sameLev(S1,S2) :- assembly(P1,S1,Q1), assembly(P1,S2,Q2).
+    sameLev(S1,S2) :- assembly(P1,S1,Q1), sameLev(P1,P2), assembly(P2,S2,Q2).
+    
+    result(S1, S2) :- sameLev(S1, S2), S1 != S2.
+    result(spoke, S2)?
+    ```
+    
+    ![result](img/assembly_same_level_datalog.png)
+
 
 ## Cypher
 
@@ -57,7 +93,7 @@ We use [neo4j sandbox](https://sandbox.neo4j.com/) for this section.
     
     The graph looks like:
     
-    ![graph](img/assembly_graph.png)
+    ![graph](img/assembly_graph_cypher.png)
 
 1. Get all the components of "trike":
 
@@ -65,7 +101,7 @@ We use [neo4j sandbox](https://sandbox.neo4j.com/) for this section.
     MATCH (n:Part)-[:SUBPART_OF*]->(p:Part {name:"trike"}) RETURN n.name
     ```
     
-   ![result](img/assembly_comp.png)
+   ![result](img/assembly_comp_cypher.png)
 
 1. Get the components at the same level as "spoke":
 
@@ -76,4 +112,4 @@ We use [neo4j sandbox](https://sandbox.neo4j.com/) for this section.
     RETURN DISTINCT n,m
     ```
     
-    ![result](img/assembly_same_level.png)
+    ![result](img/assembly_same_level_cypher.png)

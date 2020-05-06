@@ -1,0 +1,14 @@
+#lang datalog
+assembly(trike, wheel, 3).
+assembly(trike, frame, 1).
+assembly(frame, seat, 1).
+assembly(frame, pedal, 1).
+assembly(wheel, spoke, 2).
+assembly(wheel, tire, 1).
+assembly(tire, rim, 1).
+assembly(tire, tube, 1).
+
+comp(Part, Subpt) :- assembly(Part, Subpt, Qty).
+comp(Part, Subpt) :- assembly(Part, Part2, Qty), comp(Part2, Subpt).
+
+comp(trike, Subpt)?

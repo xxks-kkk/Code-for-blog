@@ -1,0 +1,15 @@
+#lang datalog
+assembly(trike, wheel, 3).
+assembly(trike, frame, 1).
+assembly(frame, seat, 1).
+assembly(frame, pedal, 1).
+assembly(wheel, spoke, 2).
+assembly(wheel, tire, 1).
+assembly(tire, rim, 1).
+assembly(tire, tube, 1).
+
+sameLev(S1,S2) :- assembly(P1,S1,Q1), assembly(P1,S2,Q2).
+sameLev(S1,S2) :- assembly(P1,S1,Q1), sameLev(P1,P2), assembly(P2,S2,Q2).
+
+result(S1, S2) :- sameLev(S1, S2), S1 != S2.
+result(spoke, S2)?
