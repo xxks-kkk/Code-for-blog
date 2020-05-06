@@ -3,6 +3,13 @@
 In this document, we use a simple table shown below to compare
 SQL, Datalog, and Cypher queries.
 
+We will implement following two queries in SQL, Datalog, and Cypher:
+
+1) Get all the components of "trike"
+2) Get the components at the same level as "spoke"
+
+   Tuple (S1,S2) is in SameLev if there is path up from S1 to some node and down to S2 with same number of up and down edges.
+
 The working table
 
 | Part  | Subpart | number |
@@ -16,10 +23,83 @@ The working table
 | tire  | rim     | 1      |
 | tire  | tube    | 1      |
 
+![edge-labeled graph](img/assembly_edge_labeled_graph.png)
+
 ## SQL
 
 We use PostgreSQL 12 for our experiment. 
 
+1. Create the table:
+
+    ```SQL
+    CREATE TABLE AssemblyInstance(
+       PART    VARCHAR(10),
+       SUBPART VARCHAR(10),
+       NUMBER  INT);
+
+    INSERT INTO AssemblyInstance(PART, SUBPART, NUMBER) VALUES
+       ('trike', 'wheel' , 3),
+       ('trike', 'frame', 1),
+       ('frame', 'seat', 1),
+       ('frame', 'pedal', 2),
+       ('wheel', 'spoke', 2),
+       ('wheel', 'tire', 1),
+       ('tire', 'rim', 1),
+       ('tire', 'tube', 1);
+    ```
+
+1. Get all the components of "trike":
+
+    ```SQL
+    WITH RECURSIVE Comp(PART, SUBPART) AS (
+       (SELECT A1.PART, A1.SUBPART FROM AssemblyInstance A1)
+     UNION
+       (SELECT A2.PART, C1.SUBPART
+        FROM AssemblyInstance A2, Comp C1
+        WHERE A2.SUBPART = C1.PART)
+    )
+    SELECT * FROM Comp C2 WHERE C2.PART = 'trike';
+    ```
+    
+    ```text
+      part  | subpart
+     -------+---------
+      trike | wheel
+      trike | frame
+      trike | seat
+      trike | pedal
+      trike | tire
+      trike | spoke
+      trike | tube
+      trike | rim
+      (8 rows)
+     ```
+     
+1. Get the components at the same level as "spoke":
+
+    ```SQL
+    WITH RECURSIVE SameLev(S1, S2) AS (
+     (SELECT A1.SUBPART, A2.SUBPART
+      FROM AssemblyInstance A1, AssemblyInstance A2
+      WHERE A1.PART = A2.PART)
+     UNION
+      (SELECT A1.SUBPART, A2.SUBPART
+       FROM AssemblyInstance A1, AssemblyInstance A2, SameLev L1
+       WHERE L1.S1 = A1.PART AND L1.S2 = A2.PART)
+     )
+     SELECT * FROM SameLev L2 WHERE L2.S1 = 'spoke' AND L2.S1 <> L2.S2;
+     ```
+
+    ```text
+        s1   |  s2
+      -------+-------
+       spoke | tire
+       spoke | pedal
+       spoke | seat
+      (3 rows)
+    ```
+
+> The above queries are SQL equivalence of Datalog queries below.
 
 ## Datalog
 
