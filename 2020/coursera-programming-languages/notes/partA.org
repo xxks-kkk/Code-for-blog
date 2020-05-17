@@ -65,3 +65,6 @@ Notes of [[https://www.coursera.org/learn/programming-languages/home/welcome][Pr
   Note: Do /not/ put ~use "foo.sml";~ in ~test.sml~ /and/ begin your
   session with ~use "foo.sml"; use "test.sml";~. That will evaluate
   the ML bindings in ~foo.sml~ twice, which is confusing.
+** SML References
+
+- [[http://rigaux.org/language-study/syntax-across-languages-per-language/SML.html][SML Syntax]]

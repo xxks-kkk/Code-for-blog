@@ -118,7 +118,25 @@ fun month_range(days: int*int) =
     if #1 days = #2 days
     then what_month(#1 days)::[]
     else what_month(#1 days)::month_range((#1 days + 1, #2 days))
-        
-              
 
-              
+(* takes a list of dates and evaluates to an (int*int*int) option.
+   It evaluates to NONE if the list has no dates and SOME d if
+   the date d is the oldest date in the list *)                                        
+fun oldest(dates: (int*int*int) list) =
+    if null dates then NONE
+    else if null (tl dates) then SOME (hd dates)
+    else
+        let
+            val date1 = hd dates
+            val date2 = oldest(tl dates)
+        in
+            if isSome date2 andalso is_older(date1, valOf date2)
+            then SOME date1
+            else date2
+        end
+                   
+             
+    
+    
+
+            

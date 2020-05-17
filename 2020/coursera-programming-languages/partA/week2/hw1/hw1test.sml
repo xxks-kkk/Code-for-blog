@@ -26,3 +26,5 @@ val test_what_month1 = what_month(21) = 1
 val test_what_month2 = what_month(64) = 3
 
 val test_month_range1 = month_range((21,22)) = [1,1]                                            
+
+val test_oldest1 = oldest([(2020,8,1),(2020,10,20),(2020,12,31),(2020,1,1)]) = SOME (2020,1,1)
