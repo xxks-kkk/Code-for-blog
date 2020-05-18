@@ -30,3 +30,18 @@ val test_month_range1 = month_range((21,22)) = [1,1]
 val test_month_range2 = month_range((5,3)) = []
                                                    
 val test_oldest1 = oldest([(2020,8,1),(2020,10,20),(2020,12,31),(2020,1,1)]) = SOME (2020,1,1)
+
+val test_check_exist1 = check_exist(1, [1,2,3]) = true
+val test_check_exist2 = check_exist(2, [1,1,2,3,1]) = true
+val test_check_exist3 = check_exist(3, [1,2,1]) = false
+
+val test_remove_duplicates = remove_duplicates([1,2,3,1]) = [2,3,1]
+
+val test_number_in_months_challenge1 = number_in_months_challenge(
+        [(2011,1,12),(2011,2,11),(2013,3,11)],[1,2,3,1,1,2]) = 3
+                                                                                    
+val test_dates_in_months_challenge1 = dates_in_months_challenge(
+        [(2011,1,12), (2011,3,10), (2012,2,14), (1992,3,1)], [1,2,3,3,2,1,2]) =
+        [(2011,3,10),(1992,3,1),(2011,1,12),(2012,2,14)]                                      
+
+                                                                                    

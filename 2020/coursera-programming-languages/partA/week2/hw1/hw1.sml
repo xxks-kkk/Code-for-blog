@@ -140,3 +140,35 @@ fun oldest(dates: (int*int*int) list) =
             then SOME date1
             else date2
         end
+
+(* check whether a given int is in the int list *)
+fun check_exist(x: int, xs: int list) =
+    not (null xs) andalso (x = hd xs orelse check_exist(x, tl xs))
+
+(* the idea is to construct a list with distinct elements
+   from the xs, which potentially contains duplicates *)                              
+fun remove_duplicates(xs: int list) =
+    if null xs then []
+    else
+        let
+            val tl_ans = remove_duplicates(tl xs)
+        in
+            if check_exist(hd xs, tl_ans)
+            then tl_ans
+            else (hd xs)::tl_ans
+        end
+    
+(* takes a list of dates and a list of months (i.e., an int list) and returns
+   the number of dates in the list dates that are in any of the months in the list
+   of months. Note having a month in the second argument multiple times has
+   no more effect than having it once *)
+fun number_in_months_challenge(dates: (int*int*int) list, months: int list) = 
+    number_in_months(dates, remove_duplicates months)
+
+(* takes a list of dates and a list of months (an int list) and
+   returns a list holding the date from the argument list of dates
+   that are in any of the months in the list of months. Note having
+   a month in the second argument multiple times has no more effect than
+   having it once *)
+fun dates_in_months_challenge(dates: (int*int*int) list, months: int list) = 
+    dates_in_months(dates, remove_duplicates months)
