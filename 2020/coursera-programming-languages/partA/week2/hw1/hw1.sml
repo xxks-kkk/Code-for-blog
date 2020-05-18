@@ -2,7 +2,12 @@
    the first argument is a date that comes before the second argument.
    (If the two dates are the same, the result is false.) *)
 fun is_older(date1 : int*int*int, date2 : int*int*int) =
-    #1 date1 < #1 date2 orelse #2 date1 < #2 date2 orelse #3 date1 < #3 date2
+    let
+        val date1_val = #1 date1 * 100 + #2 date1 * 10 + #3 date1
+        val date2_val = #1 date2 * 100 + #2 date2 * 10 + #3 date2
+    in
+        date1_val < date2_val
+    end
 
 (* takes a list of dates and a month (i.e., an int) and returns
    how many dates in the list are in the given month *)
@@ -134,9 +139,3 @@ fun oldest(dates: (int*int*int) list) =
             then SOME date1
             else date2
         end
-                   
-             
-    
-    
-
-            
