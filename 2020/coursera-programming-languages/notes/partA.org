@@ -65,6 +65,24 @@ Notes of [[https://www.coursera.org/learn/programming-languages/home/welcome][Pr
   Note: Do /not/ put ~use "foo.sml";~ in ~test.sml~ /and/ begin your
   session with ~use "foo.sml"; use "test.sml";~. That will evaluate
   the ML bindings in ~foo.sml~ twice, which is confusing.
+** SML Note
+
+- When use [[https://smlfamily.github.io/Basis/bool.html#SIG:BOOL.not:VAL][not]], remember to use ~()~ properly
+
+  #+begin_src
+  - not (1 > 2);
+  val it = true : bool
+
+  - not 1 > 2;
+  stdIn:1.2-1.11 Error: operator and operand do not agree [overload conflict]
+    operator domain: bool
+    operand:         [int ty]
+    in expression:
+      not 1
+  #+end_src
+
+  [[https://github.com/xxks-kkk/Code-for-blog/blob/ff3dc07524c0ddb6c4aae7e6a3701b70da4816e9/2020/coursera-programming-languages/partA/week2/hw1/hw1.sml#L193][another example]]
+
 ** SML References
 
 - [[http://rigaux.org/language-study/syntax-across-languages-per-language/SML.html][SML Syntax]]
