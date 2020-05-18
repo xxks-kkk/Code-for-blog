@@ -172,3 +172,27 @@ fun number_in_months_challenge(dates: (int*int*int) list, months: int list) =
    having it once *)
 fun dates_in_months_challenge(dates: (int*int*int) list, months: int list) = 
     dates_in_months(dates, remove_duplicates months)
+
+(* takes a date and determines if it describes a real date in the common era.
+   A "real date" has a positive year (year 0 did not exist), a month
+   between 1 and 12, and a day appropriate for the month. Solutions should
+   properly handle leap years. Leap years are years that are either divisible
+   by 400 or divisible by 4 but not divisible by 100. Do not worry about
+   days possibly lost in the conversion to the Gregorian calendar in the Late 1500s.*)                   
+fun reasonable_date(date: int*int*int) =
+    let
+        val year = #1 date
+        val month = #2 date
+        val day = #3 date
+        fun is_leap_year(year: int) =
+            year mod 400 = 0 orelse (year mod 4 = 0 andalso year mod 100 <> 0)
+    in
+        if (year <= 0) orelse
+           (month < 1 orelse month > 12) orelse
+           (is_leap_year(year) andalso month = 2 andalso day > 29) orelse
+           (not (is_leap_year(year)) andalso month = 2 andalso day > 28)
+        then false
+        else true
+    end
+            
+               

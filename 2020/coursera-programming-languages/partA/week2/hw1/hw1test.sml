@@ -44,4 +44,7 @@ val test_dates_in_months_challenge1 = dates_in_months_challenge(
         [(2011,1,12), (2011,3,10), (2012,2,14), (1992,3,1)], [1,2,3,3,2,1,2]) =
         [(2011,3,10),(1992,3,1),(2011,1,12),(2012,2,14)]                                      
 
-                                                                                    
+val test_reasonable_date1 = reasonable_date((2020,2,29)) = true
+val test_reasonable_date2 = reasonable_date((2010,2,29)) = false
+val test_reasonable_date3 = reasonable_date((2010,2,28)) = true
+val test_reasonable_date4 = reasonable_date((2008,3,15)) = true
