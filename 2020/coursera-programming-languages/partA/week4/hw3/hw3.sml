@@ -55,47 +55,44 @@ val longest_capitalized = longest_string1 o only_capitals
 val rev_string = implode o List.rev o explode
 (*7*)
 fun first_answer f xs =
-    case (f,xs) of
-        (_, []) => raise NoAnswer
-     |  (f, hd::tl) => case f hd of
-                            NONE => first_answer f tl
-                         | SOME v => v 
+    case xs of
+        [] => raise NoAnswer
+     |  hd::tl => case f hd of
+                      NONE => first_answer f tl
+                    | SOME v => v 
 (*8*)
 fun all_answers f xs =
     let fun helper (xs,acc) =
-            case (f,xs,acc) of
-                (f,[],[]) => SOME []
-              | (f,[],acc) => SOME acc
-              | (f,hd::tl,acc) => case f hd of
-                                      NONE => NONE
-                                    | SOME v => helper (tl,v@acc)
+            case xs of
+                [] => SOME acc
+              | hd::tl => case f hd of
+                              NONE => NONE
+                            | SOME v => helper (tl,v@acc)
     in
         helper (xs,[])
     end
 (*9.(a)*)
-val count_wildcards = g (fn x => 1) (fn p => 0)
+val count_wildcards = g (fn _ => 1) (fn _ => 0)
 (*9.(b)*)
-val count_wild_and_variable_lengths = g (fn x => 1) (fn x => String.size x)
+val count_wild_and_variable_lengths = g (fn x => 1) String.size
 (*9.(c)*)
 fun count_some_var (s,p) = g (fn x => 0) (fn p => if p = s then 1 else 0) p
 (*10*)
 fun check_pat p =
     let fun get_str_list p =
             let fun helper (p, acc) =
-                case (p, acc) of
-                    (Variable x, acc) => x::acc
-                  | (TupleP ps, acc) => (List.foldl helper acc ps)
-                  | (ConstructorP(_,p),acc) => helper(p,acc)
-                  | _ => acc
+                    case p of
+                        Variable x => x::acc
+                      | TupleP ps => (List.foldl helper acc ps)
+                      | ConstructorP(_,p) => helper(p,acc)
+                      | _ => acc
             in
                 helper(p, [])
             end
         fun check_unique xs =
             case xs of
                 [] => true
-              | hd::tl => case List.exists (fn x => x = hd) tl of
-                              true => false
-                            | false => check_unique tl
+              | hd::tl => (not (List.exists (fn x => x = hd) tl)) andalso check_unique tl
     in
         (check_unique o get_str_list) p
     end
