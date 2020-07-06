@@ -3,10 +3,16 @@
    (If the two dates are the same, the result is false.) *)
 fun is_older(date1 : int*int*int, date2 : int*int*int) =
     let
-        val date1_val = #1 date1 * 100 + #2 date1 * 10 + #3 date1
-        val date2_val = #1 date2 * 100 + #2 date2 * 10 + #3 date2
+        val date1_y = #1 date1
+        val date2_y = #1 date2
+        val date1_m = #2 date1
+        val date2_m = #2 date2
+        val date1_d = #3 date1
+        val date2_d = #3 date2
     in
-        date1_val < date2_val
+        (date1_y < date2_y)
+        orelse ((date1_y = date2_y) andalso (date1_m < date2_m))
+        orelse ((date1_y = date2_y) andalso (date1_m = date2_m) andalso (date1_d < date2_d))
     end
 
 (* takes a list of dates and a month (i.e., an int) and returns
