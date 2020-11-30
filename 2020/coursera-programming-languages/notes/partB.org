@@ -1,0 +1,140 @@
+#+OPTIONS: tex:t
+
+* Part B
+
+** Sound & Complete
+
+*** Definition
+
+Intuitively, a static checker is correct if it prevents what it claims to prevent - otherwise, either the language definition
+or the implementation of static checking needs to be fixed. But we can give a more precise description of correctness 
+by defining the terms /soundness/ and /completeness/. 
+
+For both, the definition is with respect to some thing $X$ we wish to prevent. For example, $X$ could be "a program looks up
+a variable that is not in the environment."
+
+- A type system is *sound* if it never accepts a program that, when run with some input, does $X$.
+
+    In other words, /soundness prevents false negatives/. False negatives comes from statistics and medicine: suppose there is 
+    a medical test for a disease, but it is not a perfect test. If the test does not detect the disease but the patient actually
+    has the disease, then this is a /false negative/ (the test was negative, but that is false). With static checking, 
+    the diease is "performs $X$ when run with some input" and the test is "does the program type-check?".
+
+- A type system is *complete* if it never rejects a program that, no matter what input it is run with, will not do $X$.
+
+    In other words, /completeness prevents false positives/. If the test detects the disease but the patient actually does not have 
+    the diease, then is is a /false positive/.
+
+The terms come from logic: A sound logic proves only true things. A complete logic proves all true things. I think it's best to 
+express those terms in logic. 
+
+By logic, we have $A \rightarrow B \equiv \neg A \vee B$. Then complete says
+
+\begin{align*}
+       &\text{program does not do X} \rightarrow \text{type-checker never rejects the program} \\
+\equiv &\text{program does X} \wedge \text{type-checker accepts the program}
+\end{align*}
+
+If "program does X" is false (i.e., program does not do X), 
+the only way to make $\text{program does X} \wedge \text{type-checker accepts the program}$ true is 
+to set "type-checker accepts the program" true. That's the key point /completeness/ wants to emphasize. 
+If "program does X" is true, then it doesn't matter whether "type-checker accepts the program" is true or not - 
+the whole logic expression is true already. Thus, the completeness expressed in logic formula is 
+
+$$
+\text{program does not do X} \rightarrow \text{type-checker accepts the program}
+$$
+
+Similarly, for /soundness/, we have 
+
+\begin{align*}
+       & \text{program does X} \rightarrow \text{type-checker never accepts program} \\
+\equiv & \text{program does X} \rightarrow \text{type-checker rejects program}
+\end{align*}
+
+*** Examples
+
+1. Suppose we have a language with arrays and a very strange-and-not-useful type system that 
+   (1) requires all arrays to have at least one element and 
+   (2) allows accessing only the first element of an array (e.g., in conventional array syntax, it allows only arr[0] for any array arr). 
+   With respect to preventing array-bounds violations, this type system is:
+
+   Sound but not complete. 
+   
+   Suppose program does array-bounds violations. Then, the program access the element beyond the last element 
+   of the array. Since array has to have at least one element and the program is only allowed to 
+   access the first element (to be type-checked), the program access the element beyond the last element of the array
+   will be rejected (due to rule (2)). Thus, the type system is sound.
+
+   Suppose program does not do array-bounds violations. Then, the program can access the element that is not the first 
+   element of the array. Thus, type checker will reject such program. Therefore, the type system is not complete.
+
+2. A "type system" that rejects every program is:
+
+   Sound but not complete. If program does X, the type checker will reject the program. However, if the program does not do X,
+   the type checker will reject the program as well.
+
+3. A "type system" that accepts every program is:
+
+   Not sound but complete. If program does X, the type checker will accept the program. However, if the program does not do X,
+   the type checker will accept the program.
+
+4. we will consider changing ML's type system in the following way: We allow a function that takes a tuple 
+   argument =t1 * t2 * ... tn= to be called not only with a tuple of that exact type but also with wider tuples 
+   =t1 * t2 * ... tn * t(n+1) * t(n+2) * ...= The typing rule for such calls is that the first /n/ parts of the tuple 
+   must still have the "right" type for the call and the "extra" parts each need to have some type, but any type is fine. 
+   The evaluation rule for such calls is that the tuple argument is fully evaluated (including the "extra" parts) and 
+   the extra parts are simply inaccessible (ignored) by the function called.
+
+   Note the /only/ typing rule we change is the one for function calls. We assume the goals of the ML type system ("what it aims to prevent") 
+   are unchanged except that is okay to use these "too-wide tuples".
+
+   Which of the following statements are true:
+
+   A. ML /without/ the change described above has a /sound/ type system
+
+   B. ML /with/ the change described above has a /sound/ type system
+
+   C. ML /without/ the change described above has a /complete/ type system
+
+   D. ML /with/ the change described above has a /complete/ type system
+
+   By the course video on soundness and completeness, we know ML /without/ the change has a /sound/ and /incomplete/ type system.
+   So A is correct and C is wrong. ML /with/ the change is also /sound/ and /incomplete/ because the "divide by string" from course
+   video still holds for ML /with/ the change case.
+
+5. Which ML code listed below does /not/ type-check in regular ML and /does/ type-check if we make the change to the type system 
+   described in 4. All the code below uses this function 
+   
+   #+begin_src 'sml'
+   fun f1 (x,y) = x + y
+   #+end_src
+
+   #+begin_src 
+   val z1 = f1 (3, 4, 5)
+   #+end_src
+   
+   #+begin_src 
+   val z2 = f1 (3, 4, x)
+   #+end_src
+   
+   #+begin_src 'sml'
+   val p1 = (7,9)
+   val z3 = f1 p1
+   #+end_src
+
+   #+begin_src 
+   val p2 = (7,9,11)
+   val z4 = f1 p2
+   #+end_src
+
+   #+begin_src 
+   val z5 = if true the f1 (3,4) else f1 (5,6,7)
+   #+end_src
+
+   #+begin_src 
+   val z6 = f1 (if true then (3,4) else (5,6,7))
+   #+end_src
+
+   =z1=, =z4=, =z5= satisfy the requirement. =z6= is not because the new type check rule is only for function *call*: (5,6,7) will not pass
+   because it's part of if block not function call.
