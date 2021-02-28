@@ -19,3 +19,13 @@
 ; returns unsat: there is no possible y that has a negative absolute value.
 (solve
  (assert (< (abs y) 0)))
+
+(define (sol)
+  (solve
+ (assert (= (abs y) 5))))
+
+(define (sol2)
+  (define-symbolic z integer?)
+  (evaluate z
+            (solve
+ (assert (= (abs z) 5)))))

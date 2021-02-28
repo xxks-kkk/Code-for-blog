@@ -22,3 +22,4 @@ Quickly recap neural nets from Coursera Andrew Ng's ML Lecture 8:
 - https://homes.cs.washington.edu/~emina/media/cav19-tutorial/part1.html
 - https://homes.cs.washington.edu/~emina/media/cav19-tutorial/part2.html
 - https://gist.github.com/jamesbornholt/b51339fb8b348b53bfe8a5c66af66efe
+- https://homes.cs.washington.edu/~emina/media/cav19-tutorial/lab2.html

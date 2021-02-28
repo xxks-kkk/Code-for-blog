@@ -32,13 +32,15 @@
 
 (define (create-weight-matrix m n)
   (define (new-row)
-    (define-symbolic* row real? [n])
+    (define-symbolic* row integer? [n])
     row)
   (define (create-weight-matrix-helper m n res)
     (if (= m 0)
         res
         (create-weight-matrix-helper (- m 1) n (cons (new-row) res))))
   (create-weight-matrix-helper m n '()))
+
+(check-equal? (length (create-weight-matrix 3 4)) 3)
 
 (define (create-k-list k)
   (define (new-m)
@@ -50,6 +52,9 @@
         (create-k-list-helper (- k 1) (cons (new-m) res))))
   (create-k-list-helper k '()))
 
+; k-list specifies a list of neourons for each layer
+; e.g., (list 3 2) means 2 layers with first layer containing 3 neurons
+; and second layer containing 2 neurons
 (define (sketch inputs k-list)
   (define dims
     (cons (length inputs) (append k-list '(1))))
@@ -59,13 +64,28 @@
         (sketch-helper (layer inputs (create-weight-matrix (car (cdr k-list)) (car k-list))) (cdr k-list)))) 
   (sketch-helper inputs dims))
 
+;(define (xor a b)
+;  (define a-bits
+;    (+ (exact-floor (log a 2)) 1))
+;  (define b-bits
+;    (+ (exact-floor (log b 2)) 1))
+;  (define bits (max a-bits b-bits))
+;  (define a-bvec
+;    (integer->bitvector a (bitvector bits)))
+;  (define b-bvec
+;    (integer->bitvector b (bitvector bits)))
+;  (bitvector->integer (bvxor a-bvec b-bvec)))
+
 (define (xor a b)
-  (if (= a b)
-      false
-      true))
+  (define bits 10)
+  (define a-bvec
+    (integer->bitvector a (bitvector bits)))
+  (define b-bvec
+    (integer->bitvector b (bitvector bits)))
+  (bitvector->integer (bvxor a-bvec b-bvec)))
 
 (define-symbolic x y integer?)
 
 (synthesize
  #:forall (list x y)
- #:guarantee (assert (= (sketch (list x y) (list 3 2)) (xor x y))))
+ #:guarantee (assert (= (car (sketch (list x y) (list 2))) (xor x y))))
