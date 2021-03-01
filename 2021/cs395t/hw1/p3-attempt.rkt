@@ -1,5 +1,10 @@
 #lang rosette
 
+(require rosette/lib/angelic    ; provides `choose*`
+         rosette/lib/destruct)  ; provides `destruct`
+
+(current-bitwidth #f)
+
 (require rackunit)
 
 (define (activation inputs weights)
@@ -27,12 +32,9 @@
 
 (check-equal? (nn (list 1 2 3) (list (list 4 5 6) (list 7 8 9)) (list (list 10 11) (list 12 13) (list 14 15))) (list 870 1034 1198))
 
-;(define-symbolic* inputs real? [2])
-;(define-symbolic k integer?)
-
 (define (create-weight-matrix m n)
   (define (new-row)
-    (define-symbolic* row integer? [n])
+    (define-symbolic* row real? [n])
     row)
   (define (create-weight-matrix-helper m n res)
     (if (= m 0)
@@ -42,15 +44,15 @@
 
 (check-equal? (length (create-weight-matrix 3 4)) 3)
 
-(define (create-k-list k)
-  (define (new-m)
-    (define-symbolic* m integer?)
-    m)
-  (define (create-k-list-helper k res)
-    (if (= k 0)
-        res
-        (create-k-list-helper (- k 1) (cons (new-m) res))))
-  (create-k-list-helper k '()))
+;(define (create-k-list k)
+;  (define (new-m)
+;    (define-symbolic* m integer?)
+;    m)
+;  (define (create-k-list-helper k res)
+;    (if (= k 0)
+;        res
+;        (create-k-list-helper (- k 1) (cons (new-m) res))))
+;  (create-k-list-helper k '()))
 
 ; k-list specifies a list of neourons for each layer
 ; e.g., (list 3 2) means 2 layers with first layer containing 3 neurons
@@ -83,22 +85,35 @@
   (define b-bvec
     (integer->bitvector b (bitvector bits)))
   (bitvector->integer (bvxor a-bvec b-bvec)))
-
-(define-symbolic x y integer?)
-
+      
 (define (range x)
   (or (= x 0) (= x 1)))
 
+(define-symbolic x y real?)
+
+; not sure why this doesn't work
+(synthesize
+ #:forall (list x y)
+ #:guarantee (begin
+               (assert (range y))
+               (assert (range x))
+               (assert (= (car (sketch (list x y) (list 2 3))) (xor x y)))
+               ))
+
 ; this works: can learn x, y, weights with output 1 or 0 (this case)
-; works on inputs with x or y can be 0 or 1
 (solve
  (begin
    (assert (range y))
-    (assert (range x))
-    (assert (= (car (sketch (list x y) (list 2 3))) 0))
-    ))
+   (assert (range x))
+   (assert (= (car (sketch (list x y) (list 2 3))) 0))
+   ))
 
-; hang!
-(synthesize
- #:forall (list x y)
- #:guarantee (assert (= (car (sketch (list x y) (list 2))) (xor x y))))
+; this works for find an instance of x,y,weights such that the nn output
+; equals to (xor x y)
+(solve
+ (begin
+   (assert (range y))
+   (assert (range x))
+   (assert (= (car (sketch (list x y) (list 2 2))) (xor x y)))
+   ))
+
