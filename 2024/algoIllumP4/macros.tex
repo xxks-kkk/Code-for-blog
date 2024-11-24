@@ -1,0 +1,466 @@
+\usepackage[margin=1in]{geometry}
+\usepackage{xspace} 
+\usepackage{multirow}
+\usepackage{colortbl, hhline}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{mathrsfs}
+\usepackage{longtable}
+\usepackage{centernot}
+%----------------------------------------------------------
+% reduce spacing around equaitons
+% https://tex.stackexchange.com/a/428327/94047
+\usepackage{nccmath}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% paper symbol
+\newcommand{\setof}[2]{\left\{ #1 \mid #2 \right\}}
+\newcommand{\softo}{\mathrel{\tilde{O}}}
+\DeclareRobustCommand{\bigo}{%
+	\text{\usefont{OMS}{cmsy}{m}{n}O}%
+}
+\newcommand{\bigomega}{\Omega}
+\newcommand{\databaseschema}{\mathcal{D}}
+\newcommand{\instance}{\bm{I}}
+\newcommand{\query}{\mathcal{Q}}
+\newcommand{\trianglequery}{\query^\triangle}
+\newcommand{\lwquery}{\query^{LW}}
+\newcommand{\queryplanplain}{\mathcal{P}}
+\newcommand{\queryplan}{\queryplanplain_\query}
+\newcommand{\queryplanttj}{\mathsf{P}_\query}
+\newcommand{\hypergraph}{\mathbb{H}_\query}
+\newcommand{\hypergraphr}{\mathbb{H}}
+\newcommand{\querygraph}{\mathcal{G}_\query}
+\newcommand{\querygraphdirected}{\overrightarrow{\mathcal{G}_\query}}
+\newcommand{\fhd}{G_\query^c}
+\newcommand{\jointree}{\mathcal{T}_\query}
+\newcommand{\jointreeplain}{\mathcal{T}}
+\newcommand{\relationsbelowjoinu}{\queryplanplain_{\join_u}}
+\newcommand{\attr}{attr}
+\newcommand{\bloomfilter}{\mathcal{F}}
+\newcommand{\fkpk}{\mathsf{PK}\text{-}\mathsf{FK}}
+\newcommand{\fkfk}{\mathsf{FK}\text{-}\mathsf{FK}}
+\newcommand{\reducingprog}{HF_\query}
+\newcommand{\fullreducer}{F_\query}
+\newcommand{\fragmentgroup}{FG}
+\newcommand{\facttable}{F}
+\newcommand{\dimensiontable}{D}
+\newcommand{\fragmentgroupsize}{k}
+\newcommand{\fragmentintermediateresultsize}{r}
+\newcommand{\wbigcup}{\mathop{\bigcup}\displaylimits}
+%% https://tex.stackexchange.com/questions/448/how-to-automatically-resize-the-vertical-bar-in-a-set-comprehension
+\newcommand{\set}[1]{\left\lbrace #1\right\rbrace}
+\newcommand{\wbigland}{\mathop{\land}\displaylimits}
+\newcommand{\ttj}{\mathsf{TTJ}}
+\newcommand{\ttjjoin}{\join_{\ttj}}
+\newcommand{\ttjg}{\ttj^\gamma}
+\newcommand{\ttjc}{\ttj^\circ}
+\newcommand{\ttjhc}{\ttj^c}
+\newcommand{\ttjplus}{\ttj^+}
+\newcommand{\ttjp}{\ttj^{pctx}}
+\newcommand{\ttjn}{\ttj^{ng}}
+\newcommand{\ttjng}{\ttj^{ng}}
+\newcommand{\ttjbf}{\ttj^{bj}}
+\newcommand{\ttjdf}{\ttj^{bj+rm}}
+\newcommand{\hashjoin}{\mathsf{HJ}}
+\newcommand{\y}{\mathsf{YA}}
+\newcommand{\yp}{\mathsf{YA}^+}
+\newcommand{\lip}{\mathsf{LIP}}
+\newcommand{\lineorderssb}{\mathsf{LINEORDER}}
+\newcommand{\datessb}{\mathsf{DATE}}
+\newcommand{\supplierssb}{\mathsf{SUPPLIER}}
+\newcommand{\customerssb}{\mathsf{CUSTOMER}}
+\newcommand{\partssb}{\mathsf{PART}}
+\newcommand{\datekeyssb}{\mathsf{DATEKEY}}
+\newcommand{\custkeyssb}{\mathsf{CUSTKEY}}
+\newcommand{\partkeyssb}{\mathsf{PARTKEY}}
+\newcommand{\suppkeyssb}{\mathsf{SUPPKEY}}
+\newcommand{\falsepositiverate}{\mbox{$\varepsilon$}}
+\newcommand{\timeout}{600+}
+\newcommand{\imdbcastinfo}{\mathsf{cast\_info}}
+\newcommand{\imdbname}{\mathsf{name}}
+\newcommand{\imdbakaname}{\mathsf{aka\_name}}
+\newcommand{\imdbmoviecompanies}{\mathsf{movie\_companies}}
+\newcommand{\imdbcompanyname}{\mathsf{company\_name}}
+\newcommand{\imdbtitle}{\mathsf{title}}
+\newcommand{\imdbroletype}{\mathsf{role\_type}}
+\newcommand{\imdbpersonid}{\mathsf{person\_id}}
+\newcommand{\imdbmovieid}{\mathsf{movie\_id}}
+\newcommand{\imdbcompanytype}{\mathsf{company\_type}}
+\usepackage{dsfont}
+\newcommand{\indicator}[1]{\mathds{1}_{#1}}
+\newcommand{\phyR}{\mathbb{R}}
+\newcommand{\phyS}{\mathbb{S}}
+\newcommand{\phyC}{\mathbb{C}}
+\newcommand{\phyA}{\mathbb{A}}
+\newcommand{\phyB}{\mathbb{B}}
+\newcommand{\phyD}{\mathbb{D}}
+\newcommand{\ordering}{ord}
+\newcommand{\iter}{iter}
+\newcommand{\matchingtuples}{\emph{\text{MatchingTuples}}\xspace}
+\newcommand{\amatchingtuple}{\emph{\text{aMatchingTuple}}\xspace}
+\newcommand{\costsetA}{\mathcal{A}}
+\newcommand{\costsetB}{\mathcal{B}}
+\newcommand{\costsetC}{\mathcal{C}}
+\newcommand{\passContext}[1][]{\Verb|deleteDT(#1)|\xspace}
+\newcommand{\passContextGeneric}{\Verb|deleteDT|($\cdot$)\xspace}
+\newcommand{\open}{\Verb|open()|\xspace}
+\newcommand{\getNext}{\Verb|getNext()|\xspace}
+\newcommand{\close}{\Verb{close()}\xspace}
+\newcommand{\hashtable}{\mathcal{H}}
+\newcommand{\internalnonroot}{internal$^\circ$}
+\newcommand{\parentof}{\overline{\bm{p}}}
+\newcommand\parentvec[1][]{\ensuremath{\parentof_{#1}^\queryplanplain}}
+\newcommand{\blackgrayvec}{\overline{\bm{bg}}}
+\newcommand{\activedomain}{\bm{adom}}
+\newcommand{\conflictclause}{cc}
+\newcommand{\cyclecutset}{$\mathbf{cut}$\xspace}
+\newcommand{\dagwithoutcutset}{\querygraphdirected^-}
+\newcommand{\dupratio}{\alpha}
+\newcommand{\semijoinmodratio}{\theta}
+\newcommand{\pt}{\mathsf{PT}}
+\newcommand{\backjumpingdistaince}{b_R^S}
+\newcommand{\hyperedgeset}{\mathcal{E}}
+\newcommand{\hypervertexset}{\mathcal{V}}
+% end of paper symbol
+%-----------------------------------------------------------
+
+
+%-------------------------------------
+% Widebar implementation
+\makeatletter
+\let\save@mathaccent\mathaccent
+\newcommand*\if@single[3]{%
+	\setbox0\hbox{${\mathaccent"0362{#1}}^H$}%
+	\setbox2\hbox{${\mathaccent"0362{\kern0pt#1}}^H$}%
+	\ifdim\ht0=\ht2 #3\else #2\fi
+}
+%The bar will be moved to the right by a half of \macc@kerna, which is computed by amsmath:
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+%If there's a superscript following the bar, then no negative kern may follow the bar;
+%an additional {} makes sure that the superscript is high enough in this case:
+\newcommand*\widebar[1]{\@ifnextchar^{{\wide@bar{#1}{0}}}{\wide@bar{#1}{1}}}
+%Use a separate algorithm for single symbols:
+\newcommand*\wide@bar[2]{\if@single{#1}{\wide@bar@{#1}{#2}{1}}{\wide@bar@{#1}{#2}{2}}}
+\newcommand*\wide@bar@[3]{%
+	\begingroup
+	\def\mathaccent##1##2{%
+		%Enable nesting of accents:
+		\let\mathaccent\save@mathaccent
+		%If there's more than a single symbol, use the first character instead (see below):
+		\if#32 \let\macc@nucleus\first@char \fi
+		%Determine the italic correction:
+		\setbox\z@\hbox{$\macc@style{\macc@nucleus}_{}$}%
+		\setbox\tw@\hbox{$\macc@style{\macc@nucleus}{}_{}$}%
+		\dimen@\wd\tw@
+		\advance\dimen@-\wd\z@
+		%Now \dimen@ is the italic correction of the symbol.
+		\divide\dimen@ 3
+		\@tempdima\wd\tw@
+		\advance\@tempdima-\scriptspace
+		%Now \@tempdima is the width of the symbol.
+		\divide\@tempdima 10
+		\advance\dimen@-\@tempdima
+		%Now \dimen@ = (italic correction / 3) - (Breite / 10)
+		\ifdim\dimen@>\z@ \dimen@0pt\fi
+		%The bar will be shortened in the case \dimen@<0 !
+		\rel@kern{0.6}\kern-\dimen@
+		\if#31
+		\overline{\rel@kern{-0.6}\kern\dimen@\macc@nucleus\rel@kern{0.4}\kern\dimen@}%
+		\advance\dimen@0.4\dimexpr\macc@kerna
+		%Place the combined final kern (-\dimen@) if it is >0 or if a superscript follows:
+		\let\final@kern#2%
+		\ifdim\dimen@<\z@ \let\final@kern1\fi
+		\if\final@kern1 \kern-\dimen@\fi
+		\else
+		\overline{\rel@kern{-0.6}\kern\dimen@#1}%
+		\fi
+	}%
+	\macc@depth\@ne
+	\let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+	\mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+	\macc@set@skewchar\relax
+	\let\mathaccentV\macc@nested@a
+	%The following initialises \macc@kerna and calls \mathaccent:
+	\if#31
+	\macc@nested@a\relax111{#1}%
+	\else
+	%If the argument consists of more than one symbol, and if the first token is
+	%a letter, use that letter for the computations:
+	\def\gobble@till@marker##1\endmarker{}%
+	\futurelet\first@char\gobble@till@marker#1\endmarker
+	\ifcat\noexpand\first@char A\else
+	\def\first@char{}%
+	\fi
+	\macc@nested@a\relax111{\first@char}%
+	\fi
+	\endgroup
+}
+\makeatother
+%---------------------------------------
+
+
+%--------------------------------------
+% CS61 students begin copying here
+\usepackage{amssymb}
+
+\def\ojoin{\setbox0=\hbox{$\bowtie$}%
+	\rule[-.02ex]{.25em}{.4pt}\llap{\rule[\ht0]{.25em}{.4pt}}}
+\def\leftouterjoin{\mathbin{\ojoin\mkern-5.8mu\bowtie}}
+\def\rightouterjoin{\mathbin{\bowtie\mkern-5.8mu\ojoin}}
+\def\fullouterjoin{\mathbin{\ojoin\mkern-5.8mu\bowtie\mkern-5.8mu\ojoin}}
+
+% Relational algebra symbols from ftp://reports.stanford.edu/www/dbgroup_only/latex-macros.html
+\newcommand{\select}{\mbox{\Large$\sigma$}}
+\newcommand{\cross}{\mbox{$\times$}}
+\newcommand{\intersection}{\mbox{$\cap$}}
+\newcommand{\intersect}{\mbox{$\cap$}}
+\newcommand{\union}{\mbox{$\cup$}}
+\newcommand{\join}{\mbox{$\Join$}}
+\newcommand{\leftsemijoin}{\mbox{$\:\mathrel{\raise1pt\hbox{\vrule height5pt
+				depth0pt width0.6pt\hskip-1.5pt$>$\hskip -2.5pt$<$}}$}}
+\newcommand{\rightsemijoin}{\mbox{$\mathrel{\raise1pt\hbox{\hskip-1.5pt$>$\hskip -2.5pt$<$\hskip -1.1pt\vrule height5pt
+				depth0pt width0.6pt}}$}}
+\newcommand{\project}{\mbox{\Large$\pi$}}
+\newcommand{\Project}{\mbox{$\Pi$}}
+\newcommand{\aggregatefn}{\mbox{\Large$G$}}
+\newcommand{\antijoin}{\mathrel{\!\widebar{\leftsemijoin}}}
+\newcommand{\rename}{\mbox{$\rho$}} 
+\newcommand{\dup}{\mbox{$\delta$}}
+\newcommand{\semijoinselectivity}{\rho}
+\newcommand{\antijoinselectivity}{\gamma}
+% CS61 students end copying here
+%--------------------------------------
+
+%-------------------------------------
+\newtheorem{claim}{Claim}
+\newtheorem{remark}{Remark}
+\newtheorem{observation}{Observation}
+\newtheorem{proposition}{Proposition}
+\newtheorem{property}{Property}
+\newtheorem{element}{Algorithmic Element}
+\newtheorem{question}{Question}
+\newtheorem{lemma}{Lemma}
+\newtheorem{untruelemma}{Untrue Lemma}
+\newtheorem{researchq}{Research Question}
+\newtheorem{discussion}{Question for Discussion}
+\newtheorem{conjecture}{Conjecture}
+
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\usepackage[breakable]{tcolorbox}
+\newenvironment{mycolorexample}[1][]{%        % Create new environment which wraps our Theorem into a tcolorbox.
+	\begin{tcolorbox}[colback=blue!5!white,%     Background color.
+		width=\dimexpr\linewidth+10pt\relax,%     Allow your box to be bigger than \linewidth ...
+		enlarge left by=-5pt,%                    ... in order to have the text properly aligned. ...
+		enlarge right by=-5pt,%                   ... Note that boxsep = -enlargeLeft = -enlargeRight = 0.5*enlargement of width. ...
+		boxsep=5pt,%                              ... This is necessary to keep everything good looking.
+		left=0pt,%                                Avoid extra space on the left, ...
+		right=0pt,%                               ... right, ...
+		top=0pt,%                                 ... top, ...
+		bottom=0pt,%                              ... and bottom.
+		arc=0pt,%                                 Corners not rounded.
+		boxrule=0pt,%                             No boxrule.
+		/tcb/parbox=false, %                  allow normal paragraph behavior
+		/tcb/breakable=true, %             make box breakable across pages
+		/tcb/top=-10pt, %
+		/tcb/bottom=-5pt,
+		/tcb/pad at break=1mm, %       make the breakable covered by colorbox
+		/tcb/break at=-\baselineskip/0pt,
+		%		/tcb/nobeforeafter,%                remove the space before and after tcolorbox
+		/tcb/beforeafter skip balanced=0.5\baselineskip, %reduce the space before and after the tcolorbox
+		colframe=white]{}{}%                      Make rest of the boxrule invisible.
+		\ifstrempty{#1}{%                         If you didn't specify the optional argument of Theorem ...
+			\begin{example}%                     ... then open a normal Theorem ...
+			}{%                                       ... else ...
+				\begin{example}[#1]%                 ... open a Theorem and use the optional argument.
+				}%
+			}{%
+			\end{example}%                          Close every environment.
+		\end{tcolorbox}%
+	}
+
+
+\newcommand*{\QEDA}{\hfill\ensuremath{\square}} % qed used with example
+\newtheorem{problemdefinition}{Problem Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{attempt}{Attempt}
+%-------------------------------------
+
+%----------------------------------------------------------
+% algorithm2e setup
+\usepackage{xcolor}
+\usepackage[linesnumbered,ruled,vlined, nofillcomment, algosection]{algorithm2e}
+
+%%% Coloring the comment as blue
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+
+\SetKwInput{KwInput}{Input}                % Set the Input
+\SetKwInput{KwOutput}{Output}          % set the Output
+\SetKwInput{KwGlobalVariables}{Instance variables}
+\SetKwInput{KwGlobalVariable}{Instance variable}
+\SetKwInput{KwPurpose}{Purpose}
+\SetKw{Continue}{continue}
+% end of algorithm2e setup
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% Other packages
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{makecell}
+\usepackage{subcaption}
+\usepackage{enumerate}
+\usepackage[inline, shortlabels]{enumitem}
+\usepackage{cprotect}
+\captionsetup[figure]{skip=0pt} % reduce space between caption and figure
+\captionsetup[table]{skip=0pt}  % reduce space between caption and table
+\usepackage{subcaption}
+\usepackage{float}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% Tables
+\usepackage{booktabs} % for beautiful table
+\usepackage{siunitx}  % for beautiful table
+\usepackage{tabularx}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% unicode related
+\usepackage[utf8]{inputenc}
+\usepackage{relsize}
+\newcommand{\bigsymbol}[1]{\textlarger{\symbol{#1}}}
+\newcommand{\blackone}{\bigsymbol{"2776}}
+\newcommand{\blacktwo}{\bigsymbol{"2777}}
+\newcommand{\blackthree}{\bigsymbol{"2778}}
+\newcommand{\blackfour}{\bigsymbol{"2779}}
+\newcommand{\blackfive}{\bigsymbol{"277A}}
+\newcommand{\blacksix}{\bigsymbol{"277B}}
+\newcommand{\blackseven}{\bigsymbol{"277C}}
+\newcommand{\blackeight}{\bigsymbol{"277D}}
+\newcommand{\blacknine}{\bigsymbol{"277E}}
+\newcommand{\circleone}{\bigsymbol{"2460}}
+\newcommand{\circletwo}{\bigsymbol{"2461}}
+\newcommand{\circlethree}{\bigsymbol{"2462}}
+\newcommand{\circlefour}{\bigsymbol{"2463}}
+\newcommand{\circlefiveblue}{{\color{blue}\bigsymbol{"2464}}}
+\newcommand{\circlesixblue}{{\color{blue}\bigsymbol{"2465}}}
+\newcommand{\circlesevenblue}{{\color{blue}\bigsymbol{"2466}}}
+\newcommand{\circleeightblue}{{\color{blue}\bigsymbol{"2467}}}
+\newcommand{\circlenineblue}{{\color{blue}\bigsymbol{"2468}}}
+\newcommand{\circletenblue}{{\color{blue}\bigsymbol{"2469}}}
+
+%----------------------------------------------------------
+% color definition
+\definecolor{green}{HTML}{009900}
+
+%----------------------------------------------------------
+% equation numbering
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% listing setup 
+\usepackage{listings, courier}
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\lstset{
+	tabsize = 4, %% set tab space width
+	showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+	numbers = left, %% display line numbers on the left
+	commentstyle = \color{javagreen}, %% set comment color
+	keywordstyle = \color{blue}\bfseries, %% set keyword color
+	stringstyle = \color{red}, %% set string color
+	rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+	basicstyle = \small \ttfamily , %% set listing font and size
+	breaklines = true, %% enable line breaking
+	numberstyle = \tiny,
+}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+%redundant space removing techniqes:
+\newcommand{\squeezeupsmall}{\vspace{-1.5mm}}
+\newcommand{\squeezeup}{\vspace{-2.5mm}}
+\setlength{\textfloatsep}{5pt}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+%for section reference: https://tex.stackexchange.com/questions/208933/how-to-show-symbol-when-i-refer-a-chapter
+\usepackage[capitalise,noabbrev]{cleveref}
+\crefformat{section}{\S~#2#1#3} % see manual of cleveref, section 8.2.1
+\crefformat{subsection}{\S~#2#1#3}
+\crefformat{subsubsection}{\S~#2#1#3}
+\crefname{element}{Algorithmic Element}{Algorithmic Elements}
+\Crefname{claim}{Claim}{Claims}
+\Crefname{attempt}{Attempt}{Attempts}
+\Crefname{proposition}{Proposition}{Propositions}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\newcommand{\creflastconjunction}{, and\nobreakspace}
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% new enumerate list 
+\newlist{romcases}{enumerate}{1}
+\setlist[romcases,1]{
+	label={\sffamily (\roman*)},
+	ref=\roman*, % if to be used with \cref, don't provide label string or parentheses
+	wide,itemsep=0pt,topsep=0pt} 
+\creflabelformat{romcasesi}{#2\textup{(#1)}#3} % note presence of parentheses
+\crefname{romcasesi}{Condition}{Conditions} % singular and plural forms of text labels
+\Crefname{romcasesi}{Condition}{Conditions}
+%----------------------------------------------------------
+
+%%----------------------------------------------------------
+%%Fix the inline code out of column in double columns
+%% https://tex.stackexchange.com/questions/587833/remove-carriage-return-characters-from-verbatim-environment-with-linebreaks
+%% https://tex.stackexchange.com/questions/14342/verbatim-environment-that-can-break-long-lines
+\usepackage{fancyvrb}
+\usepackage{fvextra}
+\fvinlineset{
+	breaklines=true, 
+	breakanywhere=true,
+	breaksymbol=, 
+	breakanywheresymbolpre=
+}
+%%----------------------------------------------------------
+
+%----------------------------------------------------------
+% document review
+\newcommand{\dan}[1]{{\color{blue} Dan: [{#1}]}}
+\newcommand{\zeyuan}[1]{{\color{red} Zeyuan: [{#1}]}}
+
+\makeatletter
+\newcommand{\setword}[2]{%
+	\phantomsection
+	#1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
+}
+\makeatother
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% Draw box around remarks
+\usepackage{mdframed}
+\newenvironment{fresearchq}
+{\begin{mdframed}\begin{researchq}}
+		{\end{researchq}\end{mdframed}}
+\crefname{researchq}{Research Question}{Research Questions} 
+\newenvironment{fdiscussion}
+{\begin{mdframed}\begin{discussion}}
+		{\end{discussion}\end{mdframed}}
+
+%----------------------------------------------------------
+
+\newcommand{\nop}[1]{}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}

@@ -1,0 +1,70 @@
+% To compile, run the following command:
+%   latexmk -pdf hw_template.tex 
+%
+% To edit, you can use your favorite text editor or LaTeX editors such as:
+%   Texmaker and TeXworks.
+%
+% To setup your own TeX system, you can install TeX Live. See:
+%   https://www.tug.org/texlive/
+
+\documentclass[letterpaper,12pt]{article}
+\pagestyle{myheadings}
+
+\include{macros}
+
+\begin{document}
+	
+\title{Solution to Algorithm Illuminated (Part 4)}
+\date{\today}
+\author{Zeyuan Hu}
+\maketitle
+	
+\begin{abstract}
+This document contains my own solution to \cite{Roughgarden2020}. Mistakes are corrected using \red{red}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Chapter 19}
+
+\begin{problem}{19.1}
+\end{problem}
+
+b) and c)s
+
+\begin{problem}{19.2}
+\end{problem}
+
+\begin{itemize}
+	\item a) is false because by Clayley's formula, there are $n^{n-2}$ different spanning trees for a complete graph with $n$ vertices. Thus, the number of spanning tree of a graph is not polynomal in the number $n$ of vertices and the number $m$ of edges. Further, the MST problem is computationally tractable because there exists polynomial algorithms to solve the problem.
+	\item b) is false because there are at most $n^{n-2}$ possibilities for the total cost of a spanning tree of a graph
+	\item c) is true.
+	\item d) is false. Similar to a), the exponential number of travling salesman tours does not necessarily indicate that the TSP is computationally intractable.
+\end{itemize}
+
+\begin{problem}{19.3}
+\end{problem}
+
+b)
+
+\begin{problem}{19.4}
+\end{problem}
+
+a).  c) is false because if an input to an NP-hard problem is well-structured, the problem can be solved in polynomial time.
+
+\begin{problem}{19.5}
+\end{problem}
+
+e). b) is false because intuitively, $A$ can be reduced to another problem $C$. If $C$ is polynomial-time solvable, then $A$ is polynomial-time solvable. a) is false because it could be the case that $A$ is polynomial-time solvable because it is reduced to a polynomial-time solvable problem $C$, which is not $B$. As a result, the fact that $A$ is polynomial-time solvable  cannot be used to justify $B$ is polynomial-time solvable.
+
+
+
+
+	
+	
+	
+	
+\clearpage
+\bibliographystyle{alpha}
+\bibliography{papers}
+\end{document}
