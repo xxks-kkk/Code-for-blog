@@ -95,7 +95,6 @@ acs-*.bib
 *.ent
 
 # fixme
-*.lox
 
 # feynmf/feynmp
 *.mf
